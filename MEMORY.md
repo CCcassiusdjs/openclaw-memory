@@ -61,6 +61,14 @@ _Curated memories, decisions, and context worth keeping._
 - ✅ NAT: Todas VLANs → lan2 (WAN) para internet
 - ✅ Política DENY-ALL-LOG no final (auditoria)
 
+### Console Serial:
+- **Dispositivo:** /dev/ttyUSB0 (FTDI FT232)
+- **Baud:** 9600 8N1
+- **Sessão screen:** `screen -r fortigate`
+
+### Auditoria Completa:
+- Arquivo: `fortigate-audit-20260304.md`
+
 ---
 
 ## Critical Rules

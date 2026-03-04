@@ -63,6 +63,9 @@ _Curated memories, decisions, and context worth keeping._
 
 ---
 
+## Critical Rules
+- 🚫 **NEVER reboot computer without explicit permission from Cássio**
+
 ## Notes
 - Memory system initialized 2026-03-01
 - Daily logs stored in memory/YYYY-MM-DD.md

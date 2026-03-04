@@ -139,6 +139,7 @@ Gateway: port 18789 (local loopback)
 - ✅ External actions (email, posts) → Confirm first
 - ✅ Destructive operations → Always confirm
 - ✅ When in doubt → Ask
+- 🚫 **NEVER reboot computer without explicit permission**
 
 ---
 

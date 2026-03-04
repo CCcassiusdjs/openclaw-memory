@@ -1,0 +1,26 @@
+# Secrets and credentials
+.env
+**/*.key
+**/*.pem
+**/secrets*
+**/credentials/
+
+# OpenClaw internal (not workspace)
+.openclaw/
+.clawhub/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

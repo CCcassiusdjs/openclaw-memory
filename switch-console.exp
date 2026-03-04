@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+set timeout 10
+spawn cu -l /dev/ttyUSB0 -s 115200
+send "\r\n\r\n"
+sleep 1
+send "show version\r\n"
+sleep 2
+send "\r\n"
+sleep 1
+expect eof

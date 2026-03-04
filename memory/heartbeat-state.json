@@ -1,0 +1,16 @@
+{
+  "lastChecks": {
+    "email": 1740949440,
+    "calendar": null,
+    "weather": null
+  },
+  "lastHeartbeat": 1740949440,
+  "checksToday": 5,
+  "lastAlert": {
+    "type": "email",
+    "subject": "Fiat Connect - Alerta Preventivo de Furto acionado",
+    "timestamp": 1740916440,
+    "urgency": "high",
+    "notified": true
+  }
+}

@@ -1,0 +1,55 @@
+#!/usr/bin/expect -f
+
+set timeout 30
+set port "/dev/ttyUSB0"
+set baud 38400
+
+spawn screen $port $baud
+
+# Aguardar prompt de login
+expect {
+    "Login:" {
+        send "admin\r"
+        expect "Password:"
+        send "admin\r"
+    }
+    "login:" {
+        send "admin\r"
+        expect "password:"
+        send "admin\r"
+    }
+    ">" {
+        # Já está logado
+    }
+    timeout {
+        puts "Timeout aguardando login"
+        exit 1
+    }
+}
+
+# Aguardar prompt após login
+expect ">"
+
+# Enviar comando cmdline-mode
+send "_cmdline-mode on\r"
+
+expect {
+    "Continue? Y/N:" {
+        send "y\r"
+        expect ">"
+    }
+    ">" {
+        # Comando aceito direto
+    }
+    timeout {
+        puts "Timeout no cmdline-mode"
+    }
+}
+
+# Enviar código de ativação
+send "512900\r"
+
+expect ">"
+
+# Manter sessão aberta para interação
+interact

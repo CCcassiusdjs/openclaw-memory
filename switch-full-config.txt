@@ -1,0 +1,209 @@
+HPE V1910-16G Switch - Full Configuration
+Captured: 2026-03-02
+================================================================================
+
+admin
+^
+<SWITCH-CORE-LSA>admin
+^
+<SWITCH-CORE-LSA>system-view
+System View: return to User View with Ctrl+Z.
+^
+[SWITCH-CORE-LSA]y
+^
+[SWITCH-CORE-LSA]512900
+^
+[SWITCH-CORE-LSA]display current-configuration
+#
+version 5.20, Release 1519P06
+#
+sysname SWITCH-CORE-LSA
+#
+clock timezone BRT minus 03:00:00
+#
+domain default enable system
+#
+dns proxy enable
+dns server 8.8.8.8
+dns server 1.1.1.1
+#
+ip ttl-expires enable
+#
+password-recovery enable
+#
+vlan 1
+#
+vlan 10
+description IDRAC
+name FGT_IDRAC
+#
+---- More ----[16D                [16Dvlan 20
+description DATA
+name FGT_DATA
+#
+vlan 30
+name FGT_EXCLUSIVE
+#
+vlan 40
+name FGT_PERIPH
+#
+vlan 999
+name UNUSED
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+#
+local-user admin
+password cipher $c$3$2dCRAJvRLB97VG6NOnzON5fHCCkSysJV
+---- More ----[16D                [16D authorization-attribute level 3
+service-type ssh telnet terminal
+service-type web
+#
+stp mode rstp
+stp enable
+#
+interface Bridge-Aggregation1
+description T620_DATA_LACP_BAGG1_VL20
+port access vlan 20
+link-aggregation mode dynamic
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+interface Vlan-interface10
+#
+interface Vlan-interface20
+#
+interface Vlan-interface30
+#
+interface Vlan-interface40
+---- More ----[16D                [16D ip address 192.168.40.2 255.255.255.0
+#
+interface GigabitEthernet1/0/1
+description T620_DATA_LACP_MEMBER_P1
+port access vlan 20
+stp edged-port enable
+port link-aggregation group 1
+#
+interface GigabitEthernet1/0/2
+description T620_DATA_LACP_MEMBER_P2
+port access vlan 20
+stp edged-port enable
+port link-aggregation group 1
+#
+interface GigabitEthernet1/0/3
+description T620_IDRAC_VL10
+port access vlan 10
+stp edged-port enable
+#
+interface GigabitEthernet1/0/4
+description UNUSED_VL999_P4
+port access vlan 999
+shutdown
+---- More ----[16D                [16D stp edged-port enable
+#
+interface GigabitEthernet1/0/5
+description T630A_DATA_P1_VL20
+port access vlan 20
+stp edged-port enable
+#
+interface GigabitEthernet1/0/6
+description T630A_DATA_P2_VL20
+port access vlan 20
+stp edged-port enable
+#
+interface GigabitEthernet1/0/7
+description T630B_IDRAC_VL10
+port access vlan 10
+stp edged-port enable
+#
+interface GigabitEthernet1/0/8
+description UNUSED_VL999_P8
+port access vlan 999
+shutdown
+stp edged-port enable
+#
+---- More ----[16D                [16Dinterface GigabitEthernet1/0/9
+description T630B_DATA_P1_VL20
+port access vlan 20
+stp edged-port enable
+#
+interface GigabitEthernet1/0/10
+description T630B_DATA_P2_VL20
+port access vlan 20
+stp edged-port enable
+#
+interface GigabitEthernet1/0/11
+description T630A_IDRAC_VL10
+port access vlan 10
+stp edged-port enable
+#
+interface GigabitEthernet1/0/12
+description UNUSED_VL999_P12
+port access vlan 999
+shutdown
+stp edged-port enable
+#
+interface GigabitEthernet1/0/13
+description FGT_P3_TRUNK_10_20_30_40
+---- More ----[16D                [16D port link-type trunk
+port trunk permit vlan 1 10 20 30 40
+stp edged-port enable
+#
+interface GigabitEthernet1/0/14
+description PERIPH_VL40_ACCESS_P14
+port access vlan 40
+stp edged-port enable
+#
+interface GigabitEthernet1/0/15
+description PERIPH_VL40_ACCESS_P15
+port access vlan 40
+stp edged-port enable
+#
+interface GigabitEthernet1/0/16
+description PERIPH_VL40_ACCESS_P16
+port access vlan 40
+stp edged-port enable
+#
+interface GigabitEthernet1/0/17
+description SPARE_P17
+stp edged-port enable
+#
+---- More ----[16D                [16Dinterface GigabitEthernet1/0/18
+description SPARE_P18
+stp edged-port enable
+#
+interface GigabitEthernet1/0/19
+description SPARE_P19
+stp edged-port enable
+#
+interface GigabitEthernet1/0/20
+description SPARE_P20
+stp edged-port enable
+#
+ip route-static 0.0.0.0 0.0.0.0 10.10.10.11
+ip route-static 0.0.0.0 0.0.0.0 192.168.10.1
+ip route-static 0.0.0.0 0.0.0.0 192.168.40.1
+#
+ntp-service unicast-server 10.10.10.11
+#
+ssh server enable
+#
+ip https enable
+#
+user-interface aux 0
+---- More ----[16D                [16D authentication-mode scheme
+user-interface vty 0 4
+authentication-mode scheme
+protocol inbound ssh
+user-interface vty 5 15
+authentication-mode scheme
+#
+return
+[SWITCH-CORE-LSA]

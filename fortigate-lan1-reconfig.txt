@@ -1,0 +1,229 @@
+# ============================================================
+# FORTIGATE 40F - RECONFIGURAÇÃO LAN1 (MANUTENÇÃO)
+# Data: 2026-03-04
+# ============================================================
+# ORDEM CRÍTICA: Não pule etapas
+# ============================================================
+
+# ------------------------------------------------------------
+# ETAPA 1: Criar lan1 com IP TEMPORÁRIO (sem conflito)
+# ------------------------------------------------------------
+config system interface
+    edit "lan1"
+        set vdom "root"
+        set ip 192.168.1.98 255.255.255.0
+        set allowaccess ping https ssh snmp http fgfm fabric
+        set type physical
+        set description "LAN1 - Manutenção/Admin Laptop"
+        set alias "MAINTENANCE"
+        set device-identification enable
+        set lldp-reception enable
+        set lldp-transmission enable
+        set role lan
+        set snmp-index 20
+    next
+end
+
+# ------------------------------------------------------------
+# ETAPA 2: Criar objeto de endereço para lan1
+# ------------------------------------------------------------
+config firewall address
+    edit "lan1_MAINTENANCE"
+        set uuid 4289a778-1250-51f1-f242-38e33b557663
+        set type interface-subnet
+        set subnet 192.168.1.98 255.255.255.0
+        set interface "lan1"
+    next
+end
+
+# ------------------------------------------------------------
+# ETAPA 3: Políticas de Firewall - lan1 ↔ VLANs
+# ------------------------------------------------------------
+config firewall policy
+    # lan1 → VLAN10 (iDRAC)
+    edit 30
+        set name "MAINTENANCE to IDRAC-MGMT"
+        set srcintf "lan1"
+        set dstintf "VLAN10_IDRAC"
+        set srcaddr "lan1_MAINTENANCE"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow maintenance laptop to access iDRAC management"
+    next
+    
+    # lan1 → VLAN20 (Cluster)
+    edit 31
+        set name "MAINTENANCE to DATA-NET"
+        set srcintf "lan1"
+        set dstintf "VLAN20_DATA"
+        set srcaddr "lan1_MAINTENANCE"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow maintenance laptop to access cluster data network"
+    next
+    
+    # lan1 → VLAN30 (Corp LAN)
+    edit 32
+        set name "MAINTENANCE to CORP-LAN"
+        set srcintf "lan1"
+        set dstintf "VLAN30_LAN"
+        set srcaddr "lan1_MAINTENANCE"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow maintenance laptop to access corporate LAN"
+    next
+    
+    # lan1 → VLAN40 (Infra Crítica)
+    edit 33
+        set name "MAINTENANCE to INFRA-CRIT"
+        set srcintf "lan1"
+        set dstintf "VLAN40_PERIPHER"
+        set srcaddr "lan1_MAINTENANCE"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow maintenance laptop to access critical infrastructure"
+    next
+    
+    # VLAN10 → lan1 (resposta)
+    edit 34
+        set name "IDRAC-MGMT to MAINTENANCE"
+        set srcintf "VLAN10_IDRAC"
+        set dstintf "lan1"
+        set srcaddr "all"
+        set dstaddr "lan1_MAINTENANCE"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow iDRAC to respond to maintenance laptop"
+    next
+    
+    # VLAN20 → lan1 (resposta)
+    edit 35
+        set name "DATA-NET to MAINTENANCE"
+        set srcintf "VLAN20_DATA"
+        set dstintf "lan1"
+        set srcaddr "all"
+        set dstaddr "lan1_MAINTENANCE"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow cluster data network to respond to maintenance laptop"
+    next
+    
+    # VLAN30 → lan1 (resposta)
+    edit 36
+        set name "CORP-LAN to MAINTENANCE"
+        set srcintf "VLAN30_LAN"
+        set dstintf "lan1"
+        set srcaddr "all"
+        set dstaddr "lan1_MAINTENANCE"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow corporate LAN to respond to maintenance laptop"
+    next
+    
+    # VLAN40 → lan1 (resposta)
+    edit 37
+        set name "INFRA-CRIT to MAINTENANCE"
+        set srcintf "VLAN40_PERIPHER"
+        set dstintf "lan1"
+        set srcaddr "all"
+        set dstaddr "lan1_MAINTENANCE"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Allow critical infrastructure to respond to maintenance laptop"
+    next
+end
+
+# ------------------------------------------------------------
+# ETAPA 4: DHCP Server para lan1
+# ------------------------------------------------------------
+config system dhcp server
+    edit 4
+        set dns-service default
+        set default-gateway 192.168.1.98
+        set netmask 255.255.255.0
+        set interface "lan1"
+        config ip-range
+            edit 1
+                set start-ip 192.168.1.110
+                set end-ip 192.168.1.210
+            next
+        end
+    next
+end
+
+# ============================================================
+# ⚠️ PONTO DE TESTE ⚠️
+# ============================================================
+# PARE AQUI E TESTE:
+# 1. Conecte laptop na porta lan1
+# 2. Configure IP estático: 192.168.1.100/24
+# 3. SSH para 192.168.1.98
+# 4. Ping para 192.168.10.1 (VLAN10)
+# 5. Ping para 192.168.40.1 (VLAN40)
+#
+# SE TUDO OK, APLIQUE AS ETAPAS 5-8 ABAIXO
+# ============================================================
+
+# ------------------------------------------------------------
+# ETAPA 5: Remover hard-switch "lan" (CUIDADO)
+# ------------------------------------------------------------
+config system interface
+    delete "lan"
+end
+
+# ------------------------------------------------------------
+# ETAPA 6: Migrar lan1 para IP final (192.168.1.99)
+# ------------------------------------------------------------
+config system interface
+    edit "lan1"
+        set ip 192.168.1.99 255.255.255.0
+    next
+end
+
+# ------------------------------------------------------------
+# ETAPA 7: Atualizar DHCP server para novo gateway
+# ------------------------------------------------------------
+config system dhcp server
+    edit 4
+        set default-gateway 192.168.1.99
+    next
+end
+
+# ------------------------------------------------------------
+# ETAPA 8: Atualizar objeto de endereço
+# ------------------------------------------------------------
+config firewall address
+    edit "lan1_MAINTENANCE"
+        set subnet 192.168.1.99 255.255.255.0
+        set interface "lan1"
+    next
+end
+
+# ============================================================
+# CONCLUÍDO
+# ============================================================
+# Verifique com:
+#   show system interface
+#   show firewall policy
+#   show system dhcp server
+# ============================================================

@@ -1,0 +1,198 @@
+{
+  "name": "fortigate-migrate-wan",
+  "description": "Migrar conexão de Internet de lan2 para porta WAN física",
+  "version": "1.0",
+  "steps": [
+    {
+      "id": "step-1-backup",
+      "name": "Backup da Configuração Atual",
+      "description": "Criar backup completo antes de qualquer mudança",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'execute backup config tftp backup-pre-migration 192.168.1.100'"
+      ],
+      "timeoutMs": 30000,
+      "onError": "abort",
+      "approval": {
+        "required": false,
+        "message": "Backup criado com sucesso. Continuar?"
+      }
+    },
+    {
+      "id": "step-2-verify-wan",
+      "name": "Verificar Status da Interface WAN",
+      "description": "Confirmar que a porta WAN está fisicamente conectada",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'get system interface physical | grep -A5 wan'"
+      ],
+      "timeoutMs": 15000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Verifique se a interface WAN está UP. Se estiver DOWN, conecte o cabo do modem/roteador na porta WAN do FortiGate antes de continuar."
+      }
+    },
+    {
+      "id": "step-3-config-wan",
+      "name": "Configurar Interface WAN",
+      "description": "Habilitar interface WAN com DHCP e acessos administrativos",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 \"config system interface\nedit \\\"wan\\\"\nset mode dhcp\nset allowaccess ping https ssh\nset role wan\nset description \\\"Internet WAN Principal\\\"\nnext\nend\""
+      ],
+      "timeoutMs": 20000,
+      "onError": "abort",
+      "approval": {
+        "required": true,
+        "message": "Interface WAN será configurada com DHCP. Confirmar?"
+      }
+    },
+    {
+      "id": "step-4-add-route",
+      "name": "Adicionar Rota Padrão via WAN",
+      "description": "Criar nova rota padrão via interface WAN com distância administrativa menor (prioridade)",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 \"config router static\nedit 2\nset device \\\"wan\\\"\nset distance 10\nset comment \\\"Rota padrão via WAN principal\\\"\nnext\nend\""
+      ],
+      "timeoutMs": 20000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Nova rota padrão será adicionada via WAN (distância 10). A rota atual via lan2 (distância padrão) permanecerá como backup. Confirmar?"
+      }
+    },
+    {
+      "id": "step-5-update-dns",
+      "name": "Atualizar DNS para Interface WAN",
+      "description": "Configurar DNS servers que serão usados quando WAN estiver ativa",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 \"config system dns\nset primary 8.8.8.8\nset secondary 8.8.4.4\nset interface-select-method sdwan\nend\""
+      ],
+      "timeoutMs": 15000,
+      "onError": "warn",
+      "approval": {
+        "required": false,
+        "message": "DNS atualizado. Continuar?"
+      }
+    },
+    {
+      "id": "step-6-verify-connectivity",
+      "name": "Verificar Conectividade WAN",
+      "description": "Testar se a interface WAN recebeu IP e tem conectividade",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 \"execute ping count 4 8.8.8.8 source wan\""
+      ],
+      "timeoutMs": 30000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Verifique o resultado do ping. Se falhar, verifique o cabo/conexão do modem na porta WAN."
+      }
+    },
+    {
+      "id": "step-7-show-routing",
+      "name": "Exibir Tabela de Roteamento",
+      "description": "Mostrar tabela de rotas atual para confirmação",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'get router info routing-table all'"
+      ],
+      "timeoutMs": 15000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Confirme que a rota padrão (0.0.0.0/0) agora aponta para a interface WAN. Continuar para próximo passo?"
+      }
+    },
+    {
+      "id": "step-8-fortiguard-update",
+      "name": "Atualizar Bases FortiGuard",
+      "description": "Forçar atualização das bases de vírus e IPS",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'execute update-av'",
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'execute update-ips'"
+      ],
+      "timeoutMs": 120000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Atualização FortiGuard pode levar alguns minutos. Confirmar execução?"
+      }
+    },
+    {
+      "id": "step-9-fortiguard-status",
+      "name": "Verificar Status FortiGuard",
+      "description": "Confirmar que as bases foram atualizadas",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'get system fortiguard'"
+      ],
+      "timeoutMs": 15000,
+      "onError": "warn",
+      "approval": {
+        "required": false,
+        "message": "Verifique as datas das bases. Devem estar recentes."
+      }
+    },
+    {
+      "id": "step-10-save-config",
+      "name": "Salvar Configuração",
+      "description": "Salvar configuração atual na memória do FortiGate",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'execute save'"
+      ],
+      "timeoutMs": 15000,
+      "onError": "warn",
+      "approval": {
+        "required": true,
+        "message": "Configuração será salva permanentemente. Confirmar?"
+      }
+    },
+    {
+      "id": "step-11-final-backup",
+      "name": "Backup Pós-Migração",
+      "description": "Criar backup da nova configuração",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'execute backup config tftp backup-post-migration 192.168.1.100'"
+      ],
+      "timeoutMs": 30000,
+      "onError": "warn",
+      "approval": {
+        "required": false,
+        "message": "Backup final criado."
+      }
+    },
+    {
+      "id": "step-12-summary",
+      "name": "Resumo da Migração",
+      "description": "Exibir resumo final da configuração",
+      "action": "exec",
+      "command": [
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'get system status'",
+        "sshpass -p '@CiaoMiau2955' ssh -o StrictHostKeyChecking=no admin@192.168.1.99 'get router info routing-table all'"
+      ],
+      "timeoutMs": 20000,
+      "onError": "ignore",
+      "approval": {
+        "required": false,
+        "message": "Migração concluída!"
+      }
+    }
+  ],
+  "onComplete": {
+    "message": "✅ Migração WAN concluída com sucesso!"
+  },
+  "onAbort": {
+    "message": "⚠️ Migração abortada. Configuração anterior permanece ativa."
+  },
+  "onError": {
+    "message": "❌ Erro durante migração. Verifique logs e tente novamente."
+  }
+}

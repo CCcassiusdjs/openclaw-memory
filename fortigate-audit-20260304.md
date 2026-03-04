@@ -24,15 +24,15 @@
 
 ## 2. Interfaces Físicas
 
-### Portas e Status
+### Portas e Status (Topologia Real)
 
-| Porta | Status | Modo | IP/Config | Descrição |
-|-------|--------|------|-----------|-----------|
-| **wan** | DOWN | DHCP | 0.0.0.0 | ⚠️ DEFEITUOSA - Não usar |
-| **lan2** | UP (1000Mbps Full) | DHCP | 10.32.162.22/22 | ✅ WAN Secundária (ISP Internet) |
-| **lan3** | UP (1000Mbps Full) | Static | 0.0.0.0 (Trunk) | ✅ Switch L2 Trunk |
-| **lanA** | — | — | — | Roteador WiFi (porta auxiliar) |
-| **lan1** | — | — | — | ⚠️ Hard-switch ativo (ver nota) |
+| Porta | Status | Conectado a | IP/Config | Descrição |
+|-------|--------|-------------|-----------|-----------|
+| **wan** | DOWN | — | — | ⚠️ DEFEITUOSA - Não usar |
+| **lan2** | UP | Modem ISP | 10.32.162.22/22 | ✅ WAN (Internet) |
+| **lan1** | UP | Laptop Cássio | Hard-switch | ✅ No virtual-switch "lan" |
+| **lan3** | UP | Switch L2 | Trunk VLANs | ✅ VLANs 10,20,30,40 |
+| **lan A** | — | Roteador WiFi | 192.168.2.1/24 | ✅ WiFi Router |
 
 ### Detalhes por Interface
 

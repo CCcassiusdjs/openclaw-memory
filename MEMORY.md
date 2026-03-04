@@ -33,14 +33,14 @@ _Curated memories, decisions, and context worth keeping._
 **Credenciais:** admin / @CiaoMiau2955  
 **Firmware:** FortiOS 6.4.6 (build 1879)
 
-### Topologia Física:
+### Topologia Física Real:
 | Porta | Função | IP/Config | Status |
 |-------|--------|-----------|--------|
-| **wan** | WAN Primária | DHCP | ⚠️ DEFEITUOSA (não usar) |
-| **lan2** | WAN Secundária | DHCP | ✅ EM USO (ISP Internet) |
-| **lan3** | Switch L2 Trunk | 0.0.0.0 (VLANs) | ✅ Ativo |
-| **lanA** | Roteador WiFi | 192.168.2.1/24 | ✅ Ativo |
-| **lan1** | Manutenção (Laptop) | 🔄 Em configuração | ⚠️ Hard-switch ativo |
+| **wan** | — | — | ⚠️ DEFEITUOSA (não usar) |
+| **lan2** | WAN (ISP Internet) | DHCP | ✅ Conectado ao modem |
+| **lan1** | Laptop Cássio | Hard-switch (lan) | ✅ Ativo |
+| **lan3** | Switch L2 Trunk | VLANs 10,20,30,40 | ✅ Ativo |
+| **lan A** | Roteador WiFi | 192.168.2.1/24 | ✅ Ativo |
 
 ### VLANs no Switch L2 (lan3):
 | VLAN | Subnet | Função |
@@ -50,11 +50,10 @@ _Curated memories, decisions, and context worth keeping._
 | VLAN30 | 192.168.30.1/24 | Workstations Corporativas |
 | VLAN40 | 192.168.40.1/24 | Infra Crítica (Switches/Servidores) |
 
-### Problema Pendente:
-- **Hard-switch `lan`** agrupa lan1+lan2+lan3 fisicamente
-- **Para usar lan1 como manutenção independente:** requer remover hard-switch via console serial
-- **Backup:** `fortigate-backup-20260304.txt` (29.088 linhas)
-- **Script reconfig:** `fortigate-lan1-reconfig.txt`
+### Hard-switch "lan":
+- lan1+lan2+lan3 estão no mesmo domínio L2 via virtual-switch "lan"
+- **Funcionamento atual:** lan1 (laptop), lan2 (WAN), lan3 (switch trunk) compartilham broadcast
+- **Nota:** wan (porta física dedicada) está defeituosa
 
 ### Políticas de Firewall Ativas:
 - ✅ Inter-VLAN: Todas comunicam entre si

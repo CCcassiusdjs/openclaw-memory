@@ -1,0 +1,19 @@
+digraph DataGenSimple {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=0.4;
+    ranksep=0.6;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, width=2];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="Data Generation Pipeline";
+    fontsize=12;
+    
+    params [label="Flight\nParameters", fillcolor="#c8e6c9"];
+    gen [label="Sensor\nGenerators", fillcolor="#bbdefb", width=3];
+    csv [label="CSV Files\n\nimu.csv\ngps.csv\nbaro.csv\nmag.csv", shape=note, fillcolor="#ffe0b2"];
+    
+    params -> gen -> csv;
+}

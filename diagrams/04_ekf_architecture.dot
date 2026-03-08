@@ -1,0 +1,112 @@
+digraph EKFModules {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.6;
+    ranksep=0.8;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="ArduCopter EKF3 Architecture\n(System Under Test)";
+    fontsize=14;
+    
+    // Sensors
+    subgraph cluster_sensors {
+        label="Virtual Sensors (via LD_PRELOAD)";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        imu_data [label="IMU Data\n\naccel_x/y/z\ngyro_x/y/z", fillcolor="#ffe0b2"];
+        gps_data [label="GPS Data\n\nlat/lng/alt\nvelN/E/D", fillcolor="#ffe0b2"];
+        baro_data [label="Baro Data\n\naltitude\npressure", fillcolor="#ffe0b2"];
+        mag_data [label="Mag Data\n\nfield_x/y/z\nheading", fillcolor="#ffe0b2"];
+    }
+    
+    // HAL
+    hal [label="Hardware Abstraction Layer\n(HAL)", shape=box, fillcolor="#e0e0e0"];
+    
+    // Drivers
+    subgraph cluster_drivers {
+        label="Sensor Drivers";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        imu_drv [label="IMU Driver\n(ICM20602)", fillcolor="#c8e6c9"];
+        baro_drv [label="Baro Driver\n(BMP280)", fillcolor="#c8e6c9"];
+        mag_drv [label="Mag Driver\n(AK09916)", fillcolor="#c8e6c9"];
+        gps_drv [label="GPS Driver\n(NMEA)", fillcolor="#c8e6c9"];
+    }
+    
+    // EKF Core
+    subgraph cluster_ekf {
+        label="EKF3 Navigation System";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        // Preprocessing
+        subgraph cluster_pre {
+            label="Preprocessing";
+            style=filled;
+            fillcolor="#e1f5fe";
+            color="#0288d1";
+            
+            imu_prep [label="IMU Preprocessing\n\nDelta angle\nDelta velocity", fillcolor="#b3e5fc"];
+            gps_prep [label="GPS Preprocessing\n\nPosition\nVelocity", fillcolor="#b3e5fc"];
+            baro_prep [label="Baro Preprocessing\n\nAltitude", fillcolor="#b3e5fc"];
+            mag_prep [label="Mag Preprocessing\n\nHeading", fillcolor="#b3e5fc"];
+        }
+        
+        // EKF cores
+        subgraph cluster_cores {
+            label="EKF Cores";
+            style=filled;
+            fillcolor="#bbdefb";
+            color="#1976d2";
+            
+            pos_ekf [label="Position EKF\n\nEstimates:\n• Position NED\n• Velocity NED\n• Height\n\nState: 24 elements", fillcolor="#90caf9"];
+            att_ekf [label="Attitude EKF\n\nEstimates:\n• Quaternions\n• Roll/Pitch\n• Gyro bias\n\nState: 12 elements", fillcolor="#90caf9"];
+            head_ekf [label="Heading EKF\n\nEstimates:\n• Yaw/Heading\n• Mag bias\n\nState: 6 elements", fillcolor="#90caf9"];
+        }
+        
+        // Fusion
+        fusion [label="Sensor Fusion\n\nCovariance matrices\nState propagation\nMeasurement update", shape=box, fillcolor="#64b5f6"];
+    }
+    
+    // Output
+    subgraph cluster_output {
+        label="Output";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        state [label="Estimated State\n\nPosition (NED)\nVelocity (NED)\nAttitude (RPY)\nBiases", fillcolor="#f8bbd0"];
+        output_vec [label="Output Vector\n\nekf_flags\narmed_successfully\ntotal_gps_drops\npos_error_ned_m\natt_error_rpy_deg", fillcolor="#f8bbd0"];
+    }
+    
+    // Edges: Data flow
+    imu_data -> hal [color="#f57c00", fontcolor="#f57c00"];
+    gps_data -> hal [color="#f57c00", fontcolor="#f57c00"];
+    baro_data -> hal [color="#f57c00", fontcolor="#f57c00"];
+    mag_data -> hal [color="#f57c00", fontcolor="#f57c00"];
+    
+    hal -> {imu_drv, baro_drv, mag_drv, gps_drv} [color="#388e3c"];
+    
+    imu_drv -> imu_prep [color="#1976d2"];
+    gps_drv -> gps_prep [color="#1976d2"];
+    baro_drv -> baro_prep [color="#1976d2"];
+    mag_drv -> mag_prep [color="#1976d2"];
+    
+    imu_prep -> att_ekf [color="#1976d2"];
+    gps_prep -> pos_ekf [color="#1976d2"];
+    baro_prep -> pos_ekf [color="#1976d2"];
+    mag_prep -> head_ekf [color="#1976d2"];
+    
+    {pos_ekf, att_ekf, head_ekf} -> fusion [color="#1976d2"];
+    
+    fusion -> state [color="#c2185b"];
+    state -> output_vec [color="#c2185b"];
+}

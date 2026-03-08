@@ -1,0 +1,41 @@
+digraph OutputVectorSimple {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.2;
+    ranksep=0.3;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=9];
+    edge [fontname="Helvetica", fontsize=8];
+    
+    labelloc="t";
+    label="Output Vector (24 bytes)";
+    fontsize=11;
+    
+    subgraph cluster_fields {
+        label="Fields";
+        style=filled;
+        fillcolor="#fafafa";
+        
+        f0 [label="ekf_flags\nuint32_t\nOffset: 0x00", fillcolor="#bbdefb", width=2.5];
+        f1 [label="armed_successfully\nuint32_t\nOffset: 0x04", fillcolor="#c8e6c9", width=2.5];
+        f2 [label="total_gps_drops\nuint32_t\nOffset: 0x08", fillcolor="#ffe0b2", width=2.5];
+        f3 [label="pos_error_ned_m[3]\nfloat[3]\nOffset: 0x0C", fillcolor="#f8bbd0", width=2.5];
+        f4 [label="att_error_rpy_deg[3]\nfloat[3]\nOffset: 0x18", fillcolor="#e1bee7", width=2.5];
+    }
+    
+    subgraph cluster_flags {
+        label="Flag Bits";
+        style=filled;
+        fillcolor="#e3f2fd";
+        
+        b31 [label="Bit 31: RunFailed", fillcolor="#ffcdd2", width=2];
+        b10 [label="Bit 10: ArmedSeen", fillcolor="#c8e6c9", width=2];
+        b7 [label="Bit 7: MagReplayOk", fillcolor="#c8e6c9", width=2];
+        b6 [label="Bit 6: BaroReplayOk", fillcolor="#c8e6c9", width=2];
+        b5 [label="Bit 5: ImuReplayOk", fillcolor="#c8e6c9", width=2];
+        b4 [label="Bit 4: GpsReplayOk", fillcolor="#c8e6c9", width=2];
+        b0 [label="Bit 0: ProcessOk", fillcolor="#fff9c4", width=2];
+    }
+    
+    f0 -> {b31, b10, b7, b6, b5, b4, b0} [style=invis];
+}

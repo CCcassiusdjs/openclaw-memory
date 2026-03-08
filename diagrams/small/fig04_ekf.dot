@@ -1,0 +1,41 @@
+digraph EKFSimple {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=0.3;
+    ranksep=0.5;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="EKF3 Architecture";
+    fontsize=12;
+    
+    subgraph cluster_sensors {
+        label="Virtual Sensors";
+        style=filled;
+        fillcolor="#fff3e0";
+        imu [label="IMU", fillcolor="#ffe0b2"];
+        gps [label="GPS", fillcolor="#ffe0b2"];
+        baro [label="Baro", fillcolor="#ffe0b2"];
+        mag [label="Mag", fillcolor="#ffe0b2"];
+    }
+    
+    subgraph cluster_ekf {
+        label="EKF3";
+        style=filled;
+        fillcolor="#e3f2fd";
+        pos [label="Position\nEKF", fillcolor="#bbdefb"];
+        att [label="Attitude\nEKF", fillcolor="#bbdefb"];
+        head [label="Heading\nEKF", fillcolor="#bbdefb"];
+    }
+    
+    output [label="State Estimate\nPos/Vel/Att", fillcolor="#c8e6c9"];
+    
+    imu -> att;
+    gps -> pos;
+    baro -> pos;
+    mag -> head;
+    
+    {pos, att, head} -> output;
+}

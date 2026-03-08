@@ -1,0 +1,98 @@
+digraph FailureClassification {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.7;
+    ranksep=1;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Failure Type Classification\n(Based on Status Flags)";
+    fontsize=14;
+    
+    // Start
+    start [label="Process\nTerminated", shape=ellipse, fillcolor="#ffcdd2"];
+    
+    // Check ProcessOk
+    subgraph cluster_check1 {
+        label="Status Check 1";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        check_process [label="ProcessOk\n(Exit code 0)?", shape=diamond, fillcolor="#bbdefb"];
+    }
+    
+    // Check Armed
+    subgraph cluster_check2 {
+        label="Status Check 2";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        check_armed [label="ArmedSeen\n(Armed)?", shape=diamond, fillcolor="#c8e6c9"];
+    }
+    
+    // Check Sensors
+    subgraph cluster_check3 {
+        label="Sensor Completion Check";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        check_gps [label="GpsReplayOk\n(GPS)?", shape=diamond, fillcolor="#ffe0b2"];
+        check_imu [label="ImuReplayOk\n(IMU)?", shape=diamond, fillcolor="#ffe0b2"];
+        check_baro [label="BaroReplayOk\n(Baro)?", shape=diamond, fillcolor="#ffe0b2"];
+        check_mag [label="MagReplayOk\n(Mag)?", shape=diamond, fillcolor="#ffe0b2"];
+    }
+    
+    // Failure types
+    subgraph cluster_types {
+        label="Failure Types";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        type_a [label="Type A: Immediate Crash\n\n0x80000606\nArmed=1, No sensors\nFrequency: 52%\n\nBit flip in critical\ncode region", fillcolor="#ffcdd2"];
+        type_b [label="Type B: GPS Failure\n\n0x800005e6\nArmed=1, IMU+BARO+MAG\nFrequency: 14%\n\nGPS data corruption\nPosition lost", fillcolor="#ffcdd2"];
+        type_c [label="Type C: Attitude Failure\n\n0x80000516\nArmed=1, GPS only\nFrequency: 14%\n\nIMU/attitude corruption\nOrientation lost", fillcolor="#ffcdd2"];
+        type_d [label="Type D: Late MAG Failure\n\n0x800005d6\nArmed=1, GPS+IMU+BARO\nFrequency: 7%\n\nMagnetometer failure\nHeading lost", fillcolor="#ffcdd2"];
+        type_e [label="Type E: Partial Failure\n\n0x80000556\nArmed=1, GPS+BARO\nFrequency: 7%\n\nMultiple subsystems\nPartial stability", fillcolor="#ffcdd2"];
+    }
+    
+    // Success (never happens)
+    success [label="SUCCESS\n(0x000007FF)\n\nAll sensors OK\nProcess completed", shape=box, fillcolor="#c8e6c9", color="#388e3c"];
+    
+    // Edges
+    start -> check_process;
+    
+    check_process -> success [label="Yes\n(0%)", color="#388e3c", fontcolor="#388e3c"];
+    check_process -> check_armed [label="No\n(100%)", color="#d32f2f", fontcolor="#d32f2f"];
+    
+    check_armed -> check_gps [label="Yes", color="#388e3c"];
+    
+    check_gps -> type_c [label="No\n(GPS only)", color="#f57c00", fontcolor="#f57c00"];
+    check_gps -> check_imu [label="Yes", color="#388e3c"];
+    
+    check_imu -> type_b [label="No\n(IMU failed)", color="#f57c00", fontcolor="#f57c00"];
+    check_imu -> check_baro [label="Yes", color="#388e3c"];
+    
+    check_baro -> check_mag [label="Check both", color="#388e3c"];
+    
+    check_mag -> type_d [label="Yes\n(All but MAG)", color="#388e3c", fontcolor="#388e3c"];
+    check_mag -> type_e [label="No\n(Partial)", color="#f57c00", fontcolor="#f57c00"];
+    
+    // Direct path to Type A
+    start -> type_a [label="Crash before\nsensor processing\n(52%)", style=dashed, color="#c2185b", fontcolor="#c2185b"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Classification Logic";
+        style=filled;
+        fillcolor="#fafafa";
+        color=gray;
+        
+        legend [label="Type A: No sensors completed\nType B: IMU+BARO+MAG only\nType C: GPS only\nType D: GPS+IMU+BARO (no MAG)\nType E: GPS+BARO only", shape=plaintext];
+    }
+}

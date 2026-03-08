@@ -1,0 +1,108 @@
+digraph OutputVector {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=0.4;
+    ranksep=0.8;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Output Vector Structure\n(24 bytes total)";
+    fontsize=14;
+    
+    // Memory layout
+    subgraph cluster_memory {
+        label="Memory Layout";
+        style="rounded,filled";
+        fillcolor="#fafafa";
+        color=gray;
+        
+        offset [label="Offset", shape=plaintext, fillcolor=white];
+        field [label="Field", shape=plaintext, fillcolor=white];
+        type [label="Type", shape=plaintext, fillcolor=white];
+        size [label="Size", shape=plaintext, fillcolor=white];
+        value [label="Example", shape=plaintext, fillcolor=white];
+        
+        // Fields
+        f0 [label="0x00", fillcolor="#e3f2fd"];
+        n0 [label="ekf_flags", fillcolor="#bbdefb"];
+        t0 [label="uint32_t", fillcolor="#bbdefb"];
+        s0 [label="4 bytes", fillcolor="#bbdefb"];
+        v0 [label="0x80000606", fillcolor="#bbdefb"];
+        
+        f1 [label="0x04", fillcolor="#e8f5e9"];
+        n1 [label="armed_successfully", fillcolor="#c8e6c9"];
+        t1 [label="uint32_t", fillcolor="#c8e6c9"];
+        s1 [label="4 bytes", fillcolor="#c8e6c9"];
+        v1 [label="1", fillcolor="#c8e6c9"];
+        
+        f2 [label="0x08", fillcolor="#fff3e0"];
+        n2 [label="total_gps_drops", fillcolor="#ffe0b2"];
+        t2 [label="uint32_t", fillcolor="#ffe0b2"];
+        s2 [label="4 bytes", fillcolor="#ffe0b2"];
+        v2 [label="0", fillcolor="#ffe0b2"];
+        
+        f3 [label="0x0C", fillcolor="#fce4ec"];
+        n3 [label="pos_error_ned_m[0]", fillcolor="#f8bbd0"];
+        t3 [label="float", fillcolor="#f8bbd0"];
+        s3 [label="4 bytes", fillcolor="#f8bbd0"];
+        v3 [label="1.0 (GPS fail)", fillcolor="#f8bbd0"];
+        
+        f4 [label="0x10", fillcolor="#fce4ec"];
+        n4 [label="pos_error_ned_m[1]", fillcolor="#f8bbd0"];
+        t4 [label="float", fillcolor="#f8bbd0"];
+        s4 [label="4 bytes", fillcolor="#f8bbd0"];
+        v4 [label="1.0 (IMU fail)", fillcolor="#f8bbd0"];
+        
+        f5 [label="0x14", fillcolor="#fce4ec"];
+        n5 [label="pos_error_ned_m[2]", fillcolor="#f8bbd0"];
+        t5 [label="float", fillcolor="#f8bbd0"];
+        s5 [label="4 bytes", fillcolor="#f8bbd0"];
+        v5 [label="1.0 (BARO fail)", fillcolor="#f8bbd0"];
+        
+        f6 [label="0x18", fillcolor="#e1bee7"];
+        n6 [label="att_error_rpy_deg[0]", fillcolor="#e1bee7"];
+        t6 [label="float", fillcolor="#e1bee7"];
+        s6 [label="4 bytes", fillcolor="#e1bee7"];
+        v6 [label="1.0 (MAG fail)", fillcolor="#e1bee7"];
+    }
+    
+    // Alignment
+    {rank=same; offset; f0; f1; f2; f3; f4; f5; f6;}
+    {rank=same; field; n0; n1; n2; n3; n4; n5; n6;}
+    {rank=same; type; t0; t1; t2; t3; t4; t5; t6;}
+    {rank=same; size; s0; s1; s2; s3; s4; s5; s6;}
+    {rank=same; value; v0; v1; v2; v3; v4; v5; v6;}
+    
+    // Flag interpretation
+    subgraph cluster_flags {
+        label="ekf_flags Bit Interpretation";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        bit31 [label="Bit 31: RunFailed\n(0x80000000)", fillcolor="#ffcdd2"];
+        bit10 [label="Bit 10: ArmedSeen\n(0x00000400)", fillcolor="#c8e6c9"];
+        bit9 [label="Bit 9: NoEmulatorErrors\n(0x00000200)", fillcolor="#c8e6c9"];
+        bit8 [label="Bit 8: TimingSummarySeen\n(0x00000100)", fillcolor="#fff9c4"];
+        bit7 [label="Bit 7: MagReplayOk\n(0x00000080)", fillcolor="#c8e6c9"];
+        bit6 [label="Bit 6: BaroReplayOk\n(0x00000040)", fillcolor="#c8e6c9"];
+        bit5 [label="Bit 5: ImuReplayOk\n(0x00000020)", fillcolor="#c8e6c9"];
+        bit4 [label="Bit 4: GpsReplayOk\n(0x00000010)", fillcolor="#c8e6c9"];
+        bit3 [label="Bit 3: ReplayWindowComplete\n(0x00000008)", fillcolor="#fff9c4"];
+        bit2 [label="Bit 2: ArducopterInitSeen\n(0x00000004)", fillcolor="#c8e6c9"];
+        bit1 [label="Bit 1: LogParsed\n(0x00000002)", fillcolor="#c8e6c9"];
+        bit0 [label="Bit 0: ProcessOk\n(0x00000001)", fillcolor="#fff9c4"];
+    }
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style=filled;
+        fillcolor="#fafafa";
+        color=gray;
+        
+        legend [label="Green: Successfully completed\nYellow: Not seen\nRed: Failed", shape=plaintext];
+    }
+}

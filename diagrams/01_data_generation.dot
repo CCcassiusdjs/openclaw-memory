@@ -1,0 +1,81 @@
+digraph DataGeneration {
+    rankdir=LR;
+    splines=polyline;
+    nodesep=0.5;
+    ranksep=1.2;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Data Generation Pipeline\n(Dataset Orchestrator)";
+    fontsize=14;
+    
+    // Input parameters
+    subgraph cluster_input {
+        label="Input Parameters";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        params [label="defaults.param", shape=note, fillcolor="#c8e6c9"];
+        scenario [label="Flight Scenario\n(Stationary Hover)", shape=box, fillcolor="#c8e6c9"];
+    }
+    
+    // Generators
+    subgraph cluster_gen {
+        label="Sensor Generators";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        imu_gen [label="IMU Generator\n\nAccelerometer\nGyroscope", shape=box, fillcolor="#bbdefb"];
+        gps_gen [label="GPS Generator\n\nPosition\nVelocity\nSatellites", shape=box, fillcolor="#bbdefb"];
+        baro_gen [label="Barometer Generator\n\nAltitude\nPressure", shape=box, fillcolor="#bbdefb"];
+        mag_gen [label="Magnetometer Generator\n\nMagnetic Field\nHeading", shape=box, fillcolor="#bbdefb"];
+        pwm_gen [label="PWM Generator\n\nRoll/Pitch/Yaw\nThrottle", shape=box, fillcolor="#bbdefb"];
+    }
+    
+    // Output files
+    subgraph cluster_output {
+        label="Output CSV Files";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        imu_csv [label="imu.csv", shape=note, fillcolor="#ffe0b2"];
+        gps_csv [label="gps.csv", shape=note, fillcolor="#ffe0b2"];
+        baro_csv [label="baro.csv", shape=note, fillcolor="#ffe0b2"];
+        mag_csv [label="mag.csv", shape=note, fillcolor="#ffe0b2"];
+        pwm_csv [label="pwm.csv", shape=note, fillcolor="#ffe0b2"];
+    }
+    
+    // Edges
+    params -> imu_gen [color="#388e3c"];
+    params -> gps_gen [color="#388e3c"];
+    params -> baro_gen [color="#388e3c"];
+    params -> mag_gen [color="#388e3c"];
+    params -> pwm_gen [color="#388e3c"];
+    
+    scenario -> imu_gen [color="#388e3c"];
+    scenario -> gps_gen [color="#388e3c"];
+    scenario -> baro_gen [color="#388e3c"];
+    scenario -> mag_gen [color="#388e3c"];
+    scenario -> pwm_gen [color="#388e3c"];
+    
+    imu_gen -> imu_csv [color="#1976d2"];
+    gps_gen -> gps_csv [color="#1976d2"];
+    baro_gen -> baro_csv [color="#1976d2"];
+    mag_gen -> mag_csv [color="#1976d2"];
+    pwm_gen -> pwm_csv [color="#1976d2"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style=filled;
+        fillcolor="#fafafa";
+        color=gray;
+        
+        legend [label="Green: Input Parameters\nBlue: Processing\nOrange: Output", shape=plaintext, fillcolor=white];
+    }
+}

@@ -1,0 +1,56 @@
+\contentsline {section}{\numberline {1}Executive Summary}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Key Findings}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Recommendations Summary}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Introduction and Background}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Context and Motivation}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Research Objectives}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Scope and Limitations}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Methodology}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Test Infrastructure Architecture}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Test Execution Flow}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Test Configuration Parameters}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Flight Mode Configuration}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Synthetic Flight Scenario}{6}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Output Vector Definition}{6}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Status Flag Definitions}{7}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Test Results}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Raw Output Data}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Failure Type Classification}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Statistical Distribution}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Sensor Completion Statistics}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Flag Pattern Analysis}{10}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Failure Mode Analysis}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Type A: Immediate Catastrophic Crash}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Type B: GPS Subsystem Failure}{11}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Type C: Attitude Estimation Failure}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Type D: Late-Stage Magnetometer Failure}{12}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Type E: Partial Stability Failure}{13}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Physical Consequence Analysis}{14}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Flight State at Failure}{14}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Fall Dynamics}{14}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Free-Fall Equations}{14}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Impact Severity by Failure Type}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Damage Assessment}{15}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Comparison with Other Failure Modes}{16}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Discussion}{16}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Interpretation of Results}{16}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Failure Mode Distribution Analysis}{17}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Implications for System Design}{17}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Critical Vulnerabilities}{17}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Required Mitigations}{18}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.4}Comparison with Related Work}{18}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Limitations and Threats to Validity}{18}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Conclusions}{19}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Summary of Findings}{19}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Contributions}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Future Work}{19}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Recommendations}{19}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Immediate Actions}{19}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Short-Term Actions}{20}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Long-Term Actions}{20}{subsection.9.3}%
+\contentsline {section}{\numberline {A}Detailed Output Vector Fields}{20}{appendix.A}%
+\contentsline {section}{\numberline {B}Failure Type Decision Tree}{21}{appendix.B}%
+\contentsline {section}{\numberline {C}Physical Fall Trajectory}{21}{appendix.C}%
+\contentsline {section}{\numberline {D}Statistical Confidence Intervals}{22}{appendix.D}%
+\contentsline {section}{\numberline {E}Test Environment Specification}{22}{appendix.E}%
+\contentsline {section}{\numberline {F}Glossary}{22}{appendix.F}%

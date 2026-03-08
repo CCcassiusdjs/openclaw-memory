@@ -1,0 +1,22 @@
+digraph SensorEmuSimple {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.3;
+    ranksep=0.5;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="Sensor Emulation (LD_PRELOAD)";
+    fontsize=12;
+    
+    csv [label="CSV Files", shape=note, fillcolor="#ffe0b2"];
+    shim [label="libioctl_shim.so\n(LD_PRELOAD)", fillcolor="#bbdefb", width=3];
+    syscall [label="Syscalls\nread/write/ioctl", fillcolor="#f8bbd0"];
+    ac [label="ArduCopter\nFirmware", fillcolor="#c8e6c9"];
+    
+    csv -> shim [label="Load"];
+    shim -> syscall [label="Intercept", style=dashed];
+    syscall -> ac [label="Virtual I/O"];
+}

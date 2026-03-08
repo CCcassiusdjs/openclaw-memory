@@ -1,0 +1,50 @@
+digraph FailureDecisionTree {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.6;
+    ranksep=0.8;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Failure Type Classification Decision Tree";
+    fontsize=14;
+    
+    // Decision nodes (diamonds)
+    node [shape=diamond, fillcolor="#fff3e0"];
+    
+    start [label="Run\nFailed?", fillcolor="#ffcc80"];
+    gps_ok [label="GPS\nOK?"];
+    imu_ok [label="IMU\nOK?"];
+    mag_ok [label="MAG\nOK?"];
+    
+    // Result nodes (boxes)
+    node [shape=box, fillcolor="#ffcdd2"];
+    
+    type_a [label="Type A\nImmediate Crash\n(52%)", fillcolor="#ffcdd2"];
+    type_b [label="Type B\nGPS Failure\n(14%)", fillcolor="#ffcdd2"];
+    type_c [label="Type C\nAttitude Failure\n(14%)", fillcolor="#ffcdd2"];
+    type_d [label="Type D\nLate MAG Failure\n(7%)", fillcolor="#ffcdd2"];
+    type_e [label="Type E\nPartial Failure\n(7%)", fillcolor="#ffcdd2"];
+    
+    // Success node
+    success [label="SUCCESS\n(0%)", shape=ellipse, fillcolor="#c8e6c9"];
+    
+    // Edges with labels
+    start -> gps_ok [label="Yes", color="#d32f2f"];
+    start -> imu_ok [label="No", color="#388e3c"];
+    
+    gps_ok -> type_a [label="No", color="#d32f2f"];
+    gps_ok -> type_c [label="Yes", color="#388e3c"];
+    
+    imu_ok -> type_b [label="No", color="#d32f2f"];
+    imu_ok -> mag_ok [label="Yes", color="#388e3c"];
+    
+    mag_ok -> type_e [label="No", color="#d32f2f"];
+    mag_ok -> type_d [label="Yes", color="#388e3c"];
+    
+    // Success path (never taken in test data)
+    imu_ok -> success [label="All OK", style=dashed, color="#388e3c"];
+    success -> success [style=invis];
+}

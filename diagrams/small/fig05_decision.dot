@@ -1,0 +1,33 @@
+digraph DecisionSimple {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.4;
+    ranksep=0.5;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="Failure Classification";
+    fontsize=12;
+    
+    start [label="Run Failed?", shape=diamond, fillcolor="#ffcc80"];
+    gps [label="GPS OK?", shape=diamond, fillcolor="#bbdefb"];
+    imu [label="IMU OK?", shape=diamond, fillcolor="#bbdefb"];
+    mag [label="MAG OK?", shape=diamond, fillcolor="#bbdefb"];
+    
+    typeA [label="Type A\nImmediate (52%)", fillcolor="#ffcdd2"];
+    typeB [label="Type B\nGPS Fail (14%)", fillcolor="#ffcdd2"];
+    typeC [label="Type C\nAttitude Fail (14%)", fillcolor="#ffcdd2"];
+    typeD [label="Type D\nLate MAG (7%)", fillcolor="#ffcdd2"];
+    typeE [label="Type E\nPartial (7%)", fillcolor="#ffcdd2"];
+    
+    start -> gps [label="Yes"];
+    start -> imu [label="No"];
+    gps -> typeA [label="No"];
+    gps -> typeC [label="Yes"];
+    imu -> typeB [label="No"];
+    imu -> mag [label="Yes"];
+    mag -> typeE [label="No"];
+    mag -> typeD [label="Yes"];
+}

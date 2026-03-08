@@ -1,202 +1,208 @@
 # FortiGate 40F - Auditoria Completa
-**Data:** 2026-03-04 09:29 GMT-3
-**Serial:** FGT40FTK2309DUMZ
-**Hostname:** Firewall-LSA
-**Firmware:** FortiOS 6.4.6 (build 1879)
+**Data:** 2026-03-04  
+**Hostname:** Firewall-LSA  
+**IP de Gerenciamento:** 192.168.1.99/24
 
 ---
 
-## 1. Status do Sistema
+## 1. Interfaces de Rede
 
-| Campo | Valor |
-|-------|-------|
-| **Hostname** | Firewall-LSA |
-| **Alias** | FortiGate-40F |
-| **Serial** | FGT40FTK2309DUMZ |
-| **BIOS** | 05000030 |
-| **Operation Mode** | NAT |
-| **HA Mode** | Standalone |
-| **Virtual Domains** | 1 (root) |
-| **Timezone** | 18 |
-| **Switch Controller** | Enabled |
+### Hardware Switch (lan)
+| Interface | Tipo | IP/Máscara | Status | Descrição |
+|-----------|------|-------------|--------|-----------|
+| **lan** | Hardware Switch | 192.168.1.99/24 | UP | LAN Principal (hard-switch) |
+| └─ lan1 | Physical | — | UP | Porta física (membro do switch) |
+| └─ lan2 | Physical | — | UP | WAN Internet (conectado ao modem) |
+| └─ lan3 | Physical | — | UP | Switch L2 Trunk (VLANs) |
 
----
+### Physical Interfaces
+| Interface | Tipo | IP/Máscara | Status | Descrição |
+|-----------|------|-------------|--------|-----------|
+| **a** | Physical | 192.168.2.1/24 | UP | WiFi Router (DataCom Bridge) |
+| **wan** | Physical | 0.0.0.0 | DOWN | Porta defeituosa (não usar) |
+| **lan2** | Physical | 10.32.162.22/22 | UP | WAN Internet (DHCP do ISP) |
+| **lan3** | Physical | — | UP | Switch L2 Trunk (sem IP) |
 
-## 2. Interfaces Físicas
+### VLANs (via lan3 - Switch Trunk)
+| VLAN | Nome | IP/Máscara | Alias | Descrição |
+|------|------|------------|-------|-----------|
+| **10** | VLAN10_IDRAC | 192.168.10.1/24 | IDRAC-MGMT | iDRAC Dell Servers |
+| **20** | VLAN20_DATA | 10.10.20.1/24 | CLUSTER-DATA | Cluster PXE Boot |
+| **30** | VLAN30_LAN | 192.168.30.1/24 | CORP-LAN | Workstations Corporativas |
+| **40** | VLAN40_PERIPHER | 192.168.40.1/24 | INFRA-CRIT | Infra Crítica (Switches/Servidores) |
 
-### Portas e Status (Topologia Real)
-
-| Porta | Status | Conectado a | IP/Config | Descrição |
-|-------|--------|-------------|-----------|-----------|
-| **wan** | DOWN | — | — | ⚠️ DEFEITUOSA - Não usar |
-| **lan2** | UP | Modem ISP | 10.32.162.22/22 | ✅ WAN (Internet) |
-| **lan1** | UP | Laptop Cássio | Hard-switch | ✅ No virtual-switch "lan" |
-| **lan3** | UP | Switch L2 | Trunk VLANs | ✅ VLANs 10,20,30,40 |
-| **lan A** | — | Roteador WiFi | 192.168.2.1/24 | ✅ WiFi Router |
-
-### Detalhes por Interface
-
-#### wan (Porta Física)
-- Status: DOWN
-- Problema: **Porta defeituosa - não usar**
-
-#### lan2 (WAN Ativa)
-- Status: UP, 1000Mbps Full Duplex
-- IP: 10.32.162.22/22 (DHCP)
-- Gateway: 10.32.163.250
-- Função: **Conexão ISP Internet**
-
-#### lan3 (Switch Trunk)
-- Status: UP, 1000Mbps Full Duplex
-- IP: 0.0.0.0 (interface física, sem IP)
-- Descrição: "PORT3 - L2 Switch Trunk (VLANs 10,20,30,40)"
-- Alias: SWITCH-TRUNK
-- Acesso: ping, https, ssh, snmp, http, fgfm, radius-acct, fabric, ftm
-- VLANs: 10, 20, 30, 40
-
-#### Virtual Switch "lan"
-- Porta física: sw0
-- Portas membros: **apenas lan1**
-- Problema: Hard-switch ativo agrupa lan1+lan2+lan3
+### Software/Tunnel Interfaces
+| Interface | Tipo | IP/Máscara | Status |
+|-----------|------|------------|--------|
+| wqt.root | Software Switch | 10.253.255.254/20 | UP |
+| ssl.root | Tunnel | 0.0.0.0 | UP |
+| l2t.root | Tunnel | 0.0.0.0 | DOWN |
+| naf.root | Tunnel | 0.0.0.0 | DOWN |
 
 ---
 
-## 3. VLANs e Sub-redes
+## 2. Tabela de Roteamento
 
-| VLAN ID | Nome | Sub-rede | Gateway | Função |
-|---------|------|----------|---------|--------|
-| VLAN 10 | VLAN10_IDRAC | 192.168.10.0/24 | 192.168.10.1 | iDRAC Dell Servers |
-| VLAN 20 | VLAN20_DATA | 10.10.20.0/24 | 10.10.20.1 | Cluster PXE Boot |
-| VLAN 30 | VLAN30_LAN | 192.168.30.0/24 | 192.168.30.1 | Workstations Corporativas |
-| VLAN 40 | VLAN40_PERIPHER | 192.168.40.0/24 | 192.168.40.1 | Infra Crítica (Switches/Servidores) |
+```
+S*  0.0.0.0/0 [5/0] via 10.32.163.250, lan2    # Default Gateway (ISP)
+C   10.10.20.0/24 is directly connected, VLAN20_DATA
+C   10.32.160.0/22 is directly connected, lan2  # WAN ISP
+C   10.253.240.0/20 is directly connected, wqt.root
+C   192.168.1.0/24 is directly connected, lan
+C   192.168.2.0/24 is directly connected, a      # WiFi Router
+C   192.168.10.0/24 is directly connected, VLAN10_IDRAC
+C   192.168.30.0/24 is directly connected, VLAN30_LAN
+C   192.168.40.0/24 is directly connected, VLAN40_PERIPHER
+S   192.168.80.0/24 [10/0] via 192.168.2.100, a # Rota para DataCom (obsoleta)
+```
 
-### Interface "a" (WiFi Router)
-- Sub-rede: 192.168.2.0/24
-- Gateway: 192.168.2.1
-- DHCP Range: 192.168.2.100-200
-- Rota estática: 192.168.80.0/24 via 192.168.2.100
+**⚠️ Nota:** A rota 192.168.80.0/24 é obsoleta (do modo Router do DataCom, agora em Bridge).
 
-### Interface "lan" (Hard-switch)
-- Sub-rede: 192.168.1.0/24
-- Status: Conectado ao virtual-switch
+---
 
-### Quarantine VLAN
-- Nome: wqtn.11.default
-- VLAN ID: 4093
-- Security Mode: Captive Portal
+## 3. Políticas de Firewall
+
+### Resumo das Políticas
+| ID | Nome | Origem | Destino | Ação | NAT | Status |
+|----|------|--------|---------|------|-----|--------|
+| 1-6 | Inter-VLAN | VLANs | VLANs | ACCEPT | ❌ | Ativo |
+| 7 | DENY-ALL-LOG | any | any | DENY | ❌ | Ativo (auditoria) |
+| 21 | VLAN10-iDRAC-to-WAN | IDRAC-MGMT | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+| 22 | VLAN20-Cluster-to-WAN | CLUSTER-DATA | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+| 23 | VLAN30-CorpLAN-to-WAN | CORP-LAN | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+| 24 | VLAN40-Infra-to-WAN | INFRA-CRIT | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+| 25 | AUX-WiFiRouter-to-WAN | WIFI-ROUTER | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+| 26 | LAN-to-WAN-Internet | LAN-PRIMARY | WAN-INTERNET | ACCEPT | ✅ | Ativo |
+
+### Inter-VLAN (Políticas 1-6)
+| De | Para | Descrição |
+|----|------|-----------|
+| INFRA-CRIT | DATA-NET | Infra → Cluster |
+| INFRA-CRIT | IDRAC-MGMT | Infra → iDRAC |
+| INFRA-CRIT | CORP-LAN | Infra → Workstations |
+| DATA-NET | INFRA-CRIT | Cluster → Infra |
+| IDRAC-MGMT | INFRA-CRIT | iDRAC → Infra |
+| CORP-LAN | INFRA-CRIT | Workstations → Infra |
+
+### Política DENY-ALL-LOG
+- **Posição:** Última (ID 7)
+- **Ação:** DENY
+- **Log:** Habilitado
+- **Função:** Auditoria de tráfego bloqueado
 
 ---
 
 ## 4. DHCP Servers
 
-| Interface | Gateway | Range | Notas |
-|-----------|---------|-------|-------|
-| VLAN20_DATA | 10.10.20.1 | 10.10.20.100-200 | PXE Boot: pxelinux.0 |
-| a | 192.168.2.1 | 192.168.2.100-200 | WiFi Router |
+### LAN (lan) - ID 4
+| Configuração | Valor |
+|--------------|-------|
+| Interface | lan |
+| Gateway | 192.168.1.99 |
+| Netmask | 255.255.255.0 |
+| Range | 192.168.1.100 - 192.168.1.200 |
+| DNS | Default (FortiGate) |
+
+### WiFi Router (a) - ID 1
+| Configuração | Valor |
+|--------------|-------|
+| Interface | a |
+| Gateway | 192.168.2.1 |
+| Netmask | 255.255.255.0 |
+| Range | 192.168.2.100 - 192.168.2.200 |
+| DNS | Default (FortiGate) |
+| **Clientes Ativos** | **1** (cassius-laptop: 192.168.2.100) |
+
+### VLANs (sem DHCP configurado)
+- VLAN10_IDRAC: ❌ Sem DHCP
+- VLAN20_DATA: ❌ Sem DHCP
+- VLAN30_LAN: ❌ Sem DHCP
+- VLAN40_PERIPHER: ❌ Sem DHCP
 
 ---
 
-## 5. Políticas de Firewall
+## 5. Conexões Físicas
 
-### Inter-VLAN (Tráfego Interno)
-
-| ID | Nome | Origem | Destino | Ação | NAT |
-|----|------|--------|---------|------|-----|
-| 3 | INFRA-CRIT to IDRAC-MGMT | VLAN40_PERIPHER | VLAN10_IDRAC | ACCEPT | No |
-| 4 | INFRA-CRIT to CORP-LAN | VLAN40_PERIPHER | VLAN30_LAN | ACCEPT | No |
-| 5 | DATA-NET to INFRA-CRIT | VLAN20_DATA | VLAN40_PERIPHER | ACCEPT | No |
-| 6 | IDRAC-MGMT to INFRA-CRIT | VLAN10_IDRAC | VLAN40_PERIPHER | ACCEPT | No |
-| 7 | CORP-LAN to INFRA-CRIT | VLAN30_LAN | VLAN40_PERIPHER | ACCEPT | No |
-
-### Saída para Internet (NAT)
-
-| ID | Nome | Origem | Destino | Ação | NAT |
-|----|------|--------|---------|------|-----|
-| 21 | VLAN10-iDRAC-to-WAN-Internet | VLAN10_IDRAC | lan2 | ACCEPT | Yes |
-| 22 | VLAN20-Cluster-to-WAN-Internet | VLAN20_DATA | lan2 | ACCEPT | Yes |
-| 23 | VLAN30-CorpLAN-to-WAN-Internet | VLAN30_LAN | lan2 | ACCEPT | Yes |
-| 24 | VLAN40-Infra-to-WAN-Internet | VLAN40_PERIPHER | lan2 | ACCEPT | Yes |
-| 25 | AUX-WiFiRouter-to-WAN-Internet | a | lan2 | ACCEPT | Yes |
-
-### Política Final (Auditoria)
-
-| ID | Nome | Origem | Destino | Ação | Notas |
-|----|------|--------|---------|------|-------|
-| 999 | DENY-ALL-LOG | any | any | DENY | Log para auditoria |
-
----
-
-## 6. Roteamento
-
+### Topologia Atual
 ```
-S*  0.0.0.0/0 [5/0] via 10.32.163.250, lan2    (Default Gateway)
-C   10.10.20.0/24 is directly connected, VLAN20_DATA
-C   10.32.160.0/22 is directly connected, lan2
-C   10.253.240.0/20 is directly connected, wqt.root
-C   192.168.1.0/24 is directly connected, lan
-C   192.168.2.0/24 is directly connected, a
-C   192.168.10.0/24 is directly connected, VLAN10_IDRAC
-C   192.168.30.0/24 is directly connected, VLAN30_LAN
-C   192.168.40.0/24 is directly connected, VLAN40_PERIPHER
-S   192.168.80.0/24 [10/0] via 192.168.2.100, a
+[ISP Modem] ──lan2──► [FortiGate 40F] ──lan──► [Switch L2] ──lan1──► [Laptop]
+                               │
+                               ├──a──► [DataCom DM956] (Bridge Mode)
+                               │           └── WiFi: LSA2.4GHz / LSA5GHz
+                               │
+                               └──lan3──► [Switch L2 Trunk]
+                                              ├── VLAN10 (iDRAC)
+                                              ├── VLAN20 (Cluster)
+                                              ├── VLAN30 (Corp LAN)
+                                              └── VLAN40 (Infra Crítica)
 ```
 
----
-
-## 7. DNS e NTP
-
-### DNS
-```
-Primary:   96.45.45.45
-Secondary: 96.45.46.46
-```
-
-### NTP
-- NTP Sync: Enabled
-- Server Mode: Enabled
-- Interfaces: lan2, lan, lan3
+### Status das Portas
+| Porta | Conexão | Status | Velocidade |
+|-------|---------|--------|------------|
+| wan | — | DOWN | N/A (defeituosa) |
+| lan1 | Laptop | UP | — |
+| lan2 | ISP Modem | UP | 1Gbps |
+| lan3 | Switch L2 Trunk | UP | 1Gbps |
+| a | DataCom DM956 | UP | — |
 
 ---
 
-## 8. Problemas Identificados
+## 6. Configurações WiFi (DataCom DM956)
 
-### ⚠️ CRÍTICO: Hard-switch "lan"
-- O virtual-switch "lan" agrupa fisicamente as portas lan1+lan2+lan3
-- **Problema:** Isso impede o uso independente de lan1
-- **Solução:** Remover hard-switch via console serial para usar lan1 como porta independente
+### Modo: Bridge
+- **Função:** Access Point (sem NAT)
+- **Porta utilizada:** LAN (não WAN)
+- **Conectado a:** FortiGate porta "a"
 
-### ⚠️ Porta WAN Defeituosa
-- Porta "wan" está DOWN
-- Recomendação: Usar lan2 como WAN primária (já configurado)
+### SSIDs Ativos
+| Band | SSID | Canal | Status |
+|------|------|-------|--------|
+| 2.4GHz | LSA2.4GHz | 6 | Ativo |
+| 5GHz | LSA5GHz | 36 | Ativo |
 
-### 🔧 Configuração Pendente
-- lan1 está no hard-switch mas não tem interface L3 própria
-- Para usar lan1 como porta de manutenção independente, é necessário:
-  1. Remover do virtual-switch via console serial
-  2. Criar interface L3 separada
-
----
-
-## 9. Recomendações
-
-1. **Backup Regular:** Configurar backup automático da configuração
-2. **Hard-switch:** Avaliar remoção do hard-switch para usar lan1 independentemente
-3. **Documentação:** Atualizar diagrama de rede com topologia atual
-4. **Monitoramento:** Configurar SNMP para monitoramento externo
+### DHCP
+- **Fonte:** FortiGate (192.168.2.1)
+- **Range:** 192.168.2.100-200
 
 ---
 
-## 10. Endereços Configurados
+## 7. Recomendações
 
-| Nome | IP | Tipo |
-|------|-----|------|
-| VLAN20_DATA address | 10.10.20.1/24 | interface-subnet |
-| VLAN30_LAN address | 192.168.30.1/24 | interface-subnet |
-| VLAN40_PERIPHER address | 192.168.40.1/24 | interface-subnet |
-| SWITCH-L2-CRITICO | 192.168.40.2/32 | host (Switch de infraestrutura) |
+### ⚠️ Problemas Identificados
+
+1. **Rota Obsoleta**: `192.168.80.0/24 via 192.168.2.100` deve ser removida (DataCom agora em Bridge)
+
+2. **VLANs sem DHCP**: VLANs 10, 20, 30, 40 não têm DHCP configurado
+
+3. **Porta WAN Defeituosa**: A porta física `wan` está down (hardware)
+
+### ✅ Configurações Corretas
+
+1. **Firewall Policies**: Todas as inter-VLAN e WAN estão configuradas corretamente
+
+2. **NAT**: Habilitado apenas para saída WAN (correto)
+
+3. **Logging**: DENY-ALL-LOG habilitado para auditoria
+
+4. **DHCP na LAN e WiFi**: Funcionando corretamente
 
 ---
 
-**Auditoria concluída em:** 2026-03-04
-**Console:** /dev/ttyUSB0 (FTDI FT232 Serial)
-**Conexão:** 9600 8N1
+## 8. Próximos Passos
+
+1. **Remover rota obsoleta:**
+   ```
+   config router static
+   delete 1
+   end
+   ```
+
+2. **Configurar DHCP nas VLANs** (se necessário)
+
+3. **Verificar se VLANs precisam de DHCP** (iDRAC geralmente usa IP estático)
+
+---
+
+**Auditoria realizada em:** 2026-03-04 12:50  
+**Ferramenta:** FortiGate Web UI + CLI via Serial

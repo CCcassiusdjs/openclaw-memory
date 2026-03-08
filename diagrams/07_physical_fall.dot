@@ -1,0 +1,86 @@
+digraph PhysicalFall {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.5;
+    ranksep=0.6;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Physical Fall Dynamics\n(Consequence of Software Failure)";
+    fontsize=14;
+    
+    // Timeline
+    subgraph cluster_timeline {
+        label="Fall Timeline";
+        style="rounded,filled";
+        fillcolor="#fafafa";
+        color=gray;
+        
+        t0 [label="t = 0s\n\nSoftware\nFailure", shape=ellipse, fillcolor="#ffcdd2"];
+        t1 [label="t = 0.1s\n\nMotors\nStop", shape=ellipse, fillcolor="#ffe0b2"];
+        t2 [label="t = 0.5s\n\nFree Fall\nAccelerating", shape=ellipse, fillcolor="#fff9c4"];
+        t3 [label="t = 1.0s\n\nv = 9.8 m/s\nHeight = 5m", shape=ellipse, fillcolor="#e8f5e9"];
+        t4 [label="t = 1.43s\n\nImpact\nv = 14 m/s", shape=ellipse, fillcolor="#f8bbd0"];
+        
+        t0 -> t1 -> t2 -> t3 -> t4 [color=gray, style=dashed];
+    }
+    
+    // Physics equations
+    subgraph cluster_physics {
+        label="Physics Equations";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        eq1 [label="Fall Time:\n\nt = √(2h / g)", shape=note, fillcolor="#bbdefb"];
+        eq2 [label="Impact Velocity:\n\nv = √(2gh)", shape=note, fillcolor="#bbdefb"];
+        eq3 [label="Kinetic Energy:\n\nE = ½mv² = mgh", shape=note, fillcolor="#bbdefb"];
+    }
+    
+    // Height calculations
+    subgraph cluster_heights {
+        label="Impact Severity by Height";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        h1 [label="h = 1m\n\nt = 0.45s\nv = 4.4 m/s (16 km/h)\nE = 19.6 J\n\nDamage: Light", fillcolor="#c8e6c9"];
+        h5 [label="h = 5m\n\nt = 1.0s\nv = 9.9 m/s (36 km/h)\nE = 98 J\n\nDamage: Moderate", fillcolor="#fff9c4"];
+        h10 [label="h = 10m\n\nt = 1.43s\nv = 14 m/s (50 km/h)\nE = 196 J\n\nDamage: Severe", fillcolor="#ffe0b2"];
+        h50 [label="h = 50m\n\nt = 3.2s\nv = 31.3 m/s (113 km/h)\nE = 980 J\n\nDamage: Destruction", fillcolor="#ffcdd2"];
+    }
+    
+    // Damage assessment
+    subgraph cluster_damage {
+        label="Damage Assessment (10m fall)";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        struct [label="Structural\n\n• Fractured arms\n• Cracked fuselage\n• Damaged motor mounts", fillcolor="#f8bbd0"];
+        prop [label="Propellers\n\n• Shattered blades\n• Bent shafts\n• Motor damage", fillcolor="#f8bbd0"];
+        elec [label="Electronics\n\n• PCB stress\n• Connector damage\n• Component dislodgement", fillcolor="#f8bbd0"];
+        batt [label="Battery\n\n• Potential rupture\n• Fire risk\n• Chemical leak", fillcolor="#f8bbd0"];
+    }
+    
+    // Edges
+    t4 -> eq1 [style=invis];
+    eq1 -> eq2 [style=invis];
+    eq2 -> eq3 [style=invis];
+    
+    h10 -> struct [color="#c2185b"];
+    h10 -> prop [color="#c2185b"];
+    h10 -> elec [color="#c2185b"];
+    h10 -> batt [color="#c2185b"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style=filled;
+        fillcolor="#fafafa";
+        
+        legend [label="Green: Light damage\nYellow: Moderate\nOrange: Severe\nRed: Critical/Destruction", shape=plaintext];
+    }
+}

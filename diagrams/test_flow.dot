@@ -1,0 +1,103 @@
+digraph TestExecutionFlow {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.4;
+    ranksep=0.6;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Test Execution Flow";
+    fontsize=14;
+    
+    // Start
+    start [label="Start\nTest Run", shape=ellipse, fillcolor="#c8e6c9"];
+    
+    // Phase 1: Setup
+    subgraph cluster_setup {
+        label="Phase 1: Setup";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        load_params [label="Load Default\nParameters", fillcolor="#bbdefb"];
+        load_csv [label="Load Sensor\nCSV Files", fillcolor="#bbdefb"];
+        create_dirs [label="Create Runtime\nDirectories", fillcolor="#bbdefb"];
+    }
+    
+    // Phase 2: Execution
+    subgraph cluster_exec {
+        label="Phase 2: Execution";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        fork [label="fork()", shape=hexagon, fillcolor="#ffe0b2"];
+        setup_env [label="Setup Environment\nLD_PRELOAD\nEMU_PREARM_DISABLED", fillcolor="#ffe0b2"];
+        exec_bin [label="Execute\nArduCopter\nBinary", fillcolor="#ffcc80"];
+        
+        // Parallel: parent waits
+        wait [label="Parent:\nwaitpid()", shape=box, fillcolor="#ffe0b2"];
+    }
+    
+    // Phase 3: Data Collection
+    subgraph cluster_collect {
+        label="Phase 3: Data Collection";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        check_exit [label="Check Exit\nCode/Signal", fillcolor="#c8e6c9"];
+        parse_log [label="Parse Runtime\nLog", fillcolor="#c8e6c9"];
+        populate_vec [label="Populate\nOutput Vector", fillcolor="#c8e6c9"];
+    }
+    
+    // Phase 4: Classification
+    subgraph cluster_classify {
+        label="Phase 4: Classification";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        check_flags [label="Analyze Status\nFlags", fillcolor="#f8bbd0"];
+        classify [label="Classify\nFailure Type", fillcolor="#f8bbd0", shape=diamond];
+        
+        // Failure types
+        type_a [label="Type A:\nImmediate", fillcolor="#ffcdd2"];
+        type_b [label="Type B:\nGPS Fail", fillcolor="#ffcdd2"];
+        type_c [label="Type C:\nAttitude Fail", fillcolor="#ffcdd2"];
+        type_d [label="Type D:\nLate MAG", fillcolor="#ffcdd2"];
+        type_e [label="Type E:\nPartial", fillcolor="#ffcdd2"];
+    }
+    
+    // End
+    end [label="End\nStore Result", shape=ellipse, fillcolor="#c8e6c9"];
+    
+    // Edges
+    start -> load_params;
+    load_params -> load_csv;
+    load_csv -> create_dirs;
+    create_dirs -> fork;
+    
+    fork -> setup_env [label="child"];
+    fork -> wait [label="parent"];
+    
+    setup_env -> exec_bin;
+    exec_bin -> check_exit [style=dashed, label="exit/crash"];
+    
+    wait -> check_exit [label="SIGCHLD", style=dashed];
+    
+    check_exit -> parse_log;
+    parse_log -> populate_vec;
+    populate_vec -> check_flags;
+    
+    check_flags -> classify;
+    classify -> type_a [label="0x80000606"];
+    classify -> type_b [label="0x800005e6"];
+    classify -> type_c [label="0x80000516"];
+    classify -> type_d [label="0x800005d6"];
+    classify -> type_e [label="0x80000556"];
+    
+    {type_a, type_b, type_c, type_d, type_e} -> end;
+}

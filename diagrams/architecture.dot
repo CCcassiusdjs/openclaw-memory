@@ -1,0 +1,129 @@
+digraph RadiationTestArchitecture {
+    // Graph settings
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.5;
+    ranksep=0.8;
+    fontname="Helvetica";
+    fontsize=12;
+    
+    // Node styles
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    // Title
+    labelloc="t";
+    label="Radiation Test Infrastructure Architecture";
+    fontsize=16;
+    
+    // Subgraph: Data Generation
+    subgraph cluster_data {
+        label="Data Synthesis";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        orchestrator [label="Dataset\nOrchestrator", fillcolor="#bbdefb", color="#1976d2"];
+        
+        subgraph cluster_generators {
+            label="Generators";
+            style=filled;
+            fillcolor="#e1f5fe";
+            color="#0288d1";
+            
+            imu_gen [label="IMU\nGenerator", shape=box, fillcolor="#b3e5fc"];
+            gps_gen [label="GPS\nGenerator", shape=box, fillcolor="#b3e5fc"];
+            baro_gen [label="Barometer\nGenerator", shape=box, fillcolor="#b3e5fc"];
+            mag_gen [label="Magnetometer\nGenerator", shape=box, fillcolor="#b3e5fc"];
+        }
+    }
+    
+    // Subgraph: Emulation Layer
+    subgraph cluster_emu {
+        label="Sensor Emulation Layer";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        emulator [label="Sensor\nEmulator\n(LD_PRELOAD)", fillcolor="#c8e6c9", color="#388e3c"];
+        
+        subgraph cluster_shims {
+            label="I/O Shims";
+            style=filled;
+            fillcolor="#f1f8e9";
+            color="#689f38";
+            
+            spi_shim [label="SPI\nShim", shape=box, fillcolor="#dcedc8"];
+            i2c_shim [label="I²C\nShim", shape=box, fillcolor="#dcedc8"];
+            uart_shim [label="UART\nShim", shape=box, fillcolor="#dcedc8"];
+        }
+    }
+    
+    // Subgraph: Test Framework
+    subgraph cluster_framework {
+        label="Test Framework";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        multirad [label="MultiRad\nFramework", fillcolor="#ffe0b2", color="#f57c00"];
+        
+        subgraph cluster_runner {
+            label="Test Runner";
+            style=filled;
+            fillcolor="#fff8e1";
+            color="#ffa000";
+            
+            case_runner [label="Case\nRunner", shape=box, fillcolor="#ffecb3"];
+            output_vec [label="Output\nVector", shape=box, fillcolor="#ffecb3"];
+            checker [label="Checksum\nVerifier", shape=box, fillcolor="#ffecb3"];
+        }
+    }
+    
+    // Subgraph: System Under Test
+    subgraph cluster_sut {
+        label="System Under Test";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        arducopter [label="ArduCopter\nFirmware", fillcolor="#f8bbd0", color="#c2185b"];
+        
+        subgraph cluster_ekf {
+            label="EKF3 Navigation";
+            style=filled;
+            fillcolor="#fff0f5";
+            color="#e91e63";
+            
+            pos_ekf [label="Position\nEKF", shape=box, fillcolor="#f48fb1"];
+            att_ekf [label="Attitude\nEKF", shape=box, fillcolor="#f48fb1"];
+            mag_ekf [label="Heading\nEKF", shape=box, fillcolor="#f48fb1"];
+        }
+    }
+    
+    // Radiation source (external)
+    radiation [label="Ionizing\nRadiation", shape=cloud, style="filled,dashed", fillcolor="#ffcdd2", color="#d32f2f"];
+    
+    // Edges: Data flow
+    orchestrator -> emulator [label="CSV\ndatasets", color="#1976d2", fontcolor="#1976d2"];
+    
+    // Edges: Internal connections
+    orchestrator -> {imu_gen, gps_gen, baro_gen, mag_gen} [style=invis];
+    emulator -> {spi_shim, i2c_shim, uart_shim} [style=invis];
+    multirad -> {case_runner, output_vec, checker} [style=invis];
+    arducopter -> {pos_ekf, att_ekf, mag_ekf} [style=invis];
+    
+    // Edges: Main pipeline
+    emulator -> multirad [label="Virtual\nI/O", color="#388e3c", fontcolor="#388e3c"];
+    multirad -> arducopter [label="fork() +\nLD_PRELOAD", color="#f57c00", fontcolor="#f57c00"];
+    
+    // Edges: Radiation effect
+    radiation -> arducopter [label="bit flips", style=dashed, color="#d32f2f", fontcolor="#d32f2f"];
+    
+    // Edges: Results
+    arducopter -> output_vec [label="status\nflags", style=dashed, color="#c2185b", fontcolor="#c2185b"];
+    output_vec -> checker [label="compare", color="#f57c00", fontcolor="#f57c00"];
+    
+    // Output
+    checker -> multirad [label="result", style=dashed, color="#f57c00", fontcolor="#f57c00"];
+}

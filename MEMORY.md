@@ -73,10 +73,18 @@ _Curated memories, decisions, and context worth keeping._
 ## Critical Rules
 - 🚫 **NEVER reboot computer without explicit permission from Cássio**
 
+## Radiation Testing Project (2026-03-07)
+- **Relatório:** `radiation_test_report.tex/pdf` (23 páginas)
+- **Diagramas:** `diagrams/small/fig*.png` (7 diagramas para LaTeX)
+- **Tema:** Testes de radiação em ArduCopter EKF com emulação de sensores
+- **Resultados:** 29 execuções, 100% falhas, 5 tipos classificados
+- **Ferramentas:** LaTeX (latexmk, mupdf), Graphviz (dot)
+
 ## Notes
 - Memory system initialized 2026-03-01
 - Daily logs stored in memory/YYYY-MM-DD.md
 - **2026-03-04:** Sessão FortiGate - infraestrutura crítica documentada
+- **2026-03-07:** Radiation test report + diagramas Graphviz criados
 
 ---
 _Last updated: 2026-03-04_

@@ -1,0 +1,43 @@
+digraph TestExecSimple {
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.3;
+    ranksep=0.4;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="Test Execution Flow";
+    fontsize=12;
+    
+    setup [label="1. Setup\nCopy CSVs", fillcolor="#c8e6c9"];
+    inject [label="2. Inject\nBit Flip", fillcolor="#ffe0b2"];
+    fork [label="3. fork()", shape=hexagon, fillcolor="#bbdefb"];
+    
+    subgraph cluster_child {
+        label="Child";
+        style=filled;
+        fillcolor="#e1f5fe";
+        env [label="LD_PRELOAD\nEMU_PREARM", fillcolor="#b3e5fc", width=2];
+        exec [label="Execute\nArduCopter", fillcolor="#b3e5fc"];
+    }
+    
+    subgraph cluster_parent {
+        label="Parent";
+        style=filled;
+        fillcolor="#e8f5e9";
+        wait [label="waitpid()", fillcolor="#c8e6c9"];
+    }
+    
+    collect [label="4. Collect\nOutput Vector", fillcolor="#f8bbd0"];
+    classify [label="5. Classify\nFailure Type", fillcolor="#ffcdd2"];
+    
+    setup -> inject -> fork;
+    fork -> env [label="child"];
+    fork -> wait [label="parent"];
+    env -> exec;
+    exec -> collect [style=dashed, label="exit"];
+    wait -> collect [label="SIGCHLD"];
+    collect -> classify;
+}

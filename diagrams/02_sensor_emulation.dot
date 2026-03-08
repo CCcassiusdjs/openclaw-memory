@@ -1,0 +1,97 @@
+digraph SensorEmulation {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.6;
+    ranksep=0.8;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="Sensor Emulation Layer\n(LD_PRELOAD Interception)";
+    fontsize=14;
+    
+    // CSV Data
+    subgraph cluster_csv {
+        label="Input: CSV Data";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        csv_files [label="CSV Files\n\nimu.csv\ngps.csv\nbaro.csv\nmag.csv\npwm.csv", shape=note, fillcolor="#ffe0b2"];
+    }
+    
+    // Shims
+    subgraph cluster_shims {
+        label="Emulation Shims (libioctl_shim.so)";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        spi_shim [label="SPI Shim\n\n/dev/spidev0.0\n(ICM20602 IMU)", fillcolor="#bbdefb"];
+        i2c_shim [label="I²C Shim\n\n/dev/i2c-*\n(BMP280, AK09916)", fillcolor="#bbdefb"];
+        uart_shim [label="UART/PTY Shim\n\n/tmp/ttyGPS0\n(NMEA GPS)", fillcolor="#bbdefb"];
+    }
+    
+    // ArduCopter
+    subgraph cluster_ac {
+        label="ArduCopter Process";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        hal [label="HAL Layer\n(Hardware Abstraction)", fillcolor="#c8e6c9"];
+        
+        subgraph cluster_drivers {
+            label="Sensor Drivers";
+            style=filled;
+            fillcolor="#f1f8e9";
+            color="#689f38";
+            
+            imu_drv [label="IMU Driver", shape=box, fillcolor="#dcedc8"];
+            baro_drv [label="Baro Driver", shape=box, fillcolor="#dcedc8"];
+            mag_drv [label="Mag Driver", shape=box, fillcolor="#dcedc8"];
+            gps_drv [label="GPS Driver", shape=box, fillcolor="#dcedc8"];
+        }
+    }
+    
+    // Syscalls
+    subgraph cluster_syscalls {
+        label="Kernel Syscalls";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        sys_read [label="read()", shape=box, fillcolor="#f8bbd0"];
+        sys_write [label="write()", shape=box, fillcolor="#f8bbd0"];
+        sys_ioctl [label="ioctl()", shape=box, fillcolor="#f8bbd0"];
+    }
+    
+    // Edges: Data flow
+    csv_files -> spi_shim [label="Load\nCSVs", color="#f57c00", fontcolor="#f57c00"];
+    csv_files -> i2c_shim [color="#f57c00", fontcolor="#f57c00"];
+    csv_files -> uart_shim [color="#f57c00", fontcolor="#f57c00"];
+    
+    // LD_PRELOAD injection
+    spi_shim -> sys_ioctl [label="LD_PRELOAD\nintercept", style=dashed, color="#1976d2", fontcolor="#1976d2"];
+    i2c_shim -> sys_ioctl [style=dashed, color="#1976d2", fontcolor="#1976d2"];
+    uart_shim -> sys_read [style=dashed, color="#1976d2", fontcolor="#1976d2"];
+    
+    // Drivers to syscalls
+    imu_drv -> sys_ioctl [color="#388e3c", fontcolor="#388e3c"];
+    baro_drv -> sys_ioctl [color="#388e3c", fontcolor="#388e3c"];
+    mag_drv -> sys_ioctl [color="#388e3c", fontcolor="#388e3c"];
+    gps_drv -> sys_read [color="#388e3c", fontcolor="#388e3c"];
+    
+    // HAL
+    hal -> {imu_drv, baro_drv, mag_drv, gps_drv} [style=invis];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Key";
+        style=filled;
+        fillcolor="#fafafa";
+        
+        legend [label="Solid: Normal call path\nDashed: Intercepted by LD_PRELOAD", shape=plaintext];
+    }
+}

@@ -1,0 +1,23 @@
+digraph FallSimple {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=0.3;
+    ranksep=0.5;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9];
+    
+    labelloc="t";
+    label="Physical Fall Dynamics";
+    fontsize=12;
+    
+    t0 [label="t=0s\nSoftware\nFailure", fillcolor="#ffcdd2"];
+    t1 [label="t=0.1s\nMotors\nStop", fillcolor="#ffe0b2"];
+    t2 [label="t=0.5s\nFree Fall", fillcolor="#fff9c4"];
+    t3 [label="t=1.43s\nImpact\nv=14 m/s", fillcolor="#f8bbd0"];
+    
+    t0 -> t1 -> t2 -> t3;
+    
+    eq [label="v = √(2gh)\n\nh=10m → v=14m/s\n≈ 50 km/h", shape=note, fillcolor="#e3f2fd"];
+    t3 -> eq [style=dashed];
+}

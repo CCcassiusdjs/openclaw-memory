@@ -1,0 +1,135 @@
+digraph MultiRadExecution {
+    rankdir=TB;
+    splines=polyline;
+    nodesep=0.5;
+    ranksep=0.7;
+    fontname="Helvetica";
+    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+    edge [fontname="Helvetica", fontsize=10];
+    
+    labelloc="t";
+    label="MultiRad Framework\n(Test Execution)";
+    fontsize=14;
+    
+    // Start
+    start [label="Start\nTest Run", shape=ellipse, fillcolor="#c8e6c9"];
+    
+    // Phase 1: Setup
+    subgraph cluster_setup {
+        label="Phase 1: Setup";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        init [label="Initialize\nMultiRad", fillcolor="#c8e6c9"];
+        load_params [label="Load Runtime\nConfig", fillcolor="#c8e6c9"];
+        create_dirs [label="Create Runtime\nDirectory", fillcolor="#c8e6c9"];
+        copy_csv [label="Copy CSV Files\nto Runtime", fillcolor="#c8e6c9"];
+    }
+    
+    // Phase 2: Fault Injection
+    subgraph cluster_fault {
+        label="Phase 2: Radiation Injection";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#f57c00";
+        
+        select_addr [label="Select Target\nAddress/Bit", fillcolor="#ffe0b2"];
+        inject_fault [label="Inject Bit Flip\n(SEU Simulation)", fillcolor="#ffe0b2", shape=diamond];
+    }
+    
+    // Phase 3: Execution
+    subgraph cluster_exec {
+        label="Phase 3: Execution";
+        style="rounded,filled";
+        fillcolor="#e3f2fd";
+        color="#1976d2";
+        
+        fork [label="fork()", shape=hexagon, fillcolor="#bbdefb"];
+        
+        subgraph cluster_child {
+            label="Child Process";
+            style=filled;
+            fillcolor="#e1f5fe";
+            color="#0288d1";
+            
+            setup_env [label="Setup Environment\n\nLD_PRELOAD=libioctl_shim.so\nEMU_PREARM_DISABLED=1", fillcolor="#b3e5fc"];
+            exec_bin [label="execve()\n\n./arducopter\n--defaults param\n--model quad", fillcolor="#b3e5fc"];
+        }
+        
+        subgraph cluster_parent {
+            label="Parent Process";
+            style=filled;
+            fillcolor="#e1f5fe";
+            color="#0288d1";
+            
+            wait [label="waitpid()\n\nWait for child\nto exit/crash", fillcolor="#b3e5fc"];
+        }
+    }
+    
+    // Phase 4: Data Collection
+    subgraph cluster_collect {
+        label="Phase 4: Data Collection";
+        style="rounded,filled";
+        fillcolor="#e8f5e9";
+        color="#388e3c";
+        
+        check_status [label="Check Exit Status\n\nWIFEXITED\nWIFSIGNALED", fillcolor="#c8e6c9"];
+        parse_log [label="Parse Runtime Log\n\nExtract markers:\nInit, Replay, Armed", fillcolor="#c8e6c9"];
+        extract_flags [label="Extract Status Flags\n\nGPS/IMU/BARO/MAG\nCompletion", fillcolor="#c8e6c9"];
+        populate_vec [label="Populate\nOutput Vector", fillcolor="#c8e6c9"];
+    }
+    
+    // Phase 5: Classification
+    subgraph cluster_classify {
+        label="Phase 5: Classification";
+        style="rounded,filled";
+        fillcolor="#fce4ec";
+        color="#c2185b";
+        
+        compare [label="Compare with\nGolden Reference", fillcolor="#f8bbd0"];
+        classify [label="Classify\nFailure Type", fillcolor="#f8bbd0", shape=diamond];
+        
+        // Failure types
+        type_a [label="Type A\nImmediate\n(0x80000606)", fillcolor="#ffcdd2"];
+        type_b [label="Type B\nGPS Fail\n(0x800005e6)", fillcolor="#ffcdd2"];
+        type_c [label="Type C\nAttitude Fail\n(0x80000516)", fillcolor="#ffcdd2"];
+        type_d [label="Type D\nLate MAG\n(0x800005d6)", fillcolor="#ffcdd2"];
+        type_e [label="Type E\nPartial\n(0x80000556)", fillcolor="#ffcdd2"];
+    }
+    
+    // End
+    end [label="Store Result\nNext Run", shape=ellipse, fillcolor="#c8e6c9"];
+    
+    // Edges: Main flow
+    start -> init;
+    init -> load_params;
+    load_params -> create_dirs;
+    create_dirs -> copy_csv;
+    copy_csv -> select_addr;
+    
+    select_addr -> inject_fault;
+    inject_fault -> fork;
+    
+    fork -> setup_env [label="child", color="#1976d2", fontcolor="#1976d2"];
+    fork -> wait [label="parent", color="#388e3c", fontcolor="#388e3c"];
+    
+    setup_env -> exec_bin;
+    exec_bin -> check_status [style=dashed, label="exit/crash", color="#d32f2f", fontcolor="#d32f2f"];
+    
+    wait -> check_status [label="SIGCHLD", style=dashed, color="#388e3c"];
+    
+    check_status -> parse_log;
+    parse_log -> extract_flags;
+    extract_flags -> populate_vec;
+    populate_vec -> compare;
+    
+    compare -> classify;
+    classify -> type_a [label="52%", color="#c2185b"];
+    classify -> type_b [label="14%", color="#c2185b"];
+    classify -> type_c [label="14%", color="#c2185b"];
+    classify -> type_d [label="7%", color="#c2185b"];
+    classify -> type_e [label="7%", color="#c2185b"];
+    
+    {type_a, type_b, type_c, type_d, type_e} -> end;
+}

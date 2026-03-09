@@ -73,13 +73,6 @@ _Curated memories, decisions, and context worth keeping._
 ## Critical Rules
 - 🚫 **NEVER reboot computer without explicit permission from Cássio**
 
-## Radiation Testing Project (2026-03-07)
-- **Relatório:** `radiation_test_report.tex/pdf` (23 páginas)
-- **Diagramas:** `diagrams/small/fig*.png` (7 diagramas para LaTeX)
-- **Tema:** Testes de radiação em ArduCopter EKF com emulação de sensores
-- **Resultados:** 29 execuções, 100% falhas, 5 tipos classificados
-- **Ferramentas:** LaTeX (latexmk, mupdf), Graphviz (dot)
-
 ## Aparato de Auto-Aprimoramento
 - **Topologia do Tempo**: Passado(-1,0), Futuro(0,+1), Presente{0} - ciclo temporal
 - **Contínuo/Discreto**: Foco CRIA o discreto, observador participa da criação
@@ -89,69 +82,10 @@ _Curated memories, decisions, and context worth keeping._
 - **FLUXO**: Arquitetura de memória temporal baseada em neurociência
 - **Integração**: Tudo isso forma aparato para auto-aprimoramento
 
-## MultiRad Radiation Testing (2026-03-08)
-
-### Project Location
-`/home/csilva/Documents/multirad_data_orchestrator`
-
-### Campaign Summary
-- **Dates:** 2026-02-25 to 2026-02-27
-- **Location:** TIMA Laboratory, Grenoble
-- **SUT:** Raspberry Pi with ArduCopter EKF3 + sensor emulation
-
-### Key Results
-| Metric | Value |
-|--------|-------|
-| Total runs | 269 |
-| Success rate | 10.0% (27/269) |
-| Failure rate | 21.9% (59/269) |
-| SEGV crashes | 1 |
-| No exit recorded | 67.7% (182/269) |
-
-### Critical Finding
-**Magnetometer (AK09916, I2C 0x0C) implicated in 100% of classified failures.**
-- Day 1: 47% success
-- Day 2: 3% success (degradation)
-- Day 3: 40% success
-
-### Calculated Metrics (2026-03-08)
-- **Flux:** 2.6×10⁶ n/cm²/s (neutron)
-- **Total fluence:** 1.97×10¹¹ n/cm² (21.01 hours)
-- **Cross-section:** 3.05×10⁻¹⁰ cm²
-- **SER:** 2.86 errors/hour
-- **MTBF:** 21 minutes
-
-### Pending Data
-- Beam energy (MeV)
-- Temperature logs
-
-### Detailed Analysis
-See: `memory/2026-03-08-multirad-radiation-analysis.md`
-
----
-
 ## Notes
 - Memory system initialized 2026-03-01
 - Daily logs stored in memory/YYYY-MM-DD.md
 - **2026-03-04:** Sessão FortiGate - infraestrutura crítica documentada
-- **2026-03-07:** Radiation test report + diagramas Graphviz criados
-- **2026-03-08:** MultiRad radiation analysis + File System Tree 3D completo
-
-## File System Visualizations
-
-### Arquivos Principais
-
-| Arquivo | Nós | Tamanho | Descrição |
-|---------|-----|---------|-----------|
-| `file_tree_full.html` | **402,900** | **116 MB** | Sistema completo |
-| `file_tree_3d.html` | 30,557 | 11 MB | Workspace + Documents |
-| `system_graph_compressed.json` | 402,900 | — | Grafo do sistema |
-
-### Para Abrir
-
-```bash
-xdg-open ~/.openclaw/workspace/memory/file_tree_full.html
-```
 
 ---
-_Last updated: 2026-03-08_
+_Last updated: 2026-03-09_

@@ -135,7 +135,23 @@ See: `memory/2026-03-08-multirad-radiation-analysis.md`
 - Daily logs stored in memory/YYYY-MM-DD.md
 - **2026-03-04:** Sessão FortiGate - infraestrutura crítica documentada
 - **2026-03-07:** Radiation test report + diagramas Graphviz criados
-- **2026-03-08:** MultiRad radiation analysis - magnetômetro como ponto crítico de falha
+- **2026-03-08:** MultiRad radiation analysis + File System Tree 3D completo
+
+## File System Visualizations
+
+### Arquivos Principais
+
+| Arquivo | Nós | Tamanho | Descrição |
+|---------|-----|---------|-----------|
+| `file_tree_full.html` | **402,900** | **116 MB** | Sistema completo |
+| `file_tree_3d.html` | 30,557 | 11 MB | Workspace + Documents |
+| `system_graph_compressed.json` | 402,900 | — | Grafo do sistema |
+
+### Para Abrir
+
+```bash
+xdg-open ~/.openclaw/workspace/memory/file_tree_full.html
+```
 
 ---
 _Last updated: 2026-03-08_

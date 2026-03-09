@@ -1,14 +1,14 @@
 {
   "lastChecks": {
-    "email": 1741467000,
+    "email": 1741518180,
     "calendar": null,
     "weather": null,
     "pattern_analysis": null,
     "tension_detection": null,
     "concept_synthesis": null
   },
-  "lastHeartbeat": 1741467000,
-  "checksToday": 1,
+  "lastHeartbeat": 1741518180,
+  "checksToday": 6,
   "patternsLearned": 0,
   "tensionsFound": 0,
   "synthesesCreated": 0,
@@ -19,16 +19,25 @@
   },
   "notableFindings": [
     {
+      "date": "2026-03-09T12:53",
+      "type": "financial",
+      "source": "email",
+      "summary": "Nubank: lembrete urgente - fatura ainda não paga, risco de bloqueio",
+      "status": "notified"
+    },
+    {
       "date": "2026-03-08T22:30",
       "type": "privacy",
       "source": "email",
-      "summary": "Google encontrou novo resultado com dados pessoais"
+      "summary": "Google encontrou novo resultado com dados pessoais",
+      "status": "notified"
     },
     {
       "date": "2026-03-08T22:30",
       "type": "financial",
       "source": "email",
-      "summary": "Nubank: fatura em atraso"
+      "summary": "Nubank: fatura em atraso",
+      "status": "notified"
     }
   ]
 }

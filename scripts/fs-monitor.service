@@ -1,0 +1,31 @@
+[Unit]
+Description=Filesystem Monitor Daemon (OpenClaw)
+After=network.target
+Documentation=https://docs.openclaw.ai
+
+[Service]
+Type=simple
+User=csilva
+Group=csilva
+WorkingDirectory=/home/csilva/.openclaw/workspace/scripts
+ExecStart=/usr/bin/python3 /home/csilva/.openclaw/workspace/scripts/fs-monitor-daemon.py
+Restart=on-failure
+RestartSec=10
+
+# Environment
+Environment="WATCH_DIRS=/home/csilva"
+Environment="LOG_DIR=/home/csilva/.openclaw/workspace/logs/fs-monitor"
+Environment="BATCH_SIZE=100"
+Environment="FLUSH_INTERVAL=5"
+
+# Resource limits
+LimitNOFILE=65536
+TasksMax=4096
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=fs-monitor
+
+[Install]
+WantedBy=multi-user.target

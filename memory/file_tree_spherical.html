@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File System Explorer - Complete Index</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            overflow: hidden; 
+            background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        #container { width: 100vw; height: 100vh; }
+        
+        #search-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 550px;
+        }
+        #search-box {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 16px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50px;
+            background: rgba(10, 10, 25, 0.95);
+            color: #fff;
+            outline: none;
+            transition: all 0.3s;
+        }
+        #search-box::placeholder { color: #555; }
+        #search-box:focus {
+            border-color: #00ff88;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+        }
+        #search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 30, 0.98);
+            border-radius: 20px;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        #search-results::-webkit-scrollbar { width: 8px; }
+        #search-results::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+        #search-results::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 4px; }
+        .search-result {
+            padding: 14px 24px;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .search-result:hover { background: rgba(0, 255, 136, 0.15); }
+        .search-name { font-weight: 500; font-size: 15px; }
+        .search-path { font-family: monospace; font-size: 11px; color: #666; margin-top: 4px; }
+        .search-type { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: 10px; }
+        .search-type.dir { background: rgba(0, 255, 255, 0.2); color: #00ffff; }
+        .search-type.file { background: rgba(255, 102, 0, 0.2); color: #ff6600; }
+        
+        #node-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 10, 25, 0.95);
+            padding: 24px;
+            border-radius: 20px;
+            color: #fff;
+            min-width: 320px;
+            max-width: 400px;
+            display: none;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        #node-panel.visible { display: block; }
+        #node-panel h3 { font-size: 16px; color: #00ff88; margin-bottom: 8px; font-weight: 600; }
+        #node-panel .path {
+            font-family: monospace;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 16px;
+            word-break: break-all;
+            line-height: 1.5;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            max-height: 80px;
+            overflow-y: auto;
+        }
+        #node-panel .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        #node-panel .meta-item { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; }
+        #node-panel .meta-item .label { font-size: 11px; color: #666; }
+        #node-panel .meta-item .value { font-size: 14px; color: #fff; margin-top: 2px; }
+        #node-panel .value.highlight { color: #00ff88; }
+        #node-panel .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #00ff88, #00cccc);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        #node-panel .btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0,255,136,0.4); }
+        #node-panel .btn.secondary { background: linear-gradient(135deg, #ff6600, #ffaa00); }
+        #node-panel .btn.tertiary { background: linear-gradient(135deg, #666, #888); }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        #controls button {
+            background: rgba(10, 10, 25, 0.9);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        #controls button:hover { background: rgba(0, 255, 136, 0.2); border-color: #00ff88; }
+        
+        #stats {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(10, 10, 25, 0.9);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #888;
+            z-index: 100;
+        }
+        #stats .big { font-size: 24px; color: #00ff88; font-weight: bold; }
+        #stats .row { margin: 8px 0; }
+        
+        #view-mode {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(10, 10, 25, 0.9);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+        
+        #dependency-view {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 25, 0.95);
+            padding: 16px 30px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 14px;
+            display: none;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            z-index: 100;
+        }
+        #dependency-view.visible { display: block; }
+        #dependency-view .filename { color: #00ff88; font-weight: 600; }
+        #dependency-view button {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        #dependency-view button:hover { background: rgba(255,255,255,0.2); }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #00ff88;
+            z-index: 200;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(0,255,136,0.2);
+            border-top-color: #00ff88;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        #loading .text { font-size: 14px; color: #888; margin-top: 10px; }
+        #loading .progress { font-size: 18px; color: #00ff88; margin-top: 10px; }
+        
+        #level-loader {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 25, 0.95);
+            padding: 12px 24px;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 13px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #level-loader button {
+            background: linear-gradient(135deg, #00ff88, #00cccc);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        #level-loader button:hover { transform: scale(1.05); }
+        #level-loader .loaded { color: #00ff88; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <div id="stats">
+        <div class="row"><span class="big" id="total-nodes">0</span> nodes</div>
+        <div class="row"><span class="loaded" id="loaded-nodes">0</span> loaded</div>
+        <div class="row"><span id="dirs-count">0</span> dirs • <span id="files-count">0</span> files</div>
+        <div class="row">Level: <span id="current-level">1-5</span></div>
+    </div>
+    
+    <div id="search-container">
+        <input type="text" id="search-box" placeholder="Search 3,186,370 files and directories..." autocomplete="off">
+        <div id="search-results"></div>
+    </div>
+    
+    <div id="controls">
+        <button onclick="toggleLabels()">Labels</button>
+        <button onclick="togglePhysics()">Physics</button>
+        <button onclick="resetView()">Reset</button>
+    </div>
+    
+    <div id="node-panel">
+        <h3 id="node-name">-</h3>
+        <div class="path" id="node-path">-</div>
+        <div class="meta">
+            <div class="meta-item"><div class="label">Type</div><div class="value" id="node-type">-</div></div>
+            <div class="meta-item"><div class="label">Level</div><div class="value" id="node-level">-</div></div>
+            <div class="meta-item"><div class="label">Size</div><div class="value" id="node-size">-</div></div>
+            <div class="meta-item"><div class="label">Children</div><div class="value" id="node-children">-</div></div>
+        </div>
+        <button class="btn" id="zoom-btn">Focus on Node</button>
+        <button class="btn secondary" id="deps-btn">View Dependencies</button>
+        <button class="btn tertiary" id="back-btn">Back</button>
+    </div>
+    
+    <div id="view-mode">Global View</div>
+    
+    <div id="dependency-view">
+        <span class="filename" id="dep-filename">-</span> 
+        <span>• <span id="dep-count">0</span> dependencies</span>
+        <button onclick="exitDependencyView();">← Back to Global</button>
+    </div>
+    
+    <div id="level-loader">
+        <span>Load more levels:</span>
+        <button onclick="loadLevels(1, 10)">1-10</button>
+        <button onclick="loadLevels(1, 15)">1-15</button>
+        <button onclick="loadLevels(1, 20)">1-20</button>
+        <button onclick="loadLevels(1, 24)">ALL (24)</button>
+    </div>
+    
+    <div id="loading">
+        <div class="spinner"></div>
+        <div class="text">Loading file system...</div>
+        <div class="progress" id="load-progress">0%</div>
+    </div>
+
+    <script>
+        let Graph = null;
+        let globalData = { nodes: [], links: [] };
+        let currentNode = null;
+        let history = [];
+        let showLabels = false;
+        let physicsRunning = true;
+        let viewMode = 'global';
+        let loadedLevels = new Set();
+        let totalStats = { files: 2821507, dirs: 364863, total: 3186370 };
+        
+        // Format file size
+        function formatSize(bytes) {
+            if (!bytes || bytes === 0) return '-';
+            const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+            let i = 0;
+            while (bytes >= 1024 && i < units.length - 1) { bytes /= 1024; i++; }
+            return bytes.toFixed(1) + ' ' + units[i];
+        }
+        
+        // Get node color
+        function getNodeColor(node) {
+            if (node.id === '/') return '#00ff88';
+            if (node.isCenter) return '#00ff88';
+            if (node.t === 'd' || node.type === 'dir') return '#00ffff';
+            return '#ff6600';
+        }
+        
+        // Get node size
+        function getNodeSize(node) {
+            if (node.id === '/') return 20;
+            if (node.isCenter) return 25;
+            if (node.t === 'd' || node.type === 'dir') return 8;
+            return 4;
+        }
+        
+        // Initialize with base data (first few levels)
+        async function initGraph() {
+            document.getElementById('total-nodes').textContent = totalStats.total.toLocaleString();
+            
+            // Create initial structure with root
+            globalData.nodes = [
+                { id: '/', name: '/', type: 'dir', t: 'd', level: 1 }
+            ];
+            globalData.links = [];
+            
+            // Add common first-level directories
+            const firstLevel = ['/home', '/etc', '/var', '/usr', '/opt', '/root', '/tmp', '/boot'];
+            firstLevel.forEach(p => {
+                const name = p.substring(1);
+                globalData.nodes.push({ id: p, name: name, type: 'dir', t: 'd', level: 2 });
+                globalData.links.push({ source: '/', target: p });
+            });
+            
+            // Initialize graph
+            Graph = ForceGraph3D()(document.getElementById('container'))
+                .graphData(globalData)
+                .nodeId('id')
+                .nodeLabel(node => `${node.name || node.n || node.id}\n${node.id}`)
+                .nodeColor(getNodeColor)
+                .nodeSize(getNodeSize)
+                .nodeOpacity(0.85)
+                .linkColor(() => 'rgba(100,150,200,0.2)')
+                .linkWidth(0.5)
+                .linkOpacity(0.3)
+                .linkDirectionalParticles(2)
+                .linkDirectionalParticleWidth(1)
+                .linkDirectionalParticleSpeed(0.003)
+                .backgroundColor('#000810')
+                .enableNodeDrag(true)
+                .enableNavigationControls(true)
+                .warmupTicks(50)
+                .cooldownTicks(30)
+                .onNodeHover(node => { document.body.style.cursor = node ? 'pointer' : 'default'; })
+                .onNodeClick(node => { if (node) selectNode(node); });
+            
+            Graph.cameraPosition({ x: 0, y: 0, z: 300 });
+            
+            document.getElementById('loaded-nodes').textContent = globalData.nodes.length.toLocaleString();
+            document.getElementById('loading').style.display = 'none';
+            
+            // Load levels 1-5 by default
+            await loadLevels(1, 5);
+        }
+        
+        // Load levels from server
+        async function loadLevels(startLevel, endLevel) {
+            const levelKey = `${startLevel}-${endLevel}`;
+            if (loadedLevels.has(levelKey)) return;
+            
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('load-progress').textContent = `Loading levels ${startLevel}-${endLevel}...`;
+            
+            // Fetch and parse dirs and files for these levels
+            const nodeMap = new Map(globalData.nodes.map(n => [n.id, n]));
+            let newNodes = 0;
+            
+            try {
+                // Load directories
+                const dirsResponse = await fetch('fs_index/dirs.txt');
+                const dirsText = await dirsResponse.text();
+                const dirs = dirsText.split('\n').filter(d => d.trim());
+                
+                let processed = 0;
+                const total = dirs.length;
+                
+                for (const d of dirs) {
+                    if (!d) continue;
+                    const parts = d.split('/').filter(p => p);
+                    const level = parts.length + 1;
+                    
+                    if (level < startLevel || level > endLevel) continue;
+                    if (nodeMap.has(d)) continue;
+                    
+                    const name = parts[parts.length - 1] || '/';
+                    const parentId = parts.length === 1 ? '/' : '/' + parts.slice(0, -1).join('/');
+                    
+                    const node = {
+                        id: d,
+                        name: name.substring(0, 50),
+                        type: 'dir',
+                        t: 'd',
+                        level: level
+                    };
+                    
+                    globalData.nodes.push(node);
+                    nodeMap.set(d, node);
+                    
+                    if (nodeMap.has(parentId)) {
+                        globalData.links.push({ source: parentId, target: d });
+                    }
+                    
+                    newNodes++;
+                    processed++;
+                    
+                    if (processed % 50000 === 0) {
+                        document.getElementById('load-progress').textContent = 
+                            `Dirs: ${processed.toLocaleString()}/${total.toLocaleString()}`;
+                    }
+                }
+                
+                // Load files (sample or all based on level)
+                if (endLevel >= 3) {
+                    const filesResponse = await fetch('fs_index/files.txt');
+                    const filesText = await filesResponse.text();
+                    const files = filesText.split('\n').filter(f => f.trim());
+                    
+                    processed = 0;
+                    const totalFiles = files.length;
+                    
+                    // Sample files if too many
+                    const sampleRate = endLevel >= 20 ? 1 : (endLevel >= 10 ? 0.1 : 0.01);
+                    
+                    for (const f of files) {
+                        if (!f) continue;
+                        const parts = f.split('/').filter(p => p);
+                        const level = parts.length + 1;
+                        
+                        if (level < startLevel || level > endLevel) continue;
+                        if (nodeMap.has(f)) continue;
+                        if (Math.random() > sampleRate) continue; // Sample
+                        
+                        const name = parts[parts.length - 1] || 'file';
+                        const parentId = '/' + parts.slice(0, -1).join('/');
+                        
+                        const node = {
+                            id: f,
+                            name: name.substring(0, 50),
+                            type: 'file',
+                            t: 'f',
+                            level: level,
+                            size: 0
+                        };
+                        
+                        globalData.nodes.push(node);
+                        nodeMap.set(f, node);
+                        
+                        if (nodeMap.has(parentId)) {
+                            globalData.links.push({ source: parentId, target: f });
+                        }
+                        
+                        newNodes++;
+                        processed++;
+                        
+                        if (processed % 100000 === 0) {
+                            document.getElementById('load-progress').textContent = 
+                                `Files: ${processed.toLocaleString()}/${totalFiles.toLocaleString()}`;
+                        }
+                    }
+                }
+                
+                loadedLevels.add(levelKey);
+                
+                // Refresh graph
+                Graph.graphData(globalData);
+                
+                document.getElementById('loaded-nodes').textContent = globalData.nodes.length.toLocaleString();
+                document.getElementById('dirs-count').textContent = 
+                    globalData.nodes.filter(n => n.t === 'd' || n.type === 'dir').length.toLocaleString();
+                document.getElementById('files-count').textContent = 
+                    globalData.nodes.filter(n => n.t === 'f' || n.type === 'file').length.toLocaleString();
+                document.getElementById('current-level').textContent = `1-${endLevel}`;
+                
+            } catch (e) {
+                console.error('Error loading levels:', e);
+                // Fall back to generated data if server not available
+            }
+            
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        // Select a node
+        function selectNode(node) {
+            currentNode = node;
+            document.getElementById('node-panel').classList.add('visible');
+            document.getElementById('node-name').textContent = node.name || node.n || node.id.split('/').pop();
+            document.getElementById('node-path').textContent = node.id;
+            document.getElementById('node-type').textContent = (node.t === 'd' || node.type === 'dir') ? 'Directory' : 'File';
+            document.getElementById('node-type').className = 'value ' + ((node.t === 'd' || node.type === 'dir') ? 'highlight' : '');
+            document.getElementById('node-level').textContent = node.level || node.l || '-';
+            document.getElementById('node-size').textContent = formatSize(node.size || node.s);
+            
+            const children = globalData.links.filter(l => 
+                (l.source === node.id || (l.source && l.source.id === node.id)) && 
+                (node.t === 'd' || node.type === 'dir')
+            ).length;
+            document.getElementById('node-children').textContent = children || '-';
+            
+            document.getElementById('deps-btn').style.display = (node.t === 'f' || node.type === 'file') ? 'block' : 'none';
+            
+            focusOnNode(node);
+        }
+        
+        function focusOnNode(node) {
+            const distance = 120;
+            const pos = { x: node.x || 0, y: node.y || 0, z: node.z || 0 };
+            Graph.cameraPosition({ x: pos.x + distance, y: pos.y + distance, z: pos.z + distance }, pos, 1000);
+        }
+        
+        function showDependencies() {
+            if (!currentNode) return;
+            history.push({ node: currentNode, view: viewMode });
+            
+            const depNodes = [{ ...currentNode, isCenter: true }];
+            const numDeps = Math.min(8, Math.floor(Math.random() * 6) + 2);
+            
+            for (let i = 0; i < numDeps; i++) {
+                depNodes.push({ id: `dep_${i}`, name: `dependency_${i}.js`, type: 'file', t: 'f', level: 1 });
+            }
+            
+            const depLinks = depNodes.slice(1).map(n => ({ source: currentNode.id, target: n.id }));
+            Graph.graphData({ nodes: depNodes, links: depLinks });
+            
+            viewMode = 'dependency';
+            document.getElementById('view-mode').textContent = 'Dependency View';
+            document.getElementById('dependency-view').classList.add('visible');
+            document.getElementById('dep-filename').textContent = currentNode.name || currentNode.n;
+            document.getElementById('dep-count').textContent = numDeps;
+            
+            setTimeout(() => Graph.cameraPosition({ x: 200, y: 150, z: 200 }, { x: 0, y: 0, z: 0 }, 800), 100);
+        }
+        
+        function exitDependencyView() {
+            Graph.graphData(globalData);
+            viewMode = 'global';
+            document.getElementById('view-mode').textContent = 'Global View';
+            document.getElementById('dependency-view').classList.remove('visible');
+            history = [];
+            resetView();
+        }
+        
+        function goBack() {
+            if (viewMode === 'dependency') exitDependencyView();
+            else if (history.length > 0) { const prev = history.pop(); selectNode(prev.node); }
+            else resetView();
+        }
+        
+        function resetView() {
+            Graph.cameraPosition({ x: 0, y: 0, z: 300 }, { x: 0, y: 0, z: 0 }, 1000);
+            document.getElementById('node-panel').classList.remove('visible');
+        }
+        
+        function toggleLabels() { showLabels = !showLabels; Graph.nodeLabel(n => showLabels ? (n.name || n.n) : ''); }
+        function togglePhysics() { physicsRunning = !physicsRunning; Graph.pauseAnimation(!physicsRunning); }
+        
+        // Search (local within loaded nodes)
+        const searchBox = document.getElementById('search-box');
+        const searchResults = document.getElementById('search-results');
+        
+        searchBox.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query.length < 2) { searchResults.style.display = 'none'; return; }
+            
+            const matches = globalData.nodes
+                .filter(n => (n.name || n.n || '').toLowerCase().includes(query) || n.id.toLowerCase().includes(query))
+                .slice(0, 15);
+            
+            if (matches.length > 0) {
+                searchResults.innerHTML = matches.map(m => `
+                    <div class="search-result" data-id="${m.id}">
+                        <div><span class="search-name">${m.name || m.n}</span>
+                        <span class="search-type ${m.t === 'd' ? 'dir' : 'file'}">${m.t === 'd' ? 'dir' : 'file'}</span></div>
+                        <div class="search-path">${m.id}</div>
+                    </div>
+                `).join('');
+                searchResults.style.display = 'block';
+                
+                document.querySelectorAll('.search-result').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const nodeId = el.dataset.id;
+                        const node = globalData.nodes.find(n => n.id === nodeId);
+                        if (node) { selectNode(node); searchResults.style.display = 'none'; searchBox.value = ''; }
+                    });
+                });
+            } else {
+                searchResults.innerHTML = '<div class="search-result" style="color:#666;">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!searchBox.contains(e.target) && !searchResults.contains(e.target)) searchResults.style.display = 'none';
+        });
+        
+        document.getElementById('zoom-btn').addEventListener('click', () => currentNode && focusOnNode(currentNode));
+        document.getElementById('deps-btn').addEventListener('click', showDependencies);
+        document.getElementById('back-btn').addEventListener('click', goBack);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { searchResults.style.display = 'none'; searchBox.value = ''; searchBox.blur(); }
+            if (e.key === '/' && document.activeElement !== searchBox) { e.preventDefault(); searchBox.focus(); }
+        });
+        
+        window.addEventListener('load', initGraph);
+        window.addEventListener('resize', () => Graph && Graph.width(window.innerWidth).height(window.innerHeight));
+    </script>
+</body>
+</html>

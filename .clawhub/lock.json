@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "skills": {
+    "imap-smtp-email": {
+      "version": "0.0.2",
+      "installedAt": 1772406036038
+    }
+  }
+}

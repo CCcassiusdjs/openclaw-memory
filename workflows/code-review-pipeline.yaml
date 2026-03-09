@@ -1,0 +1,121 @@
+# Lobster Workflow: Code Review Pipeline
+# Deterministic multi-agent code review with loops
+
+name: code-review-pipeline
+description: |
+  Multi-agent code review pipeline that analyzes code, 
+  identifies issues, prioritizes fixes, and iterates until resolved.
+
+version: "1.0"
+created: "2026-03-08"
+
+# Trigger conditions
+triggers:
+  - type: manual
+    description: "Manual trigger via /review command"
+  - type: file_change
+    patterns:
+      - "**/*.py"
+      - "**/*.js"
+      - "**/*.ts"
+      - "**/*.go"
+      - "**/*.rs"
+    description: "Auto-trigger on code file changes"
+
+# Pipeline steps
+steps:
+  # Phase 1: Initial Analysis
+  - id: analyze
+    agent: coder
+    task: |
+      Analyze the codebase for:
+      1. Security vulnerabilities
+      2. Performance bottlenecks
+      3. Code smell and technical debt
+      4. Missing tests
+      5. Documentation gaps
+      
+      Output: JSON with issues array, each with:
+      - type: security|performance|quality|testing|docs
+      - severity: critical|high|medium|low
+      - location: file:line
+      - description: what's wrong
+      - suggestion: how to fix
+    timeout: 300000 # 5 minutes
+
+  # Phase 2: Prioritization
+  - id: prioritize
+    agent: reasoning
+    depends_on: [analyze]
+    task: |
+      Review the analysis results and prioritize issues:
+      1. Critical security issues first
+      2. High severity bugs
+      3. Performance issues affecting users
+      4. Technical debt that blocks progress
+      5. Nice-to-have improvements
+      
+      Output: Ordered list with priority scores
+    timeout: 120000 # 2 minutes
+
+  # Phase 3: Fix Loop (deterministic)
+  - id: fix_loop
+    type: loop
+    depends_on: [prioritize]
+    condition: "issues_remaining > 0 and iterations < 10"
+    steps:
+      - id: fix_highest
+        agent: coder
+        task: |
+          Fix the highest priority issue from the list.
+          Mark it as resolved in the tracking file.
+        timeout: 180000 # 3 minutes
+      
+      - id: verify_fix
+        agent: deepseek
+        task: |
+          Verify the fix was applied correctly:
+          1. Check the code change
+          2. Run tests if available
+          3. Confirm no new issues introduced
+        timeout: 120000 # 2 minutes
+      
+      - id: update_status
+        agent: main
+        task: |
+          Update the issue status:
+          - If verified: mark as resolved
+          - If failed: mark for retry
+          - Decrement issues_remaining
+        timeout: 30000 # 30 seconds
+
+  # Phase 4: Final Report
+  - id: report
+    agent: main
+    depends_on: [fix_loop]
+    task: |
+      Generate final report:
+      1. Issues found (by type and severity)
+      2. Issues resolved
+      3. Issues remaining (if any)
+      4. Recommendations for future
+      5. Metrics: time spent, iterations used
+      
+      Output: Markdown report saved to memory/
+    timeout: 60000 # 1 minute
+
+# Error handling
+on_error:
+  - step: report
+    task: |
+      Generate error report with:
+      1. What failed
+      2. At which step
+      3. Current state
+      4. Recommendations for manual intervention
+
+# Success criteria
+success_criteria:
+  - "issues_remaining == 0"
+  - "iterations < 10"
+  - "no errors in final verification"

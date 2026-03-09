@@ -1,0 +1,20 @@
+# Intuition System - Learned Preferences
+# OpenClaw develops "intuition" from observing user patterns
+
+version: "1.0"
+created: "2026-03-08"
+description: "Heuristic learning from user behavior patterns"
+
+# User behavior patterns observed
+observations:
+  decision_patterns: []
+  rejection_patterns: []
+  preference_patterns: []
+  timing_patterns: []
+  
+# Learned heuristics
+heuristics:
+  # Rules derived from observations
+  
+# Confidence scores
+confidence: {}

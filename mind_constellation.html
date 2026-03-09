@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Constellation</title>
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        
+        #constellation {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        /* Star tooltip */
+        #star-info {
+            position: fixed;
+            background: rgba(10, 10, 30, 0.95);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 350px;
+            z-index: 200;
+            display: none;
+            pointer-events: none;
+        }
+        
+        #star-info h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        #star-info .meta {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        #star-info .content {
+            font-size: 12px;
+            line-height: 1.5;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        
+        /* Controls */
+        #controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #controls button {
+            padding: 10px 15px;
+            background: rgba(10, 10, 30, 0.9);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        
+        #controls button:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        #controls button.active {
+            background: rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Legend */
+        #legend {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 10, 30, 0.95);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            max-width: 200px;
+        }
+        
+        #legend h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        #legend .nebula {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        
+        #legend .nebula-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        /* Stats */
+        #stats {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 10, 30, 0.95);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            font-size: 12px;
+        }
+        
+        #stats h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        #stats p {
+            margin: 3px 0;
+            color: #999;
+        }
+        
+        #stats span {
+            color: #e0e0e0;
+        }
+        
+        /* Timeline */
+        #timeline {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(10, 10, 30, 0.95);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            width: 250px;
+        }
+        
+        #timeline h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        #timeline .layer {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 11px;
+        }
+        
+        #timeline .layer-color {
+            width: 20px;
+            height: 10px;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        
+        /* Search */
+        #search-container {
+            position: fixed;
+            top: 20px;
+            left: 150px;
+            z-index: 100;
+        }
+        
+        #search {
+            padding: 10px 15px;
+            width: 250px;
+            background: rgba(10, 10, 30, 0.9);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        #search:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* Star type legend */
+        #star-types {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 30, 0.95);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 8px;
+            padding: 10px 20px;
+            z-index: 100;
+            display: flex;
+            gap: 20px;
+            font-size: 11px;
+        }
+        
+        #star-types .type {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        #star-types .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        /* Loading */
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            z-index: 400;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Construindo constelação mental...</div>
+    
+    <div id="constellation"></div>
+    
+    <div id="controls">
+        <button onclick="resetCamera()">⌖ Reset</button>
+        <button onclick="togglePhysics()">⚡ Gravidade</button>
+        <button onclick="toggleParticles()">✨ Partículas</button>
+        <button onclick="toggleOrbits()">🔄 Órbitas</button>
+        <button onclick="showTimeline()">📅 Timeline</button>
+        <button onclick="addStar()">➕ Nova Estrela</button>
+    </div>
+    
+    <div id="search-container">
+        <input type="text" id="search" placeholder="Buscar na constelação...">
+    </div>
+    
+    <div id="legend">
+        <h3>Nebulosas</h3>
+        <div id="nebulae-list"></div>
+    </div>
+    
+    <div id="stats">
+        <h4>Constelação</h4>
+        <p>Estrelas: <span id="stat-stars">0</span></p>
+        <p>Conexões: <span id="stat-connections">0</span></p>
+        <p>Nebulosas: <span id="stat-nebulae">0</span></p>
+    </div>
+    
+    <div id="timeline">
+        <h4>Camadas Temporais</h4>
+        <div id="timeline-layers"></div>
+    </div>
+    
+    <div id="star-types">
+        <div class="type"><div class="dot" style="background: radial-gradient(circle, #fff, #667eea);"></div><span>Core</span></div>
+        <div class="type"><div class="dot" style="background: radial-gradient(circle, #fff, #4facfe);"></div><span>Regular</span></div>
+        <div class="type"><div class="dot" style="background: radial-gradient(circle, #fff, #96c93d);"></div><span>Satélite</span></div>
+    </div>
+    
+    <div id="star-info">
+        <h3 id="star-name">Estrela</h3>
+        <div class="meta">
+            <span id="star-category"></span> | 
+            Importância: <span id="star-importance"></span> | 
+            Acessos: <span id="star-frequency"></span>
+        </div>
+        <div class="content" id="star-content"></div>
+    </div>
+
+    <script>
+        // Nebula colors (categories)
+        const nebulaColors = {
+            'identity': { h: 240, s: 70, l: 60 },    // Blue
+            'person': { h: 300, s: 70, l: 60 },      // Magenta
+            'hardware': { h: 200, s: 80, l: 60 },     // Cyan
+            'network': { h: 140, s: 70, l: 50 },      // Green
+            'software': { h: 350, s: 70, l: 60 },     // Red-pink
+            'project': { h: 50, s: 80, l: 60 },       // Yellow
+            'tool': { h: 180, s: 70, l: 50 },         // Teal
+            'integration': { h: 160, s: 60, l: 70 },  // Light green
+            'security': { h: 0, s: 70, l: 60 },       // Red
+            'algorithm': { h: 280, s: 70, l: 60 },    // Purple
+            'methodology': { h: 20, s: 70, l: 60 },   // Orange
+            'technique': { h: 30, s: 60, l: 70 },     // Peach
+            'protocol': { h: 260, s: 60, l: 70 },     // Lavender
+            'concept': { h: 80, s: 70, l: 50 },      // Lime
+            'hostname': { h: 270, s: 70, l: 50 },    // Deep purple
+            'ip_address': { h: 220, s: 80, l: 60 },  // Blue
+        };
+        
+        let Graph;
+        let constellationData = { stars: [], nebulae: [], connections: [] };
+        let showParticles = true;
+        let showOrbits = false;
+        let physicsEnabled = true;
+        let showTimelineMode = false;
+        
+        // HSL to RGB
+        function hslToRgb(h, s, l) {
+            s /= 100;
+            l /= 100;
+            const a = s * Math.min(l, 1 - l);
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color);
+            };
+            return `rgb(${f(0)}, ${f(8)}, ${f(4)})`;
+        }
+        
+        // Get star color
+        function getStarColor(star) {
+            const nebula = nebulaColors[star.category] || { h: 80, s: 70, l: 50 };
+            const intensity = Math.min(1, (star.importance || 5) / 10);
+            return hslToRgb(nebula.h, nebula.s, nebula.l + (1 - intensity) * 20);
+        }
+        
+        // Get star size
+        function getStarSize(star) {
+            const baseSize = star.type === 'core' ? 15 : (star.type === 'regular' ? 8 : 4);
+            const importanceFactor = (star.importance || 5) / 10;
+            return baseSize * (0.5 + importanceFactor * 0.5);
+        }
+        
+        // Calculate star position
+        function calculateStarPosition(star, allStars) {
+            // Core stars at center
+            if (star.type === 'core') {
+                return {
+                    x: (Math.random() - 0.5) * 50,
+                    y: (Math.random() - 0.5) * 50,
+                    z: (Math.random() - 0.5) * 50
+                };
+            }
+            
+            // Find connected core stars
+            const coreConnections = allStars.connections
+                .filter(c => c.source === star.id || c.target === star.id)
+                .map(c => c.source === star.id ? c.target : c.source)
+                .filter(id => allStars.stars.find(s => s.id === id && s.type === 'core'));
+            
+            if (coreConnections.length > 0) {
+                // Orbit around core star
+                const coreStar = allStars.stars.find(s => s.id === coreConnections[0]);
+                const distance = 50 + (10 - (star.importance || 5)) * 10;
+                const angle = Math.random() * Math.PI * 2;
+                const phi = Math.random() * Math.PI;
+                
+                return {
+                    x: coreStar.x + Math.cos(angle) * Math.sin(phi) * distance,
+                    y: coreStar.y + Math.sin(angle) * Math.sin(phi) * distance,
+                    z: coreStar.z + Math.cos(phi) * distance
+                };
+            }
+            
+            // Random position if no core connection
+            return {
+                x: (Math.random() - 0.5) * 300,
+                y: (Math.random() - 0.5) * 300,
+                z: (Math.random() - 0.5) * 300
+            };
+        }
+        
+        // Load constellation
+        async function loadConstellation() {
+            try {
+                const response = await fetch('/api/constellation');
+                constellationData = await response.json();
+                
+                renderConstellation();
+                updateStats();
+                updateLegend();
+                updateTimeline();
+                
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                console.error('Erro ao carregar constelação:', error);
+                document.getElementById('loading').textContent = 'Erro ao carregar constelação';
+            }
+        }
+        
+        // Render constellation
+        function renderConstellation() {
+            const container = document.getElementById('constellation');
+            
+            // Prepare nodes for 3d-force-graph
+            const nodes = constellationData.stars.map(star => ({
+                id: star.id,
+                label: star.label,
+                category: star.category,
+                importance: star.importance,
+                frequency: star.frequency,
+                type: star.type,
+                content: star.content,
+                ...star.position
+            }));
+            
+            const links = constellationData.connections.map(conn => ({
+                source: conn.source,
+                target: conn.target,
+                relation: conn.relation,
+                strength: conn.strength
+            }));
+            
+            Graph = ForceGraph3D()(container)
+                .graphData({ nodes, links })
+                .nodeId('id')
+                .nodeLabel(node => `${node.label}\n[${node.category}]`)
+                .nodeVal(node => getStarSize(node))
+                .nodeColor(node => getStarColor(node))
+                .nodeOpacity(0.9)
+                .nodeResolution(16)
+                .linkOpacity(0.4)
+                .linkColor(link => {
+                    const sourceNode = nodes.find(n => n.id === link.source);
+                    return sourceNode ? getStarColor(sourceNode) : '#666';
+                })
+                .linkWidth(link => link.strength * 2)
+                .linkDirectionalParticles(showParticles ? 2 : 0)
+                .linkDirectionalParticleSpeed(0.005)
+                .backgroundColor('#000011')
+                .enableNodeDrag(true)
+                .enableNavigation(true)
+                .showNavInfo(false)
+                .onNodeClick(node => showStarInfo(node))
+                .onNodeHover(node => {
+                    container.style.cursor = node ? 'pointer' : 'default';
+                });
+            
+            if (physicsEnabled) {
+                Graph.d3AlphaDecay(0.02)
+                    .d3VelocityDecay(0.3);
+            }
+        }
+        
+        // Show star info
+        function showStarInfo(node) {
+            const star = constellationData.stars.find(s => s.id === node.id);
+            if (!star) return;
+            
+            const info = document.getElementById('star-info');
+            info.style.display = 'block';
+            info.style.left = (event.clientX + 15) + 'px';
+            info.style.top = (event.clientY + 15) + 'px';
+            
+            document.getElementById('star-name').textContent = star.label;
+            document.getElementById('star-category').textContent = star.category;
+            document.getElementById('star-importance').textContent = star.importance || 5;
+            document.getElementById('star-frequency').textContent = star.frequency || 0;
+            document.getElementById('star-content').textContent = (star.content || '').substring(0, 200);
+        }
+        
+        // Update stats
+        function updateStats() {
+            document.getElementById('stat-stars').textContent = constellationData.stars.length;
+            document.getElementById('stat-connections').textContent = constellationData.connections.length;
+            document.getElementById('stat-nebulae').textContent = 
+                new Set(constellationData.stars.map(s => s.category)).size;
+        }
+        
+        // Update legend
+        function updateLegend() {
+            const list = document.getElementById('nebulae-list');
+            const categories = {};
+            
+            constellationData.stars.forEach(star => {
+                if (!categories[star.category]) {
+                    categories[star.category] = 0;
+                }
+                categories[star.category]++;
+            });
+            
+            list.innerHTML = '';
+            Object.entries(categories)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([cat, count]) => {
+                    const nebula = nebulaColors[cat] || { h: 80, s: 70, l: 50 };
+                    const div = document.createElement('div');
+                    div.className = 'nebula';
+                    div.innerHTML = `
+                        <div class="nebula-color" style="background: ${hslToRgb(nebula.h, nebula.s, nebula.l)}"></div>
+                        <span>${cat} (${count})</span>
+                    `;
+                    div.onclick = () => filterByNebula(cat);
+                    list.appendChild(div);
+                });
+        }
+        
+        // Update timeline
+        function updateTimeline() {
+            const layers = document.getElementById('timeline-layers');
+            layers.innerHTML = '';
+            
+            // Create temporal layers
+            const days = [...new Set(constellationData.stars.map(s => s.created?.split('T')[0]))].sort().reverse();
+            
+            days.forEach(day => {
+                const div = document.createElement('div');
+                div.className = 'layer';
+                const color = day ? `hsl(${220 - days.indexOf(day) * 20}, 70%, 50%)` : '#333';
+                div.innerHTML = `
+                    <div class="layer-color" style="background: ${color}"></div>
+                    <span>${day || 'Unknown'}</span>
+                `;
+                layers.appendChild(div);
+            });
+        }
+        
+        // Filter by nebula
+        function filterByNebula(category) {
+            // Highlight stars in this category
+            Graph.nodeColor(Graph.nodeColor().map((c, i) => {
+                const node = Graph.graphData().nodes[i];
+                return node.category === category ? '#fff' : '#333';
+            }));
+        }
+        
+        // Reset camera
+        function resetCamera() {
+            if (Graph) {
+                Graph.cameraPosition({ x: 0, y: 0, z: 300 }, { x: 0, y: 0, z: 0 }, 1000);
+            }
+        }
+        
+        // Toggle physics
+        function togglePhysics() {
+            physicsEnabled = !physicsEnabled;
+            if (Graph) {
+                if (physicsEnabled) {
+                    Graph.d3AlphaDecay(0.02).d3VelocityDecay(0.3);
+                } else {
+                    Graph.d3AlphaDecay(1).d3VelocityDecay(1);
+                }
+            }
+        }
+        
+        // Toggle particles
+        function toggleParticles() {
+            showParticles = !showParticles;
+            renderConstellation();
+        }
+        
+        // Toggle orbits
+        function toggleOrbits() {
+            showOrbits = !showOrbits;
+            // TODO: Implement orbit visualization
+        }
+        
+        // Show timeline
+        function showTimeline() {
+            showTimelineMode = !showTimelineMode;
+            // TODO: Implement timeline mode
+        }
+        
+        // Add star
+        function addStar() {
+            const label = prompt('Nome da nova estrela:');
+            if (!label) return;
+            
+            fetch('/api/star', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ label })
+            }).then(() => loadConstellation());
+        }
+        
+        // Search
+        document.getElementById('search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) {
+                renderConstellation();
+                return;
+            }
+            
+            // Highlight matching stars
+            Graph.nodeColor(Graph.nodeColor().map((c, i) => {
+                const node = Graph.graphData().nodes[i];
+                return node.label.toLowerCase().includes(query) ? '#fff' : '#333';
+            }));
+        });
+        
+        // Close star info
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#star-info') && !e.target.closest('canvas')) {
+                document.getElementById('star-info').style.display = 'none';
+            }
+        });
+        
+        // Start
+        loadConstellation();
+    </script>
+</body>
+</html>

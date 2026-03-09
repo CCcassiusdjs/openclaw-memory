@@ -1,0 +1,37 @@
+# Shared Memory System - Cross-Agent Memory
+# Enables subagents to share insights
+
+version: "1.0"
+created: "2026-03-08"
+description: "Shared memory with permission controls"
+
+# Shared insights
+insights: []
+
+# Permissions per agent
+permissions:
+  main:
+    read: ["*"]
+    write: ["*"]
+  coder:
+    read: ["code", "architecture"]
+    write: ["code"]
+  vision:
+    read: ["visual", "design"]
+    write: ["visual"]
+  reasoning:
+    read: ["*"]
+    write: ["analysis"]
+  agentic:
+    read: ["*"]
+    write: ["tasks"]
+  deepseek:
+    read: ["*"]
+    write: ["deep-analysis"]
+
+# Flush rules
+flush_rules:
+  - trigger: "important_insight"
+    action: "broadcast_to_all"
+  - trigger: "error_pattern"
+    action: "broadcast_to_main"

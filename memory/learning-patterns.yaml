@@ -1,0 +1,22 @@
+# Learning Patterns - Auto-Learning System
+# OpenClaw learns from errors and successes
+
+version: "1.0"
+created: "2026-03-08"
+description: "Pattern recognition for autonomous learning"
+
+# Patterns learned from experience
+patterns:
+  # Example patterns (will be populated by experience)
+  
+# Error patterns detected
+errors:
+  # Patterns of errors and their solutions
+  
+# Success patterns
+successes:
+  # Patterns of successful actions
+
+# Heuristics learned
+heuristics:
+  # Rules of thumb derived from experience

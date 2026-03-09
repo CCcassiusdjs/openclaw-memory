@@ -1,0 +1,7326 @@
+{
+  "nodes": [
+    {
+      "id": "1. Pesquisa Documentação",
+      "label": "1. Pesquisa Documentação",
+      "category": "project",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "10.10.20.1",
+      "label": "10.10.20.1",
+      "category": "ip_address",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "10.32.162.22",
+      "label": "10.32.162.22",
+      "category": "ip_address",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "192.168.1.100",
+      "label": "192.168.1.100",
+      "category": "ip_address",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "192.168.1.99",
+      "label": "192.168.1.99",
+      "category": "ip_address",
+      "importance": 6,
+      "occurrences": 6,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "192.168.10.1",
+      "label": "192.168.10.1",
+      "category": "ip_address",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "192.168.2.1",
+      "label": "192.168.2.1",
+      "category": "ip_address",
+      "importance": 7,
+      "occurrences": 7,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 14
+    },
+    {
+      "id": "192.168.2.100",
+      "label": "192.168.2.100",
+      "category": "ip_address",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "192.168.3.1",
+      "label": "192.168.3.1",
+      "category": "ip_address",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "192.168.30.1",
+      "label": "192.168.30.1",
+      "category": "ip_address",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "192.168.40.1",
+      "label": "192.168.40.1",
+      "category": "ip_address",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "192.168.40.2",
+      "label": "192.168.40.2",
+      "category": "ip_address",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "192.168.80.0",
+      "label": "192.168.80.0",
+      "category": "ip_address",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "192.168.80.1",
+      "label": "192.168.80.1",
+      "category": "ip_address",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "2. Conexão SSH",
+      "label": "2. Conexão SSH",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "2026-03-04 - Sessão FortiGate 40F",
+      "label": "2026-03-04 - Sessão FortiGate 40F",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "2026-03-07 - Radiation Test Report & Diagrams",
+      "label": "2026-03-07 - Radiation Test Report & Diagrams",
+      "category": "methodology",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "3. Backup",
+      "label": "3. Backup",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "4. Tentativas de Configuração lan1",
+      "label": "4. Tentativas de Configuração lan1",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ADMIN",
+      "label": "ADMIN",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "AGENTS",
+      "label": "AGENTS",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ALL",
+      "label": "ALL",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "ALLOW",
+      "label": "ALLOW",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ArduCopter",
+      "label": "ArduCopter",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-07.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "ArduCopter EKF",
+      "label": "ArduCopter EKF",
+      "category": "software",
+      "importance": 8,
+      "occurrences": 0,
+      "sources": [],
+      "size": 16
+    },
+    {
+      "id": "ArmedSeen",
+      "label": "ArmedSeen",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Arquitetura Completa",
+      "label": "Arquitetura Completa",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Arquivos Criados",
+      "label": "Arquivos Criados",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Arquivos Gerados",
+      "label": "Arquivos Gerados",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Auditoria Completa:",
+      "label": "Auditoria Completa:",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Auditoria FortiGate 40F Completa",
+      "label": "Auditoria FortiGate 40F Completa",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Ações Executadas",
+      "label": "Ações Executadas",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "BARO",
+      "label": "BARO",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "BLOCKED",
+      "label": "BLOCKED",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "BaroReplayOk",
+      "label": "BaroReplayOk",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Bit Flip",
+      "label": "Bit Flip",
+      "category": "concept",
+      "importance": 7,
+      "occurrences": 0,
+      "sources": [],
+      "size": 14
+    },
+    {
+      "id": "CD",
+      "label": "CD",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CF",
+      "label": "CF",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CLUSTER",
+      "label": "CLUSTER",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CLUSTER-DATA",
+      "label": "CLUSTER-DATA",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CORP",
+      "label": "CORP",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CORP-LAN",
+      "label": "CORP-LAN",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CRIT",
+      "label": "CRIT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "CSV",
+      "label": "CSV",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "Capabilities Enabled",
+      "label": "Capabilities Enabled",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Classificação de Falhas",
+      "label": "Classificação de Falhas",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Communication Preferences",
+      "label": "Communication Preferences",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Configuration",
+      "label": "Configuration",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "Configuração Alvo",
+      "label": "Configuração Alvo",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Configured Jobs",
+      "label": "Configured Jobs",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Console Serial:",
+      "label": "Console Serial:",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Contexto",
+      "label": "Contexto",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Critical Rules",
+      "label": "Critical Rules",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Cássio",
+      "label": "Cássio",
+      "category": "person",
+      "importance": 9,
+      "occurrences": 0,
+      "sources": [],
+      "size": 18
+    },
+    {
+      "id": "DA",
+      "label": "DA",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "DATA",
+      "label": "DATA",
+      "category": "concept",
+      "importance": 7,
+      "occurrences": 7,
+      "sources": [
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 14
+    },
+    {
+      "id": "DD",
+      "label": "DD",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "DEFEITUOSA",
+      "label": "DEFEITUOSA",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "DENY",
+      "label": "DENY",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "DENY-ALL",
+      "label": "DENY-ALL",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "DHCP",
+      "label": "DHCP",
+      "category": "protocol",
+      "importance": 5,
+      "occurrences": 10,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "DHCP Servers",
+      "label": "DHCP Servers",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "DM956",
+      "label": "DM956",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "DOWN",
+      "label": "DOWN",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "DataCom",
+      "label": "DataCom",
+      "category": "hardware",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "DataCom DM956",
+      "label": "DataCom DM956",
+      "category": "hardware",
+      "importance": 6,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "Dataset Orchestrator",
+      "label": "Dataset Orchestrator",
+      "category": "software",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Dead Reckoning",
+      "label": "Dead Reckoning",
+      "category": "concept",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Decisões do Usuário",
+      "label": "Decisões do Usuário",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Diagramas Gerados:",
+      "label": "Diagramas Gerados:",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Diagramas Graphviz",
+      "label": "Diagramas Graphviz",
+      "category": "tool",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "EKF",
+      "label": "EKF",
+      "category": "software",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-07.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "EKF3",
+      "label": "EKF3",
+      "category": "algorithm",
+      "importance": 7,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 14
+    },
+    {
+      "id": "EN",
+      "label": "EN",
+      "category": "concept",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "EXCLUSIVE",
+      "label": "EXCLUSIVE",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "FT232",
+      "label": "FT232",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "FTDI",
+      "label": "FTDI",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "FTS",
+      "label": "FTS",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Ferramentas Instaladas",
+      "label": "Ferramentas Instaladas",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Files Created/Updated",
+      "label": "Files Created/Updated",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Firewall Policy",
+      "label": "Firewall Policy",
+      "category": "security",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Firewall-LSA",
+      "label": "Firewall-LSA",
+      "category": "hostname",
+      "importance": 7,
+      "occurrences": 0,
+      "sources": [],
+      "size": 14
+    },
+    {
+      "id": "Flags Importantes",
+      "label": "Flags Importantes",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Flask",
+      "label": "Flask",
+      "category": "tool",
+      "importance": 5,
+      "occurrences": 0,
+      "sources": [],
+      "size": 10
+    },
+    {
+      "id": "Fluxo de Execução",
+      "label": "Fluxo de Execução",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "FortiGate",
+      "label": "FortiGate",
+      "category": "hardware",
+      "importance": 10,
+      "occurrences": 19,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "FortiGate 40F",
+      "label": "FortiGate 40F",
+      "category": "hardware",
+      "importance": 8,
+      "occurrences": 0,
+      "sources": [],
+      "size": 16
+    },
+    {
+      "id": "FortiGate VLANs Criadas",
+      "label": "FortiGate VLANs Criadas",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "FortiOS",
+      "label": "FortiOS",
+      "category": "software",
+      "importance": 6,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "GE1",
+      "label": "GE1",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "GMT",
+      "label": "GMT",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-01.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "GMT-3",
+      "label": "GMT-3",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-01.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "GNOME",
+      "label": "GNOME",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "GPS",
+      "label": "GPS",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "GUI",
+      "label": "GUI",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "Gateway Status",
+      "label": "Gateway Status",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Gmail",
+      "label": "Gmail",
+      "category": "integration",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Gmail Setup",
+      "label": "Gmail Setup",
+      "category": "integration",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "GpsReplayOk",
+      "label": "GpsReplayOk",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Graphviz",
+      "label": "Graphviz",
+      "category": "tool",
+      "importance": 5,
+      "occurrences": 0,
+      "sources": [],
+      "size": 10
+    },
+    {
+      "id": "HEARTBEAT",
+      "label": "HEARTBEAT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "HP",
+      "label": "HP",
+      "category": "hardware",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "HP V1910-16G",
+      "label": "HP V1910-16G",
+      "category": "hardware",
+      "importance": 7,
+      "occurrences": 0,
+      "sources": [],
+      "size": 14
+    },
+    {
+      "id": "Hard-switch",
+      "label": "Hard-switch",
+      "category": "network",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Hard-switch \"lan\":",
+      "label": "Hard-switch \"lan\":",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Hardware",
+      "label": "Hardware",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "High Priority",
+      "label": "High Priority",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ID",
+      "label": "ID",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "IDENTITY",
+      "label": "IDENTITY",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "IDRAC",
+      "label": "IDRAC",
+      "category": "concept",
+      "importance": 6,
+      "occurrences": 6,
+      "sources": [
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "IDRAC-MGMT",
+      "label": "IDRAC-MGMT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "IMAP",
+      "label": "IMAP",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "IMU",
+      "label": "IMU",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "INFRA",
+      "label": "INFRA",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "INFRA-CRIT",
+      "label": "INFRA-CRIT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "IP",
+      "label": "IP",
+      "category": "network",
+      "importance": 10,
+      "occurrences": 18,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "ISP",
+      "label": "ISP",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "Identity & Configuration",
+      "label": "Identity & Configuration",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Identity & Context",
+      "label": "Identity & Context",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ImuReplayOk",
+      "label": "ImuReplayOk",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Infraestrutura Descoberta",
+      "label": "Infraestrutura Descoberta",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Infraestrutura de Rede (FortiGate 40F)",
+      "label": "Infraestrutura de Rede (FortiGate 40F)",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Infraestrutura de Teste Discutida",
+      "label": "Infraestrutura de Teste Discutida",
+      "category": "methodology",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Initial State",
+      "label": "Initial State",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Integrations Configured",
+      "label": "Integrations Configured",
+      "category": "integration",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Interfaces Configuradas",
+      "label": "Interfaces Configuradas",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Issue to Fix",
+      "label": "Issue to Fix",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "KB",
+      "label": "KB",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "LAN",
+      "label": "LAN",
+      "category": "concept",
+      "importance": 10,
+      "occurrences": 26,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "LOG",
+      "label": "LOG",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "LSA",
+      "label": "LSA",
+      "category": "concept",
+      "importance": 10,
+      "occurrences": 14,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "LSA2",
+      "label": "LSA2",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "LaTeX",
+      "label": "LaTeX",
+      "category": "tool",
+      "importance": 5,
+      "occurrences": 6,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-07.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "Lições Aprendidas",
+      "label": "Lições Aprendidas",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Low Priority",
+      "label": "Low Priority",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MAG",
+      "label": "MAG",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "MB",
+      "label": "MB",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MEMORY",
+      "label": "MEMORY",
+      "category": "concept",
+      "importance": 9,
+      "occurrences": 9,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-01.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 18
+    },
+    {
+      "id": "MEMORY.md - Long-Term Memory",
+      "label": "MEMORY.md - Long-Term Memory",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MGMT",
+      "label": "MGMT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MM",
+      "label": "MM",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MagReplayOk",
+      "label": "MagReplayOk",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Medium Priority",
+      "label": "Medium Priority",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Memory - 2026-03-05",
+      "label": "Memory - 2026-03-05",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Memory System (RESOLVED)",
+      "label": "Memory System (RESOLVED)",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Model Downloaded",
+      "label": "Model Downloaded",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Models Configured",
+      "label": "Models Configured",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Monitoring",
+      "label": "Monitoring",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Mudança para Bridge Mode",
+      "label": "Mudança para Bridge Mode",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "MultiRad",
+      "label": "MultiRad",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "MultiRad Framework",
+      "label": "MultiRad Framework",
+      "category": "software",
+      "importance": 7,
+      "occurrences": 0,
+      "sources": [],
+      "size": 14
+    },
+    {
+      "id": "NAT",
+      "label": "NAT",
+      "category": "protocol",
+      "importance": 5,
+      "occurrences": 3,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "NEVER",
+      "label": "NEVER",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "NUNCA",
+      "label": "NUNCA",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Notes",
+      "label": "Notes",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "OK",
+      "label": "OK",
+      "category": "concept",
+      "importance": 7,
+      "occurrences": 7,
+      "sources": [
+        "memory/2026-03-05.md",
+        "memory/2026-03-07.md"
+      ],
+      "size": 14
+    },
+    {
+      "id": "OS",
+      "label": "OS",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Objetivo do Usuário",
+      "label": "Objetivo do Usuário",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "OpenClaw",
+      "label": "OpenClaw",
+      "category": "identity",
+      "importance": 10,
+      "occurrences": 5,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-01.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "OpenTelemetry",
+      "label": "OpenTelemetry",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Output Vector",
+      "label": "Output Vector",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PDF",
+      "label": "PDF",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PENDING",
+      "label": "PENDING",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PERIPH",
+      "label": "PERIPH",
+      "category": "network",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "PT",
+      "label": "PT",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PUCRS",
+      "label": "PUCRS",
+      "category": "concept",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "PUCRS Email (BLOCKED)",
+      "label": "PUCRS Email (BLOCKED)",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PUCRS Email (Pending)",
+      "label": "PUCRS Email (Pending)",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "PXE",
+      "label": "PXE",
+      "category": "concept",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "Patterns Established",
+      "label": "Patterns Established",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Pendências",
+      "label": "Pendências",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Planned Work",
+      "label": "Planned Work",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Políticas Firewall",
+      "label": "Políticas Firewall",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Políticas de Firewall Ativas:",
+      "label": "Políticas de Firewall Ativas:",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Políticas de Firewall Criadas",
+      "label": "Políticas de Firewall Criadas",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Ponto de Atenção",
+      "label": "Ponto de Atenção",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Problema Identificado",
+      "label": "Problema Identificado",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "Problema Identificado - SSID Duplicado",
+      "label": "Problema Identificado - SSID Duplicado",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "ProcessOk",
+      "label": "ProcessOk",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Próximos Passos",
+      "label": "Próximos Passos",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-05.md",
+        "memory/2026-03-07.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "Próximos Passos - Reconfiguração Completa",
+      "label": "Próximos Passos - Reconfiguração Completa",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "RESOLVED",
+      "label": "RESOLVED",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "Radiation Testing",
+      "label": "Radiation Testing",
+      "category": "project",
+      "importance": 8,
+      "occurrences": 0,
+      "sources": [],
+      "size": 16
+    },
+    {
+      "id": "Radiation Testing Project (2026-03-07)",
+      "label": "Radiation Testing Project (2026-03-07)",
+      "category": "methodology",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Relatório Técnico LaTeX",
+      "label": "Relatório Técnico LaTeX",
+      "category": "tool",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Resultado",
+      "label": "Resultado",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Resumo",
+      "label": "Resumo",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Rota Obsoleta",
+      "label": "Rota Obsoleta",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "RunFailed",
+      "label": "RunFailed",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "SMTP",
+      "label": "SMTP",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "SOUL",
+      "label": "SOUL",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "SSH",
+      "label": "SSH",
+      "category": "protocol",
+      "importance": 6,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "SSID",
+      "label": "SSID",
+      "category": "concept",
+      "importance": 8,
+      "occurrences": 8,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 16
+    },
+    {
+      "id": "STARTTLS",
+      "label": "STARTTLS",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Security Alerts Received",
+      "label": "Security Alerts Received",
+      "category": "security",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Security Audit",
+      "label": "Security Audit",
+      "category": "security",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Security Boundaries",
+      "label": "Security Boundaries",
+      "category": "security",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Security Configuration",
+      "label": "Security Configuration",
+      "category": "security",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Security Warnings (RESOLVED)",
+      "label": "Security Warnings (RESOLVED)",
+      "category": "security",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Sensor Emulation",
+      "label": "Sensor Emulation",
+      "category": "technique",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "Sessão Tarde - DataCom Bridge Mode",
+      "label": "Sessão Tarde - DataCom Bridge Mode",
+      "category": "hardware",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Sessão: Configuração VLAN FortiGate + HP V1910-16G",
+      "label": "Sessão: Configuração VLAN FortiGate + HP V1910-16G",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Status Atual",
+      "label": "Status Atual",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Switch",
+      "label": "Switch",
+      "category": "hardware",
+      "importance": 3,
+      "occurrences": 3,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 6
+    },
+    {
+      "id": "Switch HP V1910-16G",
+      "label": "Switch HP V1910-16G",
+      "category": "hardware",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "System Info",
+      "label": "System Info",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "System Setup",
+      "label": "System Setup",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "System State",
+      "label": "System State",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "TLS",
+      "label": "TLS",
+      "category": "concept",
+      "importance": 2,
+      "occurrences": 2,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 4
+    },
+    {
+      "id": "TOOLS",
+      "label": "TOOLS",
+      "category": "tool",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "TTS",
+      "label": "TTS",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "TTY",
+      "label": "TTY",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Test Results",
+      "label": "Test Results",
+      "category": "methodology",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Testes Realizados",
+      "label": "Testes Realizados",
+      "category": "methodology",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-05.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Tool Usage Patterns",
+      "label": "Tool Usage Patterns",
+      "category": "tool",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Tools Enabled",
+      "label": "Tools Enabled",
+      "category": "tool",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Topologia Atual",
+      "label": "Topologia Atual",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Topologia Física",
+      "label": "Topologia Física",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Topologia Física Real:",
+      "label": "Topologia Física Real:",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Trabalho Principal",
+      "label": "Trabalho Principal",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-07.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Trunk",
+      "label": "Trunk",
+      "category": "network",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "UP",
+      "label": "UP",
+      "category": "concept",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "USER",
+      "label": "USER",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "User Preferences",
+      "label": "User Preferences",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "Usu",
+      "label": "Usu",
+      "category": "concept",
+      "importance": 6,
+      "occurrences": 6,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 12
+    },
+    {
+      "id": "VLAN",
+      "label": "VLAN",
+      "category": "network",
+      "importance": 8,
+      "occurrences": 44,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 16
+    },
+    {
+      "id": "VLAN10",
+      "label": "VLAN10",
+      "category": "network",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "VLAN20",
+      "label": "VLAN20",
+      "category": "network",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "VLAN30",
+      "label": "VLAN30",
+      "category": "network",
+      "importance": 4,
+      "occurrences": 4,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 8
+    },
+    {
+      "id": "VLAN40",
+      "label": "VLAN40",
+      "category": "network",
+      "importance": 5,
+      "occurrences": 5,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 10
+    },
+    {
+      "id": "VLANs",
+      "label": "VLANs",
+      "category": "network",
+      "importance": 9,
+      "occurrences": 9,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 18
+    },
+    {
+      "id": "VLANs (via lan3)",
+      "label": "VLANs (via lan3)",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "VLANs Configuradas",
+      "label": "VLANs Configuradas",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-04.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "VLANs no Switch L2 (lan3):",
+      "label": "VLANs no Switch L2 (lan3):",
+      "category": "network",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "WAN",
+      "label": "WAN",
+      "category": "concept",
+      "importance": 10,
+      "occurrences": 21,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md",
+        "memory/2026-03-05.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "What Worked Well",
+      "label": "What Worked Well",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "What to Improve",
+      "label": "What to Improve",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "WhatsApp",
+      "label": "WhatsApp",
+      "category": "integration",
+      "importance": 7,
+      "occurrences": 9,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 14
+    },
+    {
+      "id": "WhatsApp Delivery (PENDING)",
+      "label": "WhatsApp Delivery (PENDING)",
+      "category": "integration",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "WiFi",
+      "label": "WiFi",
+      "category": "concept",
+      "importance": 10,
+      "occurrences": 10,
+      "sources": [
+        "MEMORY.md",
+        "memory/2026-03-04.md"
+      ],
+      "size": 20
+    },
+    {
+      "id": "YYYY",
+      "label": "YYYY",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "YYYY-MM",
+      "label": "YYYY-MM",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "MEMORY.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "iDRAC",
+      "label": "iDRAC",
+      "category": "hardware",
+      "importance": 6,
+      "occurrences": 0,
+      "sources": [],
+      "size": 12
+    },
+    {
+      "id": "memory/2026-03-01.md - Daily Log",
+      "label": "memory/2026-03-01.md - Daily Log",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "⚠️ Issues & Resolutions",
+      "label": "⚠️ Issues & Resolutions",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🌅 Session Start",
+      "label": "🌅 Session Start",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🎯 Major Accomplishments",
+      "label": "🎯 Major Accomplishments",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🎯 Pending Tasks",
+      "label": "🎯 Pending Tasks",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "💡 Lessons Learned",
+      "label": "💡 Lessons Learned",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📈 System Health",
+      "label": "📈 System Health",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📊 Cron Jobs",
+      "label": "📊 Cron Jobs",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📝 Decisions Made",
+      "label": "📝 Decisions Made",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📝 Random Notes",
+      "label": "📝 Random Notes",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📧 Email Integration Details",
+      "label": "📧 Email Integration Details",
+      "category": "integration",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "📱 WhatsApp Integration",
+      "label": "📱 WhatsApp Integration",
+      "category": "integration",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🔧 Technical Configuration",
+      "label": "🔧 Technical Configuration",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🔮 Tomorrow's Focus",
+      "label": "🔮 Tomorrow's Focus",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    },
+    {
+      "id": "🧠 Memory System",
+      "label": "🧠 Memory System",
+      "category": "concept",
+      "importance": 1,
+      "occurrences": 1,
+      "sources": [
+        "memory/2026-03-01.md"
+      ],
+      "size": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "OpenClaw",
+      "target": "Cássio",
+      "relation": "serves"
+    },
+    {
+      "source": "FortiGate 40F",
+      "target": "Firewall-LSA",
+      "relation": "hostname"
+    },
+    {
+      "source": "FortiGate 40F",
+      "target": "FortiOS",
+      "relation": "runs"
+    },
+    {
+      "source": "FortiGate 40F",
+      "target": "VLAN",
+      "relation": "configures"
+    },
+    {
+      "source": "FortiGate 40F",
+      "target": "HP V1910-16G",
+      "relation": "connects"
+    },
+    {
+      "source": "HP V1910-16G",
+      "target": "VLAN",
+      "relation": "trunk"
+    },
+    {
+      "source": "DataCom DM956",
+      "target": "FortiGate 40F",
+      "relation": "bridge"
+    },
+    {
+      "source": "Radiation Testing",
+      "target": "ArduCopter EKF",
+      "relation": "tests"
+    },
+    {
+      "source": "Radiation Testing",
+      "target": "MultiRad Framework",
+      "relation": "uses"
+    },
+    {
+      "source": "Radiation Testing",
+      "target": "Bit Flip",
+      "relation": "injects"
+    },
+    {
+      "source": "ArduCopter EKF",
+      "target": "EKF3",
+      "relation": "implements"
+    },
+    {
+      "source": "EKF3",
+      "target": "Dead Reckoning",
+      "relation": "uses"
+    },
+    {
+      "source": "MultiRad Framework",
+      "target": "Sensor Emulation",
+      "relation": "performs"
+    },
+    {
+      "source": "LaTeX",
+      "target": "Graphviz",
+      "relation": "generates diagrams"
+    },
+    {
+      "source": "WhatsApp",
+      "target": "Cássio",
+      "relation": "integration"
+    },
+    {
+      "source": "Gmail",
+      "target": "Cássio",
+      "relation": "integration"
+    },
+    {
+      "source": "PUCRS",
+      "target": "Gmail",
+      "relation": "relates"
+    },
+    {
+      "source": "VLAN",
+      "target": "WAN",
+      "relation": "relates"
+    },
+    {
+      "source": "FortiGate",
+      "target": "Switch",
+      "relation": "relates"
+    },
+    {
+      "source": "OK",
+      "target": "Próximos Passos",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ISP",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LSA",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "10.10.20.1",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "Próximos Passos",
+      "target": "OK",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT-3",
+      "target": "GMT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT-3",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT-3",
+      "target": "OpenClaw",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LaTeX",
+      "target": "EKF",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LaTeX",
+      "target": "ArduCopter",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IP",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IP",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.10.1",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "IDRAC",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "IDRAC",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN30",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN30",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WiFi",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WiFi",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.2.1",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.40.1",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DATA",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DATA",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "FortiGate",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiGate",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "PXE",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "PXE",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "LOG",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DENY-ALL",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "EKF",
+      "target": "LaTeX",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "EKF",
+      "target": "ArduCopter",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "WAN",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "WAN",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN10",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN10",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "DHCP",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "DHCP",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.1.99",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT",
+      "target": "GMT-3",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "GMT",
+      "target": "OpenClaw",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN40",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN40",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "VLAN20",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "VLAN20",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "NAT",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "NAT",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ALL",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "FortiOS",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "GMT-3",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "GMT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "OpenClaw",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "MEMORY",
+      "target": "192.168.30.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "OpenClaw",
+      "target": "GMT-3",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "OpenClaw",
+      "target": "GMT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "OpenClaw",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ArduCopter",
+      "target": "LaTeX",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "ArduCopter",
+      "target": "EKF",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "ISP",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "LSA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "10.10.20.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "IP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "192.168.10.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "VLAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "IDRAC",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "VLAN30",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "WiFi",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "192.168.2.1",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "192.168.40.1",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "DATA",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "FortiGate",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "PXE",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "DENY",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "LOG",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "DENY-ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "WAN",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "VLAN10",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "DHCP",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "192.168.1.99",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "VLAN40",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "VLAN20",
+      "relation": "co-occurs",
+      "weight": 3
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "NAT",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "ALL",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "FortiOS",
+      "relation": "co-occurs",
+      "weight": 2
+    },
+    {
+      "source": "192.168.30.1",
+      "target": "MEMORY",
+      "relation": "co-occurs",
+      "weight": 2
+    }
+  ],
+  "categories": [
+    "tool",
+    "hostname",
+    "network",
+    "hardware",
+    "integration",
+    "software",
+    "methodology",
+    "concept",
+    "project",
+    "person",
+    "ip_address",
+    "technique",
+    "protocol",
+    "algorithm",
+    "identity",
+    "security"
+  ],
+  "stats": {
+    "total_concepts": 258,
+    "total_relations": 743,
+    "sources": [
+      "MEMORY.md",
+      "memory/2026-03-01.md",
+      "memory/2026-03-04.md",
+      "memory/2026-03-05.md",
+      "memory/2026-03-07.md"
+    ]
+  }
+}

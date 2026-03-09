@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Concept Graph 3D</title>
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        
+        #graph-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        /* Category legend */
+        #legend {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(20, 20, 30, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            z-index: 100;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        #legend h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        #legend .category {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        
+        #legend .category-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        /* Toolbar */
+        #toolbar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            max-width: 300px;
+        }
+        
+        #toolbar button {
+            padding: 10px 15px;
+            background: rgba(20, 20, 30, 0.9);
+            border: 1px solid #333;
+            color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        
+        #toolbar button:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        #toolbar button.active {
+            background: rgba(102, 126, 234, 0.5);
+            border-color: #667eea;
+        }
+        
+        #search-box {
+            padding: 8px 12px;
+            background: rgba(20, 20, 30, 0.9);
+            border: 1px solid #333;
+            color: #e0e0e0;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        #search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* Node info panel */
+        #node-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(20, 20, 30, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            max-width: 400px;
+            z-index: 100;
+            display: none;
+        }
+        
+        #node-info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        #node-info .meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        #node-info .sources {
+            font-size: 11px;
+            color: #666;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        
+        #node-info .sources li {
+            margin: 2px 0;
+        }
+        
+        /* Stats panel */
+        #stats {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(20, 20, 30, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        #stats h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        #stats p {
+            margin: 3px 0;
+            color: #999;
+        }
+        
+        #stats span {
+            color: #e0e0e0;
+        }
+        
+        /* Loading */
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            z-index: 400;
+        }
+        
+        /* Category colors */
+        .cat-identity { background: #667eea; }
+        .cat-person { background: #f093fb; }
+        .cat-hardware { background: #4facfe; }
+        .cat-network { background: #43e97b; }
+        .cat-software { background: #fa709a; }
+        .cat-project { background: #fee140; }
+        .cat-tool { background: #30cfd0; }
+        .cat-integration { background: #a8edea; }
+        .cat-security { background: #ff6b6b; }
+        .cat-algorithm { background: #c471ed; }
+        .cat-methodology { background: #f77062; }
+        .cat-technique { background: #feada6; }
+        .cat-protocol { background: #a18cd1; }
+        .cat-concept { background: #96c93d; }
+        .cat-hostname { background: #6a11cb; }
+        .cat-ip_address { background: #2575fc; }
+    </style>
+</head>
+<body>
+    <div id="loading">Carregando grafo conceitual...</div>
+    
+    <div id="graph-container"></div>
+    
+    <div id="toolbar">
+        <input type="text" id="search-box" placeholder="Buscar conceito...">
+        <button onclick="resetCamera()">⌖ Reset</button>
+        <button onclick="togglePhysics()">⚡ Física</button>
+        <button onclick="filterByCategory(null)" id="btn-all" class="active">Todos</button>
+    </div>
+    
+    <div id="legend">
+        <h3>Categorias</h3>
+        <div id="categories-list"></div>
+    </div>
+    
+    <div id="node-info">
+        <h3 id="node-title">Conceito</h3>
+        <div class="meta">
+            <p>Categoria: <span id="node-category"></span></p>
+            <p>Importância: <span id="node-importance"></span></p>
+            <p>Ocorrências: <span id="node-occurrences"></span></p>
+        </div>
+        <div class="sources">
+            <p>Fontes:</p>
+            <ul id="node-sources"></ul>
+        </div>
+    </div>
+    
+    <div id="stats">
+        <h4>Estatísticas</h4>
+        <p>Conceitos: <span id="stat-nodes">0</span></p>
+        <p>Relações: <span id="stat-links">0</span></p>
+        <p>Categorias: <span id="stat-categories">0</span></p>
+    </div>
+
+    <script>
+        let Graph;
+        let graphData = { nodes: [], links: [] };
+        let categoryData = {};
+        let physicsEnabled = true;
+        let currentFilter = null;
+        
+        // Category colors
+        const categoryColors = {
+            'identity': '#667eea',
+            'person': '#f093fb',
+            'hardware': '#4facfe',
+            'network': '#43e97b',
+            'software': '#fa709a',
+            'project': '#fee140',
+            'tool': '#30cfd0',
+            'integration': '#a8edea',
+            'security': '#ff6b6b',
+            'algorithm': '#c471ed',
+            'methodology': '#f77062',
+            'technique': '#feada6',
+            'protocol': '#a18cd1',
+            'concept': '#96c93d',
+            'hostname': '#6a11cb',
+            'ip_address': '#2575fc',
+        };
+        
+        // Load concept graph
+        async function loadGraph() {
+            try {
+                const response = await fetch('/api/graph');
+                graphData = await response.json();
+                
+                // Process nodes
+                graphData.nodes.forEach(node => {
+                    node.color = categoryColors[node.category] || '#96c93d';
+                    node.size = node.importance * 2;
+                });
+                
+                // Build category legend
+                buildCategoryLegend();
+                
+                // Update stats
+                document.getElementById('stat-nodes').textContent = graphData.nodes.length;
+                document.getElementById('stat-links').textContent = graphData.links.length;
+                document.getElementById('stat-categories').textContent = 
+                    new Set(graphData.nodes.map(n => n.category)).size;
+                
+                renderGraph();
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                console.error('Erro ao carregar grafo:', error);
+                document.getElementById('loading').textContent = 'Erro ao carregar grafo';
+            }
+        }
+        
+        // Build category legend
+        function buildCategoryLegend() {
+            const categories = {};
+            graphData.nodes.forEach(node => {
+                if (!categories[node.category]) {
+                    categories[node.category] = 0;
+                }
+                categories[node.category]++;
+            });
+            
+            const list = document.getElementById('categories-list');
+            list.innerHTML = '';
+            
+            Object.entries(categories)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([cat, count]) => {
+                    const div = document.createElement('div');
+                    div.className = 'category';
+                    div.innerHTML = `
+                        <div class="category-color" style="background: ${categoryColors[cat] || '#96c93d'}"></div>
+                        <span>${cat} (${count})</span>
+                    `;
+                    div.onclick = () => filterByCategory(cat);
+                    div.style.cursor = 'pointer';
+                    list.appendChild(div);
+                });
+        }
+        
+        // Render 3D graph
+        function renderGraph() {
+            const container = document.getElementById('graph-container');
+            
+            // Filter nodes if needed
+            let nodes = graphData.nodes;
+            let links = graphData.links;
+            
+            if (currentFilter) {
+                nodes = graphData.nodes.filter(n => n.category === currentFilter);
+                const nodeIds = new Set(nodes.map(n => n.id));
+                links = graphData.links.filter(l => 
+                    nodeIds.has(l.source) || nodeIds.has(l.target) ||
+                    nodeIds.has(l.source?.id) || nodeIds.has(l.target?.id)
+                );
+            }
+            
+            Graph = ForceGraph3D()(container)
+                .graphData({ nodes, links })
+                .nodeId('id')
+                .nodeLabel(node => `${node.label}\n[${node.category}]`)
+                .nodeColor('color')
+                .nodeVal('size')
+                .nodeOpacity(0.9)
+                .linkOpacity(0.3)
+                .linkColor(link => {
+                    if (link.relation === 'serves') return '#667eea';
+                    if (link.relation === 'connects') return '#43e97b';
+                    if (link.relation === 'uses') return '#fa709a';
+                    if (link.relation === 'configures') return '#fee140';
+                    if (link.relation === 'tests') return '#f77062';
+                    if (link.relation === 'co-occurs') return '#666';
+                    return '#999';
+                })
+                .linkWidth(link => link.weight || 1)
+                .linkDirectionalParticles(2)
+                .linkDirectionalParticleSpeed(0.003)
+                .backgroundColor('#0a0a0a')
+                .enableNodeDrag(true)
+                .enableNavigation(true)
+                .showNavInfo(false)
+                .onNodeClick(node => {
+                    showNodeInfo(node);
+                })
+                .onNodeHover(node => {
+                    container.style.cursor = node ? 'pointer' : 'default';
+                });
+            
+            if (physicsEnabled) {
+                Graph.d3AlphaDecay(0.02)
+                    .d3VelocityDecay(0.3);
+            }
+        }
+        
+        // Show node info
+        function showNodeInfo(node) {
+            document.getElementById('node-info').style.display = 'block';
+            document.getElementById('node-title').textContent = node.label;
+            document.getElementById('node-category').textContent = node.category;
+            document.getElementById('node-importance').textContent = node.importance;
+            document.getElementById('node-occurrences').textContent = node.occurrences;
+            
+            const sourcesList = document.getElementById('node-sources');
+            sourcesList.innerHTML = '';
+            (node.sources || []).forEach(src => {
+                const li = document.createElement('li');
+                li.textContent = src;
+                sourcesList.appendChild(li);
+            });
+        }
+        
+        // Filter by category
+        function filterByCategory(category) {
+            currentFilter = category;
+            
+            // Update button states
+            document.querySelectorAll('#toolbar button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (category) {
+                renderGraph();
+            } else {
+                renderGraph();
+                document.getElementById('btn-all').classList.add('active');
+            }
+        }
+        
+        // Search
+        document.getElementById('search-box').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            if (!query) {
+                filterByCategory(null);
+                return;
+            }
+            
+            // Highlight matching nodes
+            Graph.nodeColor(Graph.nodeColor().map((c, i) => {
+                const node = graphData.nodes[i];
+                return node.label.toLowerCase().includes(query) ? '#ff0' : node.color;
+            }));
+        });
+        
+        // Reset camera
+        function resetCamera() {
+            if (Graph) {
+                Graph.cameraPosition({ x: 0, y: 0, z: 500 }, { x: 0, y: 0, z: 0 }, 1000);
+            }
+        }
+        
+        // Toggle physics
+        function togglePhysics() {
+            physicsEnabled = !physicsEnabled;
+            if (Graph) {
+                if (physicsEnabled) {
+                    Graph.d3AlphaDecay(0.02).d3VelocityDecay(0.3);
+                } else {
+                    Graph.d3AlphaDecay(1).d3VelocityDecay(1);
+                }
+            }
+        }
+        
+        // Close node info on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#node-info') && !e.target.closest('#graph-container canvas')) {
+                document.getElementById('node-info').style.display = 'none';
+            }
+        });
+        
+        // Start
+        loadGraph();
+    </script>
+</body>
+</html>

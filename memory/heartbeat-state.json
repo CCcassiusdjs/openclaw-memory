@@ -1,9 +1,20 @@
 {
   "lastChecks": {
-    "email": 1741410160,
+    "email": null,
     "calendar": null,
-    "weather": 1741363920
+    "weather": null,
+    "pattern_analysis": null,
+    "tension_detection": null,
+    "concept_synthesis": null
   },
-  "lastHeartbeat": 1741410160,
-  "checksToday": 29
+  "lastHeartbeat": null,
+  "checksToday": 0,
+  "patternsLearned": 0,
+  "tensionsFound": 0,
+  "synthesesCreated": 0,
+  "learning": {
+    "patterns": [],
+    "heuristics": [],
+    "syntheses": []
+  }
 }

@@ -1,0 +1,95 @@
+# Lobster Workflow: Autonomous Learning Pipeline
+# Pattern recognition and self-improvement
+
+name: autonomous-learning-pipeline
+description: |
+  Continuously learns from user interactions, errors, and successes
+  to improve future predictions and actions.
+
+version: "1.0"
+created: "2026-03-08"
+
+triggers:
+  - type: heartbeat
+    interval: "1h"
+    description: "Run every hour as part of heartbeat"
+  - type: error
+    description: "Run after any error occurs"
+  - type: manual
+    description: "Manual trigger via /learn command"
+
+steps:
+  # Phase 1: Collect Data
+  - id: collect
+    agent: main
+    task: |
+      Collect learning data from:
+      1. Recent session history (errors, corrections)
+      2. User feedback patterns
+      3. Successful actions
+      4. Failed actions
+      5. Time-based patterns
+      
+      Output: Aggregated data for analysis
+    timeout: 60000
+
+  # Phase 2: Pattern Recognition
+  - id: recognize_patterns
+    agent: reasoning
+    depends_on: [collect]
+    task: |
+      Analyze collected data for patterns:
+      1. Error patterns (what went wrong, when, why)
+      2. Success patterns (what worked, context)
+      3. User preference patterns (accepted/rejected suggestions)
+      4. Timing patterns (when user is active, response times)
+      5. Cross-correlations (errors that lead to successes)
+      
+      Output: List of detected patterns with confidence scores
+    timeout: 120000
+
+  # Phase 3: Generate Heuristics
+  - id: generate_heuristics
+    agent: deepseek
+    depends_on: [recognize_patterns]
+    task: |
+      Convert patterns into actionable heuristics:
+      1. IF error_type X THEN try_solution Y
+      2. IF user_pattern A THEN prefer_action B
+      3. IF time_context C THEN delay_action D
+      
+      Output: YAML-formatted heuristics with confidence
+    timeout: 120000
+
+  # Phase 4: Validate
+  - id: validate
+    agent: main
+    depends_on: [generate_heuristics]
+    task: |
+      Validate heuristics against historical data:
+      1. Would this have helped?
+      2. Would this have caused problems?
+      3. Is this redundant with existing rules?
+      
+      Output: Validated heuristics ready for storage
+    timeout: 60000
+
+  # Phase 5: Update Memory
+  - id: update_memory
+    agent: main
+    depends_on: [validate]
+    task: |
+      Update learning files:
+      1. Append new patterns to learning-patterns.yaml
+      2. Update heuristics in intuition.yaml
+      3. Record cross-session insights in shared-memory.yaml
+      
+      Then commit changes to workspace
+    timeout: 30000
+
+# Learning metrics
+metrics:
+  - patterns_discovered
+  - heuristics_generated
+  - accuracy_improvement
+  - false_positive_rate

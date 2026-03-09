@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLUXO - Memória Temporal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000810;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+        
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Overlay UI */
+        #ui {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: auto;
+        }
+        
+        #controls button {
+            padding: 10px 15px;
+            background: rgba(10, 20, 40, 0.9);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        #controls button:hover {
+            background: rgba(100, 150, 255, 0.2);
+            border-color: rgba(100, 150, 255, 0.8);
+        }
+        
+        #search {
+            padding: 10px 15px;
+            background: rgba(10, 20, 40, 0.9);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            color: #e0e0e0;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        #search:focus {
+            outline: none;
+            border-color: rgba(100, 150, 255, 0.8);
+        }
+        
+        /* Depth legend */
+        #depths {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            pointer-events: auto;
+        }
+        
+        .depth-layer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 10px;
+            background: rgba(10, 20, 40, 0.9);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.3s;
+        }
+        
+        .depth-layer:hover {
+            background: rgba(100, 150, 255, 0.2);
+        }
+        
+        .depth-bar {
+            width: 30px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .depth-surface { background: linear-gradient(90deg, #4facfe, #00f2fe); }
+        .depth-working { background: linear-gradient(90deg, #43e97b, #38f9d7); }
+        .depth-episodic { background: linear-gradient(90deg, #fa709a, #fee140); }
+        .depth-semantic { background: linear-gradient(90deg, #f093fb, #f5576c); }
+        .depth-sediment { background: linear-gradient(90deg, #667eea, #764ba2); }
+        
+        /* Info panel */
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 20, 40, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            max-width: 300px;
+            pointer-events: auto;
+            display: none;
+        }
+        
+        #info h3 {
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+        
+        #info .meta {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        #info .content {
+            font-size: 12px;
+            line-height: 1.5;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        
+        /* Stats */
+        #stats {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(10, 20, 40, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            font-size: 11px;
+            pointer-events: auto;
+        }
+        
+        #stats h4 {
+            color: #4facfe;
+            margin-bottom: 8px;
+        }
+        
+        /* Timeline */
+        #timeline {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            pointer-events: auto;
+        }
+        
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(100, 150, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .timeline-dot:hover {
+            background: rgba(100, 150, 255, 0.8);
+            transform: scale(1.3);
+        }
+        
+        .timeline-dot.active {
+            background: #4facfe;
+            box-shadow: 0 0 10px #4facfe;
+        }
+        
+        /* Current indicator */
+        #current {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 20, 40, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            font-size: 12px;
+            pointer-events: auto;
+        }
+        
+        #current .label {
+            color: #888;
+            margin-right: 10px;
+        }
+        
+        #current .stream-name {
+            color: #4facfe;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <div id="ui">
+        <div id="controls">
+            <input type="text" id="search" placeholder="Buscar no fluxo...">
+            <button onclick="recall()">↺ Recall</button>
+            <button onclick="imagine()">✧ Imagine</button>
+            <button onclick="predict()">→ Predict</button>
+            <button onclick="flow()">↻ Flow</button>
+            <button onclick="settle()">⏣ Settle</button>
+        </div>
+        
+        <div id="depths">
+            <div class="depth-layer" onclick="setDepth(0)">
+                <div class="depth-bar depth-surface"></div>
+                <span>Surface (seconds)</span>
+            </div>
+            <div class="depth-layer" onclick="setDepth(0.3)">
+                <div class="depth-bar depth-working"></div>
+                <span>Working (minutes)</span>
+            </div>
+            <div class="depth-layer" onclick="setDepth(0.5)">
+                <div class="depth-bar depth-episodic"></div>
+                <span>Episodic (days)</span>
+            </div>
+            <div class="depth-layer" onclick="setDepth(0.7)">
+                <div class="depth-bar depth-semantic"></div>
+                <span>Semantic (years)</span>
+            </div>
+            <div class="depth-layer" onclick="setDepth(1.0)">
+                <div class="depth-bar depth-sediment"></div>
+                <span>Sediment (permanent)</span>
+            </div>
+        </div>
+        
+        <div id="current">
+            <span class="label">Current:</span>
+            <span class="stream-name" id="current-stream">-</span>
+        </div>
+        
+        <div id="info">
+            <h3 id="info-title">Stream</h3>
+            <div class="meta">
+                <span id="info-category"></span> | 
+                Depth: <span id="info-depth"></span> | 
+                Flow: <span id="info-flow"></span>
+            </div>
+            <div class="content" id="info-content"></div>
+        </div>
+        
+        <div id="stats">
+            <h4>FLUXO</h4>
+            <p>Streams: <span id="stat-streams">0</span></p>
+            <p>Confluences: <span id="stat-confluences">0</span></p>
+            <p>Eddies: <span id="stat-eddies">0</span></p>
+        </div>
+        
+        <div id="timeline"></div>
+    </div>
+
+    <script>
+        // Canvas setup
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        
+        resize();
+        window.addEventListener('resize', resize);
+        
+        // FLUXO data
+        let fluxoData = {
+            particles: [],
+            currents: [],
+            eddies: [],
+            current: { stream_id: '', history: [] },
+            depths: []
+        };
+        
+        // Particle simulation
+        let particles = [];
+        let targetDepth = 0.5;
+        
+        // Stream colors by category
+        const categoryColors = {
+            'network': '#43e97b',
+            'hardware': '#4facfe',
+            'software': '#fa709a',
+            'project': '#fee140',
+            'person': '#f093fb',
+            'concept': '#96c93d',
+            'title': '#667eea',
+            'ip_address': '#00f2fe',
+        };
+        
+        // Initialize particles from FLUXO data
+        function initParticles() {
+            particles = fluxoData.particles.map(p => ({
+                id: p.id,
+                pattern: p.pattern,
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                depth: p.depth,
+                flow: p.flow,
+                turbulence: p.turbulence,
+                category: p.category,
+                size: p.size,
+                opacity: p.opacity,
+                color: categoryColors[p.category] || '#4facfe',
+                targetDepth: p.depth
+            }));
+            
+            updateStats();
+        }
+        
+        // Update stats
+        function updateStats() {
+            document.getElementById('stat-streams').textContent = particles.length;
+            document.getElementById('stat-confluences').textContent = fluxoData.currents.length;
+            document.getElementById('stat-eddies').textContent = fluxoData.eddies.length;
+        }
+        
+        // Physics simulation
+        function update() {
+            for (let p of particles) {
+                // Flow (movement)
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Depth attraction
+                const depthDiff = targetDepth - p.depth;
+                p.depth += depthDiff * 0.01;
+                
+                // Turbulence (random movement)
+                p.vx += (Math.random() - 0.5) * p.turbulence * 0.1;
+                p.vy += (Math.random() - 0.5) * p.turbulence * 0.1;
+                
+                // Damping
+                p.vx *= 0.99;
+                p.vy *= 0.99;
+                
+                // Boundaries
+                if (p.x < 0) { p.x = 0; p.vx *= -0.5; }
+                if (p.x > width) { p.x = width; p.vx *= -0.5; }
+                if (p.y < 0) { p.y = 0; p.vy *= -0.5; }
+                if (p.y > height) { p.y = height; p.vy *= -0.5; }
+                
+                // Confluence attraction (flow toward related streams)
+                for (let c of fluxoData.currents) {
+                    if (c.source === p.id && c.strength > 0.3) {
+                        const target = particles.find(t => t.id === c.target);
+                        if (target) {
+                            const dx = target.x - p.x;
+                            const dy = target.y - p.y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist > 50 && dist < 500) {
+                                p.vx += (dx / dist) * c.strength * 0.01;
+                                p.vy += (dy / dist) * c.strength * 0.01;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Draw
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 8, 16, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw currents (connections)
+            ctx.globalAlpha = 0.3;
+            for (let c of fluxoData.currents) {
+                if (c.strength < 0.2) continue;
+                
+                const source = particles.find(p => p.id === c.source);
+                const target = particles.find(p => p.id === c.target);
+                
+                if (!source || !target) continue;
+                
+                // Flow direction
+                const dx = target.x - source.x;
+                const dy = target.y - source.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist > 500) continue;
+                
+                ctx.beginPath();
+                ctx.moveTo(source.x, source.y);
+                ctx.lineTo(target.x, target.y);
+                ctx.strokeStyle = source.color;
+                ctx.lineWidth = c.strength * 2;
+                ctx.stroke();
+                
+                // Particles along the current
+                const time = Date.now() * 0.001;
+                const progress = (time * c.flow) % 1;
+                const px = source.x + dx * progress;
+                const py = source.y + dy * progress;
+                
+                ctx.beginPath();
+                ctx.arc(px, py, 2, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+            }
+            
+            // Draw eddies (swirls)
+            ctx.globalAlpha = 0.2;
+            for (let e of fluxoData.eddies) {
+                const involved = particles.filter(p => e.streams.includes(p.id));
+                if (involved.length < 2) continue;
+                
+                const cx = involved.reduce((s, p) => s + p.x, 0) / involved.length;
+                const cy = involved.reduce((s, p) => s + p.y, 0) / involved.length;
+                
+                const time = Date.now() * 0.001;
+                const radius = 30 + e.intensity * 20;
+                
+                ctx.beginPath();
+                for (let i = 0; i < 360; i += 30) {
+                    const angle = (i + time * 60 * e.cycle_rate) * Math.PI / 180;
+                    const r = radius + Math.sin(time * 2 + i * 0.1) * 10;
+                    const x = cx + Math.cos(angle) * r;
+                    const y = cy + Math.sin(angle) * r;
+                    
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+                ctx.strokeStyle = '#4facfe';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+            
+            // Draw particles
+            ctx.globalAlpha = 1;
+            for (let p of particles) {
+                // Size based on flow and depth
+                const size = p.size * (0.5 + p.flow * 0.5);
+                const opacity = p.opacity * (0.3 + (1 - Math.abs(targetDepth - p.depth)) * 0.7);
+                
+                // Glow
+                const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size * 3);
+                gradient.addColorStop(0, p.color);
+                gradient.addColorStop(0.5, p.color + '40');
+                gradient.addColorStop(1, 'transparent');
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, size * 3, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.globalAlpha = opacity * 0.3;
+                ctx.fill();
+                
+                // Core
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = opacity;
+                ctx.fill();
+            }
+            
+            // Draw current (bright particle)
+            if (fluxoData.current.stream_id) {
+                const current = particles.find(p => p.id === fluxoData.current.stream_id);
+                if (current) {
+                    const time = Date.now() * 0.001;
+                    const pulse = 1 + Math.sin(time * 3) * 0.2;
+                    
+                    ctx.beginPath();
+                    ctx.arc(current.x, current.y, current.size * 2 * pulse, 0, Math.PI * 2);
+                    ctx.fillStyle = '#fff';
+                    ctx.globalAlpha = 0.8;
+                    ctx.fill();
+                    
+                    document.getElementById('current-stream').textContent = current.pattern;
+                }
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            update();
+            draw();
+            requestAnimationFrame(animate);
+        }
+        
+        // Load FLUXO data
+        async function loadFluxo() {
+            try {
+                const response = await fetch('/api/fluxo');
+                fluxoData = await response.json();
+                initParticles();
+            } catch (error) {
+                console.error('Erro ao carregar FLUXO:', error);
+                // Demo data
+                fluxoData = {
+                    particles: [
+                        { id: 'openclaw', pattern: 'OpenClaw', depth: 0.7, flow: 1, turbulence: 0.2, category: 'identity', size: 15, opacity: 1 },
+                        { id: 'cassio', pattern: 'Cássio', depth: 0.8, flow: 0.9, turbulence: 0.1, category: 'person', size: 12, opacity: 0.9 },
+                        { id: 'fortigate', pattern: 'FortiGate 40F', depth: 0.6, flow: 0.7, turbulence: 0.3, category: 'hardware', size: 10, opacity: 0.8 },
+                        { id: 'vlan', pattern: 'VLAN', depth: 0.5, flow: 0.8, turbulence: 0.2, category: 'network', size: 8, opacity: 0.7 },
+                        { id: 'radiation', pattern: 'Radiation Testing', depth: 0.4, flow: 0.6, turbulence: 0.4, category: 'project', size: 9, opacity: 0.6 },
+                    ],
+                    currents: [
+                        { source: 'openclaw', target: 'cassio', strength: 0.8, flow: 0.9 },
+                        { source: 'fortigate', target: 'vlan', strength: 0.7, flow: 0.7 },
+                        { source: 'cassio', target: 'fortigate', strength: 0.6, flow: 0.6 },
+                    ],
+                    eddies: [
+                        { streams: ['fortigate', 'vlan', 'cassio'], intensity: 0.5, cycle_rate: 0.1 }
+                    ],
+                    current: { stream_id: 'openclaw', history: ['openclaw'] },
+                    depths: []
+                };
+                initParticles();
+            }
+        }
+        
+        // Operations
+        async function recall() {
+            const query = document.getElementById('search').value || 'OpenClaw';
+            try {
+                const response = await fetch('/api/fluxo/recall', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query, n: 5 })
+                });
+                const result = await response.json();
+                console.log('Recall:', result);
+            } catch (error) {
+                console.error('Erro no recall:', error);
+            }
+        }
+        
+        async function imagine() {
+            const seed = document.getElementById('search').value || 'VLAN';
+            try {
+                const response = await fetch('/api/fluxo/imagine', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ seed, n: 3 })
+                });
+                const result = await response.json();
+                console.log('Imagine:', result);
+            } catch (error) {
+                console.error('Erro no imagine:', error);
+            }
+        }
+        
+        async function predict() {
+            const context = document.getElementById('search').value || 'rede';
+            try {
+                const response = await fetch('/api/fluxo/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ context })
+                });
+                const result = await response.json();
+                console.log('Predict:', result);
+            } catch (error) {
+                console.error('Erro no predict:', error);
+            }
+        }
+        
+        function flow() {
+            // Animate current flowing to another stream
+            if (particles.length === 0) return;
+            const randomStream = particles[Math.floor(Math.random() * particles.length)];
+            fluxoData.current.stream_id = randomStream.id;
+        }
+        
+        function settle() {
+            // Gradually reduce turbulence
+            for (let p of particles) {
+                p.turbulence *= 0.5;
+                p.flow *= 0.8;
+            }
+        }
+        
+        function setDepth(depth) {
+            targetDepth = depth;
+        }
+        
+        // Click on particle
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Find nearest particle
+            let nearest = null;
+            let nearestDist = Infinity;
+            
+            for (let p of particles) {
+                const dx = p.x - x;
+                const dy = p.y - y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < nearestDist && dist < 50) {
+                    nearest = p;
+                    nearestDist = dist;
+                }
+            }
+            
+            if (nearest) {
+                showInfo(nearest);
+                fluxoData.current.stream_id = nearest.id;
+            }
+        });
+        
+        function showInfo(particle) {
+            const info = document.getElementById('info');
+            info.style.display = 'block';
+            
+            document.getElementById('info-title').textContent = particle.pattern;
+            document.getElementById('info-category').textContent = particle.category;
+            document.getElementById('info-depth').textContent = particle.depth.toFixed(2);
+            document.getElementById('info-flow').textContent = particle.flow.toFixed(2);
+        }
+        
+        // Start
+        loadFluxo();
+        animate();
+    </script>
+</body>
+</html>

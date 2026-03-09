@@ -1,0 +1,7078 @@
+{
+  "streams": {
+    "memory_md___long_term_memory": {
+      "id": "memory_md___long_term_memory",
+      "pattern": "MEMORY.md - Long-Term Memory",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869088",
+      "last_flow": "2026-03-08T00:44:17.869097",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869105",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "MEMORY.md - Long-Term Memory",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "MEMORY.md - Long-Term Memory"
+    },
+    "identity___context": {
+      "id": "identity___context",
+      "pattern": "Identity & Context",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869114",
+      "last_flow": "2026-03-08T00:44:17.869116",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869120",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Identity & Context",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Identity & Context"
+    },
+    "user_preferences": {
+      "id": "user_preferences",
+      "pattern": "User Preferences",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869125",
+      "last_flow": "2026-03-08T00:44:17.869127",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869131",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "User Preferences",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "User Preferences"
+    },
+    "system_state": {
+      "id": "system_state",
+      "pattern": "System State",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869135",
+      "last_flow": "2026-03-08T00:44:17.869137",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869140",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "System State",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "System State"
+    },
+    "infraestrutura_de_rede__fortigate_40f_": {
+      "id": "infraestrutura_de_rede__fortigate_40f_",
+      "pattern": "Infraestrutura de Rede (FortiGate 40F)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869150",
+      "last_flow": "2026-03-08T00:44:17.869151",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869156",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Infraestrutura de Rede (FortiGate 40F)",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Infraestrutura de Rede (FortiGate 40F)"
+    },
+    "topologia_f_sica_real_": {
+      "id": "topologia_f_sica_real_",
+      "pattern": "Topologia Física Real:",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869162",
+      "last_flow": "2026-03-08T00:44:17.869164",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869167",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Topologia Física Real:",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Topologia Física Real:"
+    },
+    "vlans_no_switch_l2__lan3__": {
+      "id": "vlans_no_switch_l2__lan3__",
+      "pattern": "VLANs no Switch L2 (lan3):",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869172",
+      "last_flow": "2026-03-08T00:44:17.869173",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869176",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "VLANs no Switch L2 (lan3):",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "VLANs no Switch L2 (lan3):"
+    },
+    "hard_switch__lan__": {
+      "id": "hard_switch__lan__",
+      "pattern": "Hard-switch \"lan\":",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869181",
+      "last_flow": "2026-03-08T00:44:17.869182",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869185",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Hard-switch \"lan\":",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Hard-switch \"lan\":"
+    },
+    "pol_ticas_de_firewall_ativas_": {
+      "id": "pol_ticas_de_firewall_ativas_",
+      "pattern": "Políticas de Firewall Ativas:",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869190",
+      "last_flow": "2026-03-08T00:44:17.869192",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869194",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Políticas de Firewall Ativas:",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Políticas de Firewall Ativas:"
+    },
+    "console_serial_": {
+      "id": "console_serial_",
+      "pattern": "Console Serial:",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869198",
+      "last_flow": "2026-03-08T00:44:17.869200",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869203",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Console Serial:",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Console Serial:"
+    },
+    "auditoria_completa_": {
+      "id": "auditoria_completa_",
+      "pattern": "Auditoria Completa:",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869207",
+      "last_flow": "2026-03-08T00:44:17.869208",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869211",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Auditoria Completa:",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Auditoria Completa:"
+    },
+    "critical_rules": {
+      "id": "critical_rules",
+      "pattern": "Critical Rules",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869215",
+      "last_flow": "2026-03-08T00:44:17.869216",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869220",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Critical Rules",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Critical Rules"
+    },
+    "radiation_testing_project__2026_03_07_": {
+      "id": "radiation_testing_project__2026_03_07_",
+      "pattern": "Radiation Testing Project (2026-03-07)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869225",
+      "last_flow": "2026-03-08T00:44:17.869226",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869229",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Radiation Testing Project (2026-03-07)",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Radiation Testing Project (2026-03-07)"
+    },
+    "notes": {
+      "id": "notes",
+      "pattern": "Notes",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.869233",
+      "last_flow": "2026-03-08T00:44:17.869235",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869237",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "MEMORY.md",
+            "content": "Notes",
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Notes"
+    },
+    "vlan": {
+      "id": "vlan",
+      "pattern": "VLAN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.869602",
+      "last_flow": "2026-03-08T00:44:17.890265",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869610",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "WAN",
+              "DEFEITUOSA",
+              "VLAN10",
+              "ISP",
+              "DHCP"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.884507",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "ISP",
+              "DHCP",
+              "WAN",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890267",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "FortiGate",
+              "GE1"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "log": 0.4,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "pxe": 0.2,
+        "nat": 0.2,
+        "vlan10": 0.2,
+        "wifi": 0.4,
+        "deny_all": 0.4,
+        "deny": 0.4,
+        "ftdi": 0.2,
+        "all": 0.4,
+        "ft232": 0.2,
+        "isp": 0.2,
+        "dhcp": 0.4,
+        "wan": 0.2,
+        "idrac_mgmt": 0.2,
+        "corp_lan": 0.2,
+        "down": 0.2,
+        "allow": 0.2,
+        "infra_crit": 0.2,
+        "infra": 0.2,
+        "cluster_data": 0.2,
+        "mgmt": 0.2,
+        "crit": 0.2,
+        "cluster": 0.2,
+        "corp": 0.2,
+        "periph": 0.2,
+        "fortigate": 0.4,
+        "exclusive": 0.2,
+        "idrac": 0.2,
+        "ge1": 0.2,
+        "data": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "openclaw": {
+      "id": "openclaw",
+      "pattern": "OpenClaw",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.869645",
+      "last_flow": "2026-03-08T00:44:17.882695",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869650",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "GMT",
+              "MEMORY"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.882697",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "GMT"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "gmt_3": 0.4,
+        "memory": 0.2,
+        "gmt": 0.6000000000000001,
+        "pucrs": 0.2,
+        "starttls": 0.2,
+        "gnome": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gmt_3": {
+      "id": "gmt_3",
+      "pattern": "GMT-3",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.869680",
+      "last_flow": "2026-03-08T00:44:17.882724",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869685",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "OpenClaw",
+              "GMT",
+              "MEMORY"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.882726",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "OpenClaw",
+              "GMT"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "openclaw": 0.4,
+        "gmt": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "log": {
+      "id": "log",
+      "pattern": "LOG",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.869718",
+      "last_flow": "2026-03-08T00:44:17.884683",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869723",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "FT232",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.884685",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "INFRA",
+              "NAT"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.4,
+        "nat": 0.4,
+        "wan": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "vlan30": {
+      "id": "vlan30",
+      "pattern": "VLAN30",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.869755",
+      "last_flow": "2026-03-08T00:44:17.890625",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.869759",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "PXE",
+              "VLAN10",
+              "VLAN20",
+              "VLAN40"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.884722",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "FortiGate",
+              "PXE",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890627",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "WAN",
+              "ADMIN",
+              "EXCLUSIVE",
+              "IDRAC"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "vlan20": 0.2,
+        "pxe": 0.4,
+        "vlan10": 0.2,
+        "vlan40": 0.4,
+        "fortigate": 0.2,
+        "wifi": 0.2,
+        "wan": 0.4,
+        "periph": 0.2,
+        "admin": 0.2,
+        "exclusive": 0.2,
+        "idrac": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "vlan20": {
+      "id": "vlan20",
+      "pattern": "VLAN20",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.873793",
+      "last_flow": "2026-03-08T00:44:17.890663",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873801",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "PXE",
+              "VLAN10",
+              "VLAN30",
+              "VLAN40"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.884801",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "PXE",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890664",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "WAN",
+              "ADMIN",
+              "EXCLUSIVE",
+              "IDRAC"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "vlan30": 0.2,
+        "pxe": 0.4,
+        "vlan10": 0.2,
+        "vlan40": 0.2,
+        "wifi": 0.2,
+        "periph": 0.2,
+        "wan": 0.2,
+        "admin": 0.2,
+        "exclusive": 0.2,
+        "idrac": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "yyyy_mm": {
+      "id": "yyyy_mm",
+      "pattern": "YYYY-MM",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.873834",
+      "last_flow": "2026-03-08T00:44:17.873836",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873839",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "LaTeX",
+              "FortiGate",
+              "YYYY"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "concept",
+      "content": ""
+    },
+    "latex": {
+      "id": "latex",
+      "pattern": "LaTeX",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.873867",
+      "last_flow": "2026-03-08T00:44:17.891358",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873872",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "ArduCopter",
+              "EKF"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.891360",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "ArduCopter",
+              "EKF"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "yyyy": 0.2,
+        "ekf": 0.6000000000000001,
+        "arducopter": 0.6000000000000001,
+        "csv": 0.2,
+        "armedseen": 0.2,
+        "pdf": 0.2,
+        "magreplayok": 0.2,
+        "gpsreplayok": 0.2,
+        "runfailed": 0.2,
+        "imureplayok": 0.2,
+        "processok": 0.2,
+        "baroreplayok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "defeituosa": {
+      "id": "defeituosa",
+      "pattern": "DEFEITUOSA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.873900",
+      "last_flow": "2026-03-08T00:44:17.873902",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873906",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "WAN",
+              "FortiOS",
+              "ISP",
+              "DHCP"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {
+        "fortios": 0.2,
+        "isp": 0.2,
+        "dhcp": 0.2,
+        "wan": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "lsa": {
+      "id": "lsa",
+      "pattern": "LSA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.873936",
+      "last_flow": "2026-03-08T00:44:17.884876",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873940",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "FortiGate",
+              "FortiOS"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.884878",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "FortiGate",
+              "FortiOS",
+              "ISP",
+              "DHCP"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "fortios": 0.6000000000000001,
+        "fortigate": 0.4,
+        "wan": 0.4,
+        "isp": 0.4,
+        "dhcp": 0.4
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "fortios": {
+      "id": "fortios",
+      "pattern": "FortiOS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.873969",
+      "last_flow": "2026-03-08T00:44:17.885000",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.873973",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "MEMORY.md",
+            "related": [
+              "WAN",
+              "DEFEITUOSA",
+              "FortiGate",
+              "LSA",
+              "ISP"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885002",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "FortiGate",
+              "LSA"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "defeituosa": 0.2,
+        "lsa": 0.6000000000000001,
+        "isp": 0.2,
+        "wan": 0.6000000000000001,
+        "fortigate": 0.4
+      },
+      "category": "hardware",
+      "content": ""
+    },
+    "pxe": {
+      "id": "pxe",
+      "pattern": "PXE",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874005",
+      "last_flow": "2026-03-08T00:44:17.885035",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874009",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "VLAN10",
+              "VLAN30",
+              "VLAN20",
+              "VLAN40"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885037",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WiFi",
+              "FortiGat"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "vlan30": 0.4,
+        "vlan20": 0.4,
+        "vlan10": 0.4,
+        "vlan40": 0.4,
+        "down": 0.2,
+        "wifi": 0.4,
+        "idrac": 0.2,
+        "data": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "nat": {
+      "id": "nat",
+      "pattern": "NAT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874043",
+      "last_flow": "2026-03-08T00:44:17.885077",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874049",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "FT232",
+              "LOG"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885078",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSID",
+              "LAN",
+              "WAN",
+              "FortiGate",
+              "DataCom"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "log": 0.4,
+        "deny_all": 0.4,
+        "deny": 0.4,
+        "ftdi": 0.2,
+        "all": 0.2,
+        "ft232": 0.2,
+        "wan": 0.2,
+        "fortigate": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "vlan10": {
+      "id": "vlan10",
+      "pattern": "VLAN10",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874078",
+      "last_flow": "2026-03-08T00:44:17.890437",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874083",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "PXE",
+              "VLAN30",
+              "VLAN20",
+              "VLAN40"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885149",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "PXE",
+              "ISP",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890439",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "WAN",
+              "ADMIN",
+              "EXCLUSIVE",
+              "IDRAC"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "pxe": 0.4,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "vlan40": 0.4,
+        "wifi": 0.4,
+        "wan": 0.6000000000000001,
+        "isp": 0.2,
+        "dhcp": 0.2,
+        "admin": 0.4,
+        "periph": 0.2,
+        "idrac": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "yyyy": {
+      "id": "yyyy",
+      "pattern": "YYYY",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.874113",
+      "last_flow": "2026-03-08T00:44:17.874115",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874118",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "LaTeX",
+              "FortiGate"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "isp": {
+      "id": "isp",
+      "pattern": "ISP",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874146",
+      "last_flow": "2026-03-08T00:44:17.885184",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874151",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "WAN",
+              "DEFEITUOSA",
+              "FortiOS",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885186",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "LSA",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "defeituosa": 0.2,
+        "fortios": 0.2,
+        "wifi": 0.6000000000000001,
+        "dhcp": 0.6000000000000001,
+        "wan": 0.6000000000000001,
+        "vlan": 0.2,
+        "lsa": 0.4,
+        "vlan10": 0.2,
+        "idrac": 0.2,
+        "lan": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "vlan40": {
+      "id": "vlan40",
+      "pattern": "VLAN40",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874180",
+      "last_flow": "2026-03-08T00:44:17.890551",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874184",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "PXE",
+              "VLAN10",
+              "VLAN30",
+              "VLAN20"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885219",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "FortiGate",
+              "PXE"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890553",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "WAN",
+              "VLAN30",
+              "IDRAC",
+              "VLAN10"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "pxe": 0.4,
+        "vlan10": 0.4,
+        "vlan30": 0.4,
+        "vlan20": 0.2,
+        "fortigate": 0.2,
+        "periph": 0.2,
+        "wan": 0.2,
+        "idrac": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "wifi": {
+      "id": "wifi",
+      "pattern": "WiFi",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874216",
+      "last_flow": "2026-03-08T00:44:17.885249",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874222",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "VLAN10",
+              "ISP",
+              "DHCP"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885251",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "PXE",
+              "ISP",
+              "DHCP"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.4,
+        "vlan10": 0.4,
+        "isp": 0.6000000000000001,
+        "dhcp": 0.6000000000000001,
+        "wan": 0.6000000000000001,
+        "dm956": 0.2,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "pxe": 0.4,
+        "nunca": 0.2,
+        "datacom": 0.2,
+        "idrac": 0.2,
+        "tty": 0.2,
+        "lan": 0.2,
+        "data": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "deny_all": {
+      "id": "deny_all",
+      "pattern": "DENY-ALL",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874259",
+      "last_flow": "2026-03-08T00:44:17.885289",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874264",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "FT232",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885291",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "INFRA",
+              "NAT"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.4,
+        "nat": 0.4,
+        "allow": 0.2,
+        "wan": 0.2,
+        "infra": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "memory": {
+      "id": "memory",
+      "pattern": "MEMORY",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874289",
+      "last_flow": "2026-03-08T00:44:17.885495",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874294",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "OpenClaw",
+              "GMT"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.883146",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [],
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885497",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "FortiGate",
+              "LAN",
+              "GUI"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "openclaw": 0.2,
+        "gmt": 0.2,
+        "resolved": 0.2,
+        "identity": 0.2,
+        "heartbeat": 0.2,
+        "tools": 0.2,
+        "user": 0.2,
+        "fts": 0.2,
+        "fortigate": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "dhcp": {
+      "id": "dhcp",
+      "pattern": "DHCP",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874319",
+      "last_flow": "2026-03-08T00:44:17.890333",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874324",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "WAN",
+              "DEFEITUOSA",
+              "ISP",
+              "WiFi"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885648",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "LSA",
+              "ISP",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890335",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "VLAN",
+              "ADMIN",
+              "FortiGate",
+              "DATA"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "defeituosa": 0.2,
+        "isp": 0.6000000000000001,
+        "wifi": 0.6000000000000001,
+        "wan": 0.6000000000000001,
+        "vlan": 0.4,
+        "lsa": 0.4,
+        "vlan10": 0.2,
+        "lsa2": 0.2,
+        "idrac": 0.2,
+        "gui": 0.2,
+        "ssh": 0.2,
+        "ssid": 0.2,
+        "lan": 0.2,
+        "fortigate": 0.2,
+        "data": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "deny": {
+      "id": "deny",
+      "pattern": "DENY",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874355",
+      "last_flow": "2026-03-08T00:44:17.885726",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874359",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "FT232",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.885727",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "INFRA",
+              "NAT"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.4,
+        "nat": 0.4,
+        "allow": 0.4,
+        "infra_crit": 0.2,
+        "infra": 0.4,
+        "crit": 0.2,
+        "wan": 0.2,
+        "all": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "wan": {
+      "id": "wan",
+      "pattern": "WAN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874386",
+      "last_flow": "2026-03-08T00:44:17.890298",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874391",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "MEMORY.md",
+            "related": [
+              "DEFEITUOSA",
+              "FortiOS",
+              "ISP",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889507",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LSA",
+              "FortiOS",
+              "ISP",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890300",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "ADMIN",
+              "VLAN30",
+              "IDRAC",
+              "VLAN10"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "defeituosa": 0.2,
+        "fortios": 0.6000000000000001,
+        "isp": 0.6000000000000001,
+        "dhcp": 0.6000000000000001,
+        "wifi": 0.6000000000000001,
+        "ftdi": 0.2,
+        "all": 0.4,
+        "ft232": 0.2,
+        "vlan": 0.2,
+        "corp_lan": 0.2,
+        "log": 0.2,
+        "down": 0.2,
+        "allow": 0.2,
+        "lsa": 0.4,
+        "infra_crit": 0.2,
+        "infra": 0.2,
+        "nat": 0.2,
+        "nunca": 0.2,
+        "vlan10": 0.6000000000000001,
+        "deny_all": 0.2,
+        "lsa2": 0.2,
+        "idrac": 0.4,
+        "tty": 0.2,
+        "crit": 0.2,
+        "gui": 0.2,
+        "deny": 0.2,
+        "ssid": 0.2,
+        "lan": 0.2,
+        "corp": 0.2,
+        "periph": 0.2,
+        "vlan30": 0.4,
+        "admin": 0.2,
+        "vlan40": 0.2,
+        "vlan20": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "ftdi": {
+      "id": "ftdi",
+      "pattern": "FTDI",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.874429",
+      "last_flow": "2026-03-08T00:44:17.874430",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874433",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FT232",
+              "NEVER",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "wan": 0.2,
+        "nat": 0.2,
+        "never": 0.2,
+        "all": 0.2,
+        "ft232": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "fortigate": {
+      "id": "fortigate",
+      "pattern": "FortiGate",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874464",
+      "last_flow": "2026-03-08T00:44:17.890405",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874469",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "MEMORY.md",
+            "related": [
+              "FortiOS",
+              "LSA"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889538",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-04.md",
+            "related": [],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890407",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "VLAN",
+              "GE1"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "fortios": 0.4,
+        "lsa": 0.4,
+        "vlan30": 0.2,
+        "nat": 0.2,
+        "vlan40": 0.2,
+        "memory": 0.2,
+        "tty": 0.2,
+        "gui": 0.2,
+        "periph": 0.2,
+        "vlan": 0.4,
+        "dhcp": 0.2,
+        "admin": 0.2,
+        "exclusive": 0.2,
+        "idrac": 0.2,
+        "ge1": 0.2,
+        "data": 0.2
+      },
+      "category": "hardware",
+      "content": ""
+    },
+    "never": {
+      "id": "never",
+      "pattern": "NEVER",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.874499",
+      "last_flow": "2026-03-08T00:44:17.874500",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874503",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "FTDI",
+              "FT232"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {
+        "ftdi": 0.2,
+        "ft232": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "ekf": {
+      "id": "ekf",
+      "pattern": "EKF",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874529",
+      "last_flow": "2026-03-08T00:44:17.891713",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874534",
+          "weight": 1.0,
+          "context": {
+            "category": "software",
+            "source": "MEMORY.md",
+            "related": [
+              "ArduCopter",
+              "LaTeX"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.891715",
+          "weight": 1.0,
+          "context": {
+            "category": "software",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "ArduCopter",
+              "LaTeX"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.6000000000000001,
+        "arducopter": 0.6000000000000001
+      },
+      "category": "software",
+      "content": ""
+    },
+    "arducopter": {
+      "id": "arducopter",
+      "pattern": "ArduCopter",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874562",
+      "last_flow": "2026-03-08T00:44:17.891787",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874567",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "EKF",
+              "LaTeX"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.891790",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "EKF",
+              "LaTeX"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "ekf": 0.6000000000000001,
+        "latex": 0.6000000000000001
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gmt": {
+      "id": "gmt",
+      "pattern": "GMT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874595",
+      "last_flow": "2026-03-08T00:44:17.883402",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874600",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "OpenClaw",
+              "MEMORY"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.883405",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "OpenClaw"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "openclaw": 0.6000000000000001,
+        "memory": 0.2,
+        "gmt_3": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "all": {
+      "id": "all",
+      "pattern": "ALL",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874631",
+      "last_flow": "2026-03-08T00:44:17.889615",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874635",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "FT232",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889617",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "DENY"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.4,
+        "wan": 0.4,
+        "ftdi": 0.2,
+        "nat": 0.2,
+        "lan": 0.2,
+        "allow": 0.2,
+        "deny": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "ft232": {
+      "id": "ft232",
+      "pattern": "FT232",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.874671",
+      "last_flow": "2026-03-08T00:44:17.874673",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874676",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "MEMORY.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "FTDI",
+              "NEVER",
+              "NAT"
+            ],
+            "depth": 0.7
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "wan": 0.2,
+        "ftdi": 0.2,
+        "never": 0.2,
+        "nat": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "192_168_30_1": {
+      "id": "192_168_30_1",
+      "pattern": "192.168.30.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874814",
+      "last_flow": "2026-03-08T00:44:17.890793",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874820",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889846",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890795",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "10_10_20_1": {
+      "id": "10_10_20_1",
+      "pattern": "10.10.20.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874825",
+      "last_flow": "2026-03-08T00:44:17.890819",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874829",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889864",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890821",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_2_1": {
+      "id": "192_168_2_1",
+      "pattern": "192.168.2.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874834",
+      "last_flow": "2026-03-08T00:44:17.889886",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874838",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889888",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_10_1": {
+      "id": "192_168_10_1",
+      "pattern": "192.168.10.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874842",
+      "last_flow": "2026-03-08T00:44:17.890825",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874846",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889895",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890827",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_1_99": {
+      "id": "192_168_1_99",
+      "pattern": "192.168.1.99",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.874850",
+      "last_flow": "2026-03-08T00:44:17.889899",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874854",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889901",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_40_1": {
+      "id": "192_168_40_1",
+      "pattern": "192.168.40.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.7,
+      "created": "2026-03-08T00:44:17.874859",
+      "last_flow": "2026-03-08T00:44:17.890831",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.874864",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "MEMORY.md",
+            "depth": 0.7999999999999999
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.889916",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890833",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "memory_2026_03_01_md___daily_log": {
+      "id": "memory_2026_03_01_md___daily_log",
+      "pattern": "memory/2026-03-01.md - Daily Log",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877612",
+      "last_flow": "2026-03-08T00:44:17.877616",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877622",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "memory/2026-03-01.md - Daily Log",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "memory/2026-03-01.md - Daily Log"
+    },
+    "__session_start": {
+      "id": "__session_start",
+      "pattern": "🌅 Session Start",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877628",
+      "last_flow": "2026-03-08T00:44:17.877629",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877633",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🌅 Session Start",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🌅 Session Start"
+    },
+    "initial_state": {
+      "id": "initial_state",
+      "pattern": "Initial State",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877638",
+      "last_flow": "2026-03-08T00:44:17.877639",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877642",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Initial State",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Initial State"
+    },
+    "__major_accomplishments": {
+      "id": "__major_accomplishments",
+      "pattern": "🎯 Major Accomplishments",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877648",
+      "last_flow": "2026-03-08T00:44:17.877650",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877653",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🎯 Major Accomplishments",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🎯 Major Accomplishments"
+    },
+    "identity___configuration": {
+      "id": "identity___configuration",
+      "pattern": "Identity & Configuration",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877657",
+      "last_flow": "2026-03-08T00:44:17.877659",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877662",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Identity & Configuration",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Identity & Configuration"
+    },
+    "system_setup": {
+      "id": "system_setup",
+      "pattern": "System Setup",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877665",
+      "last_flow": "2026-03-08T00:44:17.877667",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877670",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "System Setup",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "System Setup"
+    },
+    "integrations_configured": {
+      "id": "integrations_configured",
+      "pattern": "Integrations Configured",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877674",
+      "last_flow": "2026-03-08T00:44:17.877676",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877679",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Integrations Configured",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Integrations Configured"
+    },
+    "files_created_updated": {
+      "id": "files_created_updated",
+      "pattern": "Files Created/Updated",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877684",
+      "last_flow": "2026-03-08T00:44:17.877685",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877688",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Files Created/Updated",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Files Created/Updated"
+    },
+    "__email_integration_details": {
+      "id": "__email_integration_details",
+      "pattern": "📧 Email Integration Details",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877693",
+      "last_flow": "2026-03-08T00:44:17.877695",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877698",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📧 Email Integration Details",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📧 Email Integration Details"
+    },
+    "gmail_setup": {
+      "id": "gmail_setup",
+      "pattern": "Gmail Setup",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877703",
+      "last_flow": "2026-03-08T00:44:17.877705",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877708",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Gmail Setup",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Gmail Setup"
+    },
+    "security_alerts_received": {
+      "id": "security_alerts_received",
+      "pattern": "Security Alerts Received",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877712",
+      "last_flow": "2026-03-08T00:44:17.877714",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877716",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Security Alerts Received",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Security Alerts Received"
+    },
+    "pucrs_email__pending_": {
+      "id": "pucrs_email__pending_",
+      "pattern": "PUCRS Email (Pending)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877721",
+      "last_flow": "2026-03-08T00:44:17.877722",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877725",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "PUCRS Email (Pending)",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "PUCRS Email (Pending)"
+    },
+    "__whatsapp_integration": {
+      "id": "__whatsapp_integration",
+      "pattern": "📱 WhatsApp Integration",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877731",
+      "last_flow": "2026-03-08T00:44:17.877733",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877735",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📱 WhatsApp Integration",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📱 WhatsApp Integration"
+    },
+    "configuration": {
+      "id": "configuration",
+      "pattern": "Configuration",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.877739",
+      "last_flow": "2026-03-08T00:44:17.881944",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877744",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Configuration",
+            "depth": 0.23333333333333334
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.881946",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Configuration",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Configuration"
+    },
+    "capabilities_enabled": {
+      "id": "capabilities_enabled",
+      "pattern": "Capabilities Enabled",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877749",
+      "last_flow": "2026-03-08T00:44:17.877752",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.877754",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Capabilities Enabled",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Capabilities Enabled"
+    },
+    "test_results": {
+      "id": "test_results",
+      "pattern": "Test Results",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.877758",
+      "last_flow": "2026-03-08T00:44:17.877760",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881773",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Test Results",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Test Results"
+    },
+    "__technical_configuration": {
+      "id": "__technical_configuration",
+      "pattern": "🔧 Technical Configuration",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881784",
+      "last_flow": "2026-03-08T00:44:17.881785",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881788",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🔧 Technical Configuration",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🔧 Technical Configuration"
+    },
+    "system_info": {
+      "id": "system_info",
+      "pattern": "System Info",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881793",
+      "last_flow": "2026-03-08T00:44:17.881795",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881797",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "System Info",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "System Info"
+    },
+    "models_configured": {
+      "id": "models_configured",
+      "pattern": "Models Configured",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881805",
+      "last_flow": "2026-03-08T00:44:17.881807",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881810",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Models Configured",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Models Configured"
+    },
+    "tools_enabled": {
+      "id": "tools_enabled",
+      "pattern": "Tools Enabled",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881814",
+      "last_flow": "2026-03-08T00:44:17.881816",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881818",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Tools Enabled",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Tools Enabled"
+    },
+    "security_configuration": {
+      "id": "security_configuration",
+      "pattern": "Security Configuration",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881823",
+      "last_flow": "2026-03-08T00:44:17.881824",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881826",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Security Configuration",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Security Configuration"
+    },
+    "__cron_jobs": {
+      "id": "__cron_jobs",
+      "pattern": "📊 Cron Jobs",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881830",
+      "last_flow": "2026-03-08T00:44:17.881832",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881835",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📊 Cron Jobs",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📊 Cron Jobs"
+    },
+    "configured_jobs": {
+      "id": "configured_jobs",
+      "pattern": "Configured Jobs",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881839",
+      "last_flow": "2026-03-08T00:44:17.881841",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881849",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Configured Jobs",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Configured Jobs"
+    },
+    "issue_to_fix": {
+      "id": "issue_to_fix",
+      "pattern": "Issue to Fix",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881853",
+      "last_flow": "2026-03-08T00:44:17.881854",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881920",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Issue to Fix",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Issue to Fix"
+    },
+    "__memory_system": {
+      "id": "__memory_system",
+      "pattern": "🧠 Memory System",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881931",
+      "last_flow": "2026-03-08T00:44:17.881933",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881935",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🧠 Memory System",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🧠 Memory System"
+    },
+    "model_downloaded": {
+      "id": "model_downloaded",
+      "pattern": "Model Downloaded",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881950",
+      "last_flow": "2026-03-08T00:44:17.881952",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881956",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Model Downloaded",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Model Downloaded"
+    },
+    "__decisions_made": {
+      "id": "__decisions_made",
+      "pattern": "📝 Decisions Made",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881961",
+      "last_flow": "2026-03-08T00:44:17.881963",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881966",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📝 Decisions Made",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📝 Decisions Made"
+    },
+    "communication_preferences": {
+      "id": "communication_preferences",
+      "pattern": "Communication Preferences",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881971",
+      "last_flow": "2026-03-08T00:44:17.881973",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881976",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Communication Preferences",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Communication Preferences"
+    },
+    "security_boundaries": {
+      "id": "security_boundaries",
+      "pattern": "Security Boundaries",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881980",
+      "last_flow": "2026-03-08T00:44:17.881981",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881984",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Security Boundaries",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Security Boundaries"
+    },
+    "tool_usage_patterns": {
+      "id": "tool_usage_patterns",
+      "pattern": "Tool Usage Patterns",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881987",
+      "last_flow": "2026-03-08T00:44:17.881989",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.881992",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Tool Usage Patterns",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Tool Usage Patterns"
+    },
+    "___issues___resolutions": {
+      "id": "___issues___resolutions",
+      "pattern": "⚠️ Issues & Resolutions",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.881997",
+      "last_flow": "2026-03-08T00:44:17.881999",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882004",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "⚠️ Issues & Resolutions",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "⚠️ Issues & Resolutions"
+    },
+    "memory_system__resolved_": {
+      "id": "memory_system__resolved_",
+      "pattern": "Memory System (RESOLVED)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882008",
+      "last_flow": "2026-03-08T00:44:17.882009",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882011",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Memory System (RESOLVED)",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Memory System (RESOLVED)"
+    },
+    "security_warnings__resolved_": {
+      "id": "security_warnings__resolved_",
+      "pattern": "Security Warnings (RESOLVED)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882015",
+      "last_flow": "2026-03-08T00:44:17.882017",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882019",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Security Warnings (RESOLVED)",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Security Warnings (RESOLVED)"
+    },
+    "whatsapp_delivery__pending_": {
+      "id": "whatsapp_delivery__pending_",
+      "pattern": "WhatsApp Delivery (PENDING)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882025",
+      "last_flow": "2026-03-08T00:44:17.882027",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882029",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "WhatsApp Delivery (PENDING)",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "WhatsApp Delivery (PENDING)"
+    },
+    "pucrs_email__blocked_": {
+      "id": "pucrs_email__blocked_",
+      "pattern": "PUCRS Email (BLOCKED)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882033",
+      "last_flow": "2026-03-08T00:44:17.882034",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882038",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "PUCRS Email (BLOCKED)",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "PUCRS Email (BLOCKED)"
+    },
+    "__pending_tasks": {
+      "id": "__pending_tasks",
+      "pattern": "🎯 Pending Tasks",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882043",
+      "last_flow": "2026-03-08T00:44:17.882044",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882047",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🎯 Pending Tasks",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🎯 Pending Tasks"
+    },
+    "high_priority": {
+      "id": "high_priority",
+      "pattern": "High Priority",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882051",
+      "last_flow": "2026-03-08T00:44:17.882052",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882055",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "High Priority",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "High Priority"
+    },
+    "medium_priority": {
+      "id": "medium_priority",
+      "pattern": "Medium Priority",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882059",
+      "last_flow": "2026-03-08T00:44:17.882061",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882063",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Medium Priority",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Medium Priority"
+    },
+    "low_priority": {
+      "id": "low_priority",
+      "pattern": "Low Priority",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882069",
+      "last_flow": "2026-03-08T00:44:17.882070",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882072",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Low Priority",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Low Priority"
+    },
+    "__system_health": {
+      "id": "__system_health",
+      "pattern": "📈 System Health",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882076",
+      "last_flow": "2026-03-08T00:44:17.882078",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882080",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📈 System Health",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📈 System Health"
+    },
+    "gateway_status": {
+      "id": "gateway_status",
+      "pattern": "Gateway Status",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882083",
+      "last_flow": "2026-03-08T00:44:17.882085",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882087",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Gateway Status",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Gateway Status"
+    },
+    "security_audit": {
+      "id": "security_audit",
+      "pattern": "Security Audit",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882090",
+      "last_flow": "2026-03-08T00:44:17.882092",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882095",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Security Audit",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Security Audit"
+    },
+    "__lessons_learned": {
+      "id": "__lessons_learned",
+      "pattern": "💡 Lessons Learned",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882099",
+      "last_flow": "2026-03-08T00:44:17.882101",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882104",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "💡 Lessons Learned",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "💡 Lessons Learned"
+    },
+    "what_worked_well": {
+      "id": "what_worked_well",
+      "pattern": "What Worked Well",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882108",
+      "last_flow": "2026-03-08T00:44:17.882109",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882112",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "What Worked Well",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "What Worked Well"
+    },
+    "what_to_improve": {
+      "id": "what_to_improve",
+      "pattern": "What to Improve",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882116",
+      "last_flow": "2026-03-08T00:44:17.882117",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882119",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "What to Improve",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "What to Improve"
+    },
+    "patterns_established": {
+      "id": "patterns_established",
+      "pattern": "Patterns Established",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882122",
+      "last_flow": "2026-03-08T00:44:17.882124",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882127",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Patterns Established",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Patterns Established"
+    },
+    "__tomorrow_s_focus": {
+      "id": "__tomorrow_s_focus",
+      "pattern": "🔮 Tomorrow's Focus",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882132",
+      "last_flow": "2026-03-08T00:44:17.882135",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882137",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "🔮 Tomorrow's Focus",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "🔮 Tomorrow's Focus"
+    },
+    "planned_work": {
+      "id": "planned_work",
+      "pattern": "Planned Work",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882140",
+      "last_flow": "2026-03-08T00:44:17.882142",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882145",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Planned Work",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Planned Work"
+    },
+    "monitoring": {
+      "id": "monitoring",
+      "pattern": "Monitoring",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882149",
+      "last_flow": "2026-03-08T00:44:17.882150",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882153",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "Monitoring",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Monitoring"
+    },
+    "__random_notes": {
+      "id": "__random_notes",
+      "pattern": "📝 Random Notes",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882159",
+      "last_flow": "2026-03-08T00:44:17.882161",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882164",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-01.md",
+            "content": "📝 Random Notes",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "📝 Random Notes"
+    },
+    "imap": {
+      "id": "imap",
+      "pattern": "IMAP",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882613",
+      "last_flow": "2026-03-08T00:44:17.882615",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882619",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "WhatsApp",
+              "OpenTelemetry",
+              "SMTP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "opentelemetry": 0.2,
+        "smtp": 0.2,
+        "whatsapp": 0.2,
+        "pucrs": 0.2,
+        "starttls": 0.2,
+        "blocked": 0.2,
+        "gnome": 0.2,
+        "tls": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "opentelemetry": {
+      "id": "opentelemetry",
+      "pattern": "OpenTelemetry",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882653",
+      "last_flow": "2026-03-08T00:44:17.882655",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882658",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IMAP",
+              "WhatsApp",
+              "AGENTS",
+              "SOUL",
+              "SMTP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "imap": 0.2,
+        "soul": 0.2,
+        "smtp": 0.2,
+        "whatsapp": 0.2,
+        "agents": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "soul": {
+      "id": "soul",
+      "pattern": "SOUL",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882756",
+      "last_flow": "2026-03-08T00:44:17.882757",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882760",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IDENTITY",
+              "TOOLS",
+              "OpenTelemetry",
+              "HEARTBEA",
+              "AGENTS"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "opentelemetry": 0.2,
+        "identity": 0.2,
+        "agents": 0.2,
+        "heartbeat": 0.2,
+        "tools": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "resolved": {
+      "id": "resolved",
+      "pattern": "RESOLVED",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882805",
+      "last_flow": "2026-03-08T00:44:17.882807",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882810",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "MEMORY"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "memory": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "smtp": {
+      "id": "smtp",
+      "pattern": "SMTP",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882838",
+      "last_flow": "2026-03-08T00:44:17.882840",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882843",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "WhatsApp",
+              "OpenTelemetry",
+              "IMAP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "opentelemetry": 0.2,
+        "imap": 0.2,
+        "whatsapp": 0.2,
+        "starttls": 0.2,
+        "tls": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "identity": {
+      "id": "identity",
+      "pattern": "IDENTITY",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882875",
+      "last_flow": "2026-03-08T00:44:17.882877",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882880",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "TOOLS",
+              "HEARTBEAT",
+              "AGENTS",
+              "MEMORY",
+              "SOUL"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "memory": 0.2,
+        "soul": 0.2,
+        "agents": 0.2,
+        "heartbeat": 0.2,
+        "tools": 0.2,
+        "user": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "whatsapp": {
+      "id": "whatsapp",
+      "pattern": "WhatsApp",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882911",
+      "last_flow": "2026-03-08T00:44:17.882913",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882918",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "AGE",
+              "IMAP",
+              "OpenTelemetry",
+              "SMTP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "imap": 0.2,
+        "opentelemetry": 0.2,
+        "smtp": 0.2,
+        "pucrs": 0.2,
+        "pending": 0.2,
+        "blocked": 0.2,
+        "tts": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "agents": {
+      "id": "agents",
+      "pattern": "AGENTS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882950",
+      "last_flow": "2026-03-08T00:44:17.882951",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882954",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IDENTITY",
+              "TOOLS",
+              "OpenTelemetry",
+              "SOUL",
+              "USER"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "identity": 0.2,
+        "opentelemetry": 0.2,
+        "soul": 0.2,
+        "tools": 0.2,
+        "user": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "heartbeat": {
+      "id": "heartbeat",
+      "pattern": "HEARTBEAT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.882989",
+      "last_flow": "2026-03-08T00:44:17.882991",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.882994",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IDENTITY",
+              "TOOLS",
+              "MEMORY",
+              "SOUL",
+              "USER"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "identity": 0.2,
+        "memory": 0.2,
+        "soul": 0.2,
+        "tools": 0.2,
+        "user": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "pucrs": {
+      "id": "pucrs",
+      "pattern": "PUCRS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883030",
+      "last_flow": "2026-03-08T00:44:17.883031",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883036",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IMAP",
+              "WhatsApp",
+              "OpenClaw",
+              "GNOME"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "imap": 0.2,
+        "whatsapp": 0.2,
+        "openclaw": 0.2,
+        "pending": 0.2,
+        "blocked": 0.2,
+        "tts": 0.2,
+        "gnome": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "tools": {
+      "id": "tools",
+      "pattern": "TOOLS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883068",
+      "last_flow": "2026-03-08T00:44:17.883070",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883073",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IDENTITY",
+              "HEARTBEAT",
+              "AGENTS",
+              "MEMORY",
+              "SOUL"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "identity": 0.2,
+        "heartbeat": 0.2,
+        "agents": 0.2,
+        "memory": 0.2,
+        "soul": 0.2,
+        "user": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "pending": {
+      "id": "pending",
+      "pattern": "PENDING",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883110",
+      "last_flow": "2026-03-08T00:44:17.883112",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883115",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "WhatsApp",
+              "PUCRS",
+              "BLOCKED"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "whatsapp": 0.2,
+        "pucrs": 0.2,
+        "blocked": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "user": {
+      "id": "user",
+      "pattern": "USER",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883177",
+      "last_flow": "2026-03-08T00:44:17.883178",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883182",
+          "weight": 1.0,
+          "context": {
+            "category": "person",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IDENTITY",
+              "TOOLS",
+              "HEARTBEAT",
+              "AGENTS",
+              "MEMORY"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "identity": 0.2,
+        "tools": 0.2,
+        "heartbeat": 0.2,
+        "agents": 0.2,
+        "memory": 0.2
+      },
+      "category": "person",
+      "content": ""
+    },
+    "fts": {
+      "id": "fts",
+      "pattern": "FTS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883217",
+      "last_flow": "2026-03-08T00:44:17.883219",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883222",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "MEMORY"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "memory": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "starttls": {
+      "id": "starttls",
+      "pattern": "STARTTLS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883252",
+      "last_flow": "2026-03-08T00:44:17.883254",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883256",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IMAP",
+              "OpenClaw",
+              "TLS",
+              "SMTP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "imap": 0.2,
+        "openclaw": 0.2,
+        "smtp": 0.2,
+        "tls": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "blocked": {
+      "id": "blocked",
+      "pattern": "BLOCKED",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883292",
+      "last_flow": "2026-03-08T00:44:17.883294",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883298",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "IMAP",
+              "WhatsApp",
+              "PENDING",
+              "PUCRS"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "imap": 0.2,
+        "whatsapp": 0.2,
+        "pending": 0.2,
+        "pucrs": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "tts": {
+      "id": "tts",
+      "pattern": "TTS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883334",
+      "last_flow": "2026-03-08T00:44:17.883335",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883338",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "WhatsApp",
+              "PUCRS"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "whatsapp": 0.2,
+        "pucrs": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gnome": {
+      "id": "gnome",
+      "pattern": "GNOME",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883369",
+      "last_flow": "2026-03-08T00:44:17.883371",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883374",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "OpenClaw",
+              "PUCRS",
+              "IMAP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "openclaw": 0.2,
+        "pucrs": 0.2,
+        "imap": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "tls": {
+      "id": "tls",
+      "pattern": "TLS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883433",
+      "last_flow": "2026-03-08T00:44:17.883434",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883437",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-01.md",
+            "related": [
+              "STARTTLS",
+              "SMTP",
+              "IMAP"
+            ],
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {
+        "starttls": 0.2,
+        "smtp": 0.2,
+        "imap": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "2026_03_04___sess_o_fortigate_40f": {
+      "id": "2026_03_04___sess_o_fortigate_40f",
+      "pattern": "2026-03-04 - Sessão FortiGate 40F",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883722",
+      "last_flow": "2026-03-08T00:44:17.883724",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883729",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "2026-03-04 - Sessão FortiGate 40F",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "2026-03-04 - Sessão FortiGate 40F"
+    },
+    "contexto": {
+      "id": "contexto",
+      "pattern": "Contexto",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883733",
+      "last_flow": "2026-03-08T00:44:17.883735",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883738",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Contexto",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Contexto"
+    },
+    "infraestrutura_descoberta": {
+      "id": "infraestrutura_descoberta",
+      "pattern": "Infraestrutura Descoberta",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883744",
+      "last_flow": "2026-03-08T00:44:17.883746",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883749",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Infraestrutura Descoberta",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Infraestrutura Descoberta"
+    },
+    "hardware": {
+      "id": "hardware",
+      "pattern": "Hardware",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883752",
+      "last_flow": "2026-03-08T00:44:17.883754",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883757",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Hardware",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Hardware"
+    },
+    "topologia_f_sica": {
+      "id": "topologia_f_sica",
+      "pattern": "Topologia Física",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883766",
+      "last_flow": "2026-03-08T00:44:17.883768",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883770",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Topologia Física",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Topologia Física"
+    },
+    "vlans_configuradas": {
+      "id": "vlans_configuradas",
+      "pattern": "VLANs Configuradas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883776",
+      "last_flow": "2026-03-08T00:44:17.883778",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883781",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "VLANs Configuradas",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "VLANs Configuradas"
+    },
+    "problema_identificado": {
+      "id": "problema_identificado",
+      "pattern": "Problema Identificado",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883785",
+      "last_flow": "2026-03-08T00:44:17.883787",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883789",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Problema Identificado",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Problema Identificado"
+    },
+    "a__es_executadas": {
+      "id": "a__es_executadas",
+      "pattern": "Ações Executadas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883794",
+      "last_flow": "2026-03-08T00:44:17.883796",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883799",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Ações Executadas",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Ações Executadas"
+    },
+    "1__pesquisa_documenta__o": {
+      "id": "1__pesquisa_documenta__o",
+      "pattern": "1. Pesquisa Documentação",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883807",
+      "last_flow": "2026-03-08T00:44:17.883809",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883812",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "1. Pesquisa Documentação",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "1. Pesquisa Documentação"
+    },
+    "2__conex_o_ssh": {
+      "id": "2__conex_o_ssh",
+      "pattern": "2. Conexão SSH",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883817",
+      "last_flow": "2026-03-08T00:44:17.883819",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883822",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "2. Conexão SSH",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "2. Conexão SSH"
+    },
+    "3__backup": {
+      "id": "3__backup",
+      "pattern": "3. Backup",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883827",
+      "last_flow": "2026-03-08T00:44:17.883829",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883832",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "3. Backup",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "3. Backup"
+    },
+    "4__tentativas_de_configura__o_lan1": {
+      "id": "4__tentativas_de_configura__o_lan1",
+      "pattern": "4. Tentativas de Configuração lan1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883839",
+      "last_flow": "2026-03-08T00:44:17.883840",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883844",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "4. Tentativas de Configuração lan1",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "4. Tentativas de Configuração lan1"
+    },
+    "decis_es_do_usu_rio": {
+      "id": "decis_es_do_usu_rio",
+      "pattern": "Decisões do Usuário",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883849",
+      "last_flow": "2026-03-08T00:44:17.883851",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883854",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Decisões do Usuário",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Decisões do Usuário"
+    },
+    "status_atual": {
+      "id": "status_atual",
+      "pattern": "Status Atual",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883858",
+      "last_flow": "2026-03-08T00:44:17.883860",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883863",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Status Atual",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Status Atual"
+    },
+    "li__es_aprendidas": {
+      "id": "li__es_aprendidas",
+      "pattern": "Lições Aprendidas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883868",
+      "last_flow": "2026-03-08T00:44:17.883870",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883873",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Lições Aprendidas",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Lições Aprendidas"
+    },
+    "arquivos_gerados": {
+      "id": "arquivos_gerados",
+      "pattern": "Arquivos Gerados",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883878",
+      "last_flow": "2026-03-08T00:44:17.883879",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883882",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Arquivos Gerados",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Arquivos Gerados"
+    },
+    "pend_ncias": {
+      "id": "pend_ncias",
+      "pattern": "Pendências",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883887",
+      "last_flow": "2026-03-08T00:44:17.883889",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883892",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Pendências",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Pendências"
+    },
+    "sess_o_tarde___datacom_bridge_mode": {
+      "id": "sess_o_tarde___datacom_bridge_mode",
+      "pattern": "Sessão Tarde - DataCom Bridge Mode",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883900",
+      "last_flow": "2026-03-08T00:44:17.883902",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883905",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Sessão Tarde - DataCom Bridge Mode",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Sessão Tarde - DataCom Bridge Mode"
+    },
+    "datacom_dm956": {
+      "id": "datacom_dm956",
+      "pattern": "DataCom DM956",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883909",
+      "last_flow": "2026-03-08T00:44:17.883911",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883914",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "DataCom DM956",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "DataCom DM956"
+    },
+    "mudan_a_para_bridge_mode": {
+      "id": "mudan_a_para_bridge_mode",
+      "pattern": "Mudança para Bridge Mode",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883920",
+      "last_flow": "2026-03-08T00:44:17.883922",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883925",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Mudança para Bridge Mode",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Mudança para Bridge Mode"
+    },
+    "resultado": {
+      "id": "resultado",
+      "pattern": "Resultado",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883929",
+      "last_flow": "2026-03-08T00:44:17.883931",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883934",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Resultado",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Resultado"
+    },
+    "problema_identificado___ssid_duplicado": {
+      "id": "problema_identificado___ssid_duplicado",
+      "pattern": "Problema Identificado - SSID Duplicado",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883943",
+      "last_flow": "2026-03-08T00:44:17.883945",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883948",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Problema Identificado - SSID Duplicado",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Problema Identificado - SSID Duplicado"
+    },
+    "auditoria_fortigate_40f_completa": {
+      "id": "auditoria_fortigate_40f_completa",
+      "pattern": "Auditoria FortiGate 40F Completa",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883953",
+      "last_flow": "2026-03-08T00:44:17.883955",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883958",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Auditoria FortiGate 40F Completa",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Auditoria FortiGate 40F Completa"
+    },
+    "interfaces_configuradas": {
+      "id": "interfaces_configuradas",
+      "pattern": "Interfaces Configuradas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883962",
+      "last_flow": "2026-03-08T00:44:17.883964",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883966",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Interfaces Configuradas",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Interfaces Configuradas"
+    },
+    "vlans__via_lan3_": {
+      "id": "vlans__via_lan3_",
+      "pattern": "VLANs (via lan3)",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883971",
+      "last_flow": "2026-03-08T00:44:17.883973",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883976",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "VLANs (via lan3)",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "VLANs (via lan3)"
+    },
+    "pol_ticas_firewall": {
+      "id": "pol_ticas_firewall",
+      "pattern": "Políticas Firewall",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883981",
+      "last_flow": "2026-03-08T00:44:17.883983",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883987",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Políticas Firewall",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Políticas Firewall"
+    },
+    "dhcp_servers": {
+      "id": "dhcp_servers",
+      "pattern": "DHCP Servers",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.883992",
+      "last_flow": "2026-03-08T00:44:17.883994",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.883997",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "DHCP Servers",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "DHCP Servers"
+    },
+    "rota_obsoleta": {
+      "id": "rota_obsoleta",
+      "pattern": "Rota Obsoleta",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884001",
+      "last_flow": "2026-03-08T00:44:17.884003",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884006",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Rota Obsoleta",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Rota Obsoleta"
+    },
+    "topologia_atual": {
+      "id": "topologia_atual",
+      "pattern": "Topologia Atual",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884010",
+      "last_flow": "2026-03-08T00:44:17.884012",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884016",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Topologia Atual",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Topologia Atual"
+    },
+    "pr_ximos_passos___reconfigura__o_completa": {
+      "id": "pr_ximos_passos___reconfigura__o_completa",
+      "pattern": "Próximos Passos - Reconfiguração Completa",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884024",
+      "last_flow": "2026-03-08T00:44:17.884025",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884029",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Próximos Passos - Reconfiguração Completa",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Próximos Passos - Reconfiguração Completa"
+    },
+    "objetivo_do_usu_rio": {
+      "id": "objetivo_do_usu_rio",
+      "pattern": "Objetivo do Usuário",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884034",
+      "last_flow": "2026-03-08T00:44:17.884036",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884039",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Objetivo do Usuário",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Objetivo do Usuário"
+    },
+    "configura__o_alvo": {
+      "id": "configura__o_alvo",
+      "pattern": "Configuração Alvo",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884044",
+      "last_flow": "2026-03-08T00:44:17.884046",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884049",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Configuração Alvo",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Configuração Alvo"
+    },
+    "ponto_de_aten__o": {
+      "id": "ponto_de_aten__o",
+      "pattern": "Ponto de Atenção",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884055",
+      "last_flow": "2026-03-08T00:44:17.884057",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884060",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-04.md",
+            "content": "Ponto de Atenção",
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Ponto de Atenção"
+    },
+    "idrac_mgmt": {
+      "id": "idrac_mgmt",
+      "pattern": "IDRAC-MGMT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884551",
+      "last_flow": "2026-03-08T00:44:17.884552",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884556",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "CRIT",
+              "INFRA",
+              "CLUSTER"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2
+      },
+      "category": "hardware",
+      "content": ""
+    },
+    "corp_lan": {
+      "id": "corp_lan",
+      "pattern": "CORP-LAN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884595",
+      "last_flow": "2026-03-08T00:44:17.884597",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884601",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "INFRA"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "wan": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "dm956": {
+      "id": "dm956",
+      "pattern": "DM956",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884639",
+      "last_flow": "2026-03-08T00:44:17.884641",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884644",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSID",
+              "DataCom",
+              "LSA2",
+              "GUI",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wifi": 0.2,
+        "datacom": 0.2,
+        "lsa2": 0.2,
+        "ssid": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "down": {
+      "id": "down",
+      "pattern": "DOWN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884759",
+      "last_flow": "2026-03-08T00:44:17.884760",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884768",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "VLAN",
+              "WAN",
+              "CLUSTER",
+              "IDRAC",
+              "PXE"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "wan": 0.2,
+        "pxe": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "allow": {
+      "id": "allow",
+      "pattern": "ALLOW",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884835",
+      "last_flow": "2026-03-08T00:44:17.884837",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884840",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "WAN",
+              "DENY",
+              "WiF"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "wan": 0.2,
+        "deny": 0.4,
+        "infra_crit": 0.2,
+        "infra": 0.2,
+        "deny_all": 0.2,
+        "cluster_data": 0.2,
+        "crit": 0.2,
+        "all": 0.2,
+        "corp": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "infra_crit": {
+      "id": "infra_crit",
+      "pattern": "INFRA-CRIT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884917",
+      "last_flow": "2026-03-08T00:44:17.884919",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884922",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "DENY"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "allow": 0.2,
+        "wan": 0.2,
+        "deny": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "infra": {
+      "id": "infra",
+      "pattern": "INFRA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.884961",
+      "last_flow": "2026-03-08T00:44:17.884962",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.884965",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "DENY"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "allow": 0.2,
+        "wan": 0.2,
+        "deny": 0.4,
+        "deny_all": 0.2,
+        "cluster_data": 0.2,
+        "mgmt": 0.2,
+        "cluster": 0.2,
+        "corp": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "nunca": {
+      "id": "nunca",
+      "pattern": "NUNCA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885111",
+      "last_flow": "2026-03-08T00:44:17.885112",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885116",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSH",
+              "WAN",
+              "TTY",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "wifi": 0.2,
+        "tty": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "cluster_data": {
+      "id": "cluster_data",
+      "pattern": "CLUSTER-DATA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885330",
+      "last_flow": "2026-03-08T00:44:17.885332",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885335",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "CRIT",
+              "ALLOW",
+              "INFRA"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "allow": 0.2,
+        "infra": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "datacom": {
+      "id": "datacom",
+      "pattern": "DataCom",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885373",
+      "last_flow": "2026-03-08T00:44:17.885375",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885378",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSID",
+              "DM956",
+              "LSA2",
+              "GUI",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "dm956": 0.2,
+        "wifi": 0.2,
+        "lsa2": 0.2,
+        "ssid": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "lsa2": {
+      "id": "lsa2",
+      "pattern": "LSA2",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885414",
+      "last_flow": "2026-03-08T00:44:17.885416",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885419",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSID",
+              "WAN",
+              "DataCom",
+              "DM956",
+              "DHCP"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "datacom": 0.2,
+        "dm956": 0.2,
+        "dhcp": 0.2,
+        "ssid": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "idrac": {
+      "id": "idrac",
+      "pattern": "IDRAC",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.885454",
+      "last_flow": "2026-03-08T00:44:17.890514",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885459",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "PXE",
+              "ISP",
+              "DHCP",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890516",
+          "weight": 1.0,
+          "context": {
+            "category": "hardware",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "VLAN",
+              "FortiGate",
+              "EXCLUSIVE",
+              "GE1"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.4,
+        "pxe": 0.2,
+        "isp": 0.2,
+        "dhcp": 0.2,
+        "wifi": 0.2,
+        "cluster": 0.2,
+        "periph": 0.4,
+        "admin": 0.2,
+        "vlan10": 0.2,
+        "exclusive": 0.4,
+        "vlan": 0.2,
+        "fortigate": 0.2,
+        "vlan40": 0.2,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "ge1": 0.2,
+        "data": 0.2
+      },
+      "category": "hardware",
+      "content": ""
+    },
+    "tty": {
+      "id": "tty",
+      "pattern": "TTY",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885527",
+      "last_flow": "2026-03-08T00:44:17.885529",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885532",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "FortiGate",
+              "NUNCA",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "fortigate": 0.2,
+        "nunca": 0.2,
+        "wifi": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "mgmt": {
+      "id": "mgmt",
+      "pattern": "MGMT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885567",
+      "last_flow": "2026-03-08T00:44:17.885569",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885572",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "CRIT",
+              "INFRA",
+              "CLUSTER"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "infra": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "crit": {
+      "id": "crit",
+      "pattern": "CRIT",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885609",
+      "last_flow": "2026-03-08T00:44:17.885611",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885614",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "DENY"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "allow": 0.2,
+        "wan": 0.2,
+        "deny": 0.2,
+        "cluster": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gui": {
+      "id": "gui",
+      "pattern": "GUI",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885684",
+      "last_flow": "2026-03-08T00:44:17.885686",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.885689",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "SSH",
+              "LAN",
+              "WAN",
+              "FortiGate",
+              "DHCP"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "fortigate": 0.2,
+        "dhcp": 0.2,
+        "ssh": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "ssh": {
+      "id": "ssh",
+      "pattern": "SSH",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.885760",
+      "last_flow": "2026-03-08T00:44:17.889342",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889350",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "DHCP",
+              "GUI"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "dhcp": 0.2,
+        "gui": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "ssid": {
+      "id": "ssid",
+      "pattern": "SSID",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889413",
+      "last_flow": "2026-03-08T00:44:17.889415",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889421",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "WAN",
+              "DataCom",
+              "DM956",
+              "LSA2",
+              "DHCP"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "datacom": 0.2,
+        "dm956": 0.2,
+        "lsa2": 0.2,
+        "dhcp": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "lan": {
+      "id": "lan",
+      "pattern": "LAN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889463",
+      "last_flow": "2026-03-08T00:44:17.889465",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889468",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "ISP",
+              "DHCP",
+              "WAN",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "isp": 0.2,
+        "dhcp": 0.2,
+        "wan": 0.2,
+        "wifi": 0.2,
+        "cluster": 0.2,
+        "all": 0.2,
+        "corp": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "cluster": {
+      "id": "cluster",
+      "pattern": "CLUSTER",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889569",
+      "last_flow": "2026-03-08T00:44:17.889571",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889574",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "CRIT",
+              "INFRA",
+              "IDRAC"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "lan": 0.2,
+        "vlan": 0.2,
+        "crit": 0.2,
+        "infra": 0.2,
+        "idrac": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "data": {
+      "id": "data",
+      "pattern": "DATA",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.889654",
+      "last_flow": "2026-03-08T00:44:17.890743",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889659",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "PXE",
+              "WiFi"
+            ],
+            "depth": 0.13333333333333333
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.890745",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "VLAN",
+              "FortiGate",
+              "EXCLUSIVE",
+              "IDRAC"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "pxe": 0.2,
+        "wifi": 0.2,
+        "dhcp": 0.2,
+        "periph": 0.2,
+        "vlan": 0.2,
+        "fortigate": 0.2,
+        "exclusive": 0.2,
+        "idrac": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "corp": {
+      "id": "corp",
+      "pattern": "CORP",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889692",
+      "last_flow": "2026-03-08T00:44:17.889694",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889697",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-04.md",
+            "related": [
+              "LAN",
+              "VLAN",
+              "ALLOW",
+              "WAN",
+              "INFRA"
+            ],
+            "depth": 0.13333333333333333
+          }
+        }
+      ],
+      "confluences": {
+        "lan": 0.2,
+        "vlan": 0.2,
+        "allow": 0.2,
+        "wan": 0.2,
+        "infra": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "192_168_80_1": {
+      "id": "192_168_80_1",
+      "pattern": "192.168.80.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889851",
+      "last_flow": "2026-03-08T00:44:17.889853",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889856",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_80_0": {
+      "id": "192_168_80_0",
+      "pattern": "192.168.80.0",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889868",
+      "last_flow": "2026-03-08T00:44:17.889869",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889873",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_2_100": {
+      "id": "192_168_2_100",
+      "pattern": "192.168.2.100",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889877",
+      "last_flow": "2026-03-08T00:44:17.889878",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889881",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_1_100": {
+      "id": "192_168_1_100",
+      "pattern": "192.168.1.100",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889905",
+      "last_flow": "2026-03-08T00:44:17.889906",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889909",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "10_32_162_22": {
+      "id": "10_32_162_22",
+      "pattern": "10.32.162.22",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.889919",
+      "last_flow": "2026-03-08T00:44:17.889921",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.889924",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-04.md",
+            "depth": 0.23333333333333334
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "memory___2026_03_05": {
+      "id": "memory___2026_03_05",
+      "pattern": "Memory - 2026-03-05",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890016",
+      "last_flow": "2026-03-08T00:44:17.890018",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890024",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Memory - 2026-03-05",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Memory - 2026-03-05"
+    },
+    "sess_o__configura__o_vlan_fortigate___hp_v1910_16g": {
+      "id": "sess_o__configura__o_vlan_fortigate___hp_v1910_16g",
+      "pattern": "Sessão: Configuração VLAN FortiGate + HP V1910-16G",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890034",
+      "last_flow": "2026-03-08T00:44:17.890035",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890039",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Sessão: Configuração VLAN FortiGate + HP V1910-16G",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Sessão: Configuração VLAN FortiGate + HP V1910-16G"
+    },
+    "resumo": {
+      "id": "resumo",
+      "pattern": "Resumo",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890043",
+      "last_flow": "2026-03-08T00:44:17.890046",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890049",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Resumo",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Resumo"
+    },
+    "switch_hp_v1910_16g": {
+      "id": "switch_hp_v1910_16g",
+      "pattern": "Switch HP V1910-16G",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890054",
+      "last_flow": "2026-03-08T00:44:17.890056",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890059",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Switch HP V1910-16G",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Switch HP V1910-16G"
+    },
+    "fortigate_vlans_criadas": {
+      "id": "fortigate_vlans_criadas",
+      "pattern": "FortiGate VLANs Criadas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890063",
+      "last_flow": "2026-03-08T00:44:17.890065",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890068",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "FortiGate VLANs Criadas",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "FortiGate VLANs Criadas"
+    },
+    "pol_ticas_de_firewall_criadas": {
+      "id": "pol_ticas_de_firewall_criadas",
+      "pattern": "Políticas de Firewall Criadas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890074",
+      "last_flow": "2026-03-08T00:44:17.890076",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890079",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Políticas de Firewall Criadas",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Políticas de Firewall Criadas"
+    },
+    "testes_realizados": {
+      "id": "testes_realizados",
+      "pattern": "Testes Realizados",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890083",
+      "last_flow": "2026-03-08T00:44:17.890085",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890088",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Testes Realizados",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Testes Realizados"
+    },
+    "pr_ximos_passos": {
+      "id": "pr_ximos_passos",
+      "pattern": "Próximos Passos",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.6,
+      "created": "2026-03-08T00:44:17.890093",
+      "last_flow": "2026-03-08T00:44:17.891051",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890098",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-05.md",
+            "content": "Próximos Passos",
+            "depth": 0.1
+          }
+        },
+        {
+          "date": "2026-03-08T00:44:17.891053",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Próximos Passos",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Próximos Passos"
+    },
+    "periph": {
+      "id": "periph",
+      "pattern": "PERIPH",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890231",
+      "last_flow": "2026-03-08T00:44:17.890233",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890236",
+          "weight": 1.0,
+          "context": {
+            "category": "network",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "VLAN",
+              "FortiGate",
+              "EXCLUSIVE",
+              "IDRAC",
+              "GE1"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "vlan": 0.2,
+        "fortigate": 0.2,
+        "idrac": 0.4,
+        "wan": 0.2,
+        "vlan10": 0.2,
+        "exclusive": 0.2,
+        "vlan40": 0.2,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "ge1": 0.2,
+        "data": 0.2
+      },
+      "category": "network",
+      "content": ""
+    },
+    "admin": {
+      "id": "admin",
+      "pattern": "ADMIN",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890371",
+      "last_flow": "2026-03-08T00:44:17.890373",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890376",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "WAN",
+              "FortiGate",
+              "EXCLUSIVE",
+              "IDRAC",
+              "VLAN10"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "wan": 0.2,
+        "fortigate": 0.2,
+        "idrac": 0.2,
+        "vlan10": 0.4,
+        "vlan30": 0.2,
+        "vlan20": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "exclusive": {
+      "id": "exclusive",
+      "pattern": "EXCLUSIVE",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890475",
+      "last_flow": "2026-03-08T00:44:17.890477",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890480",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "VLAN",
+              "FortiGate",
+              "IDRAC",
+              "GE1"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "periph": 0.2,
+        "vlan": 0.2,
+        "fortigate": 0.2,
+        "idrac": 0.4,
+        "vlan30": 0.2,
+        "vlan20": 0.2,
+        "ge1": 0.2,
+        "data": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "ge1": {
+      "id": "ge1",
+      "pattern": "GE1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890702",
+      "last_flow": "2026-03-08T00:44:17.890704",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890708",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-05.md",
+            "related": [
+              "PERIPH",
+              "VLAN",
+              "FortiGate",
+              "EXCLUSIVE",
+              "IDRAC"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "periph": 0.2,
+        "vlan": 0.2,
+        "fortigate": 0.2,
+        "exclusive": 0.2,
+        "idrac": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "192_168_3_1": {
+      "id": "192_168_3_1",
+      "pattern": "192.168.3.1",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890799",
+      "last_flow": "2026-03-08T00:44:17.890801",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890804",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "192_168_40_2": {
+      "id": "192_168_40_2",
+      "pattern": "192.168.40.2",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890810",
+      "last_flow": "2026-03-08T00:44:17.890811",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890814",
+          "weight": 1.0,
+          "context": {
+            "category": "ip_address",
+            "source": "memory/2026-03-05.md",
+            "depth": 0.2
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "ip_address",
+      "content": ""
+    },
+    "2026_03_07___radiation_test_report___diagrams": {
+      "id": "2026_03_07___radiation_test_report___diagrams",
+      "pattern": "2026-03-07 - Radiation Test Report & Diagrams",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890924",
+      "last_flow": "2026-03-08T00:44:17.890926",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890930",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "2026-03-07 - Radiation Test Report & Diagrams",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "2026-03-07 - Radiation Test Report & Diagrams"
+    },
+    "trabalho_principal": {
+      "id": "trabalho_principal",
+      "pattern": "Trabalho Principal",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890935",
+      "last_flow": "2026-03-08T00:44:17.890936",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890939",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Trabalho Principal",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Trabalho Principal"
+    },
+    "relat_rio_t_cnico_latex": {
+      "id": "relat_rio_t_cnico_latex",
+      "pattern": "Relatório Técnico LaTeX",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890945",
+      "last_flow": "2026-03-08T00:44:17.890947",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890950",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Relatório Técnico LaTeX",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Relatório Técnico LaTeX"
+    },
+    "diagramas_graphviz": {
+      "id": "diagramas_graphviz",
+      "pattern": "Diagramas Graphviz",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890954",
+      "last_flow": "2026-03-08T00:44:17.890956",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890959",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Diagramas Graphviz",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Diagramas Graphviz"
+    },
+    "diagramas_gerados_": {
+      "id": "diagramas_gerados_",
+      "pattern": "Diagramas Gerados:",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890965",
+      "last_flow": "2026-03-08T00:44:17.890967",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890970",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Diagramas Gerados:",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Diagramas Gerados:"
+    },
+    "infraestrutura_de_teste_discutida": {
+      "id": "infraestrutura_de_teste_discutida",
+      "pattern": "Infraestrutura de Teste Discutida",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890975",
+      "last_flow": "2026-03-08T00:44:17.890977",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890980",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Infraestrutura de Teste Discutida",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Infraestrutura de Teste Discutida"
+    },
+    "arquitetura_completa": {
+      "id": "arquitetura_completa",
+      "pattern": "Arquitetura Completa",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890984",
+      "last_flow": "2026-03-08T00:44:17.890985",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890988",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Arquitetura Completa",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Arquitetura Completa"
+    },
+    "fluxo_de_execu__o": {
+      "id": "fluxo_de_execu__o",
+      "pattern": "Fluxo de Execução",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.890994",
+      "last_flow": "2026-03-08T00:44:17.890995",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.890998",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Fluxo de Execução",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Fluxo de Execução"
+    },
+    "classifica__o_de_falhas": {
+      "id": "classifica__o_de_falhas",
+      "pattern": "Classificação de Falhas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891004",
+      "last_flow": "2026-03-08T00:44:17.891006",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891009",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Classificação de Falhas",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Classificação de Falhas"
+    },
+    "output_vector": {
+      "id": "output_vector",
+      "pattern": "Output Vector",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891013",
+      "last_flow": "2026-03-08T00:44:17.891014",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891018",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Output Vector",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Output Vector"
+    },
+    "flags_importantes": {
+      "id": "flags_importantes",
+      "pattern": "Flags Importantes",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891022",
+      "last_flow": "2026-03-08T00:44:17.891024",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891027",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Flags Importantes",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Flags Importantes"
+    },
+    "ferramentas_instaladas": {
+      "id": "ferramentas_instaladas",
+      "pattern": "Ferramentas Instaladas",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891032",
+      "last_flow": "2026-03-08T00:44:17.891034",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891037",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Ferramentas Instaladas",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Ferramentas Instaladas"
+    },
+    "arquivos_criados": {
+      "id": "arquivos_criados",
+      "pattern": "Arquivos Criados",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891041",
+      "last_flow": "2026-03-08T00:44:17.891043",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891046",
+          "weight": 1.0,
+          "context": {
+            "category": "title",
+            "source": "memory/2026-03-07.md",
+            "content": "Arquivos Criados",
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {},
+      "category": "title",
+      "content": "Arquivos Criados"
+    },
+    "csv": {
+      "id": "csv",
+      "pattern": "CSV",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891244",
+      "last_flow": "2026-03-08T00:44:17.891246",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891249",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "MultiRad",
+              "EKF3",
+              "LaTeX"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "armedseen": {
+      "id": "armedseen",
+      "pattern": "ArmedSeen",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891284",
+      "last_flow": "2026-03-08T00:44:17.891286",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891289",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "ProcessOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "baro": {
+      "id": "baro",
+      "pattern": "BARO",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891327",
+      "last_flow": "2026-03-08T00:44:17.891329",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891332",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GPS",
+              "IMU",
+              "MAG"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gps": 0.2,
+        "imu": 0.2,
+        "mag": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "pdf": {
+      "id": "pdf",
+      "pattern": "PDF",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891391",
+      "last_flow": "2026-03-08T00:44:17.891393",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891396",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "LaTeX",
+              "ProcessOk",
+              "BaroReplayOk",
+              "MagReplayOk",
+              "ImuReplayOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2,
+        "magreplayok": 0.2,
+        "gpsreplayok": 0.2,
+        "imureplayok": 0.2,
+        "processok": 0.2,
+        "baroreplayok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gps": {
+      "id": "gps",
+      "pattern": "GPS",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891429",
+      "last_flow": "2026-03-08T00:44:17.891431",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891434",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "IMU",
+              "MAG",
+              "BARO"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "baro": 0.2,
+        "imu": 0.2,
+        "runfailed": 0.2,
+        "mag": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "imu": {
+      "id": "imu",
+      "pattern": "IMU",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891463",
+      "last_flow": "2026-03-08T00:44:17.891465",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891468",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GPS",
+              "MAG",
+              "BARO"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gps": 0.2,
+        "baro": 0.2,
+        "mag": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "magreplayok": {
+      "id": "magreplayok",
+      "pattern": "MagReplayOk",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891499",
+      "last_flow": "2026-03-08T00:44:17.891501",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891504",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "ProcessOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2,
+        "pdf": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "multirad": {
+      "id": "multirad",
+      "pattern": "MultiRad",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891535",
+      "last_flow": "2026-03-08T00:44:17.891536",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891540",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "EKF3"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "ekf3": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "gpsreplayok": {
+      "id": "gpsreplayok",
+      "pattern": "GpsReplayOk",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891567",
+      "last_flow": "2026-03-08T00:44:17.891569",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891573",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "ProcessOk",
+              "BaroReplayOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "latex": 0.2,
+        "pdf": 0.2,
+        "runfailed": 0.2,
+        "imureplayok": 0.2,
+        "processok": 0.2,
+        "baroreplayok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "runfailed": {
+      "id": "runfailed",
+      "pattern": "RunFailed",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891608",
+      "last_flow": "2026-03-08T00:44:17.891609",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891614",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "GPS",
+              "ProcessOk",
+              "BaroReplayOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gpsreplayok": 0.2,
+        "latex": 0.2,
+        "gps": 0.2,
+        "imureplayok": 0.2,
+        "processok": 0.2,
+        "baroreplayok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "ekf3": {
+      "id": "ekf3",
+      "pattern": "EKF3",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891646",
+      "last_flow": "2026-03-08T00:44:17.891648",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891651",
+          "weight": 1.0,
+          "context": {
+            "category": "software",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "MultiRad"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "multirad": 0.2
+      },
+      "category": "software",
+      "content": ""
+    },
+    "imureplayok": {
+      "id": "imureplayok",
+      "pattern": "ImuReplayOk",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891677",
+      "last_flow": "2026-03-08T00:44:17.891679",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891682",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "ProcessOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gpsreplayok": 0.2,
+        "latex": 0.2,
+        "pdf": 0.2,
+        "runfailed": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "processok": {
+      "id": "processok",
+      "pattern": "ProcessOk",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891744",
+      "last_flow": "2026-03-08T00:44:17.891746",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891749",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "BaroReplayOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gpsreplayok": 0.2,
+        "latex": 0.2,
+        "pdf": 0.2,
+        "runfailed": 0.2,
+        "baroreplayok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "baroreplayok": {
+      "id": "baroreplayok",
+      "pattern": "BaroReplayOk",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891822",
+      "last_flow": "2026-03-08T00:44:17.891824",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891827",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GpsReplayOk",
+              "LaTeX",
+              "PDF",
+              "RunFailed",
+              "ProcessOk"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gpsreplayok": 0.2,
+        "latex": 0.2,
+        "pdf": 0.2,
+        "runfailed": 0.2,
+        "processok": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    },
+    "mag": {
+      "id": "mag",
+      "pattern": "MAG",
+      "depth": 0.1,
+      "flow": 1.0,
+      "turbulence": 0.5,
+      "created": "2026-03-08T00:44:17.891865",
+      "last_flow": "2026-03-08T00:44:17.891867",
+      "sediments": [
+        {
+          "date": "2026-03-08T00:44:17.891870",
+          "weight": 1.0,
+          "context": {
+            "category": "concept",
+            "source": "memory/2026-03-07.md",
+            "related": [
+              "GPS",
+              "IMU",
+              "BARO"
+            ],
+            "depth": 0.1
+          }
+        }
+      ],
+      "confluences": {
+        "gps": 0.2,
+        "imu": 0.2,
+        "baro": 0.2
+      },
+      "category": "concept",
+      "content": ""
+    }
+  },
+  "current": {
+    "stream_id": "",
+    "depth": 0.0,
+    "momentum": [],
+    "history": [],
+    "active_since": ""
+  },
+  "eddies": [],
+  "depths": [
+    {
+      "depth": 0.0,
+      "name": "surface",
+      "age": "seconds"
+    },
+    {
+      "depth": 0.3,
+      "name": "working",
+      "age": "minutes"
+    },
+    {
+      "depth": 0.5,
+      "name": "episodic",
+      "age": "hours-days"
+    },
+    {
+      "depth": 0.7,
+      "name": "semantic",
+      "age": "months-years"
+    },
+    {
+      "depth": 1.0,
+      "name": "sediment",
+      "age": "permanent"
+    }
+  ],
+  "saved_at": "2026-03-08T00:44:17.892103"
+}

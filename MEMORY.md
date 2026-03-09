@@ -73,6 +73,26 @@ _Curated memories, decisions, and context worth keeping._
 ## Critical Rules
 - 🚫 **NEVER reboot computer without explicit permission from Cássio**
 
+## MultiRad Data Orchestrator (2026-03-09)
+
+**Localização:** `/home/csilva/Documents/multirad_data_orchestrator/`
+
+### Arquitetura
+- **Data Orchestrator:** Gerador de datasets sintéticos de sensores (C23)
+- **Case Study EKF:** Executor de testes ArduCopter EKF3 com emulação
+- **Output Vector:** Interface com MultiRad (flags, erros, checksums)
+
+### Dataset de Teste
+- **Cenário:** Drone Quad-X em repouso, Porto Alegre (-30.03°, -51.22°)
+- **Sensores:** 3x IMU, 3x BARO, 3x MAG, 1x GPS (redundância)
+- **Duração:** 10 segundos
+- **Propósito:** Validação/calibração do EKF3 com emulação
+
+### Arquivos Principais
+- `case-study_algorithms/drone/arducopter-ekf/` - Case EKF
+- `data_orchestrator/computer/` - Gerador de datasets
+- `memory/2026-03-09-multirad-ekf-dataset-analysis.md` - Análise completa
+
 ## Aparato de Auto-Aprimoramento
 - **Topologia do Tempo**: Passado(-1,0), Futuro(0,+1), Presente{0} - ciclo temporal
 - **Contínuo/Discreto**: Foco CRIA o discreto, observador participa da criação

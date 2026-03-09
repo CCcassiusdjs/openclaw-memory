@@ -1,26 +1,14 @@
-# Secrets and credentials
-.env
-**/*.key
-**/*.pem
-**/secrets*
-**/credentials/
+# Large files (>100MB) - GitHub limit
+memory/foveated_renderer.html
+memory/cortical_fs_visualizer.html
+memory/file_tree_full.html
+memory/system_graph_compressed.json
+memory/system_graph.json
+memory/bio_graph_3d_full.html
+memory/file_tree_complete.html
 
-# OpenClaw internal (not workspace)
-.openclaw/
-.clawhub/
-
-# System files
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
-
-# Logs
+# Other generated files
+memory/fs_index/
 *.log
-logs/
-
-# Temporary files
-tmp/
-temp/
 *.tmp
+.DS_Store

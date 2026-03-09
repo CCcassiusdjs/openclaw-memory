@@ -1,14 +1,14 @@
 {
   "lastChecks": {
-    "email": null,
+    "email": 1741467000,
     "calendar": null,
     "weather": null,
     "pattern_analysis": null,
     "tension_detection": null,
     "concept_synthesis": null
   },
-  "lastHeartbeat": null,
-  "checksToday": 0,
+  "lastHeartbeat": 1741467000,
+  "checksToday": 1,
   "patternsLearned": 0,
   "tensionsFound": 0,
   "synthesesCreated": 0,
@@ -16,5 +16,19 @@
     "patterns": [],
     "heuristics": [],
     "syntheses": []
-  }
+  },
+  "notableFindings": [
+    {
+      "date": "2026-03-08T22:30",
+      "type": "privacy",
+      "source": "email",
+      "summary": "Google encontrou novo resultado com dados pessoais"
+    },
+    {
+      "date": "2026-03-08T22:30",
+      "type": "financial",
+      "source": "email",
+      "summary": "Nubank: fatura em atraso"
+    }
+  ]
 }

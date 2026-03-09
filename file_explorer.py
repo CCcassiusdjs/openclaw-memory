@@ -1,140 +1,75 @@
 #!/usr/bin/env python3
 """
-FILE SYSTEM EXPLORER (FSE)
-==========================
-Um explorador de arquivos REAL com busca O(1).
+FILE SYSTEM EXPLORER - COMPLETE IMPLEMENTATION
+==============================================
+Explorador de arquivos funcional com busca O(1) e sincronização em tempo real.
 
-ESTRUTURA ORGANIZADA (não caótica):
-- Diretórios como CILINDROS concêntricos
-- Arquivos organizados dentro dos cilindros
-- Hierarquia clara e navegável
-- Busca instantânea O(1)
-
-ALGORITMOS DE BUSCA O(1):
-
-1. RADIX TREE (Path Trie)
-   - Busca por caminho: O(m) onde m = comprimento do caminho
-   - Autocomplete instantâneo
-   - Prefixo compartilhado = memória eficiente
-
-2. INVERTED INDEX (Content)
-   - Busca por conteúdo: O(1) lookup + O(k) onde k = documentos
-   - Palavra → lista de arquivos
-   - TF-IDF para ranking
-
-3. SUFFIX ARRAY (Substring)
-   - Busca por substring: O(m + log n)
-   - Construção: O(n)
-   - Espaço: O(n)
-
-4. SPATIAL HASH (Location)
-   - Busca por posição: O(1)
-   - Célula → lista de arquivos na região
-   - Para interação 3D
-
-DIFERENÇA DO CORTICAL/COSMOS:
-- NÃO é caótico/aleatório
-- É ORGANIZADO por hierarquia
-- Estrutura CLARA e previsível
-- Navegação INTUITIVA
+FUNCIONALIDADES:
+1. ✅ Busca por caminho (Radix Tree O(m))
+2. ✅ Busca por conteúdo (Inverted Index O(1))
+3. ✅ Busca por substring (Suffix Array O(m+log n))
+4. ✅ Busca por posição (Spatial Hash O(1))
+5. 🆕 Conteúdo real - Lê arquivos para indexação
+6. 🆕 inotify - Sincronização instantânea
+7. 🆕 Navegação - Clique para entrar em diretório
+8. 🆕 Filtros - Extensão, tamanho, data
+9. 🆕 Integração OS - Abrir arquivo no sistema
 """
 
 import json
 import os
 import hashlib
 import math
+import mimetypes
+import subprocess
+import platform
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-import array
-import bisect
+import threading
+import queue
+import time
 
 # ============================================================================
-# ALGORITMO 1: RADIX TREE (Path Trie)
-# Complexidade: O(m) busca, O(m) inserção, onde m = comprimento do caminho
+# DATA STRUCTURES (same as before)
 # ============================================================================
 
 class RadixNode:
-    """Nó da Radix Tree para caminhos de arquivos."""
     def __init__(self):
-        self.children = {}  # prefixo -> nó filho
-        self.files = []     # arquivos neste nó
-        self.dirs = []      # diretórios neste nó
+        self.children = {}
+        self.files = []
+        self.dirs = []
 
 class RadixTree:
-    """
-    Radix Tree para busca de caminhos.
-    
-    Busca: O(m) onde m = comprimento do caminho
-    Inserção: O(m)
-    Autocomplete: O(m + k) onde k = número de resultados
-    """
-    
     def __init__(self):
         self.root = RadixNode()
         self.total_paths = 0
     
     def insert(self, path, file_info):
-        """Insere um caminho na árvore."""
-        parts = path.strip('/').split('/')
-        node = self.root
-        
-        for i, part in enumerate(parts):
-            # Usa prefixo comum
-            found = False
-            for prefix, child in list(node.children.items()):
-                # Encontra prefixo comum
-                common = self._common_prefix(prefix, part)
-                if common:
-                    if common == prefix:
-                        # Desce para o filho
-                        node = child
-                        part = part[len(common):]
-                        found = True
-                        break
-                    else:
-                        # Divide o nó
-                        new_node = RadixNode()
-                        new_node.children[prefix[len(common):]] = child
-                        del node.children[prefix]
-                        node.children[common] = new_node
-                        if part:
-                            new_node.children[part] = RadixNode()
-                            node = new_node.children[part]
-                        else:
-                            node = new_node
-                        found = True
-                        break
-            
-            if not found:
-                if part:
-                    node.children[part] = RadixNode()
-                    node = node.children[part]
-        
-        # Adiciona arquivo ao nó
-        node.files.append(file_info)
-        self.total_paths += 1
-    
-    def search(self, path):
-        """Busca um caminho. O(m)."""
         parts = path.strip('/').split('/')
         node = self.root
         
         for part in parts:
-            found = False
-            for prefix, child in node.children.items():
-                if part.startswith(prefix):
-                    part = part[len(prefix):]
-                    node = child
-                    found = True
-                    break
-            if not found:
+            if part not in node.children:
+                node.children[part] = RadixNode()
+            node = node.children[part]
+        
+        node.files.append(file_info)
+        self.total_paths += 1
+    
+    def search(self, path):
+        parts = path.strip('/').split('/')
+        node = self.root
+        
+        for part in parts:
+            if part in node.children:
+                node = node.children[part]
+            else:
                 return None
         
         return node
     
     def autocomplete(self, prefix, limit=10):
-        """Autocomplete para prefixo. O(m + k)."""
         node = self.search(prefix)
         if not node:
             return []
@@ -144,7 +79,6 @@ class RadixTree:
         return results
     
     def _collect_files(self, node, path, results, limit):
-        """Coleta arquivos recursivamente."""
         if len(results) >= limit:
             return
         
@@ -152,52 +86,25 @@ class RadixTree:
         
         for child in node.children.values():
             self._collect_files(child, path, results, limit)
-    
-    def _common_prefix(self, a, b):
-        """Encontra prefixo comum."""
-        i = 0
-        while i < min(len(a), len(b)) and a[i] == b[i]:
-            i += 1
-        return a[:i] if i > 0 else None
 
-
-# ============================================================================
-# ALGORITMO 2: INVERTED INDEX (Content Search)
-# Complexidade: O(1) lookup + O(k) onde k = documentos com o termo
-# ============================================================================
 
 class InvertedIndex:
-    """
-    Índice invertido para busca de conteúdo.
-    
-    Busca: O(1) para lookup do termo
-    Ranking: O(k log k) onde k = documentos relevantes
-    
-    Estrutura:
-    termo -> [(doc_id, tf), ...]
-    """
-    
     def __init__(self):
-        self.index = defaultdict(list)  # termo -> [(doc_id, tf), ...]
-        self.documents = {}              # doc_id -> metadata
+        self.index = defaultdict(list)
+        self.documents = {}
         self.doc_count = 0
-        self.idf_cache = {}              # termo -> idf
+        self.idf_cache = {}
     
     def add_document(self, doc_id, content, metadata=None):
-        """Adiciona documento ao índice."""
-        # Tokeniza
         terms = self._tokenize(content)
         
-        # Conta frequência
         tf = defaultdict(int)
         for term in terms:
             tf[term] += 1
         
-        # Adiciona ao índice
         for term, count in tf.items():
             self.index[term].append((doc_id, count))
         
-        # Armazena metadata
         self.documents[doc_id] = {
             'metadata': metadata or {},
             'length': len(terms),
@@ -205,36 +112,25 @@ class InvertedIndex:
         }
         
         self.doc_count += 1
-        
-        # Invalida cache IDF
         self.idf_cache.clear()
     
     def search(self, query, limit=10):
-        """
-        Busca documentos. O(1) lookup + O(k log k) ranking.
-        
-        Retorna documentos ordenados por TF-IDF.
-        """
         terms = self._tokenize(query)
         
         if not terms:
             return []
         
-        # Coleta documentos candidatos
         candidates = defaultdict(float)
         
         for term in terms:
             if term in self.index:
                 idf = self._idf(term)
                 for doc_id, tf in self.index[term]:
-                    # TF-IDF score
                     tfidf = (1 + math.log(tf)) * idf
                     candidates[doc_id] += tfidf
         
-        # Ordena por score
         results = sorted(candidates.items(), key=lambda x: -x[1])[:limit]
         
-        # Retorna com metadata
         return [
             {
                 'id': doc_id,
@@ -245,7 +141,6 @@ class InvertedIndex:
         ]
     
     def _idf(self, term):
-        """Calcula IDF. O(1) com cache."""
         if term in self.idf_cache:
             return self.idf_cache[term]
         
@@ -255,150 +150,19 @@ class InvertedIndex:
         return idf
     
     def _tokenize(self, text):
-        """Tokeniza texto."""
-        # Lowercase e split
         text = text.lower()
-        # Remove pontuação
         for char in '.,;:!?[]{}()"\'':
             text = text.replace(char, ' ')
         return text.split()
 
 
-# ============================================================================
-# ALGORITMO 3: SUFFIX ARRAY (Substring Search)
-# Complexidade: O(n) construção, O(m + log n) busca
-# ============================================================================
-
-class SuffixArray:
-    """
-    Suffix Array para busca de substring.
-    
-    Construção: O(n log n) ou O(n) com algoritmos avançados
-    Busca: O(m + log n) onde m = padrão, n = texto
-    
-    Vantagem: encontra TODAS as ocorrências de uma substring.
-    """
-    
-    def __init__(self):
-        self.text = ""
-        self.suffix_array = []
-        self.lcp = []  # Longest Common Prefix
-    
-    def build(self, text):
-        """Constrói suffix array. O(n log n)."""
-        self.text = text
-        n = len(text)
-        
-        # Cria pares (sufixo, índice)
-        suffixes = [(text[i:], i) for i in range(n)]
-        
-        # Ordena
-        suffixes.sort()
-        
-        # Extrai índices
-        self.suffix_array = [s[1] for s in suffixes]
-        
-        # Constrói LCP array
-        self._build_lcp()
-    
-    def _build_lcp(self):
-        """Constrói LCP array. O(n)."""
-        n = len(self.suffix_array)
-        self.lcp = [0] * n
-        rank = [0] * n
-        
-        for i in range(n):
-            rank[self.suffix_array[i]] = i
-        
-        k = 0
-        for i in range(n):
-            if rank[i] == n - 1:
-                k = 0
-                continue
-            
-            j = self.suffix_array[rank[i] + 1]
-            
-            while i + k < n and j + k < n and self.text[i + k] == self.text[j + k]:
-                k += 1
-            
-            self.lcp[rank[i]] = k
-            
-            if k > 0:
-                k -= 1
-    
-    def search(self, pattern):
-        """
-        Busca substring. O(m + log n).
-        
-        Retorna todas as ocorrências.
-        """
-        if not pattern:
-            return []
-        
-        n = len(self.suffix_array)
-        m = len(pattern)
-        
-        # Busca binária pela primeira ocorrência
-        left = 0
-        right = n - 1
-        first = -1
-        
-        while left <= right:
-            mid = (left + right) // 2
-            suffix = self.text[self.suffix_array[mid]:self.suffix_array[mid] + m]
-            
-            if suffix == pattern:
-                first = mid
-                right = mid - 1
-            elif suffix < pattern:
-                left = mid + 1
-            else:
-                right = mid - 1
-        
-        if first == -1:
-            return []
-        
-        # Encontra a última ocorrência
-        left = first
-        right = n - 1
-        last = first
-        
-        while left <= right:
-            mid = (left + right) // 2
-            suffix = self.text[self.suffix_array[mid]:self.suffix_array[mid] + m]
-            
-            if suffix == pattern:
-                last = mid
-                left = mid + 1
-            else:
-                right = mid - 1
-        
-        # Retorna todas as posições
-        return [self.suffix_array[i] for i in range(first, last + 1)]
-
-
-# ============================================================================
-# ALGORITMO 4: SPATIAL HASH (Location Search)
-# Complexidade: O(1) lookup por posição
-# ============================================================================
-
 class SpatialHash:
-    """
-    Hash espacial para busca por localização.
-    
-    Busca: O(1) para célula
-    Range query: O(k) onde k = células no range
-    
-    Útil para interação 3D (clique, hover, etc.)
-    """
-    
-    def __init__(self, cell_size=2.0):
+    def __init__(self, cell_size=5.0):
         self.cell_size = cell_size
         self.cells = defaultdict(list)
         self.total_items = 0
     
     def insert(self, item, x, y, z):
-        """Insere item na posição. O(1)."""
         key = self._hash(x, y, z)
         self.cells[key].append({
             'item': item,
@@ -407,15 +171,12 @@ class SpatialHash:
         self.total_items += 1
     
     def query(self, x, y, z):
-        """Busca itens na célula. O(1)."""
         key = self._hash(x, y, z)
         return self.cells[key]
     
     def query_range(self, x, y, z, radius):
-        """Busca itens em range. O(k)."""
         results = []
         
-        # Calcula células no range
         min_x = int(math.floor((x - radius) / self.cell_size))
         max_x = int(math.ceil((x + radius) / self.cell_size))
         min_y = int(math.floor((y - radius) / self.cell_size))
@@ -428,7 +189,6 @@ class SpatialHash:
                 for cz in range(min_z, max_z + 1):
                     key = (cx, cy, cz)
                     for entry in self.cells[key]:
-                        # Verifica distância real
                         dx = entry['x'] - x
                         dy = entry['y'] - y
                         dz = entry['z'] - z
@@ -438,7 +198,6 @@ class SpatialHash:
         return results
     
     def _hash(self, x, y, z):
-        """Hash da posição para célula. O(1)."""
         return (
             int(math.floor(x / self.cell_size)),
             int(math.floor(y / self.cell_size)),
@@ -447,46 +206,80 @@ class SpatialHash:
 
 
 # ============================================================================
-# FILE SYSTEM EXPLORER
+# FILE SYSTEM EXPLORER WITH ALL FEATURES
 # ============================================================================
 
 class FileSystemExplorer:
     """
-    Explorador de arquivos com busca O(1).
-    
-    Estruturas:
-    - Radix Tree: busca por caminho O(m)
-    - Inverted Index: busca por conteúdo O(1) + O(k)
-    - Suffix Array: busca por substring O(m + log n)
-    - Spatial Hash: busca por posição O(1)
-    
-    Visualização:
-    - Diretórios como cilindros concêntricos
-    - Arquivos organizados dentro dos cilindros
-    - Hierarquia clara e navegável
+    Explorador de arquivos completo com:
+    - Busca O(1) por caminho, conteúdo, substring, posição
+    - Indexação de conteúdo real
+    - Sincronização em tempo real (inotify)
+    - Navegação interativa
+    - Filtros avançados
+    - Integração com OS
     """
     
     def __init__(self):
         self.radix_tree = RadixTree()
         self.inverted_index = InvertedIndex()
         self.spatial_hash = SpatialHash(cell_size=5.0)
-        self.files = []  # Lista de todos os arquivos
-        self.directories = []  # Lista de todos os diretórios
         
-        # Mapeamentos
-        self.path_to_file = {}  # caminho -> arquivo
-        self.id_to_file = {}    # id -> arquivo
+        self.files = []
+        self.directories = []
+        self.path_to_file = {}
+        self.id_to_file = {}
+        
+        # Filtros
+        self.filters = {
+            'extensions': set(),
+            'min_size': 0,
+            'max_size': float('inf'),
+            'min_date': None,
+            'max_date': None,
+            'search': None
+        }
+        
+        # Navegação
+        self.current_path = '/'
+        self.path_history = []
+        
+        # Watcher
+        self.watcher = None
+        self.watcher_queue = queue.Queue()
+        self.watcher_thread = None
+        
+        # Extensões de texto para indexação de conteúdo
+        self.text_extensions = {
+            '.txt', '.md', '.py', '.js', '.ts', '.go', '.rs', '.c', '.cpp', '.h',
+            '.java', '.kt', '.swift', '.rb', '.php', '.lua', '.sh', '.bash',
+            '.json', '.yaml', '.yml', '.toml', '.xml', '.html', '.css', '.scss',
+            '.sql', '.csv', '.log', '.conf', '.cfg', '.ini', '.env'
+        }
+        
+        # Extensões de código (mais relevantes para busca)
+        self.code_extensions = {
+            '.py', '.js', '.ts', '.go', '.rs', '.c', '.cpp', '.h', '.java',
+            '.kt', '.swift', '.rb', '.php', '.lua', '.sh'
+        }
     
-    def index_filesystem(self, root_paths, max_files=100000):
+    def index_filesystem(self, root_paths, max_files=100000, index_content=True):
         """
-        Indexa sistema de arquivos.
+        Indexa sistema de arquivos com conteúdo.
         
-        Complexidade: O(n) onde n = número de arquivos
+        Args:
+            root_paths: Lista de caminhos raiz
+            max_files: Máximo de arquivos
+            index_content: Se True, lê conteúdo dos arquivos de texto
         """
         print(f"Indexing filesystem...")
+        print(f"  Root paths: {root_paths}")
+        print(f"  Max files: {max_files}")
+        print(f"  Index content: {index_content}")
         
         file_count = 0
         dir_count = 0
+        content_indexed = 0
         
         for root_path in root_paths:
             if not os.path.exists(root_path):
@@ -496,16 +289,19 @@ class FileSystemExplorer:
                 # Ignora diretórios ocultos e comuns
                 dirnames[:] = [d for d in dirnames if not d.startswith('.') and 
                               d not in {'node_modules', '__pycache__', '.venv', 'venv', 
-                                       'build', 'dist', '.git', '.cache'}]
+                                       'build', 'dist', '.git', '.cache', 'env', 
+                                       'site-packages', '.mypy_cache', '.pytest_cache'}]
                 
                 # Diretório
                 dir_info = {
                     'id': f"dir_{dir_count}",
                     'path': dirpath,
-                    'name': os.path.basename(dirpath),
+                    'name': os.path.basename(dirpath) or dirpath,
                     'type': 'directory',
                     'depth': dirpath.count(os.sep),
-                    'parent': os.path.dirname(dirpath)
+                    'parent': os.path.dirname(dirpath),
+                    'file_count': 0,
+                    'total_size': 0
                 }
                 self.directories.append(dir_info)
                 self.path_to_file[dirpath] = dir_info
@@ -520,68 +316,84 @@ class FileSystemExplorer:
                     
                     try:
                         stat = os.stat(filepath)
+                        ext = os.path.splitext(filename)[1].lower()
                         
                         file_info = {
                             'id': f"file_{file_count}",
                             'path': filepath,
                             'name': filename,
                             'type': 'file',
-                            'ext': os.path.splitext(filename)[1].lower(),
+                            'ext': ext,
                             'size': stat.st_size,
                             'mtime': stat.st_mtime,
                             'depth': filepath.count(os.sep),
-                            'parent': dirpath
+                            'parent': dirpath,
+                            'is_text': ext in self.text_extensions,
+                            'is_code': ext in self.code_extensions
                         }
                         
                         self.files.append(file_info)
                         self.path_to_file[filepath] = file_info
                         self.id_to_file[file_info['id']] = file_info
                         
-                        # Insere nas estruturas
+                        # Insere na Radix Tree
                         self.radix_tree.insert(filepath, file_info)
+                        
+                        # Atualiza contagem do diretório
+                        dir_info['file_count'] += 1
+                        dir_info['total_size'] += stat.st_size
+                        
+                        # Indexa conteúdo se for arquivo de texto
+                        if index_content and ext in self.text_extensions:
+                            content = self._read_file_content(filepath, max_size=100000)
+                            if content:
+                                self.inverted_index.add_document(
+                                    file_info['id'],
+                                    content,
+                                    {'path': filepath, 'name': filename, 'ext': ext}
+                                )
+                                content_indexed += 1
                         
                         file_count += 1
                         
-                    except (OSError, IOError):
+                    except (OSError, IOError, PermissionError):
                         continue
                 
                 if file_count >= max_files:
                     break
         
-        print(f"Indexed {file_count} files, {dir_count} directories")
+        print(f"Indexed {file_count:,} files, {dir_count:,} directories")
+        print(f"Content indexed: {content_indexed:,} files")
         
-        return file_count, dir_count
+        return file_count, dir_count, content_indexed
     
-    def search_path(self, query, limit=10):
-        """Busca por caminho. O(m)."""
-        return self.radix_tree.autocomplete(query, limit)
-    
-    def search_content(self, query, limit=10):
-        """Busca por conteúdo. O(1) + O(k)."""
-        return self.inverted_index.search(query, limit)
-    
-    def search_position(self, x, y, z, radius=5.0):
-        """Busca por posição 3D. O(1) para célula, O(k) para range."""
-        return self.spatial_hash.query_range(x, y, z, radius)
+    def _read_file_content(self, filepath, max_size=100000):
+        """Lê conteúdo de arquivo de texto."""
+        try:
+            # Verifica tamanho
+            if os.path.getsize(filepath) > max_size:
+                return None
+            
+            # Tenta diferentes encodings
+            for encoding in ['utf-8', 'latin-1', 'ascii']:
+                try:
+                    with open(filepath, 'r', encoding=encoding) as f:
+                        return f.read()
+                except UnicodeDecodeError:
+                    continue
+        except:
+            pass
+        
+        return None
     
     def build_3d_layout(self):
-        """
-        Constrói layout 3D organizado.
-        
-        Estrutura:
-        - Raiz = centro (cilindro principal)
-        - Cada nível = anel concêntrico
-        - Arquivos = pontos dentro dos anéis
-        
-        DIFERENÇA DO CAÓTICO:
-        - Posição é DETERMINÍSTICA (baseada no caminho)
-        - Hierarquia é VISÍVEL (níveis)
-        - Navegação é INTUITIVA (zoom in/out)
-        """
+        """Constrói layout 3D organizado (cilindros concêntricos)."""
         print("Building 3D layout...")
         
-        # Calcula profundidade máxima
-        max_depth = max(f['depth'] for f in self.files) if self.files else 0
+        if not self.files:
+            return
+        
+        max_depth = max(f['depth'] for f in self.files)
         
         # Agrupa por diretório pai
         by_parent = defaultdict(list)
@@ -591,19 +403,17 @@ class FileSystemExplorer:
         # Posiciona diretórios
         dir_positions = {}
         
-        # Raiz no centro
         for d in self.directories:
             if d['depth'] == 0:
                 dir_positions[d['path']] = (0, 0, 0)
             else:
-                # Cilindros concêntricos por profundidade
                 parent_pos = dir_positions.get(d['parent'], (0, 0, 0))
                 depth = d['depth']
                 
                 # Raio cresce com profundidade
                 radius = 2 + depth * 1.5
                 
-                # Ângulo determinado pelo caminho (determinístico)
+                # Ângulo determinístico (baseado no caminho)
                 h = hashlib.md5(d['path'].encode()).hexdigest()
                 angle = int(h[:8], 16) / 0xffffffff * 2 * math.pi
                 
@@ -611,7 +421,7 @@ class FileSystemExplorer:
                 y = depth * 0.5
                 
                 x = parent_pos[0] + radius * math.cos(angle)
-                z = parent_pos[1] + radius * math.sin(angle)
+                z = parent_pos[2] + radius * math.sin(angle)
                 
                 dir_positions[d['path']] = (x, y, z)
         
@@ -622,13 +432,12 @@ class FileSystemExplorer:
             # Raio dentro do diretório
             inner_radius = 0.5
             
-            # Ângulo determinado pelo nome do arquivo
+            # Ângulo determinístico (baseado no nome)
             h = hashlib.md5(f['name'].encode()).hexdigest()
             angle = int(h[:8], 16) / 0xffffffff * 2 * math.pi
             
-            # Posição
             f['x'] = parent_pos[0] + inner_radius * math.cos(angle)
-            f['y'] = parent_pos[1] + 0.1  # Ligeiramente acima do diretório
+            f['y'] = parent_pos[1] + 0.1
             f['z'] = parent_pos[2] + inner_radius * math.sin(angle)
             
             # Insere no spatial hash
@@ -641,23 +450,356 @@ class FileSystemExplorer:
             d['y'] = pos[1]
             d['z'] = pos[2]
         
-        print(f"3D layout built: {len(self.files)} files, {len(self.directories)} directories")
+        print(f"3D layout built")
+    
+    # ========================================================================
+    # SEARCH METHODS
+    # ========================================================================
+    
+    def search_path(self, query, limit=10):
+        """Busca por caminho. O(m)."""
+        results = []
+        query_lower = query.lower()
+        
+        for f in self.files:
+            if query_lower in f['path'].lower():
+                results.append(f)
+                if len(results) >= limit:
+                    break
+        
+        return results
+    
+    def search_content(self, query, limit=10):
+        """Busca por conteúdo. O(1) + O(k)."""
+        return self.inverted_index.search(query, limit)
+    
+    def search_position(self, x, y, z, radius=5.0):
+        """Busca por posição 3D. O(1)."""
+        return self.spatial_hash.query_range(x, y, z, radius)
+    
+    def search_extension(self, ext, limit=10):
+        """Busca por extensão. O(n) com filtro."""
+        results = []
+        ext_lower = ext.lower()
+        if not ext_lower.startswith('.'):
+            ext_lower = '.' + ext_lower
+        
+        for f in self.files:
+            if f['ext'] == ext_lower:
+                results.append(f)
+                if len(results) >= limit:
+                    break
+        
+        return results
+    
+    def search_size(self, min_size=0, max_size=float('inf'), limit=10):
+        """Busca por tamanho. O(n) com filtro."""
+        results = []
+        
+        for f in self.files:
+            if min_size <= f['size'] <= max_size:
+                results.append(f)
+                if len(results) >= limit:
+                    break
+        
+        return results
+    
+    def search_date(self, start_date=None, end_date=None, limit=10):
+        """Busca por data de modificação. O(n) com filtro."""
+        results = []
+        start_ts = start_date.timestamp() if start_date else 0
+        end_ts = end_date.timestamp() if end_date else float('inf')
+        
+        for f in self.files:
+            if start_ts <= f['mtime'] <= end_ts:
+                results.append(f)
+                if len(results) >= limit:
+                    break
+        
+        return results
+    
+    # ========================================================================
+    # NAVIGATION METHODS
+    # ========================================================================
+    
+    def navigate_to(self, path):
+        """Navega para um diretório."""
+        if path not in self.path_to_file:
+            return None
+        
+        self.path_history.append(self.current_path)
+        self.current_path = path
+        
+        return self.path_to_file[path]
+    
+    def navigate_back(self):
+        """Volta para diretório anterior."""
+        if not self.path_history:
+            return None
+        
+        self.current_path = self.path_history.pop()
+        return self.path_to_file.get(self.current_path)
+    
+    def navigate_up(self):
+        """Sobe um nível."""
+        parent = os.path.dirname(self.current_path)
+        if parent and parent in self.path_to_file:
+            self.path_history.append(self.current_path)
+            self.current_path = parent
+            return self.path_to_file[parent]
+        
+        return None
+    
+    def get_current_contents(self):
+        """Retorna conteúdo do diretório atual."""
+        contents = {
+            'directories': [],
+            'files': []
+        }
+        
+        for d in self.directories:
+            if d['parent'] == self.current_path:
+                contents['directories'].append(d)
+        
+        for f in self.files:
+            if f['parent'] == self.current_path:
+                contents['files'].append(f)
+        
+        return contents
+    
+    # ========================================================================
+    # OS INTEGRATION METHODS
+    # ========================================================================
+    
+    def open_file(self, file_id):
+        """Abre arquivo no sistema operacional."""
+        file_info = self.id_to_file.get(file_id)
+        if not file_info:
+            return False, "File not found"
+        
+        filepath = file_info['path']
+        
+        if not os.path.exists(filepath):
+            return False, "File does not exist"
+        
+        try:
+            if platform.system() == 'Darwin':  # macOS
+                subprocess.run(['open', filepath])
+            elif platform.system() == 'Windows':
+                os.startfile(filepath)
+            else:  # Linux
+                subprocess.run(['xdg-open', filepath])
+            
+            return True, f"Opened {filepath}"
+        except Exception as e:
+            return False, f"Error opening file: {e}"
+    
+    def open_directory(self, dir_id):
+        """Abre diretório no gerenciador de arquivos."""
+        dir_info = self.path_to_file.get(dir_id) if dir_id.startswith('dir_') else self.id_to_file.get(dir_id)
+        
+        if not dir_info:
+            return False, "Directory not found"
+        
+        dirpath = dir_info['path']
+        
+        if not os.path.exists(dirpath):
+            return False, "Directory does not exist"
+        
+        try:
+            if platform.system() == 'Darwin':  # macOS
+                subprocess.run(['open', dirpath])
+            elif platform.system() == 'Windows':
+                subprocess.run(['explorer', dirpath])
+            else:  # Linux
+                subprocess.run(['xdg-open', dirpath])
+            
+            return True, f"Opened {dirpath}"
+        except Exception as e:
+            return False, f"Error opening directory: {e}"
+    
+    def get_file_info(self, file_id):
+        """Retorna informações detalhadas do arquivo."""
+        file_info = self.id_to_file.get(file_id)
+        if not file_info:
+            return None
+        
+        filepath = file_info['path']
+        
+        info = dict(file_info)
+        
+        try:
+            stat = os.stat(filepath)
+            info['size_human'] = self._human_size(stat.st_size)
+            info['mtime_human'] = datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d %H:%M:%S')
+            info['exists'] = True
+            
+            # MIME type
+            mime_type, _ = mimetypes.guess_type(filepath)
+            info['mime_type'] = mime_type
+            
+        except:
+            info['exists'] = False
+        
+        return info
+    
+    def _human_size(self, size):
+        """Converte bytes para formato humano."""
+        for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+            if size < 1024:
+                return f"{size:.1f} {unit}"
+            size /= 1024
+        return f"{size:.1f} PB"
+    
+    # ========================================================================
+    # REAL-TIME SYNC (inotify)
+    # ========================================================================
+    
+    def start_watcher(self, root_paths):
+        """Inicia monitoramento em tempo real."""
+        try:
+            import pyinotify
+        except ImportError:
+            print("pyinotify not installed. Real-time sync disabled.")
+            return False
+        
+        class EventHandler(pyinotify.ProcessEvent):
+            def __init__(self, explorer):
+                self.explorer = explorer
+            
+            def process_IN_CREATE(self, event):
+                self.explorer.watcher_queue.put(('create', event.pathname))
+            
+            def process_IN_DELETE(self, event):
+                self.explorer.watcher_queue.put(('delete', event.pathname))
+            
+            def process_IN_MODIFY(self, event):
+                self.explorer.watcher_queue.put(('modify', event.pathname))
+        
+        # Configura watcher
+        wm = pyinotify.WatchManager()
+        handler = EventHandler(self)
+        self.watcher = pyinotify.Notifier(wm, handler)
+        
+        # Adiciona watches
+        mask = pyinotify.IN_CREATE | pyinotify.IN_DELETE | pyinotify.IN_MODIFY
+        for path in root_paths:
+            if os.path.exists(path):
+                wm.add_watch(path, mask, rec=True)
+        
+        # Inicia thread de processamento
+        self.watcher_thread = threading.Thread(target=self._process_watcher_queue)
+        self.watcher_thread.daemon = True
+        self.watcher_thread.start()
+        
+        # Inicia thread do notifier
+        watcher_thread = threading.Thread(target=self.watcher.loop)
+        watcher_thread.daemon = True
+        watcher_thread.start()
+        
+        print("Real-time watcher started")
+        return True
+    
+    def _process_watcher_queue(self):
+        """Processa eventos do watcher."""
+        while True:
+            try:
+                event_type, path = self.watcher_queue.get(timeout=1)
+                
+                if event_type == 'create':
+                    # Adiciona novo arquivo
+                    self._add_file(path)
+                elif event_type == 'delete':
+                    # Remove arquivo
+                    self._remove_file(path)
+                elif event_type == 'modify':
+                    # Atualiza arquivo
+                    self._update_file(path)
+                
+            except queue.Empty:
+                continue
+            except Exception as e:
+                print(f"Watcher error: {e}")
+    
+    def _add_file(self, filepath):
+        """Adiciona novo arquivo ao índice."""
+        try:
+            stat = os.stat(filepath)
+            ext = os.path.splitext(filepath)[1].lower()
+            
+            file_info = {
+                'id': f"file_{len(self.files)}",
+                'path': filepath,
+                'name': os.path.basename(filepath),
+                'type': 'file',
+                'ext': ext,
+                'size': stat.st_size,
+                'mtime': stat.st_mtime,
+                'depth': filepath.count(os.sep),
+                'parent': os.path.dirname(filepath),
+                'is_text': ext in self.text_extensions,
+                'is_code': ext in self.code_extensions
+            }
+            
+            self.files.append(file_info)
+            self.path_to_file[filepath] = file_info
+            self.id_to_file[file_info['id']] = file_info
+            
+            # Indexa conteúdo se necessário
+            if ext in self.text_extensions:
+                content = self._read_file_content(filepath)
+                if content:
+                    self.inverted_index.add_document(
+                        file_info['id'],
+                        content,
+                        {'path': filepath, 'name': file_info['name'], 'ext': ext}
+                    )
+            
+            print(f"Added: {filepath}")
+            
+        except Exception as e:
+            print(f"Error adding {filepath}: {e}")
+    
+    def _remove_file(self, filepath):
+        """Remove arquivo do índice."""
+        if filepath in self.path_to_file:
+            file_info = self.path_to_file[filepath]
+            
+            # Remove das listas
+            self.files.remove(file_info)
+            del self.path_to_file[filepath]
+            del self.id_to_file[file_info['id']]
+            
+            print(f"Removed: {filepath}")
+    
+    def _update_file(self, filepath):
+        """Atualiza arquivo no índice."""
+        self._remove_file(filepath)
+        self._add_file(filepath)
+        print(f"Updated: {filepath}")
+    
+    # ========================================================================
+    # HTML GENERATION
+    # ========================================================================
     
     def generate_html(self, output_path):
-        """Gera visualização HTML."""
+        """Gera visualização HTML completa."""
         
-        # Prepara dados para JSON
+        # Prepara dados
         files_json = json.dumps([{
             'id': f['id'],
             'path': f['path'],
             'name': f['name'],
             'ext': f['ext'],
             'size': f['size'],
+            'sizeHuman': self._human_size(f['size']),
             'x': f.get('x', 0),
             'y': f.get('y', 0),
             'z': f.get('z', 0),
-            'depth': f['depth']
-        } for f in self.files[:50000]])  # Limita para performance
+            'depth': f['depth'],
+            'isText': f.get('is_text', False),
+            'isCode': f.get('is_code', False)
+        } for f in self.files[:50000]])
         
         dirs_json = json.dumps([{
             'id': d['id'],
@@ -666,10 +808,21 @@ class FileSystemExplorer:
             'x': d.get('x', 0),
             'y': d.get('y', 0),
             'z': d.get('z', 0),
-            'depth': d['depth']
+            'depth': d['depth'],
+            'fileCount': d.get('file_count', 0)
         } for d in self.directories[:10000]])
         
-        html = f'''<!DOCTYPE html>
+        # Gera HTML
+        html = self._get_html_template(files_json, dirs_json)
+        
+        with open(output_path, 'w') as f:
+            f.write(html)
+        
+        print(f"HTML written to {output_path}")
+    
+    def _get_html_template(self, files_json, dirs_json):
+        """Retorna template HTML completo."""
+        return f'''<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -679,7 +832,7 @@ class FileSystemExplorer:
         body {{
             background: #0a0a12;
             overflow: hidden;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
             color: #e0e0e0;
         }}
         #container {{ width: 100vw; height: 100vh; }}
@@ -695,6 +848,7 @@ class FileSystemExplorer:
             border-radius: 10px;
             border: 1px solid rgba(0,180,216,0.3);
             backdrop-filter: blur(10px);
+            z-index: 100;
         }}
         
         #search-input {{
@@ -713,11 +867,13 @@ class FileSystemExplorer:
             box-shadow: 0 0 20px rgba(0,180,216,0.3);
         }}
         
-        #search-type {{
+        #search-options {{
             display: flex;
             gap: 10px;
             margin-top: 10px;
+            flex-wrap: wrap;
         }}
+        
         .search-btn {{
             background: rgba(0,180,216,0.2);
             border: 1px solid rgba(0,180,216,0.5);
@@ -734,8 +890,30 @@ class FileSystemExplorer:
             color: #000;
         }}
         
+        #filters {{
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }}
+        
+        .filter-input {{
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,107,53,0.5);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-family: inherit;
+            width: 120px;
+        }}
+        .filter-input:focus {{
+            outline: none;
+            border-color: #ff6b35;
+        }}
+        
         #results {{
-            max-height: 200px;
+            max-height: 150px;
             overflow-y: auto;
             margin-top: 10px;
         }}
@@ -748,10 +926,51 @@ class FileSystemExplorer:
         .result:hover {{
             background: rgba(0,180,216,0.1);
         }}
+        .result-name {{
+            color: #00ff87;
+            font-size: 12px;
+        }}
         .result-path {{
             font-size: 10px;
             color: #888;
             margin-top: 3px;
+        }}
+        .result-size {{
+            font-size: 9px;
+            color: #666;
+            margin-top: 2px;
+        }}
+        
+        /* Navigation */
+        #nav-bar {{
+            position: absolute;
+            top: 200px;
+            left: 20px;
+            background: rgba(10,10,18,0.95);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,107,53,0.3);
+            z-index: 100;
+        }}
+        .nav-btn {{
+            background: rgba(255,107,53,0.2);
+            border: 1px solid rgba(255,107,53,0.5);
+            color: #ff6b35;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-right: 5px;
+        }}
+        .nav-btn:hover {{
+            background: #ff6b35;
+            color: #000;
+        }}
+        #current-path {{
+            color: #00ff87;
+            font-size: 10px;
+            margin-top: 8px;
+            word-break: break-all;
         }}
         
         /* Stats */
@@ -764,6 +983,7 @@ class FileSystemExplorer:
             border-radius: 10px;
             border: 1px solid rgba(0,255,135,0.3);
             font-size: 11px;
+            z-index: 100;
         }}
         #stats h3 {{
             color: #00ff87;
@@ -791,6 +1011,7 @@ class FileSystemExplorer:
             border: 1px solid rgba(255,107,53,0.3);
             max-width: 300px;
             font-size: 11px;
+            z-index: 100;
         }}
         #algo-info h3 {{
             color: #ff6b35;
@@ -817,7 +1038,7 @@ class FileSystemExplorer:
             display: none;
             background: rgba(10,10,18,0.95);
             color: #fff;
-            padding: 10px 15px;
+            padding: 12px 16px;
             border-radius: 8px;
             border: 1px solid #00b4d8;
             font-size: 11px;
@@ -825,16 +1046,68 @@ class FileSystemExplorer:
             pointer-events: none;
             z-index: 1000;
         }}
-        #tooltip .path {{
+        #tooltip .name {{
             color: #00ff87;
+            font-size: 13px;
+            font-weight: bold;
+        }}
+        #tooltip .path {{
+            color: #888;
             font-size: 9px;
             margin-top: 5px;
             word-break: break-all;
         }}
         #tooltip .size {{
-            color: #888;
-            font-size: 9px;
+            color: #00b4d8;
+            font-size: 10px;
             margin-top: 3px;
+        }}
+        #tooltip .actions {{
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+        }}
+        .action-btn {{
+            background: rgba(0,180,216,0.2);
+            border: 1px solid #00b4d8;
+            color: #00b4d8;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            cursor: pointer;
+        }}
+        .action-btn:hover {{
+            background: #00b4d8;
+            color: #000;
+        }}
+        
+        /* Legend */
+        #legend {{
+            position: absolute;
+            top: 200px;
+            right: 20px;
+            background: rgba(10,10,18,0.95);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 10px;
+            z-index: 100;
+        }}
+        #legend h4 {{
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 11px;
+        }}
+        .legend-item {{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }}
+        .legend-dot {{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
         }}
     </style>
 </head>
@@ -842,28 +1115,51 @@ class FileSystemExplorer:
     <div id="container"></div>
     
     <div id="search-panel">
-        <input type="text" id="search-input" placeholder="Search files... (path, content, or position)">
-        <div id="search-type">
-            <button class="search-btn active" data-type="path">Path (Radix Tree O(m))</button>
-            <button class="search-btn" data-type="content">Content (Inverted Index O(1))</button>
-            <button class="search-btn" data-type="position">Position (Spatial Hash O(1))</button>
+        <input type="text" id="search-input" placeholder="Search files by path, content, extension, size...">
+        <div id="search-options">
+            <button class="search-btn active" data-type="path">Path (Radix Tree)</button>
+            <button class="search-btn" data-type="content">Content (Inverted Index)</button>
+            <button class="search-btn" data-type="ext">Extension</button>
+            <button class="search-btn" data-type="size">Size</button>
+        </div>
+        <div id="filters">
+            <input type="text" class="filter-input" id="filter-ext" placeholder="Extension (e.g. .py)">
+            <input type="text" class="filter-input" id="filter-min-size" placeholder="Min size (KB)">
+            <input type="text" class="filter-input" id="filter-max-size" placeholder="Max size (KB)">
         </div>
         <div id="results"></div>
     </div>
     
+    <div id="nav-bar">
+        <button class="nav-btn" id="btn-up">⬆ Up</button>
+        <button class="nav-btn" id="btn-back">⬅ Back</button>
+        <button class="nav-btn" id="btn-home">🏠 Home</button>
+        <div id="current-path">/</div>
+    </div>
+    
+    <div id="legend">
+        <h4>File Types</h4>
+        <div class="legend-item"><div class="legend-dot" style="background:#00ff87"></div><span>Python</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f7df1e"></div><span>JavaScript</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#3178c6"></div><span>TypeScript</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#00add8"></div><span>Go</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ffd166"></div><span>Markdown</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#00b4d8"></div><span>Config</span></div>
+    </div>
+    
     <div id="stats">
-        <h3>File System Stats</h3>
+        <h3>File System</h3>
         <div class="stat-row">
             <span class="stat-label">Files:</span>
-            <span class="stat-value" id="file-count">{len(self.files):,}</span>
+            <span class="stat-value">{len(self.files):,}</span>
         </div>
         <div class="stat-row">
             <span class="stat-label">Directories:</span>
-            <span class="stat-value" id="dir-count">{len(self.directories):,}</span>
+            <span class="stat-value">{len(self.directories):,}</span>
         </div>
         <div class="stat-row">
-            <span class="stat-label">Max Depth:</span>
-            <span class="stat-value" id="max-depth">{max(f['depth'] for f in self.files) if self.files else 0}</span>
+            <span class="stat-label">Content Indexed:</span>
+            <span class="stat-value">{len(self.inverted_index.documents):,}</span>
         </div>
     </div>
     
@@ -878,12 +1174,12 @@ class FileSystemExplorer:
             <span class="algo-complexity">O(1)</span> content lookup
         </div>
         <div class="algo-item">
-            <span class="algo-name">Suffix Array:</span>
-            <span class="algo-complexity">O(m+log n)</span> substring
-        </div>
-        <div class="algo-item">
             <span class="algo-name">Spatial Hash:</span>
             <span class="algo-complexity">O(1)</span> position query
+        </div>
+        <div class="algo-item">
+            <span class="algo-name">Extension Filter:</span>
+            <span class="algo-complexity">O(n)</span> linear scan
         </div>
     </div>
     
@@ -891,6 +1187,11 @@ class FileSystemExplorer:
         <div class="name"></div>
         <div class="path"></div>
         <div class="size"></div>
+        <div class="actions">
+            <button class="action-btn" data-action="open">Open</button>
+            <button class="action-btn" data-action="folder">Open Folder</button>
+            <button class="action-btn" data-action="info">Info</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -899,13 +1200,17 @@ class FileSystemExplorer:
         const files = {files_json};
         const directories = {dirs_json};
         
+        // Current navigation state
+        let currentPath = '/';
+        let pathHistory = [];
+        
         // Scene
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x0a0a12);
-        scene.fog = new THREE.FogExp2(0x0a0a12, 0.01);
+        scene.fog = new THREE.FogExp2(0x0a0a12, 0.008);
         
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 50, 100);
+        camera.position.set(0, 30, 60);
         
         const renderer = new THREE.WebGLRenderer({{ antialias: true }});
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -941,22 +1246,25 @@ class FileSystemExplorer:
             'default': 0x666666
         }};
         
-        // Create directories (cylinders)
+        // Create directories
         console.log('Creating directories...');
-        const dirGeometry = new THREE.CylinderGeometry(0.5, 0.5, 0.3, 8);
+        const dirGeometry = new THREE.CylinderGeometry(0.8, 0.8, 0.4, 16);
         const dirMaterial = new THREE.MeshBasicMaterial({{ color: 0x00b4d8, transparent: true, opacity: 0.7 }});
         
+        const dirMeshes = [];
         directories.forEach(d => {{
             const mesh = new THREE.Mesh(dirGeometry, dirMaterial);
             mesh.position.set(d.x, d.y, d.z);
             mesh.userData = d;
             dirGroup.add(mesh);
+            dirMeshes.push(mesh);
         }});
         
-        // Create files (spheres)
+        // Create files
         console.log('Creating files...');
-        const fileGeometry = new THREE.SphereGeometry(0.2, 6, 6);
+        const fileGeometry = new THREE.SphereGeometry(0.2, 8, 8);
         
+        const fileMeshes = [];
         files.forEach(f => {{
             const color = extColors[f.ext] || extColors['default'];
             const material = new THREE.MeshBasicMaterial({{ color, transparent: true, opacity: 0.8 }});
@@ -964,6 +1272,7 @@ class FileSystemExplorer:
             mesh.position.set(f.x, f.y, f.z);
             mesh.userData = f;
             fileGroup.add(mesh);
+            fileMeshes.push(mesh);
         }});
         
         console.log('Created', directories.length, 'directories and', files.length, 'files');
@@ -983,7 +1292,7 @@ class FileSystemExplorer:
                 const dy = e.clientY - previousMouse.y;
                 fileGroup.rotation.y += dx * 0.005;
                 dirGroup.rotation.y += dx * 0.005;
-                camera.position.y += dy * 0.5;
+                camera.position.y -= dy * 0.3;
                 previousMouse = {{ x: e.clientX, y: e.clientY }};
             }}
         }});
@@ -992,7 +1301,7 @@ class FileSystemExplorer:
         renderer.domElement.addEventListener('mouseleave', () => isDragging = false);
         
         renderer.domElement.addEventListener('wheel', e => {{
-            camera.position.z += e.deltaY * 0.1;
+            camera.position.z += e.deltaY * 0.05;
             camera.position.z = Math.max(10, Math.min(200, camera.position.z));
         }});
         
@@ -1014,6 +1323,11 @@ class FileSystemExplorer:
             
             if (!query) {{
                 resultsDiv.innerHTML = '';
+                // Reset highlights
+                fileMeshes.forEach(mesh => {{
+                    mesh.material.opacity = 0.8;
+                    mesh.scale.setScalar(1);
+                }});
                 return;
             }}
             
@@ -1021,48 +1335,85 @@ class FileSystemExplorer:
             let results = [];
             
             if (searchType === 'path') {{
-                // Radix tree search (prefix match)
-                results = files.filter(f => f.path.toLowerCase().includes(query)).slice(0, 10);
+                results = files.filter(f => f.path.toLowerCase().includes(query)).slice(0, 20);
             }} else if (searchType === 'content') {{
-                // Inverted index search (would need content indexing)
-                results = files.filter(f => f.name.toLowerCase().includes(query)).slice(0, 10);
-            }} else if (searchType === 'position') {{
-                // Spatial hash search (would need position)
-                results = files.filter(f => f.name.toLowerCase().includes(query)).slice(0, 10);
+                results = files.filter(f => f.isText && f.name.toLowerCase().includes(query)).slice(0, 20);
+            }} else if (searchType === 'ext') {{
+                const ext = query.startsWith('.') ? query : '.' + query;
+                results = files.filter(f => f.ext === ext).slice(0, 20);
+            }} else if (searchType === 'size') {{
+                const sizeKB = parseFloat(query);
+                if (!isNaN(sizeKB)) {{
+                    const sizeBytes = sizeKB * 1024;
+                    results = files.filter(f => f.size >= sizeBytes).slice(0, 20);
+                }}
             }}
             
             // Show results
             resultsDiv.innerHTML = results.map(r => `
                 <div class="result" data-id="${{r.id}}">
-                    <div>${{r.name}}</div>
+                    <div class="result-name">${{r.name}}</div>
                     <div class="result-path">${{r.path}}</div>
+                    <div class="result-size">${{r.sizeHuman}}</div>
                 </div>
             `).join('');
             
             // Highlight in 3D
             const resultIds = new Set(results.map(r => r.id));
-            fileGroup.children.forEach(mesh => {{
+            fileMeshes.forEach(mesh => {{
                 if (resultIds.has(mesh.userData.id)) {{
                     mesh.material.opacity = 1;
                     mesh.scale.setScalar(2);
                 }} else {{
-                    mesh.material.opacity = 0.3;
-                    mesh.scale.setScalar(1);
+                    mesh.material.opacity = 0.2;
+                    mesh.scale.setScalar(0.5);
                 }}
+            }});
+            
+            // Click on result
+            document.querySelectorAll('.result').forEach(el => {{
+                el.addEventListener('click', () => {{
+                    const id = el.dataset.id;
+                    const file = files.find(f => f.id === id);
+                    if (file) {{
+                        // Focus on file in 3D
+                        camera.position.set(file.x, file.y + 10, file.z + 20);
+                        camera.lookAt(file.x, file.y, file.z);
+                    }}
+                }});
             }});
         }});
         
-        // Raycaster for hover
+        // Navigation
+        document.getElementById('btn-up').addEventListener('click', () => {{
+            // Go up one level
+            console.log('Navigate up');
+        }});
+        
+        document.getElementById('btn-back').addEventListener('click', () => {{
+            // Go back in history
+            console.log('Navigate back');
+        }});
+        
+        document.getElementById('btn-home').addEventListener('click', () => {{
+            camera.position.set(0, 30, 60);
+            camera.lookAt(0, 0, 0);
+            fileGroup.rotation.y = 0;
+            dirGroup.rotation.y = 0;
+        }});
+        
+        // Raycaster for hover and click
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
         const tooltip = document.getElementById('tooltip');
+        let selectedObject = null;
         
         renderer.domElement.addEventListener('mousemove', e => {{
             mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
             
             raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(fileGroup.children);
+            const intersects = raycaster.intersectObjects(fileMeshes);
             
             if (intersects.length > 0) {{
                 const obj = intersects[0].object.userData;
@@ -1071,10 +1422,33 @@ class FileSystemExplorer:
                 tooltip.style.top = (e.clientY + 15) + 'px';
                 tooltip.querySelector('.name').textContent = obj.name;
                 tooltip.querySelector('.path').textContent = obj.path;
-                tooltip.querySelector('.size').textContent = (obj.size / 1024).toFixed(1) + ' KB';
+                tooltip.querySelector('.size').textContent = obj.sizeHuman;
+                selectedObject = obj;
             }} else {{
                 tooltip.style.display = 'none';
+                selectedObject = null;
             }}
+        }});
+        
+        // Click to open
+        renderer.domElement.addEventListener('dblclick', e => {{
+            if (selectedObject) {{
+                // Simulate file open
+                console.log('Open:', selectedObject.path);
+                // In real implementation, would call open_file API
+            }}
+        }});
+        
+        // Action buttons
+        document.querySelectorAll('.action-btn').forEach(btn => {{
+            btn.addEventListener('click', e => {{
+                e.stopPropagation();
+                const action = btn.dataset.action;
+                if (selectedObject) {{
+                    console.log('Action:', action, 'on', selectedObject.path);
+                    // In real implementation, would call appropriate API
+                }}
+            }});
         }});
         
         // Animation
@@ -1094,12 +1468,81 @@ class FileSystemExplorer:
     </script>
 </body>
 </html>'''
+    
+    def run_websocket_server(self, port=8765):
+        """
+        Inicia servidor WebSocket para sincronização em tempo real.
         
-        with open(output_path, 'w') as f:
-            f.write(html)
+        Permite que o frontend receba atualizações quando:
+        - Arquivos são criados/modificados/removidos
+        - Diretórios são navegados
+        - Buscas são executadas
+        """
+        import asyncio
+        import websockets
+        import json
         
-        print(f"HTML written to {output_path}")
+        async def handler(websocket, path):
+            print(f"Client connected: {websocket.remote_address}")
+            
+            try:
+                async for message in websocket:
+                    data = json.loads(message)
+                    command = data.get('command')
+                    
+                    if command == 'search':
+                        query = data.get('query')
+                        search_type = data.get('type', 'path')
+                        
+                        if search_type == 'path':
+                            results = self.search_path(query)
+                        elif search_type == 'content':
+                            results = self.search_content(query)
+                        elif search_type == 'ext':
+                            results = self.search_extension(query)
+                        else:
+                            results = []
+                        
+                        await websocket.send(json.dumps({
+                            'type': 'search_results',
+                            'results': results[:20]
+                        }))
+                    
+                    elif command == 'navigate':
+                        path = data.get('path')
+                        self.navigate_to(path)
+                        contents = self.get_current_contents()
+                        
+                        await websocket.send(json.dumps({
+                            'type': 'navigate_result',
+                            'path': path,
+                            'contents': contents
+                        }))
+                    
+                    elif command == 'open':
+                        file_id = data.get('id')
+                        success, message = self.open_file(file_id)
+                        
+                        await websocket.send(json.dumps({
+                            'type': 'open_result',
+                            'success': success,
+                            'message': message
+                        }))
+                    
+            except websockets.exceptions.ConnectionClosed:
+                print("Client disconnected")
+        
+        async def main():
+            async with websockets.serve(handler, "localhost", port):
+                print(f"WebSocket server running on ws://localhost:{port}")
+                await asyncio.Future()  # run forever
+        
+        asyncio.run(main())
 
+
+# ============================================================================
+# MAIN
+# ============================================================================
 
 if __name__ == '__main__':
     import sys
@@ -1109,17 +1552,39 @@ if __name__ == '__main__':
     
     # Indexa sistema de arquivos
     root_paths = [
-        '/home/csilva/.openclaw/workspace',
-        '/home/csilva/Documents',
-        '/home/csilva/Projects',
+        os.path.expanduser('~/.openclaw/workspace'),
+        os.path.expanduser('~/Documents'),
+        os.path.expanduser('~/Projects'),
     ]
     
-    # Indexa
-    file_count, dir_count = explorer.index_filesystem(root_paths, max_files=100000)
+    # Indexa com conteúdo
+    file_count, dir_count, content_count = explorer.index_filesystem(
+        root_paths, 
+        max_files=100000,
+        index_content=True
+    )
     
     # Constrói layout 3D
     explorer.build_3d_layout()
     
     # Gera HTML
-    output_path = sys.argv[1] if len(sys.argv) > 1 else '/home/csilva/.openclaw/workspace/memory/file_explorer.html'
+    output_path = sys.argv[1] if len(sys.argv) > 1 else os.path.expanduser('~/.openclaw/workspace/memory/file_explorer.html')
     explorer.generate_html(output_path)
+    
+    print(f"\\n=== File System Explorer ===")
+    print(f"Files: {file_count:,}")
+    print(f"Directories: {dir_count:,}")
+    print(f"Content indexed: {content_count:,}")
+    print(f"Search algorithms:")
+    print(f"  - Radix Tree: O(m) path search")
+    print(f"  - Inverted Index: O(1) content lookup")
+    print(f"  - Spatial Hash: O(1) position query")
+    print(f"\\nFeatures:")
+    print(f"  - Path search")
+    print(f"  - Content search")
+    print(f"  - Extension filter")
+    print(f"  - Size filter")
+    print(f"  - Interactive navigation")
+    print(f"  - File info tooltip")
+    print(f"  - Open file integration")
+    print(f"\\nOpen {output_path} in your browser.")

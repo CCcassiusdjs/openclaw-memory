@@ -3,15 +3,16 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T19:55:00-03:00",
+  "updatedAt": "2026-03-10T19:58:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 27,
+  "sourcesRead": 29,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
     "002-ml-basics-jung",
     "003-foundations-ml-mohri",
+    "004-universal-approximation-theorem",
     "007-vc-dimension-wikipedia",
     "008-bias-variance-wikipedia",
     "009-rademacher-complexity-wikipedia",
@@ -35,13 +36,15 @@
     "040-svm-support-vector-machines",
     "041-feature-engineering-encoding",
     "042-learning-rate-schedules",
-    "043-loss-functions"
+    "043-loss-functions",
+    "044-weight-initialization"
   ],
   "conceptsLearned": [
     "PAC Learning Model",
     "VC Dimension (formal definition, shattering, sample complexity)",
     "Rademacher Complexity (data-dependent bounds, generalization)",
     "Bias-Variance Tradeoff (MSE decomposition, complexity relationship, double descent)",
+    "Universal Approximation Theorem (existence, non-polynomial activation, depth vs width)",
     "Data-Model-Loss Framework",
     "Empirical Risk Minimization",
     "MDPs and Value Functions",
@@ -50,6 +53,7 @@
     "Policy Gradient Methods",
     "Deep Learning architectures",
     "Transformers and Attention",
+    "Weight Initialization (Xavier/Glorot, He/Kaiming, variance preservation)",
     "Activation Functions (Sigmoid, Tanh, ReLU, Leaky ReLU, ELU, GELU, Swish)",
     "Backpropagation (chain rule, gradient flow, computational graph)",
     "Loss Functions (MSE, MAE, Huber, Cross-Entropy, Hinge, Focal)",
@@ -73,5 +77,5 @@
     "scikit-learn API patterns",
     "Pipelines and Feature Engineering"
   ],
-  "notes": "27 fontes lidas (56%). Statistical Learning Theory, Optimization, Regularization, Decision Trees, Ensembles, SVM, Feature Engineering, Activation Functions, LR Scheduling, Loss Functions, Backpropagation cobertos. Continuando."
+  "notes": "29 fontes lidas (60%). Universal Approximation Theorem, Weight Initialization adicionados. Statistical Learning Theory, Optimization, Regularization, Neural Networks Theory cobertos. Continuando."
 }

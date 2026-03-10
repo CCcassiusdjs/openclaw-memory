@@ -6,8 +6,8 @@
   "updated": "2026-03-10T16:22:00Z",
   "bibliography_complete": true,
   "sources_total": 32,
-  "sources_read": 8,
-  "current_source": "009-additional-sources",
+  "sources_read": 10,
+  "current_source": "011-next-sources",
   "concepts_learned": [
     "Azure Digital Twins - Plataforma PaaS para twin graphs",
     "DTDL (Digital Twins Definition Language) - JSON-like para modelos",
@@ -38,9 +38,16 @@
     "5 camadas PSAF - Physical, Edge, Data, Platform, Application",
     "Capabilities Periodic Table - Mapeamento de requisitos DT",
     "3 Propriedades-chave - Conectividade, Sincronização, Análise",
-    "DT Types por Essex - Pre-built, Template, Custom twins"
+    "DT Types por Essex - Pre-built, Template, Custom twins",
+    "Hybrid DT Framework - Physics model + ML correction",
+    "C_hybrid = C_physics + ΔC_ml - Fórmula do hybrid twin",
+    "Edge-DT Architecture - Cloud layer, Edge layer, Physical layer",
+    "Local Digital Twin (LDT) - DT no edge para tempo crítico",
+    "MQTT para IoT - Lightweight, pub/sub, baixa latência",
+    "OPC-UA para Industrial - Robusto, semântico",
+    "Sincronização methods - Sequential, Variational, Hybrid"
   ],
-  "hours_studied": 2.5,
+  "hours_studied": 3.0,
   "total_estimated_hours": 6,
   "reading_log": [
     {
@@ -138,6 +145,30 @@
         "Diferencial DT: Conexão bidirecional + Real-time + Ação",
         "Processo: Requirements → Capabilities → Technology → Build → Integrate → Deploy"
       ]
+    },
+    {
+      "source": "009-hybrid-digital-twin-python-framework",
+      "date": "2026-03-10",
+      "duration_min": 25,
+      "key_takeaways": [
+        "Framework Python completo para Hybrid DT",
+        "Arquitetura: BatteryDataLoader + PhysicsModel + MLModel",
+        "C_hybrid = C_physics + ΔC_ml",
+        "Benefícios: Physics-guided learning, extrapolation, reduced data",
+        "Integrações: MLflow, Prometheus, Docker"
+      ]
+    },
+    {
+      "source": "010-edge-computing-realtime-sync",
+      "date": "2026-03-10",
+      "duration_min": 30,
+      "key_takeaways": [
+        "Edge computing resolve latência em tempo crítico",
+        "Local Digital Twin (LDT) para processamento local",
+        "Protocolos: MQTT (IoT), OPC-UA (Industrial), WebSocket",
+        "Arquitetura: Cloud layer + Edge layer + Physical layer",
+        "Sincronização: Sequential, Variational, Hybrid methods"
+      ]
     }
   ],
   "key_insights": [
@@ -147,7 +178,10 @@
     "Integração com IoT é fundamental para sincronização real-time",
     "DT pode ser usado para segurança de hardware (detecção de ameaças)",
     "LLMs podem ser integrados para capacidades avançadas de raciocínio",
-    "ROI é alto: 92% das empresas reportam ROI > 10%"
+    "ROI é alto: 92% das empresas reportam ROI > 10%",
+    "Edge computing é essencial para aplicações de tempo crítico",
+    "Framework híbrido Python: Physics Model + ML Correction",
+    "Protocolos: MQTT para IoT, OPC-UA para industrial"
   ],
   "questions": [
     "Como implementar sincronização em tempo real eficiente?",

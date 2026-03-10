@@ -144,13 +144,24 @@ topics:
   - id: "docker-advanced"
     name: "Docker Advanced Topics"
     priority: 3
-    status: "new"
+    status: "reading"
     progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-    notes: "Tópico criado, aguardando levantamento bibliográfico"
+      bibliography_complete: true
+      sources_total: 70
+      sources_read: 23
+      concepts_learned:
+        - "Docker networking (bridge, host, overlay, macvlan)"
+        - "Docker storage (volumes, bind mounts, tmpfs)"
+        - "Docker security (OWASP, capabilities, seccomp)"
+        - "Multi-stage builds"
+        - "BuildKit cache optimization"
+        - "Resource constraints"
+        - "Docker debug CLI"
+        - "Docker Swarm secrets"
+        - "Performance monitoring"
+        - "Compose merge files"
+    notes: "Bibliografia completa com 70+ fontes. 23 fontes lidas e resumidas. Foco em documentação oficial Docker."
+    started_at: "2026-03-10T17:53:00Z"
   
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"

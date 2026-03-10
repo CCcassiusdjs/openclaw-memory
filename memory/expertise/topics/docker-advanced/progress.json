@@ -1,0 +1,42 @@
+{
+  "topic_id": "docker-advanced",
+  "name": "Docker Advanced Topics",
+  "status": "researching",
+  "started_at": "2026-03-10T17:53:00Z",
+  "last_updated": "2026-03-10T17:53:00Z",
+  "bibliography_complete": true,
+  "sources_total": 70,
+  "sources_read": 23,
+  "current_source": "completed-researching-phase",
+  "last_updated": "2026-03-10T18:20:00Z",
+  "concepts_learned": [],
+  "hours_studied": 0,
+  "categories": {
+    "official_docs": {
+      "networking": { "total": 2, "read": 0, "sources": [] },
+      "storage": { "total": 6, "read": 0, "sources": [] },
+      "security": { "total": 4, "read": 0, "sources": [] },
+      "performance": { "total": 1, "read": 0, "sources": [] },
+      "multi_stage": { "total": 3, "read": 0, "sources": [] },
+      "build_cache": { "total": 3, "read": 0, "sources": [] },
+      "debugging": { "total": 2, "read": 0, "sources": [] },
+      "secrets": { "total": 1, "read": 0, "sources": [] },
+      "compose": { "total": 1, "read": 0, "sources": [] }
+    },
+    "security_hardening": { "total": 8, "read": 0, "sources": [] },
+    "performance": { "total": 7, "read": 0, "sources": [] },
+    "multi_stage_builds": { "total": 12, "read": 0, "sources": [] },
+    "buildkit": { "total": 7, "read": 0, "sources": [] },
+    "compose_advanced": { "total": 7, "read": 0, "sources": [] },
+    "orchestration": { "total": 10, "read": 0, "sources": [] },
+    "monitoring": { "total": 9, "read": 0, "sources": [] },
+    "debugging": { "total": 6, "read": 0, "sources": [] },
+    "secrets_management": { "total": 7, "read": 0, "sources": [] }
+  },
+  "notes": [
+    {
+      "date": "2026-03-10T17:53:00Z",
+      "note": "Bibliografia inicial criada com 70+ fontes organizadas em 10 categorias. Foco principal em documentação oficial Docker, segurança, performance, multi-stage builds e BuildKit."
+    }
+  ]
+}

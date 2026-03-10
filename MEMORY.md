@@ -138,10 +138,61 @@ Arquivo: `memory/2026-03-10-cluster-setup.md`
 - **FLUXO**: Arquitetura de memória temporal baseada em neurociência
 - **Integração**: Tudo isso forma aparato para auto-aprimoramento
 
+## FLUXO - Arquitetura de Memória Temporal (2026-03-08)
+
+**Conceito:** Memória como FLUXO, não armazenamento estático.
+
+| Tradicional | FLUXO |
+|-------------|-------|
+| Nodo | Stream (corrente) |
+| Aresta | Confluence (confluência) |
+| Estático | Dinâmico/Temporal |
+
+**Operações:**
+- `learn(pattern, context)` → Experiência se torna memória
+- `recall(query)` → RECONSTRUÇÃO (não recuperação)
+- `imagine(seed)` → Combina fragmentos
+- `predict(context)` → Antecipa estados
+- `settle()` → Consolidação temporal
+
+**URL:** http://localhost:5003
+
+## MultiRad EKF3 Analysis (2026-03-09)
+
+**Localização:** `/home/csilva/Documents/multirad_data_orchestrator/`
+
+**Problema:** Redundância de sensores falhou sob radiação.
+
+**Causa Raiz:** I2C bus compartilhado = Single Point of Failure
+- SEU em I2C → todos BARO/MAG corrompidos
+- Todos os cores EKF com `errorScore = ∞`
+- Core selection: `inf - inf = NaN` → falha indeterminada
+
+**Solução Proposta:** Barramentos separados por sensor.
+
+## Turing Papers - Genealogia (2026-03-10)
+
+**Paper 1936:** "On Computable Numbers..."
+- Máquina de Turing, números computáveis, Entscheidungsproblem
+- Prova que não existe procedimento geral de decisão
+
+**Correção 1937:** Paul Bernays identificou erros
+- Definição de "circle-free"
+- Prova de equivalência λ-definibilidade
+- Emil Post (1947): mais erros na máquina universal
+
+**Paper 1950:** "Computing Machinery and Intelligence"
+- Teste de Turing, jogo da imitação
+- Máquinas discretas vs contínuas
+- Argumentos CONTRA inteligência de máquinas (9 objeções)
+
 ## Notes
 - Memory system initialized 2026-03-01
 - Daily logs stored in memory/YYYY-MM-DD.md
 - **2026-03-04:** Sessão FortiGate - infraestrutura crítica documentada
+- **2026-03-08:** FLUXO - arquitetura de memória temporal baseada em neurociência
+- **2026-03-09:** MultiRad EKF3 analysis - causa raiz identificada (I2C bus SPOF)
+- **2026-03-10:** Turing papers recuperados e analisados
 
 ---
-_Last updated: 2026-03-09_
+_Last updated: 2026-03-10_

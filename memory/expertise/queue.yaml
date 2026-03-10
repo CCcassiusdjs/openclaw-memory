@@ -119,7 +119,7 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 48
-      sources_read: 4
+      sources_read: 8
       concepts_learned:
         - "PAC Learning Model"
         - "VC Dimension"
@@ -129,12 +129,17 @@ topics:
         - "Boosting and Margin Bounds"
         - "Online Learning"
         - "Kernel Methods"
-        - "Regularization and Stability"
+        - "Regularization (L1/L2/Elastic Net)"
+        - "Dropout and Early Stopping"
         - "MDPs and Value Functions"
         - "Bellman Equations"
         - "TD Learning and Q-learning"
         - "Policy Gradient Methods"
-    notes: "4 fontes lidas: Shalev-Shwartz, Jung, Mohri, Sutton & Barto. Base sólida em ML teórico e RL. Continuando."
+        - "Deep Learning architectures"
+        - "Transformers and Attention"
+        - "Optimization algorithms (SGD, Adam, AdamW)"
+        - "scikit-learn API and Pipelines"
+    notes: "8 fontes lidas: teoria ML (Shalev-Shwartz, Jung, Mohri), RL (Sutton & Barto), Deep Learning (survey), Optimization (gradient descent), Regularization, scikit-learn. Continuando."
   
   - id: "docker-advanced"
     name: "Docker Advanced Topics"

@@ -50,12 +50,12 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 21
-      sources_read: 9
-      concepts_learned: 28
+      sources_read: 11
+      concepts_learned: 31
       total_estimated_hours: 5.5
-      hours_studied: 3.5
-    last_action: "2026-03-10 - Lidas 9 fontes: EKF2, EKF Overview, EKF3 Affinity, arXiv papers, Rust tutorial, EKF Failsafe, Source Selection, Navigation Tuning"
-    notes: "Conceitos-chave dominados: EKF vs UKF vs PF, quaternions, lane switching, sensor affinity, EKF failsafe. Próximos: código fonte AP_NavEKF"
+      hours_studied: 4.0
+    last_action: "2026-03-10 - Lidas 11 fontes: EKF2, EKF3, papers acadêmicos, Rust tutorial, GitHub PR. 4h de 5.5h estimadas."
+    notes: "Progresso excelente. Conceitos dominados: lane switching, sensor affinity, quaternions, EKF failsafe. Próximos: código fonte AP_NavEKF"
 
   - id: "drone-sensors"
     name: "Drone Sensors & Hardware Integration"

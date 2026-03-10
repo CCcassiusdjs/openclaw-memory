@@ -3,11 +3,11 @@
   "name": "ArduPilot EKF & State Estimation",
   "status": "reading",
   "created": "2026-03-10",
-  "updated": "2026-03-10T15:25:00Z",
+  "updated": "2026-03-10T15:26:00Z",
   "bibliography_complete": true,
   "sources_total": 21,
-  "sources_read": 9,
-  "current_source": "009-ekf-rust-tutorial",
+  "sources_read": 11,
+  "current_source": "011-ekf3-affinity-pr",
   "concepts_learned": [
     "Extended Kalman Filter (EKF)",
     "State Prediction vs State Correction",
@@ -36,9 +36,12 @@
     "EKF vs UKF vs PF comparison",
     "Von Karman turbulence",
     "Sigma points (UKF)",
-    "Genetic Algorithm for tuning"
+    "Genetic Algorithm for tuning",
+    "Accumulated Error Lane Switching",
+    "XKFS message (XKF Sensor)",
+    "AHRS awareness of active sensor"
   ],
-  "hours_studied": 3.5,
+  "hours_studied": 4.0,
   "total_estimated_hours": 5.5,
   "reading_log": [
     {
@@ -94,12 +97,24 @@
       "date": "2026-03-10",
       "duration_min": 45,
       "status": "completed"
+    },
+    {
+      "source": "010-ekf2-vs-ekf3-discussion",
+      "date": "2026-03-10",
+      "duration_min": 5,
+      "status": "completed"
+    },
+    {
+      "source": "011-ekf3-affinity-pr",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
     }
   ],
   "key_insights": [
     "EKF3 é o padrão atual, EKF2 ainda disponível mas sem recursos modernos",
     "Múltiplos IMUs = múltiplos cores EKF rodando em paralelo",
-    "Lane switching automático baseado em error score acumulado",
+    "Lane switching baseado em erro acumulado (não instantâneo)",
     "Sensor affinity permite usar sensores não-primários em cada lane",
     "UKF é teoricamente melhor mas não usado no ArduPilot (custo computacional)",
     "PF é robusto mas caro demais para sistemas embarcados",
@@ -113,7 +128,9 @@
     "Quaternions evitam gimbal lock e angle wrapping",
     "7-state EKF: quaternion + gyro bias",
     "Rust é viável para EKF em tempo real (1kHz+)",
-    "Frame alignment é crítico (X forward, Y right, Z down)"
+    "Frame alignment é crítico (X forward, Y right, Z down)",
+    "Accumulated error lane switching é mais robusto que threshold instantâneo",
+    "AHRS precisa saber qual sensor está ativo, não assume primário"
   ],
   "questions": [
     "Por que UKF não é usado no ArduPilot apesar de ser 'melhor'?",
@@ -122,13 +139,14 @@
     "Como o EKF lida com latência diferente entre sensores (GPS delay vs IMU)?",
     "Como implementar transição suave entre GPS e Optical Flow?",
     "Qual é o custo computacional exato do EKF3 vs EKF2?",
-    "Como o EKF lida com dinâmica de vento turbulento?"
+    "Como o EKF lida com dinâmica de vento turbulento?",
+    "Como o accumulated error é calculado especificamente no código?"
   ],
   "next_steps": [
     "Ler código fonte AP_NavEKF2/AP_NavEKF3",
-    "Ler GitHub PR #14674 (EKF3 Affinity implementation)",
-    "Estudar derivations do InertialNav",
-    "Ler mais papers acadêmicos sobre EKF",
-    "Praticar implementação do EKF em código"
+    "Ler derivations do InertialNav (priseborough)",
+    "Estudar mais papers acadêmicos sobre EKF",
+    "Praticar implementação do EKF em código",
+    "Ler sobre optical flow fusion no EKF"
   ]
 }

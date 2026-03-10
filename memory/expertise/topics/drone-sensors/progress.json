@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:42:00Z",
   "bibliography_complete": false,
   "sources_total": 21,
-  "sources_read": 8,
-  "current_source": "020-magnetometer-calibration-guide",
+  "sources_read": 9,
+  "current_source": "021-px4-barometer",
   "concepts_learned": [
     "IMU + GPS Fusion architecture",
     "insfilterMARG 22-state vector",
@@ -39,9 +39,13 @@
     "Magnetometer calibration (figure-8)",
     "Complete vs partial vs large vehicle calibration",
     "Compass offset calculation (max+min)/2",
-    "Compass scale factor calculation"
+    "Compass scale factor calculation",
+    "Barometer altitude estimation",
+    "Barometer auto-calibration (GNSS-baro alignment)",
+    "BMP388 ±0.66m accuracy",
+    "Relative vs GNSS-baro calibration"
   ],
-  "hours_studied": 1.7,
+  "hours_studied": 2.0,
   "total_estimated_hours": 4.0,
   "reading_log": [
     {
@@ -91,6 +95,12 @@
       "date": "2026-03-10",
       "duration_min": 10,
       "status": "completed"
+    },
+    {
+      "source": "021-px4-barometer",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
     }
   ],
   "key_insights": [
@@ -114,7 +124,11 @@
     "Hard iron = constant offset, removed with (max+min)/2",
     "Soft iron = distortion, requires transformation matrix or scale factors",
     "Figure-8 calibration same as PX4 quick calibration",
-    "Complete calibration = offset + scale factor per axis"
+    "Complete calibration = offset + scale factor per axis",
+    "Barometers: BMP388 ±0.66m accuracy, MS5611 common",
+    "Baro calibrated against GPS altitude at startup",
+    "Relative calibration prevents altitude jumps during sensor switch",
+    "Baro vulnerable to prop wash and weather changes"
   ],
   "questions": [
     "Como funciona a calibração hard/soft iron do magnetômetro?",

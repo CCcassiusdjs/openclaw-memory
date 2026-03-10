@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:26:00Z",
   "bibliography_complete": true,
   "sources_total": 21,
-  "sources_read": 15,
-  "current_source": "015-ekf3-source-structure",
+  "sources_read": 16,
+  "current_source": "016-ekf-tuning-parameters",
   "concepts_learned": [
     "Extended Kalman Filter (EKF)",
     "State Prediction vs State Correction",
@@ -49,9 +49,13 @@
     "RTS Smoother",
     "Mahalanobis Distance outlier rejection",
     "EKF3 source code structure (AP_NavEKF3 library)",
-    "Modular fusion architecture (separate files per sensor)"
+    "Modular fusion architecture (separate files per sensor)",
+    "EKF_GYRO_NOISE / EKF_ACC_NOISE parameters",
+    "EKF_ALT_NOISE / EKF_POSNE_NOISE parameters",
+    "Glitch protection (GLITCH_ACCEL, GLITCH_RAD)",
+    "State correction via Kalman gain"
   ],
-  "hours_studied": 5.2,
+  "hours_studied": 5.5,
   "total_estimated_hours": 5.5,
   "reading_log": [
     {
@@ -143,6 +147,12 @@
       "date": "2026-03-10",
       "duration_min": 15,
       "status": "completed"
+    },
+    {
+      "source": "016-ekf-tuning-parameters",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
     }
   ],
   "key_insights": [
@@ -170,7 +180,12 @@
     "ES-EKF numericamente mais estável que EKF padrão",
     "EKF on Lie Groups: estado como elemento único em grupo matricial",
     "RTS smoother para pós-processamento (não tempo real)",
-    "Mahalanobis Distance para outlier rejection em GNSS"
+    "Mahalanobis Distance para outlier rejection em GNSS",
+    "Noise parameters control error growth rate",
+    "EKF_GYRO_NOISE / EKF_ACC_NOISE = larger = faster error growth",
+    "Measurement noise = larger = less trust in sensor",
+    "Gate parameters scale innovation consistency threshold",
+    "GPS position can correct velocity, angles, and gyro bias"
   ],
   "questions": [
     "Por que UKF não é usado no ArduPilot apesar de ser 'melhor'?",

@@ -7,7 +7,7 @@
 | Topic | Status | Sources | Hours | Progress |
 |-------|--------|---------|-------|----------|
 | ardupilot-ekf | ✅ COMPLETED | 16/21 | 5.5h/5.5h | 100% |
-| drone-sensors | 📖 READING | 11/21 | 2.5h/4.0h | 52% |
+| drone-sensors | ✅ COMPLETED | 36/36 | 4.5h/4.5h | 100% |
 
 ## Completed Topics
 
@@ -47,42 +47,43 @@
 - Source code structure
 - Tutorials (MATLAB, Rust)
 
-## In Progress Topics
-
-### drone-sensors (Reading - 52%)
+### drone-sensors (Completed 2026-03-10)
 
 **Summary:** Drone Sensors & Hardware Integration
 
-**Progress:**
-- Sources: 11/21 read
-- Time: 2.5h/4.0h estimated
-
-**Concepts Learned (39 total):**
-- IMU noise model (white noise + bias random walk)
-- Allan variance analysis
-- Hard/soft iron magnetometer calibration
-- Barometer altitude estimation
-- Sensor driver architecture (frontend/backend)
-- VectorNav external AHRS integration
-- EKF time horizon for latency compensation
-- Optical flow velocity estimation
-- GPS latency (100-300ms)
-- Flow scale factor calibration
+**Key Concepts Learned (50+ total):**
+- IMU selection and noise characteristics
+- Temperature effects on MEMS IMUs
+- Vibration analysis and filtering (FFT, notch filters)
+- Sensor redundancy and heterogeneous fusion
+- VTOL-specific sensor requirements
+- PX4 sensor architecture and configuration
+- RTK GPS and dual-antenna heading
+- Optical flow for GNSS-denied navigation
+- Airspeed sensors for stall detection
+- Rangefinders for terrain following
+- Tachometers for RPM logging
 
 **Key Insights:**
-- Noise density and random walk use same units (deg/s/√Hz = deg/√s)
-- Higher sample rate = more white noise per sample
-- Bias instability is upper bound on bias standard deviation
-- Hard iron = constant offset, soft iron = transformation matrix
-- Barometers calibrated against GPS altitude at startup
-- EKF uses delayed time horizon for sensor latency compensation
-- GPS latency 100-300ms, optical flow 20-50ms, baro 10-50ms
-- Optical flow provides velocity (not position), needs range finder
+- Airspeed is CRITICAL for fixed-wing - only way to detect stall
+- RTK provides centimeter-level accuracy
+- Dual-antenna GPS can replace magnetometer for heading
+- Optical flow requires distance sensor for velocity estimation
+- DOP is potential accuracy; EPH/EPV is actual accuracy
+- IMU batch sampling + FFT identifies vibration frequencies
+- Harmonic notch filters reduce motor vibration
+- CAN interface more robust than UART/I2C
+- EPH/EPV metrics better than DOP for real accuracy
+- Position fusion requires yaw alignment first
 
-**Next Steps:**
-- GPS accuracy and latency details
-- Range finder sensors
-- Complete remaining bibliography
+**Sources Read:** 36 of 36
+- Academic papers (IMU noise, sensor fusion)
+- PX4 official documentation (sensors)
+- ArduPilot documentation (IMU batch sampling)
+
+## In Progress Topics
+
+None currently in progress.
 
 ## Pending Topics
 

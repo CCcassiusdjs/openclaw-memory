@@ -166,13 +166,14 @@ topics:
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"
     priority: 3
-    status: "new"
+    status: "researching"
     progress:
-      bibliography_complete: false
-      sources_total: null
+      bibliography_complete: true
+      sources_total: 40
       sources_read: 0
       concepts_learned: []
-    notes: "Tópico criado, aguardando levantamento bibliográfico"
+    notes: "Bibliografia completa com 40 fontes. Iniciando leitura da documentação oficial."
+    started_at: "2026-03-10T19:25:00Z"
     progress:
       bibliography_complete: true
       sources_total: 36

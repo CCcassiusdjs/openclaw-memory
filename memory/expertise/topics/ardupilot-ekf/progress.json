@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:26:00Z",
   "bibliography_complete": true,
   "sources_total": 21,
-  "sources_read": 11,
-  "current_source": "011-ekf3-affinity-pr",
+  "sources_read": 14,
+  "current_source": "014-ardupilot-sensor-drivers",
   "concepts_learned": [
     "Extended Kalman Filter (EKF)",
     "State Prediction vs State Correction",
@@ -39,9 +39,17 @@
     "Genetic Algorithm for tuning",
     "Accumulated Error Lane Switching",
     "XKFS message (XKF Sensor)",
-    "AHRS awareness of active sensor"
+    "AHRS awareness of active sensor",
+    "Error State EKF (ES-EKF)",
+    "GPS-denied indoor navigation",
+    "LiDAR SLAM fusion",
+    "Visual odometry integration",
+    "UWB positioning",
+    "Lie Group formulation",
+    "RTS Smoother",
+    "Mahalanobis Distance outlier rejection"
   ],
-  "hours_studied": 4.0,
+  "hours_studied": 4.9,
   "total_estimated_hours": 5.5,
   "reading_log": [
     {
@@ -109,6 +117,24 @@
       "date": "2026-03-10",
       "duration_min": 10,
       "status": "completed"
+    },
+    {
+      "source": "012-es-ekf-indoor-uav",
+      "date": "2026-03-10",
+      "duration_min": 20,
+      "status": "completed"
+    },
+    {
+      "source": "013-lie-groups-ekf",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    },
+    {
+      "source": "014-ardupilot-sensor-drivers",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
     }
   ],
   "key_insights": [
@@ -130,7 +156,13 @@
     "Rust é viável para EKF em tempo real (1kHz+)",
     "Frame alignment é crítico (X forward, Y right, Z down)",
     "Accumulated error lane switching é mais robusto que threshold instantâneo",
-    "AHRS precisa saber qual sensor está ativo, não assume primário"
+    "AHRS precisa saber qual sensor está ativo, não assume primário",
+    "ES-EKF trackeia erros (estados delta) ao invés de estados completos",
+    "GPS-denied EKF usa LiDAR SLAM, visual odometry, ou UWB",
+    "ES-EKF numericamente mais estável que EKF padrão",
+    "EKF on Lie Groups: estado como elemento único em grupo matricial",
+    "RTS smoother para pós-processamento (não tempo real)",
+    "Mahalanobis Distance para outlier rejection em GNSS"
   ],
   "questions": [
     "Por que UKF não é usado no ArduPilot apesar de ser 'melhor'?",

@@ -1,0 +1,112 @@
+{
+  "topic_id": "drone-sensors",
+  "name": "Drone Sensors (IMU, GPS, Mag, Baro)",
+  "status": "reading",
+  "created": "2026-03-10",
+  "updated": "2026-03-10T15:42:00Z",
+  "bibliography_complete": false,
+  "sources_total": 21,
+  "sources_read": 6,
+  "current_source": "018-kalibr-imu-noise-model",
+  "concepts_learned": [
+    "IMU + GPS Fusion architecture",
+    "insfilterMARG 22-state vector",
+    "predict/fusegps/fusemag methods",
+    "Accelerometer noise model",
+    "Gyroscope noise model",
+    "Magnetometer noise model",
+    "GPS noise parameters (Rpos, Rvel)",
+    "Process noise tuning",
+    "Sensor driver frontend/backend architecture",
+    "I2C/SPI/UART/CAN protocols",
+    "Background thread for sensor reads",
+    "VectorNav external AHRS integration",
+    "External sensor set vs External AHRS modes",
+    "IMU noise density vs random walk",
+    "Angle Random Walk (ARW)",
+    "Velocity Random Walk (VRW)",
+    "Bias instability / In-run bias stability",
+    "Turn-on bias stability / Repeatability",
+    "Scale factor error and nonlinearity",
+    "Cross-axis sensitivity and misalignment",
+    "g-sensitivity and g²-sensitivity (vibration rectification)",
+    "Unit conversions for IMU specs",
+    "Allan Variance basics",
+    "Kalibr IMU noise model parameters",
+    "Discrete vs continuous noise models"
+  ],
+  "hours_studied": 1.2,
+  "total_estimated_hours": 4.0,
+  "reading_log": [
+    {
+      "source": "006-matlab-imu-gps-fusion",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    },
+    {
+      "source": "014-ardupilot-sensor-drivers",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "015-vectornav-external-ahrs",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "016-imu-specifications-vectornav",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "017-imu-specs-practical-guide",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "018-kalibr-imu-noise-model",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    }
+  ],
+  "key_insights": [
+    "MATLAB insfilterMARG similar to EKF2/EKF3 architecture",
+    "22-state vector: quaternion + position + velocity + biases",
+    "IMU at high rate (160Hz), GPS at low rate (1Hz)",
+    "Sensor drivers use frontend/backend split pattern",
+    "I2C/SPI drivers must run in background thread",
+    "UART drivers can run in main thread (serial has buffer)",
+    "VectorNav can bypass EKF entirely (External AHRS mode)",
+    "VN-300/310 dual GNSS for static heading in multicopters",
+    "Noise density and random walk use same units (deg/s/√Hz = deg/√s)",
+    "Higher sample rate = more white noise per sample",
+    "Bias drift decreases with sample rate (√time relationship)",
+    "Bias instability is upper bound on bias standard deviation",
+    "Multiply spec values by 10x for real-world conditions",
+    "Scale factor error causes systematic position/angle error",
+    "Vibration rectification (g²-sensitivity) important in high-vibration",
+    "Kalibr model: n(t) white noise + b(t) bias random walk",
+    "Allan Deviation: white noise at τ=1s, random walk at τ=3s"
+  ],
+  "questions": [
+    "Como funciona a calibração hard/soft iron do magnetômetro?",
+    "Qual é a precisão típica de barômetros em altitude?",
+    "Como GPS latency afeta o EKF?",
+    "Quais são as características de ruído de IMUs MEMS?",
+    "Como comparar IMUs low-cost vs high-end?",
+    "Qual é o custo computacional do EKF a 400Hz?",
+    "Como o EKF lida com diferentes taxas de sensores?"
+  ],
+  "next_steps": [
+    "Ler documentação oficial ArduPilot sobre IMU selection",
+    "Estudar datasheets de IMUs comuns (MPU-9250, ICM-42688)",
+    "Praticar calibração de magnetômetro",
+    "Estudar barômetros e altitude estimation"
+  ]
+}

@@ -1,5 +1,5 @@
 # Fila de Aprendizado Autônomo
-# OpenClaw lê este arquivo a cada sessão e continua de onde parou
+# OpenClaw lê este arquivo quando recebe um novo tópico para estudar
 
 version: 2.0
 created: 2026-03-10
@@ -10,7 +10,7 @@ status: active
 # FLUXO DE TRABALHO
 # ========================================
 #
-# 1. NOVO TÓPICO
+# 1. NOVO TÓPICO (quando você der)
 #    └── status: "new"
 #    └── AÇÃO: Fazer levantamento bibliográfico COMPLETO
 #    └── Criar topics/[topico]/bibliography.md
@@ -33,108 +33,26 @@ config:
   session_study_time: 30m
   daily_cron: "0 */4 * * *"
   sources_per_session: 3
-  search_depth: 10  # Quantos resultados buscar por query
+  search_depth: 10
 
 # ========================================
-# FILA DE TÓPICOS
+# FILA DE TÓPICOS - VAZIA
 # ========================================
+# Adicione tópicos aqui quando quiser que eu estude
+# 
+# Formato:
+# - id: "identificador-unico"
+#   name: "Nome do Tópico"
+#   priority: 1  # 1=alta, 2=média, 3=baixa
+#   status: "new"
+#   progress:
+#     bibliography_complete: false
+#     sources_total: null
+#     sources_read: 0
+#     concepts_learned: []
+#   notes: "Descrição opcional"
 
-topics:
-  # ========================================
-  # PRIORIDADE ALTA - Drone Systems
-  # ========================================
-  - id: "ardupilot-ekf"
-    name: "ArduPilot EKF & State Estimation"
-    priority: 1
-    status: "reading"  # new, researching, reading, completed
-    progress:
-      bibliography_complete: true
-      sources_total: 21
-      sources_read: 11
-      concepts_learned: 31
-      total_estimated_hours: 5.5
-      hours_studied: 4.0
-    last_action: "2026-03-10 - Lidas 11 fontes: EKF2, EKF3, papers acadêmicos, Rust tutorial, GitHub PR. 4h de 5.5h estimadas."
-    notes: "Progresso excelente. Conceitos dominados: lane switching, sensor affinity, quaternions, EKF failsafe. Próximos: código fonte AP_NavEKF"
-
-  - id: "drone-sensors"
-    name: "Drone Sensors & Hardware Integration"
-    priority: 1
-    status: "new"
-    progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "IMU, GPS, magnetômetro, barômetro, optical flow, range finder"
-
-  # ========================================
-  # PRIORIDADE ALTA - Container Orchestration
-  # ========================================
-  - id: "docker-advanced"
-    name: "Docker Advanced & Swarm Orchestration"
-    priority: 1
-    status: "new"
-    progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "Swarm, overlay networks, service discovery, rolling updates"
-
-  # ========================================
-  # PRIORIDADE MÉDIA - Machine Learning
-  # ========================================
-  - id: "ml-fundamentals"
-    name: "Machine Learning Fundamentals"
-    priority: 2
-    status: "new"
-    progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "Neural networks, training, loss functions, optimization"
-
-  - id: "mlflow-tracking"
-    name: "MLflow & Experiment Tracking"
-    priority: 2
-    status: "new"
-    progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "MLflow para rastreamento de experimentos e modelos"
-
-  # ========================================
-  # PRIORIDADE MÉDIA - Digital Twins
-  # ========================================
-  - id: "digital-twins"
-    name: "Digital Twins & Simulation"
-    priority: 2
-    status: "new"
-    progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "Sincronização em tempo real, simulação física, modelos preditivos"
+topics: []
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  # Frontend (React + Nginx)
+  frontend:
+    image: nginx:alpine
+    volumes:
+      - /home/cassiusdjs/lsa-platform/frontend/dist:/usr/share/nginx/html:ro
+      - /home/cassiusdjs/lsa-platform/deploy/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.lsa-platform.rule=Host(`lab.lsa.local`)"
+        - "traefik.http.routers.lsa-platform.entrypoints=web"
+        - "traefik.http.services.lsa-platform.loadbalancer.server.port=80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend API (FastAPI)
+  api:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - /home/cassiusdjs/lsa-platform/api:/app
+    command: >
+      bash -c "pip install -r requirements.txt -q &&
+               uvicorn main:app --host 0.0.0.0 --port 8000"
+    networks:
+      - cluster-network
+    environment:
+      - DATABASE_URL=postgresql://ardupilot:ardupilot123@10.10.20.13/platform
+      - REDIS_URL=redis://10.10.20.11:6379
+      - MQTT_BROKER=10.10.20.11
+      - MQTT_PORT=1883
+      - JETSON_HOST=192.168.2.50
+      - JETSON_USER=automation
+      - JETSON_PASS=automation
+      - JWT_SECRET=lsa-lab-secret-2026
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.lsa-api.rule=PathPrefix(`/api`)"
+        - "traefik.http.routers.lsa-api.entrypoints=web"
+        - "traefik.http.services.lsa-api.loadbalancer.server.port=8000"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  cluster-network:
+    external: true

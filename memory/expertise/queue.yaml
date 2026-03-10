@@ -106,10 +106,11 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 32
-      sources_read: 8
-      concepts_learned: 24
-      hours_studied: 2.5
-    notes: "8 fontes estudadas. Levantamento bibliográfico completo. Conceitos-chave: arquiteturas, tipos, implementação, segurança, frameworks (ISO, DTC-PSAF), case studies."
+      sources_read: 10
+      concepts_learned: 38
+      hours_studied: 3.0
+    notes: "10 fontes estudadas. Conceitos-chave: arquiteturas (3-layer, 5-layer PSAF, ISO), tipos (Component/Asset/System/Process), Hybrid DT (Physics + ML), Edge computing para tempo real, protocolos (MQTT, OPC-UA), frameworks (Azure, DTC). Síntese parcial criada."
+    last_updated: "2026-03-10T16:30:00Z"
   
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"

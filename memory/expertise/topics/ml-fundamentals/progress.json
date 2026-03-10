@@ -3,10 +3,10 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T19:45:00-03:00",
+  "updatedAt": "2026-03-10T19:55:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 23,
+  "sourcesRead": 27,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -17,6 +17,8 @@
     "009-rademacher-complexity-wikipedia",
     "010-reinforcement-learning-sutton-barto",
     "016-deep-learning-survey-noor",
+    "020-activation-functions",
+    "021-backpropagation-algorithm",
     "022-gradient-descent-ruder",
     "023-bias-variance-visual-mlu",
     "024-momentum-nesterov-deep",
@@ -31,7 +33,9 @@
     "038-scikit-learn-documentation",
     "039-cross-validation-kfold",
     "040-svm-support-vector-machines",
-    "041-feature-engineering-encoding"
+    "041-feature-engineering-encoding",
+    "042-learning-rate-schedules",
+    "043-loss-functions"
   ],
   "conceptsLearned": [
     "PAC Learning Model",
@@ -46,13 +50,16 @@
     "Policy Gradient Methods",
     "Deep Learning architectures",
     "Transformers and Attention",
+    "Activation Functions (Sigmoid, Tanh, ReLU, Leaky ReLU, ELU, GELU, Swish)",
+    "Backpropagation (chain rule, gradient flow, computational graph)",
+    "Loss Functions (MSE, MAE, Huber, Cross-Entropy, Hinge, Focal)",
     "Optimization algorithms (SGD, Adam, AdamW)",
     "Momentum (classical vs Nesterov, lookahead correction)",
     "NAG formulations (Sutskever, Bengio, Dozat)",
     "Adam optimizer (momentum + adaptive LR, bias correction)",
     "AdamW (decoupled weight decay vs L2 regularization)",
     "Batch Normalization (internal covariate shift, length-direction decoupling)",
-    "Learning Rate Scheduling (cosine annealing, warmup)",
+    "Learning Rate Scheduling (step, exponential, polynomial, cosine, warmup)",
     "L1/L2 Regularization",
     "Weight Decay vs L2 Regularization",
     "Dropout (random masking, ensemble effect, co-adaptation prevention)",
@@ -66,5 +73,5 @@
     "scikit-learn API patterns",
     "Pipelines and Feature Engineering"
   ],
-  "notes": "23 fontes lidas (48%). Statistical Learning Theory, Optimization, Regularization, Decision Trees, Ensemble Methods, SVM, Feature Engineering cobertos. Continuando."
+  "notes": "27 fontes lidas (56%). Statistical Learning Theory, Optimization, Regularization, Decision Trees, Ensembles, SVM, Feature Engineering, Activation Functions, LR Scheduling, Loss Functions, Backpropagation cobertos. Continuando."
 }

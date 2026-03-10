@@ -1,0 +1,107 @@
+{
+  "topic_id": "ardupilot-ekf",
+  "name": "ArduPilot EKF & State Estimation",
+  "status": "reading",
+  "created": "2026-03-10",
+  "updated": "2026-03-10T15:22:30Z",
+  "bibliography_complete": true,
+  "sources_total": 21,
+  "sources_read": 7,
+  "current_source": "007-ekf-source-selection",
+  "concepts_learned": [
+    "Extended Kalman Filter (EKF)",
+    "State Prediction vs State Correction",
+    "Innovation (resíduo entre predição e medição)",
+    "State Covariance Matrix",
+    "Test Ratio / Gate",
+    "Sensor Fusion (IMU + GPS + Magnetometer + Barometer)",
+    "Lane Switching",
+    "Sensor Affinity",
+    "EKF2 vs EKF3",
+    "24 estados do EKF2",
+    "22 estados do EKF original",
+    "Bias estimation (gyro, accel, magnetometer)",
+    "Process Noise vs Measurement Noise",
+    "Glitch Protection",
+    "EKF Failsafe",
+    "EKF Variance",
+    "Flyaway Prevention",
+    "Source Selection (EK3_SRC*)",
+    "Source Switching",
+    "GSF (Gaussian Sum Filter)",
+    "GPS Yaw / Moving Baseline"
+  ],
+  "hours_studied": 2.75,
+  "total_estimated_hours": 5.5,
+  "reading_log": [
+    {
+      "source": "001-ekf2-estimation-system",
+      "date": "2026-03-10",
+      "duration_min": 30,
+      "status": "completed"
+    },
+    {
+      "source": "002-ekf-overview-copter",
+      "date": "2026-03-10",
+      "duration_min": 20,
+      "status": "completed"
+    },
+    {
+      "source": "003-ekf3-affinity-lane-switching",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    },
+    {
+      "source": "004-estimation-for-quadrotors",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    },
+    {
+      "source": "005-ekf-navigation-tuning",
+      "date": "2026-03-10",
+      "duration_min": 40,
+      "status": "completed"
+    },
+    {
+      "source": "006-ekf-failsafe",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    },
+    {
+      "source": "007-ekf-source-selection",
+      "date": "2026-03-10",
+      "duration_min": 15,
+      "status": "completed"
+    }
+  ],
+  "key_insights": [
+    "EKF3 é o padrão atual, EKF2 ainda disponível mas sem recursos modernos",
+    "Múltiplos IMUs = múltiplos cores EKF rodando em paralelo",
+    "Lane switching automático baseado em error score acumulado",
+    "Sensor affinity permite usar sensores não-primários em cada lane",
+    "UKF é teoricamente melhor que EKF mas não usado no ArduPilot",
+    "Inovações devem ser pequenas e centradas em zero para EKF saudável",
+    "Test ratios < 1 = medição aceita, > 1 = rejeitada",
+    "EKF pode aprender bias do magnetometer em voo",
+    "EKF failsafe usa variâncias (compass, position, velocity)",
+    "FS_EKF_THRESH default 0.8, dispara quando 2+ variâncias > threshold",
+    "Source switching permite GPS ↔ Non-GPS transitions",
+    "GSF fornece yaw sem compass em compass-less configs"
+  ],
+  "questions": [
+    "Por que UKF não é usado no ArduPilot apesar de ser 'melhor'?",
+    "Como funciona exatamente o cálculo do error score para lane switching?",
+    "Qual é a relação matemática entre EKF_GYRO_PNOISE e a covariância?",
+    "Como o EKF lida com latência diferente entre sensores (GPS delay vs IMU)?",
+    "Como implementar transição suave entre GPS e Optical Flow?"
+  ],
+  "next_steps": [
+    "Ler arXiv:2509.13243 (EKF vs UKF vs PF comparison)",
+    "Ler Medium tutorial (Rust EKF)",
+    "Estudar código fonte AP_NavEKF2/AP_NavEKF3",
+    "Ler GitHub PR #14674 (EKF3 Affinity implementation)"
+  ]
+}

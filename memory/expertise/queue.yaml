@@ -46,16 +46,16 @@ topics:
   - id: "ardupilot-ekf"
     name: "ArduPilot EKF & State Estimation"
     priority: 1
-    status: "new"  # new, researching, reading, completed
+    status: "reading"  # new, researching, reading, completed
     progress:
-      bibliography_complete: false
-      sources_total: null  # Preenchido após levantamento
-      sources_read: 0
-      concepts_learned: []
-      total_estimated_hours: null
-      hours_studied: 0
-    last_action: null
-    notes: "EKF3 é o sistema de estimação de estado do ArduPilot"
+      bibliography_complete: true
+      sources_total: 21
+      sources_read: 5
+      concepts_learned: 14
+      total_estimated_hours: 5.5
+      hours_studied: 2.25
+    last_action: "2026-03-10 - Lidas 5 fontes: EKF2 Estimation System, EKF Overview, EKF3 Affinity, Estimation for Quadrotors, EKF Navigation Tuning"
+    notes: "EKF3 é o sistema de estimação de estado do ArduPilot. Próximos passos: EKF Failsafe, EKF Source Selection, arXiv:2509.13243"
 
   - id: "drone-sensors"
     name: "Drone Sensors & Hardware Integration"

@@ -1,0 +1,94 @@
+version: "3.8"
+
+services:
+  # PostgreSQL - Banco de dados principal
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ardupilot
+      POSTGRES_PASSWORD: ardupilot123
+      POSTGRES_DB: cluster
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cluster-network
+    ports:
+      - "5432:5432"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.storage == true
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+
+  # InfluxDB - Time series para telemetria
+  influxdb:
+    image: influxdb:2.7-alpine
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: admin123456
+      DOCKER_INFLUXDB_INIT_ORG: ardupilot-lab
+      DOCKER_INFLUXDB_INIT_BUCKET: telemetry
+      DOCKER_INFLUXDB_INIT_RETENTION: 30d
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    networks:
+      - cluster-network
+    ports:
+      - "8086:8086"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.storage == true
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+
+  # Grafana - Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin123
+      GF_INSTALL_PLUGINS: grafana-worldmap-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - cluster-network
+    ports:
+      - "3000:3000"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  # Redis - Cache e filas
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - cluster-network
+    ports:
+      - "6379:6379"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+networks:
+  cluster-network:
+    external: true
+
+volumes:
+  postgres_data:
+  influxdb_data:
+  grafana_data:
+  redis_data:

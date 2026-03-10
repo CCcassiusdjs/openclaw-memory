@@ -1,0 +1,112 @@
+version: "3.8"
+
+services:
+  # Jupyter Lab - Ambiente de desenvolvimento ML
+  jupyter:
+    image: jupyter/tensorflow-notebook:latest
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=ardupilot123
+      - GRANT_SUDO=yes
+    ports:
+      - "8888:8888"
+    volumes:
+      - jupyter_data:/home/jovyan/work
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.labels.compute == true
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+
+  # MLflow - Tracking de experimentos ML
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://ardupilot:ardupilot123@postgres/cluster
+      --default-artifact-root file:///mlflow/artifacts
+      --host 0.0.0.0
+      --port 5000
+    ports:
+      - "5001:5000"
+    volumes:
+      - mlflow_data:/mlflow/artifacts
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    depends_on:
+      - postgres
+
+  # MinIO - Object Storage para datasets
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin123456
+    ports:
+      - "9002:9000"
+      - "9003:9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.labels.storage == true
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+
+  # Dask Scheduler - Computação distribuída
+  dask-scheduler:
+    image: daskdev/dask:latest
+    command: dask-scheduler
+    ports:
+      - "8786:8786"
+      - "8787:8787"
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  # Dask Worker - Workers para computação
+  dask-worker:
+    image: daskdev/dask:latest
+    command: dask-worker tcp://dask-scheduler:8786
+    networks:
+      - cluster-network
+    deploy:
+      mode: replicated
+      replicas: 2
+      placement:
+        constraints:
+          - node.labels.compute == true
+      resources:
+        limits:
+          memory: 16G
+        reservations:
+          memory: 8G
+
+networks:
+  cluster-network:
+    external: true
+
+volumes:
+  jupyter_data:
+  mlflow_data:
+  minio_data:

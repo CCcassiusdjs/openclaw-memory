@@ -1,0 +1,134 @@
+title: {
+  label: Falha sob Radiação (14 MeV)
+  shape: text
+  near: top-center
+  shape: underlined
+}
+
+direction: down
+
+neutron: {
+  label: Nêutron 14 MeV
+  shape: hexagon
+  style: {
+    fill: "#e74c3c"
+    font-color: white
+  }
+}
+
+chip: {
+  label: Chip / Barramento I2C
+  shape: rectangle
+  style: {
+    fill: "#2c3e50"
+    font-color: white
+  }
+}
+
+neutron -> chip: SEU\n(Single Event Upset): {
+  label: 
+  style: {
+    stroke: "#e74c3c"
+    stroke-width: 3
+  }
+}
+
+sensors: {
+  label: ""
+  shape: sequence_diagram
+
+  imu: IMU
+  baro: BARO
+  mag: MAG
+  gps: GPS
+  
+  imu -> baro -> mag -> gps
+}
+
+chip -> sensors: Dados\nCorrompidos: {
+  label: 
+  style: {
+    stroke: "#e67e22"
+    stroke-dash: 4
+  }
+}
+
+cores: {
+  label: ""
+  shape: class
+
+  core0: {
+    label: CORE 0
+    posn: "posN = 1.0 ❌"
+    pose: "posE = 1.0 ❌"
+    attr: "roll = 1.0 ❌"
+  }
+  
+  core1: {
+    label: CORE 1
+    posn: "posN = 1.0 ❌"
+    pose: "posE = 1.0 ❌"
+    attr: "roll = 1.0 ❌"
+  }
+}
+
+sensors -> cores: todos recebem\nos mesmos erros: {
+  label: 
+  style: {
+    stroke: "#c0392b"
+  }
+}
+
+vote: {
+  label: Votação
+  shape: diamond
+  style: {
+    fill: "#9b59b6"
+    font-color: white
+  }
+}
+
+cores -> vote: {
+  label: 
+  style: {
+    stroke: "#9b59b6"
+  }
+}
+
+result: {
+  label: "Resultado:\nAmbos iguais!\nVotação falha"
+  shape: text
+  style: {
+    font-color: "#e74c3c"
+  }
+}
+
+vote -> result: {
+  label: 
+  style: {
+    stroke: "#e74c3c"
+    stroke-width: 3
+  }
+}
+
+output: {
+  label: OUTPUT
+  shape: rectangle
+  style: {
+    fill: "#c0392b"
+    font-color: white
+    stroke: "#e74c3c"
+    stroke-width: 3
+  }
+
+  flags: "flags = 0x80000606"
+  pos: "posN = 1.0 (erro)"
+}
+
+result -> output: {
+  label: 
+  style: {
+    stroke: "#e74c3c"
+    stroke-width: 2
+  }
+}

@@ -1,0 +1,34 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#1a1a2e', 'primaryTextColor': '#eee', 'primaryBorderColor': '#4a4a6a', 'lineColor': '#6a6a8a', 'secondaryColor': '#16213e', 'tertiaryColor': '#0f3460'}}}%%
+sequenceDiagram
+    participant IMU as IMU (400 Hz)
+    participant EKF as EKF Core
+    participant GPS as GPS (10 Hz)
+    participant BARO as BARO (50 Hz)
+    participant MAG as MAG (50 Hz)
+    participant OUT as OUTPUT
+
+    Note over EKF: Ciclo Principal (500 Hz)
+
+    loop A cada 2.5ms (400 Hz)
+        IMU->>EKF: gyro_x, gyro_y, gyro_z<br/>accel_x, accel_y, accel_z<br/>delAng, delVel, dt
+        EKF->>EKF: PREDIÇÃO<br/>Integra giroscópio → atitude<br/>Integra acelerômetro → velocidade<br/>Integra velocidade → posição<br/>Propaga covariância
+    end
+
+    loop A cada 100ms (10 Hz)
+        GPS->>EKF: lat, lon, alt, velN, velE, velD
+        EKF->>EKF: CORREÇÃO GPS<br/>Atualiza posição e velocidade<br/>Calcula inovação e ganho de Kalman
+    end
+
+    loop A cada 20ms (50 Hz)
+        BARO->>EKF: altitude
+        EKF->>EKF: CORREÇÃO BARO<br/>Atualiza altitude vertical
+    end
+
+    loop A cada 20ms (50 Hz)
+        MAG->>EKF: mag_x, mag_y, mag_z
+        EKF->>EKF: CORREÇÃO MAG<br/>Atualiza yaw (heading)
+    end
+
+    EKF->>OUT: posN, posE, posD<br/>roll, pitch, yaw<br/>flags de status
+
+    Note over EKF, OUT: Output a cada ciclo (500 Hz)

@@ -1,0 +1,72 @@
+%%{init: {'theme': 'dark'}}%%
+flowchart LR
+    subgraph VECTOR["OUTPUT VECTOR (32 bits)"]
+        direction TB
+        
+        subgraph FLAGS["FLAGS"]
+            direction LR
+            B31["31<br/>FAIL"]
+            B30["30"]
+            B29["29"]
+            B28["28"]
+            B27["27"]
+            B26["26"]
+            B25["25"]
+            B24["24"]
+            B23["23"]
+            B22["22"]
+            B21["21"]
+            B20["20"]
+            B19["19"]
+            B18["18"]
+            B17["17"]
+            B16["16"]
+            B15["15"]
+            B14["14"]
+            B13["13"]
+            B12["12"]
+            B11["11"]
+            B10["10<br/>ARM"]
+            B9["9<br/>GPS_DR"]
+            B8["8<br/>GPS_OK"]
+            B7["7<br/>IMU_OK"]
+            B6["6<br/>BARO_OK"]
+            B5["5<br/>MAG_OK"]
+            B4["4<br/>REPLAY"]
+            B3["3<br/>TIME"]
+            B2["2<br/>INIT"]
+            B1["1<br/>PROC"]
+            B0["0<br/>LOG"]
+        end
+        
+        subgraph VALUES["VALORES ESTIMADOS"]
+            POSN["posN<br/>Norte (m)"]
+            POSE["posE<br/>Leste (m)"]
+            POSD["posD<br/>Baixo (m)"]
+            ATTR["attR<br/>Roll (rad)"]
+            ATTP["attP<br/>Pitch (rad)"]
+            ATTY["attY<br/>Yaw (rad)"]
+        end
+    end
+
+    B31 -- "1 = FALHA" --> FAIL["⚠️ FALHA"]
+    B8 -- "0 = GPS falhou" --> GPS_X["❌ GPS"]
+    B7 -- "0 = IMU falhou" --> IMU_X["❌ IMU"]
+    B6 -- "0 = BARO falhou" --> BARO_X["❌ BARO"]
+    B5 -- "0 = MAG falhou" --> MAG_X["❌ MAG"]
+
+    style B31 fill:#e74c3c,color:#fff
+    style B8 fill:#e74c3c,color:#fff
+    style B7 fill:#e74c3c,color:#fff
+    style B6 fill:#e74c3c,color:#fff
+    style B5 fill:#e74c3c,color:#fff
+    style B10 fill:#27ae60,color:#fff
+    style B4 fill:#27ae60,color:#fff
+    style B3 fill:#27ae60,color:#fff
+    style B2 fill:#27ae60,color:#fff
+    style B1 fill:#27ae60,color:#fff
+    style B0 fill:#27ae60,color:#fff
+
+    style FLAGS fill:#1a1a2e,stroke:#4a4a6a
+    style VALUES fill:#16213e,stroke:#4a4a6a
+    style VECTOR fill:#0f0f1a,stroke:#6a6a8a

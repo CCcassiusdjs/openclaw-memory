@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - mqtt_data:/mosquitto/data
+      - mqtt_log:/mosquitto/log
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  api-gateway:
+    image: python:3.11-slim
+    ports:
+      - "5000:5000"
+    networks:
+      - cluster-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    command: python3 -m http.server 5000
+
+  sitl-pool:
+    image: ardupilot/ardupilot:latest
+    ports:
+      - "5760:5760"
+    networks:
+      - cluster-network
+    deploy:
+      mode: replicated
+      replicas: 2
+      placement:
+        constraints:
+          - node.labels.compute == true
+      resources:
+        limits:
+          memory: 2G
+    command: bash -c "sim_vehicle.py -v Copter -f quad -I0 --out udp:0.0.0.0:5760 --daemon && sleep infinity"
+
+networks:
+  cluster-network:
+    external: true
+
+volumes:
+  mqtt_data:
+  mqtt_log:

@@ -1,0 +1,68 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#1a1a2e', 'primaryTextColor': '#eee', 'primaryBorderColor': '#4a4a6a', 'lineColor': '#6a6a8a', 'secondaryColor': '#16213e', 'tertiaryColor': '#0f3460'}}}%%
+flowchart TB
+    subgraph INPUT["📥 INPUT - Dataset Sintético"]
+        IMU0["IMU 0<br/>400 Hz<br/>gyro + accel"]
+        IMU1["IMU 1<br/>400 Hz<br/>gyro + accel"]
+        IMU2["IMU 2<br/>400 Hz<br/>gyro + accel"]
+        BARO0["BARO 0<br/>50 Hz<br/>altitude"]
+        BARO1["BARO 1<br/>50 Hz<br/>altitude"]
+        BARO2["BARO 2<br/>50 Hz<br/>altitude"]
+        MAG0["MAG 0<br/>50 Hz<br/>campo magnético"]
+        MAG1["MAG 1<br/>50 Hz<br/>campo magnético"]
+        MAG2["MAG 2<br/>50 Hz<br/>campo magnético"]
+        GPS["GPS<br/>10 Hz<br/>lat, lon, alt, vel"]
+    end
+
+    subgraph EKF["⚙️ EKF3 Cores - ArduPilot"]
+        CORE0["CORE 0<br/>EKF Instance"]
+        CORE1["CORE 1<br/>EKF Instance"]
+        CORE2["CORE 2<br/>(não usado)"]
+        
+        subgraph PRED["Ciclo EKF (500 Hz)"]
+            PREDICT["Predição<br/>(gyro + accel)"]
+            CORRECT["Correção<br/>(GPS + BARO + MAG)"]
+            PREDICT --> CORRECT
+        end
+    end
+
+    subgraph VOTE["🗳️ Votação"]
+        SELECT["Seleção de Core<br/>Comparação entre cores<br/>Descarta outliers"]
+    end
+
+    subgraph OUTPUT["📤 OUTPUT Vector"]
+        FLAGS["Flags (32 bits)<br/>bit 31: FAILURE<br/>bit 5-8: Sensor OK"]
+        POS["Posição<br/>posN, posE, posD"]
+        ATT["Atitude<br/>roll, pitch, yaw"]
+    end
+
+    IMU0 --> CORE0
+    BARO0 --> CORE0
+    MAG0 --> CORE0
+    
+    IMU1 --> CORE1
+    BARO1 --> CORE1
+    MAG1 --> CORE1
+    
+    IMU2 -.-> CORE2
+    BARO2 -.-> CORE2
+    MAG2 -.-> CORE2
+    
+    GPS --> CORE0
+    GPS --> CORE1
+    GPS -.-> CORE2
+
+    CORE0 --> SELECT
+    CORE1 --> SELECT
+    CORE2 -.-> SELECT
+
+    SELECT --> FLAGS
+    SELECT --> POS
+    SELECT --> ATT
+
+    style INPUT fill:#16213e,stroke:#4a4a6a
+    style EKF fill:#1a1a2e,stroke:#6a6a8a
+    style VOTE fill:#0f3460,stroke:#4a4a6a
+    style OUTPUT fill:#16213e,stroke:#6a6a8a
+    style CORE0 fill:#2d3436,stroke:#00b894
+    style CORE1 fill:#2d3436,stroke:#00b894
+    style CORE2 fill:#2d3436,stroke:#636e72

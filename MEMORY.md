@@ -93,6 +93,42 @@ _Curated memories, decisions, and context worth keeping._
 - `data_orchestrator/computer/` - Gerador de datasets
 - `memory/2026-03-09-multirad-ekf-dataset-analysis.md` - Análise completa
 
+## Cluster Docker Swarm (2026-03-10)
+
+**Localização:** VLAN20 - 10.10.20.0/24
+
+### Topologia
+| Servidor | IP | Role | Labels | Hardware |
+|----------|-----|------|--------|----------|
+| T620 | 10.10.20.11 | Manager | - | 24 vCPU, 32GB RAM |
+| T630A | 10.10.20.12 | Worker | compute=true | 40 vCPU, 94GB RAM |
+| T630B | 10.10.20.13 | Worker | storage=true | 40 vCPU, 94GB RAM |
+
+### Credenciais de Acesso
+- **SSH:** cassiusdjs / 230612 (todos os servidores)
+- **FortiGate:** admin / @CiaoMiau2955 (192.168.1.99)
+- **Docker Swarm Token:** SWMTKN-1-17gw7fsdxob7yfjqmokh327gkflqroybx4ss0x7796bqk91zsj-aso0r8tjs85wcxxq0i3kbphrc
+
+### Serviços Deployados
+| Serviço | URL | Credenciais |
+|---------|-----|-------------|
+| Portainer | http://10.10.20.11:9000 | Criar no primeiro acesso |
+| Grafana | http://10.10.20.11:3000 | admin / admin123 |
+| InfluxDB | http://10.10.20.11:8086 | admin / admin123456 |
+| PostgreSQL | 10.10.20.13:5432 | ardupilot / ardupilot123 |
+| Jupyter Lab | http://10.10.20.11:8888 | Token: ardupilot123 |
+| MLflow | http://10.10.20.11:5001 | - |
+| MinIO | http://10.10.20.11:9003 | admin / admin123456 |
+
+### Stacks
+- `base`: Traefik, Portainer, Visualizer
+- `ardupilot`: PostgreSQL, InfluxDB, Grafana, Redis
+- `digitaltwin`: MQTT, API Gateway
+- `mlpipeline`: Jupyter, MLflow, MinIO, Dask
+
+### Documentação Completa
+Arquivo: `memory/2026-03-10-cluster-setup.md`
+
 ## Aparato de Auto-Aprimoramento
 - **Topologia do Tempo**: Passado(-1,0), Futuro(0,+1), Presente{0} - ciclo temporal
 - **Contínuo/Discreto**: Foco CRIA o discreto, observador participa da criação

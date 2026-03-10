@@ -75,6 +75,92 @@ topics:
         - "Tachometers for RPM logging"
     completed_at: "2026-03-10"
     notes: "Tópico completado com 36 fontes estudadas. Síntese criada em synthesis.md"
+  
+  - id: "ardupilot-ekf"
+    name: "ArduPilot EKF & State Estimation"
+    priority: 1
+    status: "completed"
+    progress:
+      bibliography_complete: true
+      sources_total: 21
+      sources_read: 16
+      concepts_learned:
+        - "Extended Kalman Filter (EKF)"
+        - "State Prediction vs State Correction"
+        - "Innovation (resíduo entre predição e medição)"
+        - "Sensor Fusion (IMU + GPS + Magnetometer + Barometer)"
+        - "Lane Switching"
+        - "Sensor Affinity"
+        - "EKF2 vs EKF3"
+        - "Quaternion-based EKF"
+        - "Error State EKF (ES-EKF)"
+        - "GPS-denied navigation"
+        - "EKF tuning parameters"
+      completed_at: "2026-03-10"
+      notes: "16 fontes estudadas. Síntese em topics/ardupilot-ekf/"
+  
+  - id: "digital-twins"
+    name: "Digital Twins"
+    priority: 2
+    status: "reading"
+    progress:
+      bibliography_complete: true
+      sources_total: 32
+      sources_read: 8
+      concepts_learned: 24
+      hours_studied: 2.5
+    notes: "8 fontes estudadas. Levantamento bibliográfico completo. Conceitos-chave: arquiteturas, tipos, implementação, segurança, frameworks (ISO, DTC-PSAF), case studies."
+  
+  - id: "ml-fundamentals"
+    name: "Machine Learning Fundamentals"
+    priority: 2
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
+      concepts_learned: []
+    notes: "Tópico criado, aguardando levantamento bibliográfico"
+  
+  - id: "docker-advanced"
+    name: "Docker Advanced Topics"
+    priority: 3
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
+      concepts_learned: []
+    notes: "Tópico criado, aguardando levantamento bibliográfico"
+  
+  - id: "mlflow-tracking"
+    name: "MLflow Tracking & Experiment Management"
+    priority: 3
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
+      concepts_learned: []
+    notes: "Tópico criado, aguardando levantamento bibliográfico"
+    progress:
+      bibliography_complete: true
+      sources_total: 36
+      sources_read: 36
+      concepts_learned:
+        - "IMU selection and noise characteristics"
+        - "Temperature effects on MEMS IMUs"
+        - "Vibration analysis and filtering (FFT, notch filters)"
+        - "Sensor redundancy and heterogeneous fusion"
+        - "VTOL-specific sensor requirements"
+        - "PX4 sensor architecture and configuration"
+        - "RTK GPS and dual-antenna heading"
+        - "Optical flow for GNSS-denied navigation"
+        - "Airspeed sensors for stall detection"
+        - "Rangefinders for terrain following"
+        - "Tachometers for RPM logging"
+    completed_at: "2026-03-10"
+    notes: "Tópico completado com 36 fontes estudadas. Síntese criada em synthesis.md"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

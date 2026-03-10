@@ -1,0 +1,208 @@
+# Fila de Aprendizado Autônomo
+# OpenClaw lê este arquivo a cada sessão e continua de onde parou
+
+version: 1.0
+created: 2026-03-10
+status: active
+
+# Configuração de aprendizado
+config:
+  session_study_time: 30m  # Tempo por sessão
+  daily_cron: "0 */4 * * *"  # A cada 4 horas
+  sources_per_session: 5  # Fontes por sessão
+
+# Fila de tópicos
+topics:
+  # ========================================
+  # PRIORIDADE ALTA - Drone Systems
+  # ========================================
+  - id: "ardupilot-ekf"
+    name: "ArduPilot EKF & State Estimation"
+    priority: 1
+    status: "in_progress"
+    progress:
+      pages_read: 0
+      total_estimated: 200
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "https://ardupilot.org/copter/docs/ekf3-estimation.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://ardupilot.org/dev/docs/ekf3.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://ardupilot.org/copter/docs/common-ekf-innovations.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://ardupilot.org/dev/docs/ekf2-and-ekf3.html"
+        type: "docs"
+        status: "queued"
+      - url: "arxiv://cs.RO:state-estimation-drone"
+        type: "papers"
+        status: "queued"
+        query: "drone state estimation EKF"
+    concepts_to_learn:
+      - "Extended Kalman Filter"
+      - "IMU sensor fusion"
+      - "GPS position estimation"
+      - "Optical flow integration"
+      - "Magnetometer calibration"
+      - "Barometer altitude"
+
+  - id: "drone-sensors"
+    name: "Drone Sensors & Hardware"
+    priority: 1
+    status: "queued"
+    progress:
+      pages_read: 0
+      total_estimated: 150
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "https://ardupilot.org/copter/docs/common-sensors.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://ardupilot.org/copter/docs/common-imu.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://ardupilot.org/copter/docs/common-gps.html"
+        type: "docs"
+        status: "queued"
+    concepts_to_learn:
+      - "IMU types and selection"
+      - "GPS accuracy"
+      - "Magnetometer interference"
+      - "Barometer vs GPS altitude"
+
+  # ========================================
+  # PRIORIDADE ALTA - Container Orchestration
+  # ========================================
+  - id: "docker-advanced"
+    name: "Docker Advanced & Swarm"
+    priority: 1
+    status: "queued"
+    progress:
+      pages_read: 0
+      total_estimated: 100
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "https://docs.docker.com/engine/swarm/"
+        type: "docs"
+        status: "queued"
+      - url: "https://docs.docker.com/engine/swarm/key-concepts/"
+        type: "docs"
+        status: "queued"
+      - url: "https://docs.docker.com/engine/swarm/services/"
+        type: "docs"
+        status: "queued"
+    concepts_to_learn:
+      - "Swarm routing mesh"
+      - "Overlay networks"
+      - "Service discovery"
+      - "Rolling updates"
+
+  # ========================================
+  # PRIORIDADE MÉDIA - Machine Learning
+  # ========================================
+  - id: "ml-fundamentals"
+    name: "Machine Learning Fundamentals"
+    priority: 2
+    status: "queued"
+    progress:
+      pages_read: 0
+      total_estimated: 300
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "https://www.tensorflow.org/guide"
+        type: "docs"
+        status: "queued"
+      - url: "arxiv://cs.LG:machine-learning"
+        type: "papers"
+        status: "queued"
+        query: "machine learning fundamentals survey"
+    concepts_to_learn:
+      - "Neural network architectures"
+      - "Training techniques"
+      - "Loss functions"
+      - "Optimization algorithms"
+
+  - id: "mlflow-tracking"
+    name: "MLflow & Experiment Tracking"
+    priority: 2
+    status: "queued"
+    progress:
+      pages_read: 0
+      total_estimated: 50
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "https://mlflow.org/docs/latest/index.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://mlflow.org/docs/latest/tracking.html"
+        type: "docs"
+        status: "queued"
+      - url: "https://mlflow.org/docs/latest/models.html"
+        type: "docs"
+        status: "queued"
+    concepts_to_learn:
+      - "Experiment tracking"
+      - "Model versioning"
+      - "Model registry"
+      - "Deployment patterns"
+
+  # ========================================
+  # PRIORIDADE MÉDIA - Digital Twins
+  # ========================================
+  - id: "digital-twins"
+    name: "Digital Twins & Simulation"
+    priority: 2
+    status: "queued"
+    progress:
+      pages_read: 0
+      total_estimated: 200
+      last_source: null
+      concepts_learned: []
+    sources:
+      - url: "arxiv://cs.CY:digital-twin"
+        type: "papers"
+        status: "queued"
+        query: "digital twin drone simulation"
+      - url: "https://ardupilot.org/dev/docs/sitl-with-mavproxy.html"
+        type: "docs"
+        status: "queued"
+    concepts_to_learn:
+      - "Real-time synchronization"
+      - "Physics simulation"
+      - "State estimation"
+      - "Predictive models"
+
+# Heurísticas aprendidas
+heuristics:
+  - "EKF funciona melhor com múltiplos sensores redundantes"
+  - "GPS tem latência, IMU é instantâneo mas drift"
+  - "Magnetômetro sensível a interferência electromagnética"
+  - "Barômetro afetado por temperatura e vento"
+
+# Padrões identificados
+patterns:
+  - name: "Sensor Fusion Pattern"
+    description: "Combinar múltiplos sensores com pesos baseados em confiança"
+    applications:
+      - "EKF3 combina IMU + GPS + Optical Flow"
+      - "Kalman filter para navegação"
+
+  - name: "State Estimation Pattern"
+    description: "Predição + Correção em loop fechado"
+    applications:
+      - "EKF para pose"
+      - "Particle filter para localização"
+
+# Sínteses criadas
+syntheses:
+  - date: null
+    topic: null
+    content: null

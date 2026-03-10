@@ -1,17 +1,44 @@
 # Fila de Aprendizado Autônomo
 # OpenClaw lê este arquivo a cada sessão e continua de onde parou
 
-version: 1.0
+version: 2.0
 created: 2026-03-10
+updated: 2026-03-10
 status: active
 
-# Configuração de aprendizado
-config:
-  session_study_time: 30m  # Tempo por sessão
-  daily_cron: "0 */4 * * *"  # A cada 4 horas
-  sources_per_session: 5  # Fontes por sessão
+# ========================================
+# FLUXO DE TRABALHO
+# ========================================
+#
+# 1. NOVO TÓPICO
+#    └── status: "new"
+#    └── AÇÃO: Fazer levantamento bibliográfico COMPLETO
+#    └── Criar topics/[topico]/bibliography.md
+#    └── Mudar status para "reading"
+#
+# 2. LEITURA
+#    └── status: "reading"
+#    └── AÇÃO: Ler próxima fonte da bibliografia
+#    └── Resumir em topics/[topico]/sources/XXX-[fonte].md
+#    └── Atualizar progress.json
+#
+# 3. CONCLUÍDO
+#    └── status: "completed"
+#    └── Sintetizar em topics/[topico]/synthesis.md
+#    └── Atualizar heuristics.md
+#
+# ========================================
 
-# Fila de tópicos
+config:
+  session_study_time: 30m
+  daily_cron: "0 */4 * * *"
+  sources_per_session: 3
+  search_depth: 10  # Quantos resultados buscar por query
+
+# ========================================
+# FILA DE TÓPICOS
+# ========================================
+
 topics:
   # ========================================
   # PRIORIDADE ALTA - Drone Systems
@@ -19,89 +46,47 @@ topics:
   - id: "ardupilot-ekf"
     name: "ArduPilot EKF & State Estimation"
     priority: 1
-    status: "in_progress"
+    status: "new"  # new, researching, reading, completed
     progress:
-      pages_read: 0
-      total_estimated: 200
-      last_source: null
+      bibliography_complete: false
+      sources_total: null  # Preenchido após levantamento
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "https://ardupilot.org/copter/docs/ekf3-estimation.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://ardupilot.org/dev/docs/ekf3.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://ardupilot.org/copter/docs/common-ekf-innovations.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://ardupilot.org/dev/docs/ekf2-and-ekf3.html"
-        type: "docs"
-        status: "queued"
-      - url: "arxiv://cs.RO:state-estimation-drone"
-        type: "papers"
-        status: "queued"
-        query: "drone state estimation EKF"
-    concepts_to_learn:
-      - "Extended Kalman Filter"
-      - "IMU sensor fusion"
-      - "GPS position estimation"
-      - "Optical flow integration"
-      - "Magnetometer calibration"
-      - "Barometer altitude"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "EKF3 é o sistema de estimação de estado do ArduPilot"
 
   - id: "drone-sensors"
-    name: "Drone Sensors & Hardware"
+    name: "Drone Sensors & Hardware Integration"
     priority: 1
-    status: "queued"
+    status: "new"
     progress:
-      pages_read: 0
-      total_estimated: 150
-      last_source: null
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "https://ardupilot.org/copter/docs/common-sensors.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://ardupilot.org/copter/docs/common-imu.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://ardupilot.org/copter/docs/common-gps.html"
-        type: "docs"
-        status: "queued"
-    concepts_to_learn:
-      - "IMU types and selection"
-      - "GPS accuracy"
-      - "Magnetometer interference"
-      - "Barometer vs GPS altitude"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "IMU, GPS, magnetômetro, barômetro, optical flow, range finder"
 
   # ========================================
   # PRIORIDADE ALTA - Container Orchestration
   # ========================================
   - id: "docker-advanced"
-    name: "Docker Advanced & Swarm"
+    name: "Docker Advanced & Swarm Orchestration"
     priority: 1
-    status: "queued"
+    status: "new"
     progress:
-      pages_read: 0
-      total_estimated: 100
-      last_source: null
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "https://docs.docker.com/engine/swarm/"
-        type: "docs"
-        status: "queued"
-      - url: "https://docs.docker.com/engine/swarm/key-concepts/"
-        type: "docs"
-        status: "queued"
-      - url: "https://docs.docker.com/engine/swarm/services/"
-        type: "docs"
-        status: "queued"
-    concepts_to_learn:
-      - "Swarm routing mesh"
-      - "Overlay networks"
-      - "Service discovery"
-      - "Rolling updates"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "Swarm, overlay networks, service discovery, rolling updates"
 
   # ========================================
   # PRIORIDADE MÉDIA - Machine Learning
@@ -109,50 +94,30 @@ topics:
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"
     priority: 2
-    status: "queued"
+    status: "new"
     progress:
-      pages_read: 0
-      total_estimated: 300
-      last_source: null
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "https://www.tensorflow.org/guide"
-        type: "docs"
-        status: "queued"
-      - url: "arxiv://cs.LG:machine-learning"
-        type: "papers"
-        status: "queued"
-        query: "machine learning fundamentals survey"
-    concepts_to_learn:
-      - "Neural network architectures"
-      - "Training techniques"
-      - "Loss functions"
-      - "Optimization algorithms"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "Neural networks, training, loss functions, optimization"
 
   - id: "mlflow-tracking"
     name: "MLflow & Experiment Tracking"
     priority: 2
-    status: "queued"
+    status: "new"
     progress:
-      pages_read: 0
-      total_estimated: 50
-      last_source: null
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "https://mlflow.org/docs/latest/index.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://mlflow.org/docs/latest/tracking.html"
-        type: "docs"
-        status: "queued"
-      - url: "https://mlflow.org/docs/latest/models.html"
-        type: "docs"
-        status: "queued"
-    concepts_to_learn:
-      - "Experiment tracking"
-      - "Model versioning"
-      - "Model registry"
-      - "Deployment patterns"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "MLflow para rastreamento de experimentos e modelos"
 
   # ========================================
   # PRIORIDADE MÉDIA - Digital Twins
@@ -160,49 +125,35 @@ topics:
   - id: "digital-twins"
     name: "Digital Twins & Simulation"
     priority: 2
-    status: "queued"
+    status: "new"
     progress:
-      pages_read: 0
-      total_estimated: 200
-      last_source: null
+      bibliography_complete: false
+      sources_total: null
+      sources_read: 0
       concepts_learned: []
-    sources:
-      - url: "arxiv://cs.CY:digital-twin"
-        type: "papers"
-        status: "queued"
-        query: "digital twin drone simulation"
-      - url: "https://ardupilot.org/dev/docs/sitl-with-mavproxy.html"
-        type: "docs"
-        status: "queued"
-    concepts_to_learn:
-      - "Real-time synchronization"
-      - "Physics simulation"
-      - "State estimation"
-      - "Predictive models"
+      total_estimated_hours: null
+      hours_studied: 0
+    last_action: null
+    notes: "Sincronização em tempo real, simulação física, modelos preditivos"
 
-# Heurísticas aprendidas
+# ========================================
+# HEURÍSTICAS APRENDIDAS
+# ========================================
 heuristics:
-  - "EKF funciona melhor com múltiplos sensores redundantes"
-  - "GPS tem latência, IMU é instantâneo mas drift"
-  - "Magnetômetro sensível a interferência electromagnética"
-  - "Barômetro afetado por temperatura e vento"
+  - topic: "general"
+    rules:
+      - "Sempre fazer levantamento bibliográfico ANTES de ler"
+      - "Priorizar documentação oficial quando disponível"
+      - "Papers de survey são bons pontos de partida"
+      - "Livros didáticos para fundamentação teórica"
+      - "Tutoriais e exemplos para aplicação prática"
 
-# Padrões identificados
-patterns:
-  - name: "Sensor Fusion Pattern"
-    description: "Combinar múltiplos sensores com pesos baseados em confiança"
-    applications:
-      - "EKF3 combina IMU + GPS + Optical Flow"
-      - "Kalman filter para navegação"
+# ========================================
+# PADRÕES IDENTIFICADOS
+# ========================================
+patterns: []
 
-  - name: "State Estimation Pattern"
-    description: "Predição + Correção em loop fechado"
-    applications:
-      - "EKF para pose"
-      - "Particle filter para localização"
-
-# Sínteses criadas
-syntheses:
-  - date: null
-    topic: null
-    content: null
+# ========================================
+# SÍNTESES CRIADAS
+# ========================================
+syntheses: []

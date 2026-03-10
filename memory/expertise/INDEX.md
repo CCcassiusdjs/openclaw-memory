@@ -7,7 +7,7 @@
 | Topic | Status | Sources | Hours | Progress |
 |-------|--------|---------|-------|----------|
 | ardupilot-ekf | ✅ COMPLETED | 16/21 | 5.5h/5.5h | 100% |
-| drone-sensors | 📖 READING | 9/21 | 2.0h/4.0h | 50% |
+| drone-sensors | 📖 READING | 11/21 | 2.5h/4.0h | 52% |
 
 ## Completed Topics
 
@@ -15,7 +15,7 @@
 
 **Summary:** ArduPilot EKF & State Estimation
 
-**Key Concepts Learned:**
+**Key Concepts Learned (44 total):**
 - Extended Kalman Filter (EKF) architecture
 - Error State EKF (ES-EKF) for GPS-denied navigation
 - Lie Group formulation for GNSS/INS integration
@@ -27,7 +27,8 @@
 - GSF (Gaussian Sum Filter) for compass-less yaw
 - Allan variance for IMU noise characterization
 - Magnetometer bias learning in-flight
-- Optical flow and range finder fusion
+- EKF tuning parameters (noise, gates)
+- Innovation and state correction
 
 **Key Insights:**
 - EKF3 is the current standard, EKF2 still available but without modern features
@@ -48,21 +49,25 @@
 
 ## In Progress Topics
 
-### drone-sensors (Reading - 50%)
+### drone-sensors (Reading - 52%)
 
 **Summary:** Drone Sensors & Hardware Integration
 
 **Progress:**
-- Sources: 9/21 read
-- Time: 2.0h/4.0h estimated
+- Sources: 11/21 read
+- Time: 2.5h/4.0h estimated
 
-**Concepts Learned:**
+**Concepts Learned (39 total):**
 - IMU noise model (white noise + bias random walk)
 - Allan variance analysis
 - Hard/soft iron magnetometer calibration
 - Barometer altitude estimation
 - Sensor driver architecture (frontend/backend)
 - VectorNav external AHRS integration
+- EKF time horizon for latency compensation
+- Optical flow velocity estimation
+- GPS latency (100-300ms)
+- Flow scale factor calibration
 
 **Key Insights:**
 - Noise density and random walk use same units (deg/s/√Hz = deg/√s)
@@ -70,12 +75,14 @@
 - Bias instability is upper bound on bias standard deviation
 - Hard iron = constant offset, soft iron = transformation matrix
 - Barometers calibrated against GPS altitude at startup
+- EKF uses delayed time horizon for sensor latency compensation
+- GPS latency 100-300ms, optical flow 20-50ms, baro 10-50ms
+- Optical flow provides velocity (not position), needs range finder
 
 **Next Steps:**
-- GPS accuracy and latency
-- Barometer specifications
-- Optical flow sensors
-- Range finders
+- GPS accuracy and latency details
+- Range finder sensors
+- Complete remaining bibliography
 
 ## Pending Topics
 

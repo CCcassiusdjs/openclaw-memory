@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:42:00Z",
   "bibliography_complete": false,
   "sources_total": 21,
-  "sources_read": 9,
-  "current_source": "021-px4-barometer",
+  "sources_read": 11,
+  "current_source": "023-optical-flow-setup",
   "concepts_learned": [
     "IMU + GPS Fusion architecture",
     "insfilterMARG 22-state vector",
@@ -43,9 +43,15 @@
     "Barometer altitude estimation",
     "Barometer auto-calibration (GNSS-baro alignment)",
     "BMP388 ±0.66m accuracy",
-    "Relative vs GNSS-baro calibration"
+    "Relative vs GNSS-baro calibration",
+    "EKF time horizon and latency compensation",
+    "Sensor FIFO buffering",
+    "GPS latency (100-300ms)",
+    "Optical flow velocity estimation",
+    "Flow scale factor calibration",
+    "EK3_SRC configuration for optical flow"
   ],
-  "hours_studied": 2.0,
+  "hours_studied": 2.5,
   "total_estimated_hours": 4.0,
   "reading_log": [
     {
@@ -128,7 +134,11 @@
     "Barometers: BMP388 ±0.66m accuracy, MS5611 common",
     "Baro calibrated against GPS altitude at startup",
     "Relative calibration prevents altitude jumps during sensor switch",
-    "Baro vulnerable to prop wash and weather changes"
+    "Baro vulnerable to prop wash and weather changes",
+    "EKF uses delayed time horizon for sensor latency compensation",
+    "GPS latency 100-300ms, optical flow 20-50ms, baro 10-50ms",
+    "Optical flow provides velocity (not position), needs range finder",
+    "Flow calibration: OF.flowX vs IMU.GyrX correlation"
   ],
   "questions": [
     "Como funciona a calibração hard/soft iron do magnetômetro?",

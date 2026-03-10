@@ -3,10 +3,10 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T20:10:00-03:00",
+  "updatedAt": "2026-03-10T20:50:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 32,
+  "sourcesRead": 39,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -17,6 +17,9 @@
     "008-bias-variance-wikipedia",
     "009-rademacher-complexity-wikipedia",
     "010-reinforcement-learning-sutton-barto",
+    "011-intro-rl-arxiv",
+    "012-rl-overview-murphy",
+    "013-spinning-up-rl-intro",
     "016-deep-learning-survey-noor",
     "017-cnn-convolutional-networks",
     "018-transformer-self-attention",
@@ -40,7 +43,11 @@
     "041-feature-engineering-encoding",
     "042-learning-rate-schedules",
     "043-loss-functions",
-    "044-weight-initialization"
+    "044-weight-initialization",
+    "045-gradient-descent-types",
+    "046-regularization-l1-l2-ridge-lasso-elasticnet",
+    "047-feature-engineering-techniques",
+    "048-l2-regularization-google"
   ],
   "conceptsLearned": [
     "PAC Learning Model",
@@ -80,7 +87,25 @@
     "Elastic Net",
     "Early Stopping",
     "scikit-learn API patterns",
-    "Pipelines and Feature Engineering"
+    "Pipelines and Feature Engineering",
+    "RL Key Concepts (agent, environment, policy, value functions)",
+    "RL Value Functions (V^π, Q^π, V*, Q*)",
+    "RL Advantage Function",
+    "MDP Formalism (S, A, R, P, ρ₀)",
+    "Gradient Descent Types (Batch, SGD, Mini-batch)",
+    "Learning Rate Trade-offs",
+    "Cost Function and Gradients",
+    "Vanishing/Exploding Gradients",
+    "LASSO Regression (L1 regularization, feature selection)",
+    "Ridge Regression (L2 regularization, weight shrinkage)",
+    "ElasticNet (combined L1+L2)",
+    "Feature Types (numerical, categorical, time-series, text)",
+    "Imputation Techniques (mean, median, mode)",
+    "Feature Scaling (standardization, Min-Max)",
+    "Binning and Discretization",
+    "Log Transformation",
+    "Feature Selection Methods (filter, wrapper, embedded)",
+    "Regularization Rate (lambda) and Learning Rate Balance"
   ],
-  "notes": "32 fontes lidas (67%). RNN/LSTM/GRU adicionado. Statistical Learning Theory, Optimization, Regularization, Neural Networks Theory, Deep Learning Architectures cobertos. Ciclo completo."
+  "notes": "39 fontes lidas (81%). RL fundamentals, Gradient Descent variants, Regularization techniques, Feature Engineering completados. Ciclo completo."
 }

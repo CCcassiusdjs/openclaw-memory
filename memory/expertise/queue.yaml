@@ -119,27 +119,11 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 48
-      sources_read: 8
-      concepts_learned:
-        - "PAC Learning Model"
-        - "VC Dimension"
-        - "Rademacher Complexity"
-        - "Data-Model-Loss Framework"
-        - "Empirical Risk Minimization"
-        - "Boosting and Margin Bounds"
-        - "Online Learning"
-        - "Kernel Methods"
-        - "Regularization (L1/L2/Elastic Net)"
-        - "Dropout and Early Stopping"
-        - "MDPs and Value Functions"
-        - "Bellman Equations"
-        - "TD Learning and Q-learning"
-        - "Policy Gradient Methods"
-        - "Deep Learning architectures"
-        - "Transformers and Attention"
-        - "Optimization algorithms (SGD, Adam, AdamW)"
-        - "scikit-learn API and Pipelines"
-    notes: "8 fontes lidas: teoria ML (Shalev-Shwartz, Jung, Mohri), RL (Sutton & Barto), Deep Learning (survey), Optimization (gradient descent), Regularization, scikit-learn. Continuando."
+      sources_read: 39
+      concepts_learned: 52
+      hours_studied: 4.5
+    notes: "39 fontes lidas (81%). RL fundamentals (Sutton & Barto, Spinning Up, arXiv surveys), Gradient Descent variants (Batch, SGD, Mini-batch), Regularization techniques (L1, L2, ElasticNet, Dropout, Early Stopping), Feature Engineering, Optimization algorithms. Statistical Learning Theory, Neural Networks Theory, Deep Learning Architectures cobertos."
+    last_updated: "2026-03-10T23:50:00Z"
   
   - id: "docker-advanced"
     name: "Docker Advanced Topics"

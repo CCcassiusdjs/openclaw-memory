@@ -294,41 +294,127 @@ async def delete_widget(widget_id: UUID, user: User = Depends(get_current_user))
     del widgets_db[widget_id]
     return {"message": "Widget deleted"}
 
-# Door Control
+# Door Control - Integration with Jetson TK2
+import httpx
+
+JETSON_DOOR_URL = os.getenv("JETSON_DOOR_URL", "http://192.168.2.117:5000")
+JETSON_ADMIN_USER = os.getenv("JETSON_ADMIN_USER", "celebro")
+JETSON_ADMIN_PASS = os.getenv("JETSON_ADMIN_PASS", "l@bls@25")
+
+# Session cache for Jetson auth
+_jetson_session_cookie = None
+
+async def get_jetson_session() -> str:
+    """Login to Jetson and return session cookie"""
+    global _jetson_session_cookie
+    async with httpx.AsyncClient() as client:
+        resp = await client.post(
+            f"{JETSON_DOOR_URL}/login",
+            data={"username": JETSON_ADMIN_USER, "password": JETSON_ADMIN_PASS},
+            follow_redirects=False
+        )
+        if resp.status_code == 302:
+            _jetson_session_cookie = resp.cookies.get("session")
+    return _jetson_session_cookie
+
+async def call_jetson_api(endpoint: str, method: str = "GET") -> Dict:
+    """Call Jetson door API with authentication"""
+    global _jetson_session_cookie
+    
+    async with httpx.AsyncClient(timeout=5.0) as client:
+        cookies = {"session": _jetson_session_cookie} if _jetson_session_cookie else None
+        
+        if method == "POST":
+            resp = await client.post(f"{JETSON_DOOR_URL}{endpoint}", cookies=cookies)
+        else:
+            resp = await client.get(f"{JETSON_DOOR_URL}{endpoint}", cookies=cookies)
+        
+        # If unauthorized, re-login and retry
+        if resp.status_code == 401 or resp.status_code == 302:
+            await get_jetson_session()
+            cookies = {"session": _jetson_session_cookie}
+            if method == "POST":
+                resp = await client.post(f"{JETSON_DOOR_URL}{endpoint}", cookies=cookies)
+            else:
+                resp = await client.get(f"{JETSON_DOOR_URL}{endpoint}", cookies=cookies)
+        
+        return resp.json() if resp.status_code == 200 else {"error": resp.text}
+
 @app.get("/api/door/status", response_model=DoorStatus)
 async def get_door_status(user: User = Depends(get_current_user)):
-    # TODO: Implement actual door status from Jetson
-    return DoorStatus(
-        status="closed",
-        last_action="close",
-        last_user="system",
-        last_time=datetime.utcnow(),
-        lockout_remaining=0
-    )
+    try:
+        data = await call_jetson_api("/api/status")
+        return DoorStatus(
+            status="open" if data.get("aberta") else "closed",
+            last_action="open" if data.get("aberta") else "close",
+            last_user=data.get("cartao", "unknown"),
+            last_time=datetime.utcnow(),
+            lockout_remaining=0
+        )
+    except Exception as e:
+        return DoorStatus(
+            status="unknown",
+            last_action="error",
+            last_user="system",
+            last_time=datetime.utcnow(),
+            lockout_remaining=0
+        )
 
 @app.post("/api/door/open")
 async def open_door(user: User = Depends(get_current_user)):
-    # TODO: Implement actual door control via Jetson
-    access_logs.append({
-        "id": uuid4(),
-        "user_id": user.id,
-        "action": "door_open",
-        "timestamp": datetime.utcnow(),
-        "details": {"username": user.username}
-    })
-    return {"message": "Door opening", "user": user.username}
+    try:
+        result = await call_jetson_api("/api/abrir", method="POST")
+        success = result.get("sucesso", False)
+        
+        access_logs.append({
+            "id": uuid4(),
+            "user_id": user.id,
+            "action": "door_open",
+            "timestamp": datetime.utcnow(),
+            "details": {"username": user.username, "success": success, "response": result}
+        })
+        
+        if success:
+            return {"message": "Porta aberta", "user": user.username, "details": result.get("respostas", [])}
+        else:
+            raise HTTPException(status_code=500, detail=result.get("erro", "Unknown error"))
+    except Exception as e:
+        access_logs.append({
+            "id": uuid4(),
+            "user_id": user.id,
+            "action": "door_open_failed",
+            "timestamp": datetime.utcnow(),
+            "details": {"username": user.username, "error": str(e)}
+        })
+        raise HTTPException(status_code=500, detail=f"Erro ao abrir porta: {str(e)}")
 
 @app.post("/api/door/close")
 async def close_door(user: User = Depends(get_current_user)):
-    # TODO: Implement actual door control via Jetson
-    access_logs.append({
-        "id": uuid4(),
-        "user_id": user.id,
-        "action": "door_close",
-        "timestamp": datetime.utcnow(),
-        "details": {"username": user.username}
-    })
-    return {"message": "Door closing", "user": user.username}
+    try:
+        result = await call_jetson_api("/api/fechar", method="POST")
+        success = result.get("sucesso", False)
+        
+        access_logs.append({
+            "id": uuid4(),
+            "user_id": user.id,
+            "action": "door_close",
+            "timestamp": datetime.utcnow(),
+            "details": {"username": user.username, "success": success, "response": result}
+        })
+        
+        if success:
+            return {"message": "Porta fechada", "user": user.username, "details": result.get("respostas", [])}
+        else:
+            raise HTTPException(status_code=500, detail=result.get("erro", "Unknown error"))
+    except Exception as e:
+        access_logs.append({
+            "id": uuid4(),
+            "user_id": user.id,
+            "action": "door_close_failed",
+            "timestamp": datetime.utcnow(),
+            "details": {"username": user.username, "error": str(e)}
+        })
+        raise HTTPException(status_code=500, detail=f"Erro ao fechar porta: {str(e)}")
 
 @app.get("/api/door/history", response_model=List[AccessLog])
 async def get_door_history(limit: int = 50, user: User = Depends(get_current_user)):

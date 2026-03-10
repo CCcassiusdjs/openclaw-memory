@@ -19,20 +19,16 @@ services:
         - "traefik.http.routers.lsa-platform.entrypoints=web"
         - "traefik.http.services.lsa-platform.loadbalancer.server.port=80"
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost/"]
+      test: ["CMD-SHELL", "curl -f http://localhost/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
+    ports:
+      - "80:80"
 
-  # Backend API (FastAPI)
+  # Backend API (FastAPI) - Pre-built image
   api:
-    image: python:3.11-slim
-    working_dir: /app
-    volumes:
-      - /home/cassiusdjs/lsa-platform/api:/app
-    command: >
-      bash -c "pip install -r requirements.txt -q &&
-               uvicorn main:app --host 0.0.0.0 --port 8000"
+    image: lsa-platform-api:latest
     networks:
       - cluster-network
     environment:
@@ -40,9 +36,9 @@ services:
       - REDIS_URL=redis://10.10.20.11:6379
       - MQTT_BROKER=10.10.20.11
       - MQTT_PORT=1883
-      - JETSON_HOST=192.168.2.50
-      - JETSON_USER=automation
-      - JETSON_PASS=automation
+      - JETSON_DOOR_URL=http://192.168.2.117:5000
+      - JETSON_ADMIN_USER=celebro
+      - JETSON_ADMIN_PASS=l@bls@25
       - JWT_SECRET=lsa-lab-secret-2026
     deploy:
       placement:
@@ -54,10 +50,12 @@ services:
         - "traefik.http.routers.lsa-api.entrypoints=web"
         - "traefik.http.services.lsa-api.loadbalancer.server.port=8000"
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8000/health"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 30s
       timeout: 10s
       retries: 3
+    ports:
+      - "8000:8000"
 
 networks:
   cluster-network:

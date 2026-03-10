@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:42:00Z",
   "bibliography_complete": false,
   "sources_total": 21,
-  "sources_read": 6,
-  "current_source": "018-kalibr-imu-noise-model",
+  "sources_read": 8,
+  "current_source": "020-magnetometer-calibration-guide",
   "concepts_learned": [
     "IMU + GPS Fusion architecture",
     "insfilterMARG 22-state vector",
@@ -33,9 +33,15 @@
     "Unit conversions for IMU specs",
     "Allan Variance basics",
     "Kalibr IMU noise model parameters",
-    "Discrete vs continuous noise models"
+    "Discrete vs continuous noise models",
+    "Hard iron distortion (constant offset)",
+    "Soft iron distortion (transformation matrix)",
+    "Magnetometer calibration (figure-8)",
+    "Complete vs partial vs large vehicle calibration",
+    "Compass offset calculation (max+min)/2",
+    "Compass scale factor calculation"
   ],
-  "hours_studied": 1.2,
+  "hours_studied": 1.7,
   "total_estimated_hours": 4.0,
   "reading_log": [
     {
@@ -73,6 +79,18 @@
       "date": "2026-03-10",
       "duration_min": 10,
       "status": "completed"
+    },
+    {
+      "source": "019-px4-compass-calibration",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "020-magnetometer-calibration-guide",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
     }
   ],
   "key_insights": [
@@ -92,7 +110,11 @@
     "Scale factor error causes systematic position/angle error",
     "Vibration rectification (g²-sensitivity) important in high-vibration",
     "Kalibr model: n(t) white noise + b(t) bias random walk",
-    "Allan Deviation: white noise at τ=1s, random walk at τ=3s"
+    "Allan Deviation: white noise at τ=1s, random walk at τ=3s",
+    "Hard iron = constant offset, removed with (max+min)/2",
+    "Soft iron = distortion, requires transformation matrix or scale factors",
+    "Figure-8 calibration same as PX4 quick calibration",
+    "Complete calibration = offset + scale factor per axis"
   ],
   "questions": [
     "Como funciona a calibração hard/soft iron do magnetômetro?",

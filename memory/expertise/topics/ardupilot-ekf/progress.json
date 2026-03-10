@@ -6,8 +6,8 @@
   "updated": "2026-03-10T15:26:00Z",
   "bibliography_complete": true,
   "sources_total": 21,
-  "sources_read": 14,
-  "current_source": "014-ardupilot-sensor-drivers",
+  "sources_read": 15,
+  "current_source": "015-ekf3-source-structure",
   "concepts_learned": [
     "Extended Kalman Filter (EKF)",
     "State Prediction vs State Correction",
@@ -47,9 +47,11 @@
     "UWB positioning",
     "Lie Group formulation",
     "RTS Smoother",
-    "Mahalanobis Distance outlier rejection"
+    "Mahalanobis Distance outlier rejection",
+    "EKF3 source code structure (AP_NavEKF3 library)",
+    "Modular fusion architecture (separate files per sensor)"
   ],
-  "hours_studied": 4.9,
+  "hours_studied": 5.2,
   "total_estimated_hours": 5.5,
   "reading_log": [
     {
@@ -134,6 +136,12 @@
       "source": "014-ardupilot-sensor-drivers",
       "date": "2026-03-10",
       "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "015-ekf3-source-structure",
+      "date": "2026-03-10",
+      "duration_min": 15,
       "status": "completed"
     }
   ],

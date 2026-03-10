@@ -5,7 +5,7 @@ services:
   frontend:
     image: nginx:alpine
     volumes:
-      - /home/cassiusdjs/lsa-platform/frontend/dist:/usr/share/nginx/html:ro
+      - /var/www/lsa-platform:/usr/share/nginx/html:ro
       - /home/cassiusdjs/lsa-platform/deploy/nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
       - cluster-network
@@ -13,18 +13,8 @@ services:
       placement:
         constraints:
           - node.role == manager
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.lsa-platform.rule=Host(`lab.lsa.local`)"
-        - "traefik.http.routers.lsa-platform.entrypoints=web"
-        - "traefik.http.services.lsa-platform.loadbalancer.server.port=80"
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     ports:
-      - "80:80"
+      - "8082:80"
 
   # Backend API (FastAPI) - Pre-built image
   api:

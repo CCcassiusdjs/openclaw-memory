@@ -3,10 +3,10 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T20:50:00-03:00",
+  "updatedAt": "2026-03-10T20:55:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 39,
+  "sourcesRead": 43,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -20,8 +20,10 @@
     "011-intro-rl-arxiv",
     "012-rl-overview-murphy",
     "013-spinning-up-rl-intro",
-    "016-deep-learning-survey-noor",
+    "015-ann-dl-fundamentals-arxiv",
+    "016-dl-applications-survey-arxiv",
     "017-cnn-convolutional-networks",
+    "017-dl-survey-activations-transformers",
     "018-transformer-self-attention",
     "019-rnn-lstm-gru",
     "020-activation-functions",
@@ -37,6 +39,7 @@
     "030-dropout-regularization",
     "031-decision-tree-algorithms",
     "032-ensemble-bagging-boosting-rf",
+    "037-semi-supervised-learning-survey",
     "038-scikit-learn-documentation",
     "039-cross-validation-kfold",
     "040-svm-support-vector-machines",
@@ -105,7 +108,10 @@
     "Binning and Discretization",
     "Log Transformation",
     "Feature Selection Methods (filter, wrapper, embedded)",
-    "Regularization Rate (lambda) and Learning Rate Balance"
+    "Regularization Rate (lambda) and Learning Rate Balance",
+    "Semi-Supervised Learning (consistency regularization, pseudo-labeling, MixMatch, FixMatch)",
+    "Deep Learning Survey (attention, normalization, skip connections, transformers, SSL)",
+    "State-of-the-Art Models (ViT, GPT-4, YOLOv9, DINOv2)"
   ],
-  "notes": "39 fontes lidas (81%). RL fundamentals, Gradient Descent variants, Regularization techniques, Feature Engineering completados. Ciclo completo."
+  "notes": "43 fontes lidas (90%). RL fundamentals, Gradient Descent variants, Regularization techniques, Feature Engineering, Semi-Supervised Learning, Deep Learning Survey completados. Ciclo quase completo."
 }

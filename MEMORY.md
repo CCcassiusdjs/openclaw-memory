@@ -95,6 +95,8 @@ _Curated memories, decisions, and context worth keeping._
 
 ## Cluster Docker Swarm (2026-03-10)
 
+**Status:** ✅ Operacional
+
 **Localização:** VLAN20 - 10.10.20.0/24
 
 ### Topologia
@@ -106,10 +108,10 @@ _Curated memories, decisions, and context worth keeping._
 
 ### Credenciais de Acesso
 - **SSH:** cassiusdjs / 230612 (todos os servidores)
-- **FortiGate:** admin / @CiaoMiau2955 (192.168.1.99)
+- **FortiGate:** admin / @CiaoMiau2955 (192.168.2.1 via WiFi)
 - **Docker Swarm Token:** SWMTKN-1-17gw7fsdxob7yfjqmokh327gkflqroybx4ss0x7796bqk91zsj-aso0r8tjs85wcxxq0i3kbphrc
 
-### Serviços Deployados
+### Serviços Deployados (Todos Operacionais)
 | Serviço | URL | Credenciais |
 |---------|-----|-------------|
 | Portainer | http://10.10.20.11:9000 | Criar no primeiro acesso |
@@ -118,7 +120,10 @@ _Curated memories, decisions, and context worth keeping._
 | PostgreSQL | 10.10.20.13:5432 | ardupilot / ardupilot123 |
 | Jupyter Lab | http://10.10.20.11:8888 | Token: ardupilot123 |
 | MLflow | http://10.10.20.11:5001 | - |
-| MinIO | http://10.10.20.11:9003 | admin / admin123456 |
+| MinIO | http://10.10.20.11:9002 | admin / admin123456 |
+| Redis | 10.10.20.11:6379 | - |
+| MQTT | 10.10.20.11:1883 | - |
+| Dask Dashboard | http://10.10.20.11:8787 | - |
 
 ### Stacks
 - `base`: Traefik, Portainer, Visualizer
@@ -128,6 +133,10 @@ _Curated memories, decisions, and context worth keeping._
 
 ### Documentação Completa
 Arquivo: `memory/2026-03-10-cluster-setup.md`
+
+### Nota de Conectividade
+- **Rota WiFi:** `nmcli connection modify "LSA5GHz-New" +ipv4.routes "10.10.20.0/24 192.168.2.1"`
+- **FortiGate gerenciamento via WiFi:** 192.168.2.1 (lan A)
 
 ## Aparato de Auto-Aprimoramento
 - **Topologia do Tempo**: Passado(-1,0), Futuro(0,+1), Presente{0} - ciclo temporal

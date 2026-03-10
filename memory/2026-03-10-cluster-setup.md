@@ -222,24 +222,50 @@ docker network ls
 
 ## Rede
 
-### Topologia
+### Topologia Atual (2026-03-10)
 
 ```
-Internet (WAN)
+Internet (WAN via DHCP)
      │
      ▼
-FortiGate 40F (192.168.1.99)
+ISP Modem → FortiGate 40F (lan2: 10.32.162.22)
      │
-     ├── lan1 ──► Laptop Cássio (DHCP)
+     ├── lan A (WiFi) ──► 192.168.2.1 ──► Laptop Cássio (192.168.2.102)
+     │                                           │
+     │                                           └── Rota para VLAN20: via 192.168.2.1
      │
-     ├── lan2 ──► ISP Modem (WAN)
+     ├── lan1 (192.168.1.99) ──► DOWN (cabo desconectado)
      │
-     ├── lan3 ──► Switch HP V1910-16G
-     │               ├── BAGG1 ──► T620 (10.10.20.11)
-     │               ├── BAGG2 ──► T630A (10.10.20.12)
-     │               └── BAGG3 ──► T630B (10.10.20.13)
+     ├── lan3 (192.168.3.1) ──► Switch HP V1910-16G (Trunk)
+     │                               ├── VLAN10 ──► iDRAC (192.168.10.x)
+     │                               ├── VLAN20 ──► T620 (10.10.20.11)
+     │                               │              T630A (10.10.20.12)
+     │                               │              T630B (10.10.20.13)
+     │                               ├── VLAN30 ──► Workstations (192.168.30.x)
+     │                               └── VLAN40 ──► Infra Crítica (192.168.40.x)
      │
-     └── lan A ──► WiFi Router (192.168.2.1)
+     └── wan ──► DOWN (defeituosa)
+```
+
+### Status das Interfaces FortiGate
+
+| Interface | IP | Status | Função |
+|-----------|-----|--------|--------|
+| wan | 0.0.0.0 | DOWN | Defeituosa |
+| lan1 | 192.168.1.99/24 | DOWN | Gerenciamento (cabo off) |
+| lan2 | 10.32.162.22/22 (DHCP) | UP | WAN/Internet |
+| lan3 | 192.168.3.1/24 | UP | Trunk Switch |
+| lan3.10 | 192.168.10.1/24 | UP | iDRAC |
+| lan3.20 | 10.10.20.1/24 | UP | Cluster Docker |
+| lan3.30 | 192.168.30.1/24 | UP | Workstations |
+| lan3.40 | 192.168.40.1/24 | UP | Infra Crítica |
+| a (WiFi) | 192.168.2.1/24 | UP | WiFi Router |
+
+### Rota Persistente (Laptop)
+
+```bash
+# NetworkManager - rota para VLAN20 via WiFi
+nmcli connection modify "LSA5GHz-New" +ipv4.routes "10.10.20.0/24 192.168.2.1"
 ```
 
 ### VLANs
@@ -253,19 +279,44 @@ FortiGate 40F (192.168.1.99)
 
 ---
 
+## Status do Cluster (2026-03-10 19:40)
+
+### Todos os Serviços Operacionais ✅
+
+| Serviço | Status | Porta | URL |
+|---------|--------|-------|-----|
+| Traefik | ✅ Up | 80, 8080 | http://10.10.20.11:8080 |
+| Portainer | ✅ Up | 9000 | http://10.10.20.11:9000 |
+| Visualizer | ✅ Up | 8081 | http://10.10.20.11:8081 |
+| PostgreSQL | ✅ Up | 5432 | 10.10.20.13:5432 |
+| InfluxDB | ✅ Up | 8086 | http://10.10.20.11:8086 |
+| Grafana | ✅ Up | 3000 | http://10.10.20.11:3000 |
+| Redis | ✅ Up | 6379 | 10.10.20.11:6379 |
+| MQTT | ✅ Up | 1883, 9001 | 10.10.20.11:1883 |
+| API Gateway | ✅ Up | 5000 | http://10.10.20.11:5000 |
+| Jupyter Lab | ✅ Up | 8888 | http://10.10.20.11:8888 |
+| MLflow | ✅ Up | 5001 | http://10.10.20.11:5001 |
+| MinIO | ✅ Up | 9002, 9003 | http://10.10.20.11:9002 |
+| Dask Scheduler | ✅ Up | 8786, 8787 | http://10.10.20.11:8787 |
+| Dask Worker (2x) | ✅ Up | - | T630A |
+
 ## Pendências
 
-### FASE 5: Digital Twin (Parcial)
-- SITL Pool não deployado (imagem `ardupilot/ardupilot:latest` não existe)
-- Solução: Compilar ArduPilot localmente ou usar imagem comunitária
+### FASE 5: Digital Twin
+- ~~SITL Pool não deployado~~ → Removido do stack (imagem não disponível)
+- Para usar ArduPilot SITL: compilar localmente ou usar imagem alternativa
 
-### FASE 6: Custom Dashboard (Não implementado)
+### FASE 6: Custom Dashboard
 - Dashboards Grafana customizados para telemetria
 
-### FASE 8: Security Hardening (Não implementado)
+### FASE 7: API Gateway
+- Atualmente: Python http.server (placeholder)
+- Necessário: Implementar API REST real
+
+### FASE 8: Security Hardening
 - Firewall rules adicionais
-- SSL/TLS certs
-- Authentication
+- SSL/TLS certs (Traefik)
+- Authentication (Portainer, Grafana, InfluxDB)
 
 ---
 

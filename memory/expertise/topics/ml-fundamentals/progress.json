@@ -3,10 +3,10 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T20:05:00-03:00",
+  "updatedAt": "2026-03-10T20:10:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 31,
+  "sourcesRead": 32,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -20,6 +20,7 @@
     "016-deep-learning-survey-noor",
     "017-cnn-convolutional-networks",
     "018-transformer-self-attention",
+    "019-rnn-lstm-gru",
     "020-activation-functions",
     "021-backpropagation-algorithm",
     "022-gradient-descent-ruder",
@@ -56,6 +57,7 @@
     "Deep Learning architectures",
     "CNNs (convolution, pooling, receptive field, feature hierarchy)",
     "Transformers (self-attention, multi-head, positional encoding)",
+    "RNN/LSTM/GRU (gating, cell state, vanishing gradient solution)",
     "Weight Initialization (Xavier/Glorot, He/Kaiming, variance preservation)",
     "Activation Functions (Sigmoid, Tanh, ReLU, Leaky ReLU, ELU, GELU, Swish)",
     "Backpropagation (chain rule, gradient flow, computational graph)",
@@ -80,5 +82,5 @@
     "scikit-learn API patterns",
     "Pipelines and Feature Engineering"
   ],
-  "notes": "31 fontes lidas (65%). CNNs, Transformers, Universal Approximation, Weight Init adicionados. Continuando."
+  "notes": "32 fontes lidas (67%). RNN/LSTM/GRU adicionado. Statistical Learning Theory, Optimization, Regularization, Neural Networks Theory, Deep Learning Architectures cobertos. Ciclo completo."
 }

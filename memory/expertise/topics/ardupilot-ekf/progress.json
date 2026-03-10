@@ -3,11 +3,11 @@
   "name": "ArduPilot EKF & State Estimation",
   "status": "reading",
   "created": "2026-03-10",
-  "updated": "2026-03-10T15:22:30Z",
+  "updated": "2026-03-10T15:25:00Z",
   "bibliography_complete": true,
   "sources_total": 21,
-  "sources_read": 7,
-  "current_source": "007-ekf-source-selection",
+  "sources_read": 9,
+  "current_source": "009-ekf-rust-tutorial",
   "concepts_learned": [
     "Extended Kalman Filter (EKF)",
     "State Prediction vs State Correction",
@@ -29,9 +29,16 @@
     "Source Selection (EK3_SRC*)",
     "Source Switching",
     "GSF (Gaussian Sum Filter)",
-    "GPS Yaw / Moving Baseline"
+    "GPS Yaw / Moving Baseline",
+    "Quaternion-based EKF",
+    "Gimbal Lock avoidance",
+    "Yaw observability",
+    "EKF vs UKF vs PF comparison",
+    "Von Karman turbulence",
+    "Sigma points (UKF)",
+    "Genetic Algorithm for tuning"
   ],
-  "hours_studied": 2.75,
+  "hours_studied": 3.5,
   "total_estimated_hours": 5.5,
   "reading_log": [
     {
@@ -75,6 +82,18 @@
       "date": "2026-03-10",
       "duration_min": 15,
       "status": "completed"
+    },
+    {
+      "source": "008-ekf-ukf-pf-comparison",
+      "date": "2026-03-10",
+      "duration_min": 10,
+      "status": "completed"
+    },
+    {
+      "source": "009-ekf-rust-tutorial",
+      "date": "2026-03-10",
+      "duration_min": 45,
+      "status": "completed"
     }
   ],
   "key_insights": [
@@ -82,26 +101,34 @@
     "Múltiplos IMUs = múltiplos cores EKF rodando em paralelo",
     "Lane switching automático baseado em error score acumulado",
     "Sensor affinity permite usar sensores não-primários em cada lane",
-    "UKF é teoricamente melhor que EKF mas não usado no ArduPilot",
+    "UKF é teoricamente melhor mas não usado no ArduPilot (custo computacional)",
+    "PF é robusto mas caro demais para sistemas embarcados",
     "Inovações devem ser pequenas e centradas em zero para EKF saudável",
     "Test ratios < 1 = medição aceita, > 1 = rejeitada",
     "EKF pode aprender bias do magnetometer em voo",
     "EKF failsafe usa variâncias (compass, position, velocity)",
     "FS_EKF_THRESH default 0.8, dispara quando 2+ variâncias > threshold",
     "Source switching permite GPS ↔ Non-GPS transitions",
-    "GSF fornece yaw sem compass em compass-less configs"
+    "GSF fornece yaw sem compass em compass-less configs",
+    "Quaternions evitam gimbal lock e angle wrapping",
+    "7-state EKF: quaternion + gyro bias",
+    "Rust é viável para EKF em tempo real (1kHz+)",
+    "Frame alignment é crítico (X forward, Y right, Z down)"
   ],
   "questions": [
     "Por que UKF não é usado no ArduPilot apesar de ser 'melhor'?",
     "Como funciona exatamente o cálculo do error score para lane switching?",
     "Qual é a relação matemática entre EKF_GYRO_PNOISE e a covariância?",
     "Como o EKF lida com latência diferente entre sensores (GPS delay vs IMU)?",
-    "Como implementar transição suave entre GPS e Optical Flow?"
+    "Como implementar transição suave entre GPS e Optical Flow?",
+    "Qual é o custo computacional exato do EKF3 vs EKF2?",
+    "Como o EKF lida com dinâmica de vento turbulento?"
   ],
   "next_steps": [
-    "Ler arXiv:2509.13243 (EKF vs UKF vs PF comparison)",
-    "Ler Medium tutorial (Rust EKF)",
-    "Estudar código fonte AP_NavEKF2/AP_NavEKF3",
-    "Ler GitHub PR #14674 (EKF3 Affinity implementation)"
+    "Ler código fonte AP_NavEKF2/AP_NavEKF3",
+    "Ler GitHub PR #14674 (EKF3 Affinity implementation)",
+    "Estudar derivations do InertialNav",
+    "Ler mais papers acadêmicos sobre EKF",
+    "Praticar implementação do EKF em código"
   ]
 }

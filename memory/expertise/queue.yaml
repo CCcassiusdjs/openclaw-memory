@@ -50,12 +50,12 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 21
-      sources_read: 5
-      concepts_learned: 14
+      sources_read: 9
+      concepts_learned: 28
       total_estimated_hours: 5.5
-      hours_studied: 2.25
-    last_action: "2026-03-10 - Lidas 5 fontes: EKF2 Estimation System, EKF Overview, EKF3 Affinity, Estimation for Quadrotors, EKF Navigation Tuning"
-    notes: "EKF3 é o sistema de estimação de estado do ArduPilot. Próximos passos: EKF Failsafe, EKF Source Selection, arXiv:2509.13243"
+      hours_studied: 3.5
+    last_action: "2026-03-10 - Lidas 9 fontes: EKF2, EKF Overview, EKF3 Affinity, arXiv papers, Rust tutorial, EKF Failsafe, Source Selection, Navigation Tuning"
+    notes: "Conceitos-chave dominados: EKF vs UKF vs PF, quaternions, lane switching, sensor affinity, EKF failsafe. Próximos: código fonte AP_NavEKF"
 
   - id: "drone-sensors"
     name: "Drone Sensors & Hardware Integration"

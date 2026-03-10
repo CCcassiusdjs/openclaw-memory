@@ -115,13 +115,26 @@ topics:
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"
     priority: 2
-    status: "new"
+    status: "reading"
     progress:
-      bibliography_complete: false
-      sources_total: null
-      sources_read: 0
-      concepts_learned: []
-    notes: "Tópico criado, aguardando levantamento bibliográfico"
+      bibliography_complete: true
+      sources_total: 48
+      sources_read: 4
+      concepts_learned:
+        - "PAC Learning Model"
+        - "VC Dimension"
+        - "Rademacher Complexity"
+        - "Data-Model-Loss Framework"
+        - "Empirical Risk Minimization"
+        - "Boosting and Margin Bounds"
+        - "Online Learning"
+        - "Kernel Methods"
+        - "Regularization and Stability"
+        - "MDPs and Value Functions"
+        - "Bellman Equations"
+        - "TD Learning and Q-learning"
+        - "Policy Gradient Methods"
+    notes: "4 fontes lidas: Shalev-Shwartz, Jung, Mohri, Sutton & Barto. Base sólida em ML teórico e RL. Continuando."
   
   - id: "docker-advanced"
     name: "Docker Advanced Topics"

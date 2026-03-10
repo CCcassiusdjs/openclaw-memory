@@ -330,6 +330,100 @@ nmcli connection modify "LSA5GHz-New" +ipv4.routes "10.10.20.0/24 192.168.2.1"
 
 ---
 
+## Automação
+
+### Script Principal
+
+```bash
+# SSH no manager
+ssh cassiusdjs@10.10.20.11
+
+# Usar o script
+~/scripts/cluster.sh <command>
+
+# Ou usar aliases (adicionar ao .bashrc)
+alias cluster="~/scripts/cluster.sh"
+alias cs="~/scripts/cluster.sh"
+alias chealth="~/scripts/cluster.sh health"
+alias cstatus="~/scripts/cluster.sh status"
+alias clogs="~/scripts/cluster.sh logs"
+alias cmonitor="~/scripts/cluster.sh monitor"
+```
+
+### Comandos Disponíveis
+
+| Comando | Descrição |
+|---------|-----------|
+| `status` | Status do cluster |
+| `deploy <stack>` | Deploy de um stack específico |
+| `deploy-all` | Deploy todos os stacks |
+| `scale <svc> <n>` | Escala serviço para N réplicas |
+| `update` | Atualiza todas as imagens |
+| `backup [vol]` | Backup de volumes |
+| `health` | Health check completo |
+| `nodes` | Lista nodes com recursos |
+| `drain <node>` | Drena um node |
+| `activate <node>` | Ativa um node |
+| `update-node <n>` | Atualiza sistema de um node |
+| `reboot-node <n>` | Drena e reinicia um node |
+| `monitor` | Monitoramento contínuo |
+| `logs <svc>` | Logs de um serviço |
+| `restart <svc>` | Reinicia um serviço |
+| `ps` | Lista containers em todos os nodes |
+
+### Scripts Disponíveis
+
+```
+/home/cassiusdjs/scripts/
+├── cluster.sh              # Script principal
+├── backup/
+│   └── backup-volumes.sh   # Backup de volumes
+├── deploy/
+│   ├── deploy-stack.sh     # Deploy de stack
+│   ├── deploy-all.sh       # Deploy todos
+│   ├── scale-service.sh    # Escalar serviço
+│   └── update-images.sh    # Atualizar imagens
+├── health/
+│   ├── health-check.sh     # Health check
+│   └── manage-nodes.sh     # Gerenciar nodes
+└── monitor/
+    └── monitor.sh          # Monitoramento contínuo
+```
+
+### Exemplos de Uso
+
+```bash
+# Health check completo
+~/scripts/cluster.sh health
+
+# Monitoramento em tempo real
+~/scripts/cluster.sh monitor
+
+# Deploy de stack específico
+~/scripts/cluster.sh deploy ardupilot
+
+# Escalar serviço
+~/scripts/cluster.sh scale mlpipeline_dask-worker 4
+
+# Atualizar todas as imagens
+~/scripts/cluster.sh update
+
+# Ver logs de serviço
+~/scripts/cluster.sh logs ardupilot_grafana
+
+# Drenar node para manutenção
+~/scripts/cluster.sh drain t630a
+
+# Reativar node
+~/scripts/cluster.sh activate t630a
+
+# Backup de volumes
+sudo ~/scripts/cluster.sh backup
+```
+
+---
+
 _Documentado: 2026-03-10_
 _Cluster: Docker Swarm multipropósito_
 _Sessão: gateway-client_
+_Atualizado: Scripts de automação criados_

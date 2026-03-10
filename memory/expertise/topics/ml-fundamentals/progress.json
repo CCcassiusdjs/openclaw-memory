@@ -3,10 +3,10 @@
   "status": "reading",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T20:55:00-03:00",
+  "updatedAt": "2026-03-10T21:00:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 43,
+  "sourcesRead": 45,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -24,6 +24,7 @@
     "016-dl-applications-survey-arxiv",
     "017-cnn-convolutional-networks",
     "017-dl-survey-activations-transformers",
+    "018-dl-scientific-discovery",
     "018-transformer-self-attention",
     "019-rnn-lstm-gru",
     "020-activation-functions",
@@ -49,6 +50,7 @@
     "044-weight-initialization",
     "045-gradient-descent-types",
     "046-regularization-l1-l2-ridge-lasso-elasticnet",
+    "047-creativity-ml-survey",
     "047-feature-engineering-techniques",
     "048-l2-regularization-google"
   ],
@@ -111,7 +113,9 @@
     "Regularization Rate (lambda) and Learning Rate Balance",
     "Semi-Supervised Learning (consistency regularization, pseudo-labeling, MixMatch, FixMatch)",
     "Deep Learning Survey (attention, normalization, skip connections, transformers, SSL)",
-    "State-of-the-Art Models (ViT, GPT-4, YOLOv9, DINOv2)"
+    "State-of-the-Art Models (ViT, GPT-4, YOLOv9, DINOv2)",
+    "Scientific Discovery Applications (biology, physics, chemistry, astronomy, medicine)",
+    "Computational Creativity (generative models, evaluation, human-AI collaboration)"
   ],
-  "notes": "43 fontes lidas (90%). RL fundamentals, Gradient Descent variants, Regularization techniques, Feature Engineering, Semi-Supervised Learning, Deep Learning Survey completados. Ciclo quase completo."
+  "notes": "45 fontes lidas (94%). ML Fundamentals quase completo. Topics: RL, Deep Learning, Optimization, Regularization, Feature Engineering, Semi-Supervised Learning, Scientific Discovery, Creativity."
 }

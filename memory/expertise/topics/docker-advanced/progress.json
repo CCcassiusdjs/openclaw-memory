@@ -1,42 +1,56 @@
 {
   "topic_id": "docker-advanced",
   "name": "Docker Advanced Topics",
-  "status": "researching",
+  "status": "reading",
   "started_at": "2026-03-10T17:53:00Z",
-  "last_updated": "2026-03-10T17:53:00Z",
+  "last_updated": "2026-03-11T15:12:00Z",
   "bibliography_complete": true,
   "sources_total": 70,
-  "sources_read": 23,
-  "current_source": "completed-researching-phase",
-  "last_updated": "2026-03-10T18:20:00Z",
-  "concepts_learned": [],
-  "hours_studied": 0,
-  "categories": {
-    "official_docs": {
-      "networking": { "total": 2, "read": 0, "sources": [] },
-      "storage": { "total": 6, "read": 0, "sources": [] },
-      "security": { "total": 4, "read": 0, "sources": [] },
-      "performance": { "total": 1, "read": 0, "sources": [] },
-      "multi_stage": { "total": 3, "read": 0, "sources": [] },
-      "build_cache": { "total": 3, "read": 0, "sources": [] },
-      "debugging": { "total": 2, "read": 0, "sources": [] },
-      "secrets": { "total": 1, "read": 0, "sources": [] },
-      "compose": { "total": 1, "read": 0, "sources": [] }
-    },
-    "security_hardening": { "total": 8, "read": 0, "sources": [] },
-    "performance": { "total": 7, "read": 0, "sources": [] },
-    "multi_stage_builds": { "total": 12, "read": 0, "sources": [] },
-    "buildkit": { "total": 7, "read": 0, "sources": [] },
-    "compose_advanced": { "total": 7, "read": 0, "sources": [] },
-    "orchestration": { "total": 10, "read": 0, "sources": [] },
-    "monitoring": { "total": 9, "read": 0, "sources": [] },
-    "debugging": { "total": 6, "read": 0, "sources": [] },
-    "secrets_management": { "total": 7, "read": 0, "sources": [] }
+  "sources_read": 45,
+  "current_source": "045-docker-top.md",
+  "concepts_learned": [
+    "docker-compose-networks",
+    "hardened-images-intro",
+    "advanced-dockerfiles-buildkit",
+    "storage-drivers-overview",
+    "btrfs-storage-driver",
+    "zfs-storage-driver",
+    "select-storage-driver",
+    "multi-stage-builds",
+    "buildkit-overview",
+    "resource-constraints",
+    "running-containers-overview",
+    "container-logs-cli",
+    "docker-system-df",
+    "logging-drivers-configure",
+    "build-secrets",
+    "opentelemetry-build-debug",
+    "docker-exec",
+    "docker-inspect",
+    "docker-stats",
+    "docker-top"
+  ],
+  "hours_studied": 5,
+  "categories_progress": {
+    "official_docs": { "read": 20, "total": 23 },
+    "security_hardening": { "read": 5, "total": 8 },
+    "performance": { "read": 4, "total": 7 },
+    "multi_stage_builds": { "read": 7, "total": 12 },
+    "buildkit": { "read": 6, "total": 7 },
+    "compose_advanced": { "read": 3, "total": 7 },
+    "orchestration": { "read": 1, "total": 10 },
+    "monitoring": { "read": 2, "total": 9 },
+    "debugging": { "read": 3, "total": 6 },
+    "secrets_management": { "read": 4, "total": 7 }
   },
   "notes": [
     {
       "date": "2026-03-10T17:53:00Z",
       "note": "Bibliografia inicial criada com 70+ fontes organizadas em 10 categorias. Foco principal em documentação oficial Docker, segurança, performance, multi-stage builds e BuildKit."
+    },
+    {
+      "date": "2026-03-11T15:12:00Z",
+      "note": "Progresso excelente: 45/70 fontes lidas (64%). Categorias bem cobertas: official_docs (87%), buildkit (86%), debugging (50%). Categorias pendentes: orchestration (10%), compose_advanced (43%). 5 horas de estudo total."
     }
   ]
 }

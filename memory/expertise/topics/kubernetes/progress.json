@@ -4,7 +4,7 @@
   "started_at": "2026-03-11T18:45:00Z",
   "bibliography_complete": true,
   "sources_total": 83,
-  "sources_read": 54,
+  "sources_read": 60,
   "concepts_learned": [
     "Control Plane Components",
     "Node Components",
@@ -119,10 +119,37 @@
     "Job Active Deadline",
     "CronJob Schedule Syntax",
     "CronJob Concurrency Policy",
-    "CronJob History Limits"
+    "CronJob History Limits",
+    "Kubernetes API Architecture",
+    "API Groups and Versioning",
+    "Discovery API",
+    "OpenAPI v2 and v3",
+    "API Server Persistence (etcd)",
+    "API Deprecation Policy",
+    "Nodes Architecture",
+    "Node Self-Registration",
+    "Node Status and Conditions",
+    "Node Eviction Behavior",
+    "Garbage Collection Mechanisms",
+    "Cascade Deletion Modes",
+    "Finalizers Blocking Deletion",
+    "Custom Resources (CRD)",
+    "CRD vs Aggregated API",
+    "Operator Pattern",
+    "ConfigMap vs Custom Resource Decision",
+    "Taints and Tolerations",
+    "Taint Effects (NoExecute, NoSchedule, PreferNoSchedule)",
+    "Built-in Node Taints",
+    "tolerationSeconds for Graceful Eviction",
+    "Numeric Comparison Operators (Gt/Lt)",
+    "nodeSelector",
+    "Node Affinity (required/preferred)",
+    "Inter-pod Affinity and Anti-affinity",
+    "Topology Spread Constraints",
+    "nodeName Direct Assignment"
   ],
   "categories": {
-    "fundamentos": { "read": 22, "total": 22, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053"] },
+    "fundamentos": { "read": 25, "total": 25, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059"] },
     "security": { "read": 10, "total": 10, "complete": true, "sources": ["015", "016", "017", "018", "020", "025", "026", "040", "041", "042"] },
     "networking": { "read": 8, "total": 8, "complete": true, "sources": ["018", "021", "022", "023", "034", "035", "036", "043", "044"] },
     "storage": { "read": 6, "total": 7, "sources": ["022", "024", "045", "054"] },
@@ -132,6 +159,6 @@
     "architecture": { "read": 5, "total": 5, "complete": true, "sources": ["019", "037", "038", "039", "080"] }
   },
   "current_reading": null,
-  "last_updated": "2026-03-11T22:25:00Z",
-  "session_summary": "54 fontes lidas (65% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: Cloud-Native Architecture, DaemonSet Use Cases/Tolerations, Deployments vs ReplicaSets, StatefulSet volumeClaimTemplate, Job Types, CronJob Schedule/Concurrency. Fontes oficiais processadas: Services, Ingress, Persistent Volumes, Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, RBAC, Jobs, CronJobs."
+  "last_updated": "2026-03-11T22:30:00Z",
+  "session_summary": "60 fontes lidas (72% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: Kubernetes API Architecture, Nodes Architecture, Garbage Collection, Custom Resources, Taints/Tolerations, Node Affinity, Inter-pod Affinity, Topology Spread. Fontes oficiais processadas: Nodes, Garbage Collection, Kubernetes API, Custom Resources, Taints and Tolerations, Assigning Pods to Nodes."
 }

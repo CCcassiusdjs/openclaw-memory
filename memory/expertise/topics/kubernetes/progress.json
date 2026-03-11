@@ -1,0 +1,37 @@
+{
+  "topic": "kubernetes",
+  "status": "reading",
+  "started_at": "2026-03-11T18:45:00Z",
+  "bibliography_complete": true,
+  "sources_total": 83,
+  "sources_read": 15,
+  "concepts_learned": [
+    "Control Plane Components",
+    "Node Components",
+    "Pod Security Standards",
+    "RBAC Authorization",
+    "Network Policies",
+    "Persistent Volumes",
+    "StatefulSets",
+    "Services",
+    "CNI Networking",
+    "MLOps Deployment Pattern",
+    "Security Checklist",
+    "OWASP Security Best Practices",
+    "Kubernetes Patterns Overview",
+    "Architecture Deep Dive",
+    "CNI Encapsulated vs Unencapsulated"
+  ],
+  "categories": {
+    "fundamentos": { "read": 5, "total": 22, "sources": ["009", "010", "011", "015", "080"] },
+    "security": { "read": 3, "total": 7, "sources": ["015", "016", "040"] },
+    "networking": { "read": 3, "total": 7, "sources": ["018", "022", "047"] },
+    "storage": { "read": 2, "total": 7, "sources": ["024", "054"] },
+    "rbac": { "read": 1, "total": 6, "sources": ["018"] },
+    "mlops": { "read": 1, "total": 9, "sources": ["067"] },
+    "patterns": { "read": 1, "total": 4, "sources": ["076"] },
+    "architecture": { "read": 1, "total": 4, "sources": ["080"] }
+  },
+  "current_reading": null,
+  "last_updated": "2026-03-11T18:55:00Z"
+}

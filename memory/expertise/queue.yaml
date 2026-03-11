@@ -196,6 +196,34 @@ topics:
     notes: "Tópico COMPLETO! 40/40 fontes lidas. Domínio de: Tracking API, Model Registry, Autologging (sklearn/pytorch/tensorflow/xgboost), GenAI/LLM features (tracing, LLM judges, prompt registry), Deployment (Kubernetes, Docker, FastAPI, MLServer), CI/CD (GitHub Actions, GitLab), Production scaling (PostgreSQL, PgBouncer), PyTorch integration, Model flavors, Databricks/Unity Catalog."
     started_at: "2026-03-10T19:25:00Z"
     completed_at: "2026-03-11T17:43:00Z"
+  
+  - id: "kubernetes"
+    name: "Kubernetes"
+    priority: 1
+    status: "reading"
+    progress:
+      bibliography_complete: true
+      sources_total: 83
+      sources_read: 15
+      concepts_learned:
+        - "Control Plane Components"
+        - "Node Components"
+        - "Pod Security Standards"
+        - "RBAC Authorization"
+        - "Network Policies"
+        - "Persistent Volumes"
+        - "StatefulSets"
+        - "Services"
+        - "CNI Networking"
+        - "MLOps Deployment Pattern"
+        - "Security Checklist"
+        - "OWASP Security Best Practices"
+        - "Kubernetes Patterns Overview"
+        - "Architecture Deep Dive"
+        - "CNI Encapsulated vs Unencapsulated"
+    notes: "Em progresso. 15/83 fontes lidas (18%). Categorias: Fundamentos (5/22), Security (3/7), Networking (3/7), Storage (2/7), RBAC (1/6), MLOps (1/9), Patterns (1/4), Architecture (1/4)."
+    started_at: "2026-03-11T18:45:00Z"
+    last_updated: "2026-03-11T18:55:00Z"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS
@@ -218,3 +246,8 @@ patterns: []
 # SÍNTESES CRIADAS
 # ========================================
 syntheses: []
+
+# ========================================
+# PRÓXIMOS TÓPICOS
+# ========================================
+# Adicionados conforme necessário

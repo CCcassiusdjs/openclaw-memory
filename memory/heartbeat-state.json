@@ -1,13 +1,15 @@
 {
   "lastChecks": {
-    "email": 1741638720,
-    "calendar": 1772542920,
-    "weather": 1741636800
+    "email": 1741699860,
+    "calendar": null,
+    "weather": null,
+    "pattern_analysis": null,
+    "tension_detection": null
   },
-  "lastHeartbeat": 1772542920,
-  "checksToday": 3,
+  "lastHeartbeat": 1741699860,
+  "checksToday": 4,
   "patternsLearned": 0,
   "tensionsFound": 0,
   "synthesesCreated": 0,
-  "notes": "Calendar check attempted - no tool available"
+  "notes": "Email check completed - survey email from Fleury (not urgent)"
 }

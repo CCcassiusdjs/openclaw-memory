@@ -150,7 +150,7 @@ topics:
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"
     priority: 3
-    status: "researching"
+    status: "reading"
     progress:
       bibliography_complete: true
       sources_total: 40

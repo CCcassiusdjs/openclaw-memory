@@ -3,11 +3,11 @@
   "name": "Digital Twins",
   "status": "reading",
   "created": "2026-03-10",
-  "updated": "2026-03-10T21:20:00Z",
+  "updated": "2026-03-11T11:26:00Z",
   "bibliography_complete": true,
   "sources_total": 32,
-  "sources_read": 24,
-  "current_source": "025-next-sources",
+  "sources_read": 30,
+  "current_source": "031-finishing-sources",
   "concepts_learned": [
     "Azure Digital Twins - Plataforma PaaS para twin graphs",
     "DTDL (Digital Twins Definition Language) - JSON-like para modelos",
@@ -133,9 +133,19 @@
     "GNN + STGAT - Graph Neural Networks + Spatial-Temporal Graph Attention",
     "VRU Protection - Vulnerable Road Users safety",
     "RSUs - Roadside Units",
-    "mmWave radar - Radar de onda milimétrica"
+    "mmWave radar - Radar de onda milimétrica",
+    "3D Gaussian Splatting (3DGS) - Representação radiance field",
+    "NeRF (Neural Radiance Fields) - Campos neurais de radiância",
+    "Surfels - Surface elements para renderização",
+    "SfM (Structure-from-Motion) - Reconstrução 3D de imagens 2D",
+    "COLMAP - Pipeline SfM padrão da indústria",
+    "Shape Retrieval - Busca de formas 3D",
+    "Chamfer Distance - Métrica ponto a ponto",
+    "Human Digital Twin (HDT) - DT de humanos",
+    "HDT Design Considerations - 11 considerações de design",
+    "DT Security Survey - Segurança de hardware com DT"
   ],
-  "hours_studied": 8.5,
+  "hours_studied": 10.5,
   "total_estimated_hours": 8,
   "reading_log": [
     {"source": "001-azure-digital-twins-overview", "date": "2026-03-10", "duration_min": 15, "key_takeaways": ["Azure DT é PaaS para twin graphs", "DTDL define modelos customizados", "Integração com IoT Hub e Azure Functions", "Query API para insights", "3D Scenes Studio para visualização"]},
@@ -161,7 +171,13 @@
     {"source": "021-deloitte-digital-twin-strategy", "date": "2026-03-10", "duration_min": 20, "key_takeaways": ["Spatial Computing - dados operacionais + business + reality-capture", "Synthetic Data para preencher gaps", "Semi-open Systems - decisão humana imprevisível", "Value Gap Identification estratégico", "University Partnerships para talentos"]},
     {"source": "022-healthcare-digital-twins-review", "date": "2026-03-10", "duration_min": 30, "key_takeaways": ["Healthcare DT Triad: Physical, Virtual, Bilateral Flow", "P4 Medicine: Predictive, Preventive, Personalized, Participatory", "Cardiovascular DT com 13% redução em recorrência", "Neurodegenerative DT com 97% precisão", "Desafios: data integration, scalability, equity, validation"]},
     {"source": "023-blu-digital-twin-review", "date": "2026-03-10", "duration_min": 25, "key_takeaways": ["AEC Industry DT Review - 842 papers", "BLU: Buildings, Landscape, Urban Environment", "DT-BIM Integration - convergência natural", "Landscape tem menos pesquisa", "Tendências: design tools, basic theory, landscape applications"]},
-    {"source": "024-intelligent-intersections-dt-review", "date": "2026-03-10", "duration_min": 30, "key_takeaways": ["Intelligent Intersections DT - 85 papers", "40% dos acidentes em interseções", "V2X protocols: DSRC, WAVE, C-V2X", "GenAI + GNN para controle adaptativo", "VRU Protection - foco em segurança"]}
+    {"source": "024-intelligent-intersections-dt-review", "date": "2026-03-10", "duration_min": 30, "key_takeaways": ["Intelligent Intersections DT - 85 papers", "40% dos acidentes em interseções", "V2X protocols: DSRC, WAVE, C-V2X", "GenAI + GNN para controle adaptativo", "VRU Protection - foco em segurança"]},
+    {"source": "025-arxiv-dt-industries-survey", "date": "2026-03-11", "duration_min": 35, "key_takeaways": ["Survey abrangente de DT em redes industriais", "3 níveis: Monitoring, Simulation, Operation", "Serviços: Data Sharing, Offloading, Sensing, Caching", "Aplicações: Manufacturing, Healthcare, Transportation, Energy", "Segurança multi-camada: Physical, Digital, Communication, HMI"]},
+    {"source": "026-arxiv-dt-visual-data-survey", "date": "2026-03-11", "duration_min": 30, "key_takeaways": ["DT geração a partir de dados visuais (3DGS, NeRF)", "SfM + COLMAP para reconstrução 3D", "Shape Retrieval: CD, NC, F-Score metrics", "3DGS é alternativa eficiente ao NeRF", "Visual data democratiza criação de DT"]},
+    {"source": "027-arxiv-security-digital-twins-survey", "date": "2026-03-11", "duration_min": 25, "key_takeaways": ["DT para segurança de hardware e cadeia de suprimentos", "Ameaças: IP piracy, tampering, counterfeiting, side-channel", "LLM integration para segurança enhanced", "Continuous verification e backward traceability", "Casos: CPS, IoT, Crypto, Counterfeit, Intrusion"]},
+    {"source": "028-arxiv-human-digital-twin-survey", "date": "2026-03-11", "duration_min": 30, "key_takeaways": ["HDT - Digital Twin de humanos", "11 design considerations para HDT", "Aplicações: Healthcare, Sports, Wellness", "Características: Physiological, Behavioral, Cognitive, Temporal", "Desafios: Privacy, Validation, Ethics"]},
+    {"source": "029-azure-digital-twins-platform", "date": "2026-03-11", "duration_min": 20, "key_takeaways": ["Azure DT PaaS completo com DTDL", "Twin graphs com relacionamentos first-class", "3D Scenes Studio para visualização imersiva", "Query API poderosa para insights", "Integração com ecossistema Azure"]},
+    {"source": "030-python-digital-twin-hands-on", "date": "2026-03-11", "duration_min": 15, "key_takeaways": ["Tutorial Python para DT de MOSFET", "Modelo analítico + ML para comportamento", "Swappable models: trocar abordagens", "Abordagem híbrida inteligente", "Exemplo didático para iniciantes"]}
   ],
   "key_insights": [
     "Digital Twins podem ser puros (modelo), data-driven (ML), ou híbridos",
@@ -195,7 +211,11 @@
     "Synthetic data resolve escassez de dados reais",
     "Value Gap: identificar onde DT pode criar valor",
     "AEC Industry: BLU tem 842 papers revisados, landscape é gap",
-    "Intelligent Intersections: 40% acidentes, V2X + GenAI é solução"
+    "Intelligent Intersections: 40% acidentes, V2X + GenAI é solução",
+    "3DGS é alternativa eficiente ao NeRF para DT visual",
+    "SfM + COLMAP é padrão para reconstrução 3D",
+    "HDT requer 11 considerações de design específicas",
+    "DT security é multi-camada: Physical, Digital, Communication, HMI"
   ],
   "questions": [
     "Como implementar sincronização em tempo real eficiente?",
@@ -210,10 +230,12 @@
     "Como validar DTs clinicamente?",
     "Qual o papel de synthetic data em DTs?",
     "Como DTs podem melhorar segurança em interseções?",
-    "Qual o futuro de DTs na indústria AEC?"
+    "Qual o futuro de DTs na indústria AEC?",
+    "Como usar 3DGS para DT de ambientes?",
+    "Qual é o impacto de HDTs na saúde personalizada?"
   ],
   "next_steps": [
-    "Completar fontes restantes da bibliografia (8 restantes)",
+    "Completar 2 fontes restantes da bibliografia",
     "Sintetizar conhecimentos em documento de síntese",
     "Estudar implementações práticas (KubeTwin, KubeKlone)",
     "Explorar Azure Digital Twins mais a fundo",

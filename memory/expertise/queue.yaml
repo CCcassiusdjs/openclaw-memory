@@ -115,15 +115,15 @@ topics:
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"
     priority: 2
-    status: "reading"
+    status: "completed"
     progress:
       bibliography_complete: true
       sources_total: 48
-      sources_read: 39
-      concepts_learned: 52
-      hours_studied: 4.5
-    notes: "39 fontes lidas (81%). RL fundamentals (Sutton & Barto, Spinning Up, arXiv surveys), Gradient Descent variants (Batch, SGD, Mini-batch), Regularization techniques (L1, L2, ElasticNet, Dropout, Early Stopping), Feature Engineering, Optimization algorithms. Statistical Learning Theory, Neural Networks Theory, Deep Learning Architectures cobertos."
-    last_updated: "2026-03-10T23:50:00Z"
+      sources_read: 48
+      concepts_learned: 95
+      hours_studied: 15.0
+    completed_at: "2026-03-11"
+    notes: "Tópico completado com 48/48 fontes. Síntese criada em SYNTHESIS.md. Fundamentos: Statistical Learning Theory (PAC, VC Dim, Rademacher), Deep Learning (CNN, Transformers, RNN/LSTM/GRU), Optimization (SGD, Momentum, Adam, AdamW), Regularization (L1/L2, Dropout, BatchNorm), Decision Trees & Ensembles, SVM, Cross-Validation, RL (MDP, Bellman), Semi-Supervised, Spurious Correlations, Edge ML."
   
   - id: "docker-advanced"
     name: "Docker Advanced Topics"

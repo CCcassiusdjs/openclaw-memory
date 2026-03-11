@@ -1,12 +1,12 @@
 {
   "topic": "ml-fundamentals",
-  "status": "reading",
+  "status": "completed",
   "priority": 2,
   "createdAt": "2026-03-10T13:39:00-03:00",
-  "updatedAt": "2026-03-10T21:00:00-03:00",
+  "updatedAt": "2026-03-11T08:35:00-03:00",
   "bibliographyComplete": true,
   "sourcesTotal": 48,
-  "sourcesRead": 45,
+  "sourcesRead": 48,
   "sourcesInProgress": [],
   "sourcesCompleted": [
     "001-understanding-ml-shalev-shwartz",
@@ -52,7 +52,10 @@
     "046-regularization-l1-l2-ridge-lasso-elasticnet",
     "047-creativity-ml-survey",
     "047-feature-engineering-techniques",
-    "048-l2-regularization-google"
+    "048-l2-regularization-google",
+    "045-spurious-correlations-survey",
+    "046-edge-ml-training-survey",
+    "048-ml-underwater-iot-survey"
   ],
   "conceptsLearned": [
     "PAC Learning Model",

@@ -1,15 +1,15 @@
 {
   "lastChecks": {
-    "email": 1741699800,
+    "email": 1741708500,
     "calendar": null,
     "weather": 1741699800,
     "pattern_analysis": null,
     "tension_detection": null
   },
-  "lastHeartbeat": 1741699800,
-  "checksToday": 6,
+  "lastHeartbeat": 1741708500,
+  "checksToday": 8,
   "patternsLearned": 0,
   "tensionsFound": 0,
   "synthesesCreated": 0,
-  "notes": "Weather: 28°C parcialmente nublado. Email: Nubank warning about credit card blocking (unpaid invoice) - potentially urgent"
+  "notes": "Heartbeat check - no new urgent items since Nubank alert was already reported"
 }

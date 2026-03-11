@@ -4,7 +4,7 @@
   "started_at": "2026-03-11T18:45:00Z",
   "bibliography_complete": true,
   "sources_total": 83,
-  "sources_read": 64,
+  "sources_read": 66,
   "concepts_learned": [
     "Control Plane Components",
     "Node Components",
@@ -163,12 +163,21 @@
     "Cluster Proportional Autoscaler",
     "KEDA Event-driven Autoscaling",
     "Schedule-based Autoscaling",
-    "In-place Pod Resize"
+    "In-place Pod Resize",
+    "NetworkPolicy Layer 4 Filtering",
+    "NetworkPolicy Selector Types",
+    "NetworkPolicy Default Deny Patterns",
+    "NetworkPolicy Port Ranges",
+    "Service Account vs User Account",
+    "Bound Service Account Token Lifecycle",
+    "TokenReview API",
+    "Projected Volume Mechanism",
+    "Legacy Token Cleanup"
   ],
   "categories": {
-    "fundamentos": { "read": 28, "total": 28, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059", "060", "061", "062", "063", "064"] },
-    "security": { "read": 10, "total": 10, "complete": true, "sources": ["015", "016", "017", "018", "020", "025", "026", "040", "041", "042"] },
-    "networking": { "read": 8, "total": 8, "complete": true, "sources": ["018", "021", "022", "023", "034", "035", "036", "043", "044"] },
+    "fundamentos": { "read": 30, "total": 30, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059", "060", "061", "062", "063", "064", "065", "066"] },
+    "security": { "read": 12, "total": 12, "complete": true, "sources": ["015", "016", "017", "018", "020", "025", "026", "040", "041", "042", "065", "066"] },
+    "networking": { "read": 9, "total": 9, "complete": true, "sources": ["018", "021", "022", "023", "034", "035", "036", "043", "044", "065"] },
     "storage": { "read": 6, "total": 7, "sources": ["022", "024", "045", "054"] },
     "rbac": { "read": 5, "total": 6, "sources": ["018", "023", "025", "026", "051"] },
     "mlops": { "read": 1, "total": 9, "sources": ["067"] },
@@ -176,6 +185,6 @@
     "architecture": { "read": 5, "total": 5, "complete": true, "sources": ["019", "037", "038", "039", "080"] }
   },
   "current_reading": null,
-  "last_updated": "2026-03-11T22:30:00Z",
-  "session_summary": "64 fontes lidas (77% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: HPA Control Loop, VPA, Pod Priority, Preemption, PriorityClass, Declarative Config, ApplySet Pruning, Autoscaling Strategies. Fontes oficiais processadas: Pod Priority/Preemption, Operator Pattern, Declarative Config, HPA, Autoscaling."
+  "last_updated": "2026-03-11T22:35:00Z",
+  "session_summary": "66 fontes lidas (80% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: NetworkPolicy Selectors, Default Deny, Port Ranges, Service Account Tokens, Bound Tokens, TokenReview API, Projected Volumes. Fontes oficiais processadas: Network Policies, Service Accounts Admin. Progresso significativo em fundamentos, security e networking."
 }

@@ -1,97 +1,90 @@
 # Docker Storage Overview
 
-**Fonte:** https://docs.docker.com/engine/storage/
-**Tipo:** Documentação Oficial
-**Lido em:** 2026-03-10
+**Fonte:** Docker Docs  
+**URL:** https://docs.docker.com/engine/storage/  
+**Tipo:** Documentação Oficial  
 **Status:** completed
 
 ---
 
-## Conceitos-Chave
+## 📋 Resumo Executivo
 
-### 1. Dois Conceitos de Storage
+Docker storage cobre dois conceitos: persistência de dados de containers (volumes, bind mounts, tmpfs) e backends de armazenamento do daemon (containerd image store, storage drivers).
 
-| Conceito | Descrição | Documentação |
-|----------|-----------|--------------|
-| **Container Data Persistence** | Armazenar dados fora dos containers (volumes, bind mounts, tmpfs) | Esta página |
-| **Daemon Storage Backends** | Como o daemon armazena image layers e container layers | containerd image store, storage drivers |
+---
 
-### 2. Container Layer Basics
-- Arquivos criados dentro do container → writable layer (topo das image layers)
-- Dados no writable layer **não persistem** quando container é destruído
-- Cada container tem seu próprio writable layer
-- Difícil extrair dados do writable layer
+## 🔑 Conceitos-Chave
 
-### 3. Tipos de Storage Mounts
+### Container Layer Basics
 
-| Tipo | Descrição | Use Case |
-|------|-----------|----------|
-| **Volume Mounts** | Gerenciados pelo Docker daemon, persistem após container removido | Produção, dados críticos, performance |
-| **Bind Mounts** | Link direto host ↔ container, acessível de ambos | Desenvolvimento, config files |
-| **tmpfs Mounts** | Armazenados em memória RAM, não escritos em disco | Dados sensíveis, cache temporário |
-| **Named Pipes** | Comunicação host ↔ container (Windows) | IPC, Docker Engine API |
+- **Writable container layer** - Arquivos ficam em camada writeable sobre read-only image layers
+- **Non-persistent** - Dados perdidos quando container destruído
+- **Isolated** - Camada única por container, difícil extrair dados
 
-### 4. Volume Mounts vs Bind Mounts
+---
 
-**Volumes:**
-- Gerenciados pelo Docker (`/var/lib/docker/volumes/`)
-- Isolados do host
-- Podem ser compartilhados entre containers
-- Funcionam em Linux e Windows
-- Mais fáceis de backup/migrate
-- Performance: direto no filesystem do host
+## 📦 Storage Mount Options
 
-**Bind Mounts:**
-- Dependem da estrutura de diretórios do host
-- Acessíveis de dentro e fora do container
-- Não isolados pelo Docker
-- Processos Docker e não-Docker podem modificar
+### Volume Mounts
 
-### 5. tmpfs Mounts
-- Dados em memória RAM
-- Não persistem (container stop/restart/host reboot)
-- Não escritos em disco
-- Use cases:
-  - Cache de dados intermediários
-  - Informações sensíveis (credenciais)
-  - Reduzir disk I/O
+- **Gerenciados pelo Docker daemon**
+- **Persistentes** - Retêm dados após container removido
+- **Stored on host** - Local gerenciado pelo daemon
+- **High performance** - Raw file performance
 
-## Comparação Visual
+**Use case:** Dados críticos, longo prazo, performance
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     DOCKER STORAGE                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────────┐                                        │
-│  │   Volume Mount  │ → Gerenciado pelo Docker              │
-│  │   /var/lib/     │   Persiste após container removal     │
-│  │   docker/volumes│   Ideal para produção                 │
-│  └─────────────────┘                                        │
-│                                                             │
-│  ┌─────────────────┐                                        │
-│  │   Bind Mount    │ → Link direto host ↔ container        │
-│  │   /host/path    │   Acessível de ambos lados            │
-│  │                 │   Ideal para desenvolvimento          │
-│  └─────────────────┘                                        │
-│                                                             │
-│  ┌─────────────────┐                                        │
-│  │   tmpfs Mount   │ → Memória RAM apenas                  │
-│  │   (memory only) │   Não persiste, não vai ao disco      │
-│  │                 │   Ideal para dados sensíveis/cache    │
-│  └─────────────────┘                                        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+### Bind Mounts
 
-## Boas Práticas
+- **Direct link** - Host path → container path
+- **Not isolated** - Host e container acessam mesmo arquivo
+- **Any location** - Pode montar de qualquer lugar do host
 
-1. **Volumes para produção** - Gerenciados, isolados, persistentes
-2. **Bind mounts para desenvolvimento** - Hot reload, config files
-3. **tmpfs para dados sensíveis** - Credenciais, tokens em memória
-4. **Evitar writable layer** - Performance e persistência
+**Use case:** Development, shared config files
 
-## Próximos Passos
-- [ ] Estudar volumes em detalhes
-- [ ] Estudar storage drivers (overlay2, etc.)
-- [ ] Entender containerd image store
+### tmpfs Mounts
+
+- **In-memory** - Armazena em RAM, não em disco
+- **Ephemeral** - Perdido quando container para
+- **No persistence** - Não persiste no host nem no container
+
+**Use case:** Sensitive data, caching, temporary files
+
+### Named Pipes
+
+- **Communication** - Host ↔ container IPC
+- **Windows** - Comum para Docker Engine API
+
+---
+
+## 📊 Comparação
+
+| Tipo | Persistência | Performance | Uso |
+|------|--------------|-------------|-----|
+| **Volume** | ✅ | Alta | Dados de produção |
+| **Bind Mount** | ✅ | Média | Development |
+| **tmpfs** | ❌ | Muito Alta | Temporário, sensível |
+
+---
+
+## 📝 Próximos Passos
+
+1. Volumes: `/engine/volumes/`
+2. Bind mounts: `/engine/bind-mounts/`
+3. tmpfs mounts: `/engine/tmpfs/`
+4. Storage drivers: `/engine/storage/drivers/`
+
+---
+
+## 💡 Insights Principais
+
+1. **Volumes são preferidos para dados** - Gerenciados pelo Docker, isolados
+2. **Bind mounts para development** - Edição em tempo real
+3. **tmpfs para dados sensíveis** - Nunca toca disco
+4. **Container layer is temporary** - Não confie para persistência
+5. **Storage drivers são diferentes** - About image layers, not data
+
+---
+
+**Tempo de leitura:** ~10 minutos  
+**Relevância:** ⭐⭐⭐⭐⭐ (Fundamental para Docker)

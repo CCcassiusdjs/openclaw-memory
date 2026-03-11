@@ -1,106 +1,126 @@
 # Docker Networking Overview
 
-**Fonte:** https://docs.docker.com/engine/network/
-**Tipo:** Documentação Oficial
-**Lido em:** 2026-03-10
+**Fonte:** Docker Docs  
+**URL:** https://docs.docker.com/engine/network/  
+**Tipo:** Documentação Oficial  
 **Status:** completed
 
 ---
 
-## Conceitos-Chave
+## 📋 Resumo Executivo
 
-### 1. Network Drivers Disponíveis
+Container networking permite containers conectarem e comunicarem entre si e com serviços não-Docker. Containers têm networking habilitado por padrão e podem fazer conexões de saída.
+
+---
+
+## 🔑 Conceitos-Chave
+
+### Network Drivers
+
 | Driver | Descrição |
 |--------|-----------|
-| **bridge** | Driver padrão. Rede bridge para containers no mesmo host. |
-| **host** | Remove isolamento de rede - container usa rede do host diretamente. |
-| **none** | Isola completamente o container (sem rede). |
+| **bridge** | Driver padrão. Isola containers na mesma rede. |
+| **host** | Remove isolamento de rede entre container e host. |
+| **none** | Isola completamente o container. |
 | **overlay** | Conecta múltiplos Docker daemons (Swarm). |
 | **ipvlan** | Conecta containers a VLANs externas. |
-| **macvlan** | Containers aparecem como dispositivos físicos na rede do host. |
+| **macvlan** | Containers aparecem como dispositivos na rede do host. |
 
-### 2. Default Bridge vs User-Defined Networks
-- **Default Bridge:** Containers não se comunicam por nome, apenas por IP
-- **User-Defined Networks:** DNS automático permite comunicação por nome
-- Boa prática: Usar redes user-defined para isolamento
+### User-Defined Networks
 
-### 3. Múltiplas Redes
-- Containers podem ser conectados a múltiplas redes
-- Útil para separar frontend (acesso externo) de backend (rede interna)
-- Gateway priority controla rota padrão
+- Containers podem se comunicar por **IP** ou **nome**
+- Isolamento entre grupos de containers
+- Exemplo: `docker network create -d bridge my-net`
 
-### 4. Port Publishing
-- Ports em bridge networks são acessíveis do host e containers na mesma rede
-- `--publish` / `-p` para expor fora do host
-- Port mapping para roteamento
+### Multiple Networks
 
-### 5. IP Address e Hostname
-- IPv4 habilitado por padrão, IPv6 com `--ipv6`
-- Containers recebem IP de cada rede conectada
-- Subnet allocation: explícita ou automática (default-address-pools)
-- Gateway priority: `--network name=gwnet,gw-priority=1`
+- Containers podem conectar a múltiplas redes
+- Útil para arquitetura frontend/backend
+- `--internal` para redes sem acesso externo
+- `gw-priority` para escolher gateway padrão
 
-### 6. DNS Services
-- Containers herdam DNS do host por padrão
-- User-defined networks usam DNS embedded do Docker
-- Flags: `--dns`, `--dns-search`, `--dns-opt`, `--hostname`
-- Custom hosts via `/etc/hosts` não são herdados
+---
 
-### 7. Container Networks (Network Namespace Sharing)
-- `--network container:<name|id>`: Compartilha stack de rede
-- Flags não suportadas: `--hostname`, `--dns`, `--publish`, etc.
-- Útil para debug e sidecar patterns
+## 📐 IP Address Management
 
-## Comandos Principais
+### IPv4/IPv6 Allocation
 
+- IPv4 habilitado por padrão
+- IPv6: `--ipv6`
+- Pode desabilitar IPv4: `--ipv4=false`
+
+### Subnet Allocation
+
+**Explicit:**
 ```bash
-# Criar rede user-defined
-docker network create -d bridge my-net
-
-# Rodar container em rede específica
-docker run --network=my-net -it busybox
-
-# Conectar container em múltiplas redes
-docker network connect anet2 myctr
-
-# Criar rede IPv6
-docker network create --ipv6 --ipv4=false v6net
-
-# Especificar subnet
 docker network create --subnet 192.0.2.0/24 mynet
 ```
 
-## Boas Práticas
+**Automatic:**
+- Docker aloca de default address pools
+- Configurável em `/etc/docker/daemon.json`
+- Default: `172.17.0.0/16`, `172.18.0.0/16`, etc.
 
-1. Usar user-defined networks ao invés de default bridge
-2. Separar redes por função (frontend/backend/database)
-3. Usar gateway priority quando múltiplas redes precisam de rota específica
-4. Configurar DNS explicitamente para ambientes específicos
-5. Documentar configurações de rede no docker-compose
+### Custom Pools
 
-## Aplicações Práticas
-
-### Arquitetura Multi-Tier
-```
-Frontend (bridge com acesso externo)
-    ↓
-Backend (rede interna --internal)
-    ↓
-Database (rede isolada)
-```
-
-### Sidecar Pattern
-```bash
-# Main container
-docker run -d --name app myapp
-
-# Sidecar compartilhando rede
-docker run -d --network container:app monitoring-sidecar
+```json
+{
+  "default-address-pools": [
+    {"base": "172.17.0.0/16", "size": 24}
+  ]
+}
 ```
 
 ---
 
-## Próximos Passos
-- [ ] Estudar overlay networking para Swarm
-- [ ] Estudar ipvlan e macvlan em detalhes
-- [ ] Praticar container network sharing
+## 🔧 DNS Services
+
+| Flag | Descrição |
+|------|-----------|
+| `--dns` | IP do servidor DNS |
+| `--dns-search` | Domínio de busca |
+| `--dns-opt` | Opções DNS |
+| `--hostname` | Hostname do container |
+
+### DNS Behavior
+
+- Containers herdam DNS do host por padrão
+- Custom networks usam Docker embedded DNS server
+- Embedded DNS encaminha consultas externas
+
+---
+
+## 🔗 Container Networks
+
+### Network Sharing
+
+```bash
+docker run --network container:<name|id> ...
+```
+
+- Compartilha stack de rede com outro container
+- Útil para debugging
+- Flags não suportadas: `--hostname`, `--dns`, `--publish`
+
+---
+
+## 📝 Published Ports
+
+- Ports em bridge networks: acessíveis do host
+- `--publish` ou `-p` para expor externamente
+- Containers em outras redes: não acessíveis por padrão
+
+---
+
+## 💡 Insights Principais
+
+1. **User-defined networks são recomendadas** - DNS por nome, isolamento
+2. **Multiple networks = flexibilidade** - Frontend/backend separation
+3. **gw-priority controla gateway** - Importante para routing
+4. **IPv6 suportado** - Mas precisa habilitar explicitamente
+5. **Container network sharing** - Debugging e sidecars
+
+---
+
+**Tempo de leitura:** ~15 minutos  
+**Relevância:** ⭐⭐⭐⭐⭐ (Fundamental para Docker)

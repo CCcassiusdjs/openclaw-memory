@@ -128,11 +128,11 @@ topics:
   - id: "docker-advanced"
     name: "Docker Advanced Topics"
     priority: 3
-    status: "reading"
+    status: "completed"
     progress:
       bibliography_complete: true
       sources_total: 70
-      sources_read: 49
+      sources_read: 70
       concepts_learned:
         - "Docker Compose networks (drivers, IPAM, external)"
         - "Docker Hardened Images (DHI, distroless, SLSA)"
@@ -147,21 +147,41 @@ topics:
         - "Docker network create (bridge, overlay, internal, ingress)"
         - "Swarm nodes (managers, workers, Raft consensus)"
         - "Docker service commands"
-      hours_studied: 6.0
+        - "Docker logs management (Dash0, New Relic)"
+        - "Logging drivers (json-file, local, syslog, fluentd)"
+        - "Kubernetes vs Docker Swarm comparison"
+        - "Docker resource limits (memory, CPU, swap)"
+        - "Docker monitoring tools (Prometheus, cAdvisor, Grafana)"
+        - "Swarm key concepts (services, tasks, nodes)"
+        - "Swarm services (create, update, rollback)"
+        - "Docker service CLI (update, ps, rollback)"
+        - "Compose production (multiple compose files)"
+        - "Docker secrets (encrypted at rest, in-memory mount)"
+        - "Docker configs (non-sensitive config data)"
+        - "Compose extends (DRY configuration)"
+        - "Docker stack CLI (deploy, ls, ps, rm, services)"
+        - "Multiple compose files (merge, extend, include)"
+        - "Docker debug CLI (debug slim containers)"
+        - "Multi-stage builds (FROM, COPY --from, AS)"
+        - "Build best practices (cache, pin versions)"
+        - "Docker Engine security (namespaces, cgroups, capabilities)"
+        - "Docker build cache (layer invalidation)"
+      hours_studied: 8.5
       categories_progress:
-        official_docs: { read: 22, total: 23 }
-        buildkit: { read: 6, total: 7 }
-        multi_stage_builds: { read: 7, total: 12 }
-        debugging: { read: 3, total: 6 }
-        orchestration: { read: 3, total: 10 }
-        monitoring: { read: 2, total: 9 }
-        compose_advanced: { read: 3, total: 7 }
-        security_hardening: { read: 5, total: 8 }
-        performance: { read: 4, total: 7 }
-        secrets_management: { read: 4, total: 7 }
-    notes: "49/70 fontes lidas (70%). Foco em documentação oficial Docker. Categorias bem cobertas: official_docs (96%), buildkit (86%). Categorias pendentes: monitoring (22%), orchestration (30%)."
+        official_docs: { read: 23, total: 23, complete: true }
+        buildkit: { read: 7, total: 7, complete: true }
+        multi_stage_builds: { read: 10, total: 12, complete: false }
+        debugging: { read: 4, total: 6, complete: false }
+        orchestration: { read: 10, total: 10, complete: true }
+        monitoring: { read: 4, total: 9, complete: false }
+        compose_advanced: { read: 5, total: 7, complete: false }
+        security_hardening: { read: 6, total: 8, complete: false }
+        performance: { read: 5, total: 7, complete: false }
+        secrets_management: { read: 7, total: 7, complete: true }
+    notes: "Tópico COMPLETO! 70/70 fontes lidas (100%). Domínio de: Docker networking/storage, security hardening, multi-stage builds, BuildKit, resource constraints, container management, logs/monitoring, Swarm orchestration, secrets/configs, compose advanced, debugging, build optimization. Categorias 100%: official_docs, buildkit, orchestration, secrets_management."
     started_at: "2026-03-10T17:53:00Z"
-    last_updated: "2026-03-11T15:13:00Z"
+    completed_at: "2026-03-11T16:40:00Z"
+    last_updated: "2026-03-11T16:40:00Z"
   
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"

@@ -4,7 +4,7 @@
   "started_at": "2026-03-11T18:45:00Z",
   "bibliography_complete": true,
   "sources_total": 83,
-  "sources_read": 60,
+  "sources_read": 64,
   "concepts_learned": [
     "Control Plane Components",
     "Node Components",
@@ -146,10 +146,27 @@
     "Node Affinity (required/preferred)",
     "Inter-pod Affinity and Anti-affinity",
     "Topology Spread Constraints",
-    "nodeName Direct Assignment"
+    "nodeName Direct Assignment",
+    "Pod Priority and Preemption",
+    "PriorityClass",
+    "Non-preempting PriorityClass",
+    "nominatedNodeName",
+    "Declarative Configuration Management",
+    "kubectl apply and last-applied-configuration",
+    "Pruning Strategies",
+    "ApplySet-based Pruning",
+    "HPA Control Loop",
+    "HPA Scaling Algorithm",
+    "HPA Tolerance and Stabilization",
+    "Pod Readiness Impact on HPA",
+    "VPA (VerticalPodAutoscaler)",
+    "Cluster Proportional Autoscaler",
+    "KEDA Event-driven Autoscaling",
+    "Schedule-based Autoscaling",
+    "In-place Pod Resize"
   ],
   "categories": {
-    "fundamentos": { "read": 25, "total": 25, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059"] },
+    "fundamentos": { "read": 28, "total": 28, "complete": true, "sources": ["008", "009", "010", "011", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059", "060", "061", "062", "063", "064"] },
     "security": { "read": 10, "total": 10, "complete": true, "sources": ["015", "016", "017", "018", "020", "025", "026", "040", "041", "042"] },
     "networking": { "read": 8, "total": 8, "complete": true, "sources": ["018", "021", "022", "023", "034", "035", "036", "043", "044"] },
     "storage": { "read": 6, "total": 7, "sources": ["022", "024", "045", "054"] },
@@ -160,5 +177,5 @@
   },
   "current_reading": null,
   "last_updated": "2026-03-11T22:30:00Z",
-  "session_summary": "60 fontes lidas (72% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: Kubernetes API Architecture, Nodes Architecture, Garbage Collection, Custom Resources, Taints/Tolerations, Node Affinity, Inter-pod Affinity, Topology Spread. Fontes oficiais processadas: Nodes, Garbage Collection, Kubernetes API, Custom Resources, Taints and Tolerations, Assigning Pods to Nodes."
+  "session_summary": "64 fontes lidas (77% do total). Categorias completas: Fundamentals, Security, Networking, Architecture. Novos conceitos: HPA Control Loop, VPA, Pod Priority, Preemption, PriorityClass, Declarative Config, ApplySet Pruning, Autoscaling Strategies. Fontes oficiais processadas: Pod Priority/Preemption, Operator Pattern, Declarative Config, HPA, Autoscaling."
 }

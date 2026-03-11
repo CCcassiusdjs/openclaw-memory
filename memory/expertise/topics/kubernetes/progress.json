@@ -4,7 +4,7 @@
   "started_at": "2026-03-11T18:45:00Z",
   "bibliography_complete": true,
   "sources_total": 83,
-  "sources_read": 15,
+  "sources_read": 17,
   "concepts_learned": [
     "Control Plane Components",
     "Node Components",
@@ -20,12 +20,14 @@
     "OWASP Security Best Practices",
     "Kubernetes Patterns Overview",
     "Architecture Deep Dive",
-    "CNI Encapsulated vs Unencapsulated"
+    "CNI Encapsulated vs Unencapsulated",
+    "PSS Privileged/Baseline/Restricted",
+    "CNI Plugin Requirements"
   ],
   "categories": {
     "fundamentos": { "read": 5, "total": 22, "sources": ["009", "010", "011", "015", "080"] },
-    "security": { "read": 3, "total": 7, "sources": ["015", "016", "040"] },
-    "networking": { "read": 3, "total": 7, "sources": ["018", "022", "047"] },
+    "security": { "read": 4, "total": 7, "sources": ["015", "016", "017", "040"] },
+    "networking": { "read": 4, "total": 7, "sources": ["018", "022", "023", "047"] },
     "storage": { "read": 2, "total": 7, "sources": ["024", "054"] },
     "rbac": { "read": 1, "total": 6, "sources": ["018"] },
     "mlops": { "read": 1, "total": 9, "sources": ["067"] },
@@ -33,5 +35,5 @@
     "architecture": { "read": 1, "total": 4, "sources": ["080"] }
   },
   "current_reading": null,
-  "last_updated": "2026-03-11T18:55:00Z"
+  "last_updated": "2026-03-11T19:00:00Z"
 }

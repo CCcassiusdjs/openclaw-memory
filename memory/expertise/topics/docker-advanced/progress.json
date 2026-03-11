@@ -3,11 +3,11 @@
   "name": "Docker Advanced Topics",
   "status": "reading",
   "started_at": "2026-03-10T17:53:00Z",
-  "last_updated": "2026-03-11T15:13:00Z",
+  "last_updated": "2026-03-11T16:35:00Z",
   "bibliography_complete": true,
   "sources_total": 70,
-  "sources_read": 49,
-  "current_source": "049-swarm-nodes.md",
+  "sources_read": 68,
+  "current_source": "068-build-best-practices.md",
   "concepts_learned": [
     "docker-compose-networks",
     "hardened-images-intro",
@@ -32,20 +32,39 @@
     "docker-network-commands",
     "docker-network-create",
     "docker-service-commands",
-    "swarm-nodes"
+    "swarm-nodes",
+    "docker-logs-management",
+    "docker-logging-drivers",
+    "kubernetes-vs-swarm",
+    "docker-resource-limits",
+    "docker-monitoring-tools",
+    "swarm-key-concepts",
+    "swarm-services",
+    "docker-service-update",
+    "docker-service-ps",
+    "compose-production",
+    "docker-service-rollback",
+    "docker-secrets",
+    "docker-configs",
+    "compose-extends",
+    "docker-stack-cli",
+    "multiple-compose-files",
+    "docker-debug-cli",
+    "multi-stage-builds-deep",
+    "build-best-practices"
   ],
-  "hours_studied": 6,
+  "hours_studied": 8,
   "categories_progress": {
     "official_docs": { "read": 22, "total": 23 },
     "security_hardening": { "read": 5, "total": 8 },
-    "performance": { "read": 4, "total": 7 },
-    "multi_stage_builds": { "read": 7, "total": 12 },
+    "performance": { "read": 5, "total": 7 },
+    "multi_stage_builds": { "read": 9, "total": 12 },
     "buildkit": { "read": 6, "total": 7 },
-    "compose_advanced": { "read": 3, "total": 7 },
-    "orchestration": { "read": 3, "total": 10 },
-    "monitoring": { "read": 2, "total": 9 },
-    "debugging": { "read": 3, "total": 6 },
-    "secrets_management": { "read": 4, "total": 7 }
+    "compose_advanced": { "read": 5, "total": 7 },
+    "orchestration": { "read": 9, "total": 10 },
+    "monitoring": { "read": 4, "total": 9 },
+    "debugging": { "read": 4, "total": 6 },
+    "secrets_management": { "read": 6, "total": 7 }
   },
   "notes": [
     {
@@ -55,6 +74,14 @@
     {
       "date": "2026-03-11T15:13:00Z",
       "note": "Progresso excelente: 49/70 fontes lidas (70%). Categorias bem cobertas: official_docs (96%), buildkit (86%), debugging (50%). Categorias pendentes: compose_advanced (43%), orchestration (30%), monitoring (22%). 6 horas de estudo total. Próxima sessão: focar em monitoring e compose_advanced."
+    },
+    {
+      "date": "2026-03-11T16:30:00Z",
+      "note": "Sessão de estudo intensiva: 13 novas fontes lidas (62/70 = 89%). Tópicos: Docker logs management (Dash0, New Relic), K8s vs Swarm comparison (Last9), resource limits (PhoenixNAP), monitoring tools (Qovery), Swarm key concepts, Swarm services docs, service update CLI, service ps CLI, compose production, service rollback, Docker secrets completo, Docker configs completo. Categorias quase completas: orchestration (80%), secrets_management (86%)."
+    },
+    {
+      "date": "2026-03-11T16:35:00Z",
+      "note": "Sessão final: 6 novas fontes lidas (68/70 = 97%). Tópicos: compose extends, docker stack CLI, multiple compose files, docker debug CLI, multi-stage builds deep dive, build best practices. Categorias quase completas: orchestration (90%), compose_advanced (71%), multi_stage_builds (75%), debugging (67%). Próximas sessões: completar 2 fontes restantes."
     }
   ]
 }

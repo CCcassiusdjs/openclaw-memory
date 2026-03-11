@@ -1,15 +1,1603 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LSA Lab Platform</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <script type="module" crossorigin src="/assets/index-BfCspwOJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Ckbukmx_.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-card: #1e293b;
+            --bg-card-hover: #263548;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #10b981;
+            --accent-warning: #f59e0b;
+            --accent-danger: #ef4444;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .mode-toggle {
+            display: flex;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mode-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mode-btn.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: var(--accent-danger);
+            border-color: var(--accent-danger);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* Status Banner */
+        .status-banner {
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #059669 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-banner.degraded {
+            background: linear-gradient(135deg, var(--accent-warning) 0%, #d97706 100%);
+        }
+
+        .status-banner.critical {
+            background: linear-gradient(135deg, var(--accent-danger) 0%, #dc2626 100%);
+        }
+
+        .status-text h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .status-text p {
+            opacity: 0.9;
+            font-size: 0.875rem;
+        }
+
+        .status-time {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Gauges */
+        .gauges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .gauge-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .gauge-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .gauge-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .gauge-bar {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+
+        .gauge-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.running { background: var(--accent-secondary); }
+        .status-dot.stopped { background: var(--accent-danger); }
+        .status-dot.warning { background: var(--accent-warning); }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .btn-danger {
+            background: var(--accent-danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        /* Telemetry Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .chart-container {
+            height: 200px;
+        }
+
+        /* Node Cards */
+        .nodes-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .node-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .node-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .node-role {
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .node-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .node-metric {
+            text-align: center;
+        }
+
+        .node-metric-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .node-metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Connection Strings */
+        .connections-section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .connection-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .connection-item:last-child {
+            border-bottom: none;
+        }
+
+        .connection-service {
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .connection-url {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        /* Terminal */
+        .terminal-container {
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .terminal-header {
+            background: var(--bg-tertiary);
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .terminal-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .terminal-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-tab {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .terminal-tab.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        #terminal {
+            height: 400px;
+            padding: 0.5rem;
+        }
+
+        /* Security Section */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .door-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .door-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .door-icon.open {
+            background: var(--accent-danger);
+        }
+
+        .door-info {
+            flex: 1;
+        }
+
+        .door-status-text {
+            font-weight: 600;
+        }
+
+        .door-last {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Login Form */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+        }
+
+        .login-box {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #2563eb;
+        }
+
+        .login-error {
+            background: var(--accent-danger);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* Alerts */
+        .alerts-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .alert-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .alert-item:last-child {
+            border-bottom: none;
+        }
+
+        .alert-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 70px;
+        }
+
+        .alert-icon {
+            font-size: 1rem;
+        }
+
+        .alert-text {
+            flex: 1;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .gauges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .node-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--bg-tertiary);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--bg-tertiary);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Admin Sections */
+        .admin-only {
+            display: none;
+        }
+
+        body.admin-mode .admin-only {
+            display: block;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login View -->
+    <div id="login-view" class="login-container">
+        <div class="login-box">
+            <div class="login-title">🦾 LSA Lab Platform</div>
+            <div class="login-subtitle">Laboratory of Autonomous Systems</div>
+            <div id="login-error" class="login-error"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" id="login-username" class="form-input" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="login-password" class="form-input" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard-view" class="hidden">
+        <header class="header">
+            <div class="logo">🦾 LSA Lab Platform</div>
+            <div class="header-actions">
+                <div class="mode-toggle">
+                    <button class="mode-btn" id="mode-user" onclick="setMode('user')">👤 User</button>
+                    <button class="mode-btn active" id="mode-admin" onclick="setMode('admin')">🔧 Admin</button>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">A</div>
+                    <span id="user-name">Admin</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Status Banner -->
+            <div id="status-banner" class="status-banner">
+                <div class="status-text">
+                    <h2 id="status-title">🟢 All Systems Operational</h2>
+                    <p id="status-message">3 nodes online • 15 services running</p>
+                </div>
+                <div class="status-time">
+                    Last updated: <span id="status-time">--:--:--</span>
+                </div>
+            </div>
+
+            <!-- Gauges -->
+            <div class="gauges-grid admin-only" id="gauges-grid">
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-cpu">--%</div>
+                    <div class="gauge-bar">
+                        <div class="gauge-fill" id="gauge-cpu-bar" style="width: 0%; background: var(--accent-secondary);"></div>
+                    </div>
+                    <div class="gauge-label">CPU Avg</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-memory">--%</div>
+                    <div class="gauge-bar">
+                        <div class="gauge-fill" id="gauge-memory-bar" style="width: 0%; background: var(--accent-primary);"></div>
+                    </div>
+                    <div class="gauge-label">Memory Avg</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-disk">--%</div>
+                    <div class="gauge-bar">
+                        <div class="gauge-fill" id="gauge-disk-bar" style="width: 0%; background: var(--accent-warning);"></div>
+                    </div>
+                    <div class="gauge-label">Disk Avg</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-temp">--°C</div>
+                    <div class="gauge-bar">
+                        <div class="gauge-fill" id="gauge-temp-bar" style="width: 0%; background: var(--accent-secondary);"></div>
+                    </div>
+                    <div class="gauge-label">Temp Avg</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-containers">--</div>
+                    <div class="gauge-label">Containers</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-services">--</div>
+                    <div class="gauge-label">Services</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-uptime">--d</div>
+                    <div class="gauge-label">Uptime</div>
+                </div>
+                <div class="gauge-card">
+                    <div class="gauge-value" id="gauge-health">--%</div>
+                    <div class="gauge-label">Health Score</div>
+                </div>
+            </div>
+
+            <!-- Telemetry Charts (Admin) -->
+            <div class="charts-grid admin-only" id="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-title">CPU Usage Over Time</div>
+                    <div class="chart-container">
+                        <canvas id="chart-cpu"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Memory Usage Over Time</div>
+                    <div class="chart-container">
+                        <canvas id="chart-memory"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Network Traffic</div>
+                    <div class="chart-container">
+                        <canvas id="chart-network"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Disk I/O</div>
+                    <div class="chart-container">
+                        <canvas id="chart-disk"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node Details (Admin) -->
+            <div class="nodes-section admin-only" id="nodes-section">
+                <h3 class="section-title">🖥️ Cluster Nodes</h3>
+                <div id="nodes-grid"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="nodes-section" id="services-section">
+                <h3 class="section-title">🐳 Docker Services</h3>
+                <div id="services-grid"></div>
+            </div>
+
+            <!-- Connection Strings (User) -->
+            <div class="connections-section" id="connections-section">
+                <h3 class="section-title">📋 Connection Strings</h3>
+                <div id="connections-list"></div>
+            </div>
+
+            <!-- iDRAC Status (Admin) -->
+            <div class="nodes-section admin-only" id="idrac-section">
+                <h3 class="section-title">🖧 iDRAC Status</h3>
+                <div class="cards-grid" id="idrac-grid"></div>
+            </div>
+
+            <!-- Security & Access (Admin) -->
+            <div class="nodes-section admin-only" id="security-section">
+                <h3 class="section-title">🔐 Security & Access</h3>
+                <div class="security-grid" id="security-grid"></div>
+            </div>
+
+            <!-- Terminal (Admin) -->
+            <div class="terminal-container admin-only" id="terminal-container">
+                <div class="terminal-header">
+                    <span class="terminal-title">💻 Terminal</span>
+                    <div class="terminal-tabs">
+                        <button class="terminal-tab active" onclick="connectTerminal('t620')">T620</button>
+                        <button class="terminal-tab" onclick="connectTerminal('t630a')">T630A</button>
+                        <button class="terminal-tab" onclick="connectTerminal('t630b')">T630B</button>
+                    </div>
+                </div>
+                <div id="terminal"></div>
+            </div>
+
+            <!-- Alerts (Admin) -->
+            <div class="nodes-section admin-only" id="alerts-section">
+                <h3 class="section-title">🔔 Recent Alerts</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alerts-list" id="alerts-list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // State
+        let token = localStorage.getItem('lsa_token');
+        let user = JSON.parse(localStorage.getItem('lsa_user') || 'null');
+        let mode = 'admin';
+        let terminal = null;
+        let ws = null;
+        let charts = {};
+        let metricsHistory = {
+            cpu: { t620: [], t630a: [], t630b: [] },
+            memory: { t620: [], t630a: [], t630b: [] },
+            network: { in: [], out: [] },
+            disk: { read: [], write: [] }
+        };
+        const MAX_HISTORY = 60; // 60 points = 2 minutes at 2s intervals
+
+        // API URL - nginx proxies /api to backend
+        const API_URL = window.location.origin;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            if (token && user) {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+        });
+
+        // Login
+        function showLogin() {
+            document.getElementById('login-view').classList.remove('hidden');
+            document.getElementById('dashboard-view').classList.add('hidden');
+        }
+
+        function showDashboard() {
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.remove('hidden');
+            
+            // Update user info
+            document.getElementById('user-avatar').textContent = user.username.charAt(0).toUpperCase();
+            document.getElementById('user-name').textContent = user.username;
+            
+            // Set admin mode if user is admin
+            if (user.role === 'sudo' || user.role === 'admin') {
+                setMode('admin');
+            } else {
+                setMode('user');
+            }
+            
+            // Initialize dashboard
+            initDashboard();
+        }
+
+        async function login(username, password) {
+            try {
+                const resp = await fetch(`${API_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                if (!resp.ok) {
+                    throw new Error('Invalid credentials');
+                }
+                
+                const data = await resp.json();
+                token = data.access_token;
+                user = data.user;
+                
+                localStorage.setItem('lsa_token', token);
+                localStorage.setItem('lsa_user', JSON.stringify(user));
+                
+                showDashboard();
+            } catch (err) {
+                const errorEl = document.getElementById('login-error');
+                errorEl.textContent = err.message;
+                errorEl.style.display = 'block';
+            }
+        }
+
+        function logout() {
+            token = null;
+            user = null;
+            localStorage.removeItem('lsa_token');
+            localStorage.removeItem('lsa_user');
+            showLogin();
+            
+            if (ws) {
+                ws.close();
+            }
+        }
+
+        // Mode switching
+        function setMode(newMode) {
+            mode = newMode;
+            
+            document.getElementById('mode-user').classList.toggle('active', mode === 'user');
+            document.getElementById('mode-admin').classList.toggle('active', mode === 'admin');
+            
+            document.body.classList.toggle('admin-mode', mode === 'admin');
+            
+            // Refresh data for the current mode
+            loadDashboardData();
+        }
+
+        // Dashboard initialization
+        async function initDashboard() {
+            initCharts();
+            await loadDashboardData();
+            
+            // Start real-time updates
+            startTelemetryStream();
+            
+            // Periodic refresh
+            setInterval(loadDashboardData, 30000); // Every 30 seconds
+        }
+
+        function initCharts() {
+            const chartConfig = {
+                type: 'line',
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: { duration: 0 },
+                    scales: {
+                        x: {
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: { color: '#94a3b8', boxWidth: 12 }
+                        }
+                    }
+                }
+            };
+
+            // CPU Chart
+            charts.cpu = new Chart(document.getElementById('chart-cpu'), {
+                ...chartConfig,
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: 'T620', data: [], borderColor: '#3b82f6', tension: 0.3 },
+                        { label: 'T630A', data: [], borderColor: '#10b981', tension: 0.3 },
+                        { label: 'T630B', data: [], borderColor: '#f59e0b', tension: 0.3 }
+                    ]
+                }
+            });
+
+            // Memory Chart
+            charts.memory = new Chart(document.getElementById('chart-memory'), {
+                ...chartConfig,
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: 'T620', data: [], borderColor: '#3b82f6', tension: 0.3 },
+                        { label: 'T630A', data: [], borderColor: '#10b981', tension: 0.3 },
+                        { label: 'T630B', data: [], borderColor: '#f59e0b', tension: 0.3 }
+                    ]
+                }
+            });
+
+            // Network Chart
+            charts.network = new Chart(document.getElementById('chart-network'), {
+                ...chartConfig,
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: 'In (MB/s)', data: [], borderColor: '#3b82f6', tension: 0.3 },
+                        { label: 'Out (MB/s)', data: [], borderColor: '#ef4444', tension: 0.3 }
+                    ]
+                }
+            });
+
+            // Disk Chart
+            charts.disk = new Chart(document.getElementById('chart-disk'), {
+                ...chartConfig,
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: 'Read (MB/s)', data: [], borderColor: '#10b981', tension: 0.3 },
+                        { label: 'Write (MB/s)', data: [], borderColor: '#f59e0b', tension: 0.3 }
+                    ]
+                }
+            });
+        }
+
+        async function loadDashboardData() {
+            try {
+                // Load cluster health
+                const healthResp = await fetch(`${API_URL}/api/admin/cluster/health`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const health = await healthResp.json();
+                updateHealthBanner(health);
+
+                // Load services
+                const servicesResp = await fetch(`${API_URL}/api/admin/services/status`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const services = await servicesResp.json();
+                renderServices(services);
+
+                if (mode === 'admin') {
+                    // Load nodes
+                    const nodesResp = await fetch(`${API_URL}/api/admin/nodes/detail`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const nodes = await nodesResp.json();
+                    renderNodes(nodes);
+
+                    // Load iDRAC status
+                    const idracResp = await fetch(`${API_URL}/api/admin/idrac/status`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const idracs = await idracResp.json();
+                    renderIdracs(idracs);
+
+                    // Load security
+                    const sessionsResp = await fetch(`${API_URL}/api/admin/security/sessions`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const sessions = await sessionsResp.json();
+                    
+                    const doorResp = await fetch(`${API_URL}/api/admin/security/door`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const door = await doorResp.json();
+                    
+                    renderSecurity(door, sessions);
+
+                    // Load metrics
+                    const metricsResp = await fetch(`${API_URL}/api/admin/metrics/realtime`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const metrics = await metricsResp.json();
+                    updateMetrics(metrics);
+                }
+
+                // User mode - load connections
+                if (mode === 'user') {
+                    const connResp = await fetch(`${API_URL}/api/user/connections`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const connections = await connResp.json();
+                    renderConnections(connections);
+                }
+
+            } catch (err) {
+                console.error('Failed to load dashboard data:', err);
+            }
+        }
+
+        function updateHealthBanner(health) {
+            const banner = document.getElementById('status-banner');
+            const title = document.getElementById('status-title');
+            const message = document.getElementById('status-message');
+            
+            banner.className = `status-banner ${health.status}`;
+            
+            const statusMap = {
+                healthy: { icon: '🟢', text: 'All Systems Operational' },
+                degraded: { icon: '🟡', text: 'Some Services Degraded' },
+                critical: { icon: '🔴', text: 'System Issues Detected' },
+                unknown: { icon: '⚪', text: 'Status Unknown' }
+            };
+            
+            const status = statusMap[health.status] || statusMap.unknown;
+            title.textContent = `${status.icon} ${status.text}`;
+            message.textContent = `${health.nodes_healthy}/${health.nodes_total} nodes • ${health.services_healthy}/${health.services_total} services`;
+            document.getElementById('status-time').textContent = new Date().toLocaleTimeString();
+        }
+
+        function updateMetrics(metrics) {
+            if (!metrics) return;
+
+            // Calculate averages
+            const nodes = Object.keys(metrics);
+            const cpuAvg = nodes.reduce((sum, n) => sum + (metrics[n].cpu_percent || 0), 0) / nodes.length;
+            const memAvg = nodes.reduce((sum, n) => sum + (metrics[n].memory_percent || 0), 0) / nodes.length;
+            const diskAvg = nodes.reduce((sum, n) => sum + (metrics[n].disk_percent || 0), 0) / nodes.length;
+            const tempAvg = nodes.reduce((sum, n) => sum + (metrics[n].temperature || 0), 0) / nodes.filter(n => metrics[n].temperature).length || 0;
+
+            // Update gauges
+            document.getElementById('gauge-cpu').textContent = `${cpuAvg.toFixed(1)}%`;
+            document.getElementById('gauge-cpu-bar').style.width = `${cpuAvg}%`;
+            
+            document.getElementById('gauge-memory').textContent = `${memAvg.toFixed(1)}%`;
+            document.getElementById('gauge-memory-bar').style.width = `${memAvg}%`;
+            
+            document.getElementById('gauge-disk').textContent = `${diskAvg.toFixed(1)}%`;
+            document.getElementById('gauge-disk-bar').style.width = `${diskAvg}%`;
+            
+            if (tempAvg > 0) {
+                document.getElementById('gauge-temp').textContent = `${tempAvg.toFixed(0)}°C`;
+                document.getElementById('gauge-temp-bar').style.width = `${Math.min(tempAvg / 100 * 100, 100)}%`;
+            }
+
+            // Update charts with history
+            const now = new Date();
+            const timeLabel = now.toLocaleTimeString();
+
+            // CPU
+            charts.cpu.data.labels.push(timeLabel);
+            charts.cpu.data.datasets[0].data.push(metrics.t620?.cpu_percent || 0);
+            charts.cpu.data.datasets[1].data.push(metrics.t630a?.cpu_percent || 0);
+            charts.cpu.data.datasets[2].data.push(metrics.t630b?.cpu_percent || 0);
+            if (charts.cpu.data.labels.length > MAX_HISTORY) {
+                charts.cpu.data.labels.shift();
+                charts.cpu.data.datasets.forEach(d => d.data.shift());
+            }
+            charts.cpu.update('none');
+
+            // Memory
+            charts.memory.data.labels.push(timeLabel);
+            charts.memory.data.datasets[0].data.push(metrics.t620?.memory_percent || 0);
+            charts.memory.data.datasets[1].data.push(metrics.t630a?.memory_percent || 0);
+            charts.memory.data.datasets[2].data.push(metrics.t630b?.memory_percent || 0);
+            if (charts.memory.data.labels.length > MAX_HISTORY) {
+                charts.memory.data.labels.shift();
+                charts.memory.data.datasets.forEach(d => d.data.shift());
+            }
+            charts.memory.update('none');
+
+            // Network (simplified - sum of all nodes)
+            const netIn = nodes.reduce((sum, n) => sum + (metrics[n].network_in || 0), 0);
+            const netOut = nodes.reduce((sum, n) => sum + (metrics[n].network_out || 0), 0);
+            charts.network.data.labels.push(timeLabel);
+            charts.network.data.datasets[0].data.push(netIn);
+            charts.network.data.datasets[1].data.push(netOut);
+            if (charts.network.data.labels.length > MAX_HISTORY) {
+                charts.network.data.labels.shift();
+                charts.network.data.datasets.forEach(d => d.data.shift());
+            }
+            charts.network.update('none');
+        }
+
+        function renderServices(services) {
+            const container = document.getElementById('services-grid');
+            container.innerHTML = services.map(s => `
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon">${getServiceIcon(s.name)}</div>
+                        <div>
+                            <div style="font-weight: 600;">${s.name}</div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">${s.image.split(':')[0]}</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="status-dot ${s.status === 'running' ? 'running' : 'warning'}" style="display: inline-block; margin-right: 0.5rem;"></div>
+                        <span style="font-size: 0.875rem;">${s.replicas}</span>
+                        ${s.ports.length > 0 ? `<div style="font-size: 0.75rem; color: var(--text-secondary);">:${s.ports[0].split(':')[1]}</div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getServiceIcon(name) {
+            const icons = {
+                'grafana': '📊',
+                'postgres': '🗄️',
+                'influxdb': '📈',
+                'jupyter': '📓',
+                'mlflow': '🔬',
+                'minio': '📦',
+                'redis': '⚡',
+                'mqtt': '📡',
+                'api': '🔌',
+                'frontend': '🌐'
+            };
+            for (const [key, icon] of Object.entries(icons)) {
+                if (name.toLowerCase().includes(key)) return icon;
+            }
+            return '🐳';
+        }
+
+        function renderNodes(nodes) {
+            const container = document.getElementById('nodes-grid');
+            // Fetch detailed metrics for each node
+            container.innerHTML = nodes.map(n => `
+                <div class="node-card">
+                    <div class="node-header">
+                        <div>
+                            <span class="node-name">${n.hostname}</span>
+                            <span class="node-role">${n.role}</span>
+                        </div>
+                        <span style="color: var(--accent-secondary);">✅ ${n.status}</span>
+                    </div>
+                    <div class="node-metrics">
+                        <div class="node-metric">
+                            <div class="node-metric-value" id="node-${n.hostname}-cpu">--</div>
+                            <div class="node-metric-label">CPU %</div>
+                        </div>
+                        <div class="node-metric">
+                            <div class="node-metric-value" id="node-${n.hostname}-mem">--</div>
+                            <div class="node-metric-label">Memory %</div>
+                        </div>
+                        <div class="node-metric">
+                            <div class="node-metric-value" id="node-${n.hostname}-disk">--</div>
+                            <div class="node-metric-label">Disk %</div>
+                        </div>
+                        <div class="node-metric">
+                            <div class="node-metric-value" id="node-${n.hostname}-uptime">--</div>
+                            <div class="node-metric-label">Uptime</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="openTerminal('${n.hostname}')">Terminal</button>
+                        <button class="btn btn-secondary" onclick="viewLogs('${n.hostname}')">Logs</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderIdracs(idracs) {
+            const container = document.getElementById('idrac-grid');
+            container.innerHTML = idracs.map(i => `
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">${i.hostname} iDRAC</span>
+                        <span class="card-status">
+                            <span class="status-dot ${i.status === 'online' ? 'running' : 'stopped'}"></span>
+                            ${i.status}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-secondary);">IP:</span> ${i.ip}
+                        </div>
+                        ${i.temperature ? `<div style="margin-bottom: 0.5rem;"><span style="color: var(--text-secondary);">Temp:</span> ${i.temperature}°C</div>` : ''}
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openIdrac('${i.ip}')" ${i.status !== 'online' ? 'disabled' : ''}>Open Console</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSecurity(door, sessions) {
+            const container = document.getElementById('security-grid');
+            container.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">🚪 Lab Door</span>
+                        <span class="card-status">
+                            <span class="status-dot ${door.status === 'closed' ? 'running' : 'warning'}"></span>
+                            ${door.status}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="door-status">
+                            <div class="door-icon ${door.status === 'open' ? 'open' : ''}">${door.status === 'open' ? '🔓' : '🔒'}</div>
+                            <div class="door-info">
+                                <div class="door-status-text">${door.status === 'open' ? 'Door is OPEN' : 'Door is CLOSED'}</div>
+                                <div class="door-last">${door.last_user ? `Last: ${door.last_user}` : ''}</div>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="doorAction('open')">Open</button>
+                            <button class="btn btn-danger" onclick="doorAction('close')">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">👥 Active Sessions</span>
+                    </div>
+                    <div class="card-body">
+                        <div style="font-size: 2rem; font-weight: 700;">${sessions.count}</div>
+                        <div style="color: var(--text-secondary);">users online</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">📋 Access Log</span>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-secondary" onclick="viewAccessLog()">View Full Log</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderConnections(connections) {
+            const container = document.getElementById('connections-list');
+            container.innerHTML = connections.map(c => `
+                <div class="connection-item">
+                    <span class="connection-service">${c.service}</span>
+                    <span class="connection-url">${c.url}</span>
+                    <button class="copy-btn" onclick="copyToClipboard('${c.url}')">Copy</button>
+                </div>
+            `).join('');
+        }
+
+        // Telemetry streaming
+        function startTelemetryStream() {
+            const eventSource = new EventSource(`${API_URL}/api/admin/telemetry/stream?token=${token}`);
+            
+            eventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.error) {
+                        console.error('Telemetry error:', data.error);
+                    } else {
+                        updateMetrics(data);
+                    }
+                } catch (err) {
+                    console.error('Failed to parse telemetry:', err);
+                }
+            };
+            
+            eventSource.onerror = (err) => {
+                console.error('Telemetry stream error:', err);
+            };
+        }
+
+        // Terminal
+        function initTerminal() {
+            if (terminal) {
+                terminal.dispose();
+            }
+            
+            terminal = new Terminal({
+                cursorBlink: true,
+                fontSize: 14,
+                fontFamily: 'Monaco, Menlo, monospace',
+                theme: {
+                    background: '#0f172a',
+                    foreground: '#f8fafc'
+                }
+            });
+            
+            terminal.open(document.getElementById('terminal'));
+        }
+
+        function connectTerminal(host) {
+            // Update tabs
+            document.querySelectorAll('.terminal-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Initialize terminal if needed
+            if (!terminal) {
+                initTerminal();
+            }
+            
+            // Close existing connection
+            if (ws) {
+                ws.close();
+            }
+            
+            // Connect to WebSocket
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            ws = new WebSocket(`${protocol}//${window.location.host}/api/terminal/${host}?token=${token}`);
+            
+            ws.onopen = () => {
+                terminal.write('\x1b[32mConnected to ' + host + '\x1b[0m\r\n');
+            };
+            
+            ws.onmessage = (event) => {
+                if (event.data instanceof ArrayBuffer) {
+                    terminal.write(new Uint8Array(event.data));
+                } else {
+                    terminal.write(event.data);
+                }
+            };
+            
+            ws.onerror = (err) => {
+                terminal.write('\x1b[31mConnection error\x1b[0m\r\n');
+            };
+            
+            ws.onclose = () => {
+                terminal.write('\x1b[33mConnection closed\x1b[0m\r\n');
+            };
+            
+            // Handle terminal input
+            terminal.onData((data) => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(data);
+                }
+            });
+        }
+
+        function openTerminal(host) {
+            // Scroll to terminal
+            document.getElementById('terminal-container').scrollIntoView({ behavior: 'smooth' });
+            
+            // Connect
+            connectTerminal(host);
+        }
+
+        // Actions
+        async function doorAction(action) {
+            try {
+                const resp = await fetch(`${API_URL}/api/admin/security/door/${action}`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await resp.json();
+                alert(data.message);
+                loadDashboardData();
+            } catch (err) {
+                alert('Failed to ' + action + ' door: ' + err.message);
+            }
+        }
+
+        function openIdrac(ip) {
+            window.open(`https://${ip}`, '_blank');
+        }
+
+        async function viewLogs(hostname) {
+            alert('Viewing logs for ' + hostname + ' - Coming soon');
+        }
+
+        async function viewAccessLog() {
+            try {
+                const resp = await fetch(`${API_URL}/api/admin/security/logs?limit=10`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const logs = await resp.json();
+                alert(JSON.stringify(logs, null, 2));
+            } catch (err) {
+                alert('Failed to load access log: ' + err.message);
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert('Copied to clipboard!');
+        }
+
+        // Login form handler
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            await login(username, password);
+        });
+    </script>
+</body>
 </html>

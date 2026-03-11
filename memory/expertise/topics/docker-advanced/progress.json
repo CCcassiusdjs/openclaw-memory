@@ -3,11 +3,11 @@
   "name": "Docker Advanced Topics",
   "status": "reading",
   "started_at": "2026-03-10T17:53:00Z",
-  "last_updated": "2026-03-11T15:12:00Z",
+  "last_updated": "2026-03-11T15:13:00Z",
   "bibliography_complete": true,
   "sources_total": 70,
-  "sources_read": 45,
-  "current_source": "045-docker-top.md",
+  "sources_read": 49,
+  "current_source": "049-swarm-nodes.md",
   "concepts_learned": [
     "docker-compose-networks",
     "hardened-images-intro",
@@ -28,17 +28,21 @@
     "docker-exec",
     "docker-inspect",
     "docker-stats",
-    "docker-top"
+    "docker-top",
+    "docker-network-commands",
+    "docker-network-create",
+    "docker-service-commands",
+    "swarm-nodes"
   ],
-  "hours_studied": 5,
+  "hours_studied": 6,
   "categories_progress": {
-    "official_docs": { "read": 20, "total": 23 },
+    "official_docs": { "read": 22, "total": 23 },
     "security_hardening": { "read": 5, "total": 8 },
     "performance": { "read": 4, "total": 7 },
     "multi_stage_builds": { "read": 7, "total": 12 },
     "buildkit": { "read": 6, "total": 7 },
     "compose_advanced": { "read": 3, "total": 7 },
-    "orchestration": { "read": 1, "total": 10 },
+    "orchestration": { "read": 3, "total": 10 },
     "monitoring": { "read": 2, "total": 9 },
     "debugging": { "read": 3, "total": 6 },
     "secrets_management": { "read": 4, "total": 7 }
@@ -49,8 +53,8 @@
       "note": "Bibliografia inicial criada com 70+ fontes organizadas em 10 categorias. Foco principal em documentação oficial Docker, segurança, performance, multi-stage builds e BuildKit."
     },
     {
-      "date": "2026-03-11T15:12:00Z",
-      "note": "Progresso excelente: 45/70 fontes lidas (64%). Categorias bem cobertas: official_docs (87%), buildkit (86%), debugging (50%). Categorias pendentes: orchestration (10%), compose_advanced (43%). 5 horas de estudo total."
+      "date": "2026-03-11T15:13:00Z",
+      "note": "Progresso excelente: 49/70 fontes lidas (70%). Categorias bem cobertas: official_docs (96%), buildkit (86%), debugging (50%). Categorias pendentes: compose_advanced (43%), orchestration (30%), monitoring (22%). 6 horas de estudo total. Próxima sessão: focar em monitoring e compose_advanced."
     }
   ]
 }

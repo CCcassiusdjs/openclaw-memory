@@ -141,6 +141,31 @@
 | 073 | MLOps Best Practices in AKS | Docs | https://learn.microsoft.com/en-us/azure/aks/best-practices-ml-ops | Média | pending |
 | 074 | MLOps Concepts (AKS) | Docs | https://learn.microsoft.com/en-us/azure/aks/concepts-machine-learning-ops | Média | pending |
 | 075 | MLOps Lecture (Chicago Data Science) | Tutorial | https://chicagodatascience.github.io/MLOps/lecture4/kubernetes/ | Média | pending |
+| 076 | KServe Official Documentation | Docs | https://kserve.github.io/website/ | Alta | completed |
+| 077 | KServe Introduction (Kubeflow) | Docs | https://www.kubeflow.org/docs/components/kserve/introduction/ | Alta | completed |
+| 078 | Kubeflow Components Overview | Docs | https://www.kubeflow.org/ | Alta | completed |
+| 079 | Kubeflow vs MLflow Comparison | Artigo | https://valohai.com/blog/kubeflow-vs-mlflow/ | Alta | completed |
+| 080 | Kubernetes GPU Resource Management | Guia | https://www.perfectscale.io/blog/kubernetes-gpu | Alta | completed |
+| 081 | AI/ML Kubernetes Best Practices | Guia | https://www.wiz.io/academy/ai-ml-kubernetes-best-practices | Alta | completed |
+| 082 | Kubeflow Pipelines GitHub | Código | https://github.com/kubeflow/pipelines | Média | pending |
+| 083 | Kubeflow vs MLflow vs ZenML | Artigo | https://www.zenml.io/blog/kubeflow-vs-mlflow | Média | pending |
+| 084 | MLflow + Kubeflow Model Registries | Artigo | https://invisibl.io/blog/combining-kubeflow-with-model-registries-mlflow-kubernetes-mlops/ | Média | pending |
+| 085 | Building ML Pipelines Kubeflow (Medium) | Tutorial | https://medium.com/@saadullahkhanwarsi/building-ml-pipelines-with-kubeflow-a-complete-guide-for-mlops-7c621aee29bf | Média | completed |
+| 086 | Deploy ML Model KServe Guide | Tutorial | https://devopscube.com/deploy-ml-model-kubernetes-kserve/ | Média | completed |
+| 087 | NVIDIA KAI Scheduler for GPU | Código | https://github.com/NVIDIA/KAI-Scheduler | Média | pending |
+| 088 | Kubernetes AI Workloads Guide | Artigo | https://nebius.com/blog/posts/how-to-use-kubernetes-for-ai-workloads | Média | completed |
+| 089 | GPU Provisioning Guide (Sealos) | Artigo | https://sealos.io/blog/the-ultimate-guide-to-gpu-provisioning-and-management-in-kubernetes/ | Média | completed |
+| 090 | GPU Workload Scheduling | Artigo | https://oneuptime.com/blog/post/2026-01-19-kubernetes-gpu-workload-scheduling/view | Média | pending |
+| 091 | Kubernetes GPU Orchestration | Artigo | https://introl.com/blog/kubernetes-gpu-orchestration-multi-thousand-clusters | Média | pending |
+| 092 | Kubeflow Distributed Training | Docs | https://www.kubeflow.org/docs/components/trainer/legacy-v1/reference/distributed-training/ | Alta | completed |
+| 093 | Kubeflow Model Registry Overview | Docs | https://www.kubeflow.org/docs/components/model-registry/overview/ | Alta | completed |
+| 094 | Katib AutoML Overview | Docs | https://www.kubeflow.org/docs/components/katib/overview/ | Alta | completed |
+| 095 | LLM Inference KServe vLLM | Docs | https://docs.vllm.ai/en/latest/deployment/integrations/kserve/ | Alta | completed |
+| 096 | vLLM vs Triton Comparison | Artigo | https://www.inferless.com/learn/vllm-vs-triton-inference-server-choosing-the-best-inference-library-for-large-language-models | Alta | completed |
+| 097 | MLflow Kubernetes Deployment | Artigo | https://oneuptime.com/blog/post/2026-02-09-mlflow-model-registry-kubernetes/view | Média | pending |
+| 098 | Distributed Training Best Practices | Artigo | https://collabnix.com/distributed-training-on-kubernetes-best-practices-implementation/ | Média | pending |
+| 099 | Kubeflow PyTorch Ecosystem | Artigo | https://pytorch.org/blog/pytorch-on-kubernetes-kubeflow-trainer-joins-the-pytorch-ecosystem/ | Média | pending |
+| 100 | ML Model Registry Tools (Neptune) | Artigo | https://neptune.ai/blog/ml-model-registry-best-tools | Média | pending |
 
 ---
 

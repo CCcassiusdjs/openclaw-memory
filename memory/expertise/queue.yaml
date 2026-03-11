@@ -132,20 +132,36 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 70
-      sources_read: 23
+      sources_read: 49
       concepts_learned:
-        - "Docker networking (bridge, host, overlay, macvlan)"
-        - "Docker storage (volumes, bind mounts, tmpfs)"
-        - "Docker security (OWASP, capabilities, seccomp)"
-        - "Multi-stage builds"
-        - "BuildKit cache optimization"
-        - "Resource constraints"
-        - "Docker debug CLI"
-        - "Docker Swarm secrets"
-        - "Performance monitoring"
-        - "Compose merge files"
-    notes: "Bibliografia completa com 70+ fontes. 23 fontes lidas e resumidas. Foco em documentação oficial Docker."
+        - "Docker Compose networks (drivers, IPAM, external)"
+        - "Docker Hardened Images (DHI, distroless, SLSA)"
+        - "Advanced Dockerfiles (BuildKit, multi-stage patterns)"
+        - "Storage drivers (overlay2, btrfs, zfs, containerd image store)"
+        - "Resource constraints (memory, CPU, GPU, block IO)"
+        - "Running containers (detach, networks, mounts, capabilities)"
+        - "Container logs (logging drivers, log rotation)"
+        - "Build secrets (SSH mounts, GIT_AUTH_TOKEN)"
+        - "OpenTelemetry for build debugging"
+        - "Docker exec, inspect, stats, top"
+        - "Docker network create (bridge, overlay, internal, ingress)"
+        - "Swarm nodes (managers, workers, Raft consensus)"
+        - "Docker service commands"
+      hours_studied: 6.0
+      categories_progress:
+        official_docs: { read: 22, total: 23 }
+        buildkit: { read: 6, total: 7 }
+        multi_stage_builds: { read: 7, total: 12 }
+        debugging: { read: 3, total: 6 }
+        orchestration: { read: 3, total: 10 }
+        monitoring: { read: 2, total: 9 }
+        compose_advanced: { read: 3, total: 7 }
+        security_hardening: { read: 5, total: 8 }
+        performance: { read: 4, total: 7 }
+        secrets_management: { read: 4, total: 7 }
+    notes: "49/70 fontes lidas (70%). Foco em documentação oficial Docker. Categorias bem cobertas: official_docs (96%), buildkit (86%). Categorias pendentes: monitoring (22%), orchestration (30%)."
     started_at: "2026-03-10T17:53:00Z"
+    last_updated: "2026-03-11T15:13:00Z"
   
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"

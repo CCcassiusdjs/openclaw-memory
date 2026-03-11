@@ -32,7 +32,7 @@ status: active
 config:
   session_study_time: 30m
   daily_cron: "0 */4 * * *"
-  sources_per_session: 3
+  sources_per_session: 5
   search_depth: 10
 
 # ========================================
@@ -122,108 +122,21 @@ topics:
     status: "reading"
     progress:
       bibliography_complete: true
-      sources_total: 83
-      sources_read: 39
-      concepts_learned:
-        - "Control Plane Components"
-        - "Node Components"
-        - "Pod Security Standards"
-        - "RBAC Authorization"
-        - "Network Policies"
-        - "Persistent Volumes"
-        - "StatefulSets"
-        - "Services"
-        - "CNI Networking"
-        - "MLOps Deployment Pattern"
-        - "Security Checklist"
-        - "OWASP Security Best Practices"
-        - "Kubernetes Patterns Overview"
-        - "Architecture Deep Dive"
-        - "CNI Encapsulated vs Unencapsulated"
-        - "PSS Privileged/Baseline/Restricted"
-        - "CNI Plugin Requirements"
-        - "OWASP Kubernetes Top 10 Risks"
-        - "Control Plane HA Architecture"
-        - "etcd Security Best Practices"
-        - "API Server Authentication Methods"
-        - "Container Image Security"
-        - "Security Context Configuration"
-        - "CNI Network Models Comparison"
-        - "Calico BGP Networking"
-        - "Network Policy Enforcement"
-        - "PV and PVC Lifecycle"
-        - "Dynamic vs Static Provisioning"
-        - "Volume Access Modes"
-        - "Volume Expansion"
-        - "RBAC Role vs ClusterRole"
-        - "RoleBinding vs ClusterRoleBinding"
-        - "Aggregated ClusterRoles"
-        - "Default RBAC Roles"
-        - "CSI Driver Workflow"
-        - "Storage Troubleshooting"
-        - "Service Account Identity"
-        - "TokenRequest API"
-        - "Bound Service Account Tokens"
-        - "Cross-Namespace Access"
-        - "RBAC Privilege Escalation Risks"
-        - "RBAC Least Privilege"
-        - "Sidecar Pattern"
-        - "Ambassador Pattern"
-        - "Adapter Pattern"
-        - "Init Containers"
-        - "StatefulSet Pod Identity"
-        - "StatefulSet Stable Network"
-        - "StatefulSet Ordered Deployment"
-        - "StatefulSet PVC Retention"
-        - "Operator Pattern"
-        - "Custom Resource Definitions"
-        - "Deployment Rolling Update"
-        - "Deployment Rollback"
-        - "Deployment Scaling"
-        - "maxSurge and maxUnavailable"
-        - "HorizontalPodAutoscaler"
-        - "HPA Metrics Types"
-        - "HPA Behavior Configuration"
-        - "ConfigMaps"
-        - "ConfigMap Usage Patterns"
-        - "Immutable ConfigMaps"
-        - "Secrets"
-        - "Secret Types"
-        - "Secret Security Best Practices"
-        - "Service Types (ClusterIP, NodePort, LoadBalancer)"
-        - "Service Selectors and Endpoints"
-        - "Headless Services"
-        - "Ingress and IngressClass"
-        - "Ingress Path Types"
-        - "TLS Termination"
-        - "NetworkPolicy Ingress/Egress"
-        - "NetworkPolicy Selectors"
-        - "Default Deny Policies"
-        - "Node Management"
-        - "Node Conditions"
-        - "Node Controller"
-        - "Node Heartbeats"
-        - "Garbage Collection"
-        - "Owner References"
-        - "Cascading Deletion"
-        - "Finalizers"
-        - "Container/Image GC"
-        - "kube-scheduler"
-        - "Scheduling Filtering and Scoring"
-        - "Scheduling Profiles"
-        - "Node Affinity and Anti-Affinity"
+      sources_total: 101
+      sources_read: 84
+      concepts_learned: 280
       categories_progress:
-        fundamentals: { read: 17, total: 22 }
-        security: { read: 8, total: 7, complete: true }
-        networking: { read: 8, total: 7, complete: true }
-        storage: { read: 4, total: 7 }
-        rbac: { read: 4, total: 6 }
-        mlops: { read: 1, total: 9 }
+        fundamentals: { read: 30, total: 30, complete: true }
+        security: { read: 12, total: 12, complete: true }
+        networking: { read: 9, total: 9, complete: true }
+        storage: { read: 6, total: 7 }
+        rbac: { read: 5, total: 6 }
+        mlops: { read: 19, total: 35 }
         patterns: { read: 3, total: 4 }
-        architecture: { read: 5, total: 4, complete: true }
-    notes: "Em progresso. 39/83 fontes lidas (47%). Categorias completas: Security (8/7), Networking (8/7), Architecture (5/4). Docs oficiais K8s processadas."
+        architecture: { read: 5, total: 5, complete: true }
+    notes: "Em progresso. 84/101 fontes lidas (83%). Categorias completas: Fundamentals, Security, Networking, Architecture. Foco atual: MLOps (19/35). Conceitos-chave: GPU Management, Kubeflow ecosystem, Distributed Training, LLM Inference, Model Registry."
     started_at: "2026-03-11T18:45:00Z"
-    last_updated: "2026-03-11T20:15:00Z"
+    last_updated: "2026-03-11T23:38:00Z"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS
@@ -236,11 +149,27 @@ heuristics:
       - "Papers de survey são bons pontos de partida"
       - "Livros didáticos para fundamentação teórica"
       - "Tutoriais e exemplos para aplicação prática"
+  - topic: "kubernetes"
+    rules:
+      - "Docs oficiais K8s são referência primária"
+      - "Práticas de security sempre primeiro"
+      - "MLOps é área em rápida evolução - buscar fontes recentes (2024-2025)"
+      - "GPU Management requer conhecimento de NVIDIA ecosystem"
+      - "Kubeflow é plataforma padrão para ML em K8s"
 
 # ========================================
 # PADRÕES IDENTIFICADOS
 # ========================================
-patterns: []
+patterns:
+  - pattern: "CRD Pattern"
+    topic: "kubernetes"
+    description: "Custom Resource Definitions permitem estender K8s para workloads específicos (PyTorchJob, TFJob, InferenceService)"
+  - pattern: "Operator Pattern"
+    topic: "kubernetes"
+    description: "Controllers observam CRDs e mantêm desired state - usado em GPU Operator, Training Operator, KServe"
+  - pattern: "Device Plugin Pattern"
+    topic: "kubernetes"
+    description: "Plugins expor dispositivos especiais (GPUs) como resources - NVIDIA Device Plugin é padrão"
 
 # ========================================
 # SÍNTESES CRIADAS

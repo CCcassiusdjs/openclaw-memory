@@ -204,7 +204,7 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 83
-      sources_read: 15
+      sources_read: 36
       concepts_learned:
         - "Control Plane Components"
         - "Node Components"
@@ -221,9 +221,68 @@ topics:
         - "Kubernetes Patterns Overview"
         - "Architecture Deep Dive"
         - "CNI Encapsulated vs Unencapsulated"
-    notes: "Em progresso. 15/83 fontes lidas (18%). Categorias: Fundamentos (5/22), Security (3/7), Networking (3/7), Storage (2/7), RBAC (1/6), MLOps (1/9), Patterns (1/4), Architecture (1/4)."
+        - "PSS Privileged/Baseline/Restricted"
+        - "CNI Plugin Requirements"
+        - "OWASP Kubernetes Top 10 Risks"
+        - "Control Plane HA Architecture"
+        - "etcd Security Best Practices"
+        - "API Server Authentication Methods"
+        - "Container Image Security"
+        - "Security Context Configuration"
+        - "CNI Network Models Comparison"
+        - "Calico BGP Networking"
+        - "Network Policy Enforcement"
+        - "PV and PVC Lifecycle"
+        - "Dynamic vs Static Provisioning"
+        - "Volume Access Modes"
+        - "Volume Expansion"
+        - "RBAC Role vs ClusterRole"
+        - "RoleBinding vs ClusterRoleBinding"
+        - "Aggregated ClusterRoles"
+        - "Default RBAC Roles"
+        - "CSI Driver Workflow"
+        - "Storage Troubleshooting"
+        - "Service Account Identity"
+        - "TokenRequest API"
+        - "Bound Service Account Tokens"
+        - "Cross-Namespace Access"
+        - "RBAC Privilege Escalation Risks"
+        - "RBAC Least Privilege"
+        - "Sidecar Pattern"
+        - "Ambassador Pattern"
+        - "Adapter Pattern"
+        - "Init Containers"
+        - "StatefulSet Pod Identity"
+        - "StatefulSet Stable Network"
+        - "StatefulSet Ordered Deployment"
+        - "StatefulSet PVC Retention"
+        - "Operator Pattern"
+        - "Custom Resource Definitions"
+        - "Deployment Rolling Update"
+        - "Deployment Rollback"
+        - "Deployment Scaling"
+        - "maxSurge and maxUnavailable"
+        - "HorizontalPodAutoscaler"
+        - "HPA Metrics Types"
+        - "HPA Behavior Configuration"
+        - "ConfigMaps"
+        - "ConfigMap Usage Patterns"
+        - "Immutable ConfigMaps"
+        - "Secrets"
+        - "Secret Types"
+        - "Secret Security Best Practices"
+      categories_progress:
+        fundamentals: { read: 11, total: 22 }
+        security: { read: 8, total: 7, complete: true }
+        networking: { read: 5, total: 7 }
+        storage: { read: 4, total: 7 }
+        rbac: { read: 4, total: 6 }
+        mlops: { read: 1, total: 9 }
+        patterns: { read: 3, total: 4 }
+        architecture: { read: 2, total: 4 }
+    notes: "Em progresso. 33/83 fontes lidas (40%). Cobertura: Security completo (8/7), Fundamentos bem avançado (11/22). Foco atual: Networking, Storage, RBAC. Docs oficiais Kubernetes processadas."
     started_at: "2026-03-11T18:45:00Z"
-    last_updated: "2026-03-11T18:55:00Z"
+    last_updated: "2026-03-11T20:15:00Z"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

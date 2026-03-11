@@ -4,7 +4,7 @@
   "started_at": "2026-03-11T18:45:00Z",
   "bibliography_complete": true,
   "sources_total": 83,
-  "sources_read": 33,
+  "sources_read": 36,
   "concepts_learned": [
     "Control Plane Components",
     "Node Components",
@@ -70,12 +70,21 @@
     "Immutable ConfigMaps",
     "Secrets",
     "Secret Types",
-    "Secret Security Best Practices"
+    "Secret Security Best Practices",
+    "Service Types (ClusterIP, NodePort, LoadBalancer)",
+    "Service Selectors and Endpoints",
+    "Headless Services",
+    "Ingress and IngressClass",
+    "Ingress Path Types",
+    "TLS Termination",
+    "NetworkPolicy Ingress/Egress",
+    "NetworkPolicy Selectors",
+    "Default Deny Policies"
   ],
   "categories": {
-    "fundamentos": { "read": 11, "total": 22, "sources": ["009", "010", "011", "015", "028", "029", "030", "031", "032", "033", "080"] },
-    "security": { "read": 8, "total": 7, "sources": ["015", "016", "017", "018", "020", "025", "026", "040"] },
-    "networking": { "read": 5, "total": 7, "sources": ["018", "021", "022", "023", "047"] },
+    "fundamentos": { "read": 14, "total": 22, "sources": ["009", "010", "011", "015", "028", "029", "030", "031", "032", "033", "034", "035", "036", "080"] },
+    "security": { "read": 8, "total": 7, "complete": true, "sources": ["015", "016", "017", "018", "020", "025", "026", "040"] },
+    "networking": { "read": 8, "total": 7, "complete": true, "sources": ["018", "021", "022", "023", "034", "035", "036", "047"] },
     "storage": { "read": 4, "total": 7, "sources": ["022", "024", "054", "024"] },
     "rbac": { "read": 4, "total": 6, "sources": ["018", "023", "025", "026"] },
     "mlops": { "read": 1, "total": 9, "sources": ["067"] },
@@ -83,6 +92,6 @@
     "architecture": { "read": 2, "total": 4, "sources": ["019", "080"] }
   },
   "current_reading": null,
-  "last_updated": "2026-03-11T20:12:00Z",
-  "session_summary": "33 fontes lidas incluindo documentação oficial do Kubernetes. Cobertura abrangente de fundamentos (Deployments, StatefulSets, HPA, ConfigMaps, Secrets), segurança (OWASP Top 10, RBAC, Service Accounts), networking (CNI, Network Policies), storage (PV, PVC, CSI), e patterns (Sidecar, Ambassador, Operator)."
+  "last_updated": "2026-03-11T20:22:00Z",
+  "session_summary": "36 fontes lidas (43% do total). Categorias completas: Security (8/7), Networking (8/7). Progresso significativo em Fundamentals (14/22). Documentação oficial Kubernetes processada para Services, Ingress, NetworkPolicies, Deployments, StatefulSets, HPA, ConfigMaps, Secrets."
 }

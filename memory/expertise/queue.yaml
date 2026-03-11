@@ -3,7 +3,7 @@
 
 version: 2.0
 created: 2026-03-10
-updated: 2026-03-10
+updated: 2026-03-11
 status: active
 
 # ========================================
@@ -36,21 +36,8 @@ config:
   search_depth: 10
 
 # ========================================
-# FILA DE TÓPICOS - VAZIA
+# FILA DE TÓPICOS
 # ========================================
-# Adicione tópicos aqui quando quiser que eu estude
-# 
-# Formato:
-# - id: "identificador-unico"
-#   name: "Nome do Tópico"
-#   priority: 1  # 1=alta, 2=média, 3=baixa
-#   status: "new"
-#   progress:
-#     bibliography_complete: false
-#     sources_total: null
-#     sources_read: 0
-#     concepts_learned: []
-#   notes: "Descrição opcional"
 
 topics:
   - id: "drone-sensors"
@@ -61,20 +48,9 @@ topics:
       bibliography_complete: true
       sources_total: 36
       sources_read: 36
-      concepts_learned:
-        - "IMU selection and noise characteristics"
-        - "Temperature effects on MEMS IMUs"
-        - "Vibration analysis and filtering (FFT, notch filters)"
-        - "Sensor redundancy and heterogeneous fusion"
-        - "VTOL-specific sensor requirements"
-        - "PX4 sensor architecture and configuration"
-        - "RTK GPS and dual-antenna heading"
-        - "Optical flow for GNSS-denied navigation"
-        - "Airspeed sensors for stall detection"
-        - "Rangefinders for terrain following"
-        - "Tachometers for RPM logging"
+      concepts_learned: 10
     completed_at: "2026-03-10"
-    notes: "Tópico completado com 36 fontes estudadas. Síntese criada em synthesis.md"
+    notes: "Tópico completado com 36 fontes estudadas."
   
   - id: "ardupilot-ekf"
     name: "ArduPilot EKF & State Estimation"
@@ -84,20 +60,9 @@ topics:
       bibliography_complete: true
       sources_total: 21
       sources_read: 16
-      concepts_learned:
-        - "Extended Kalman Filter (EKF)"
-        - "State Prediction vs State Correction"
-        - "Innovation (resíduo entre predição e medição)"
-        - "Sensor Fusion (IMU + GPS + Magnetometer + Barometer)"
-        - "Lane Switching"
-        - "Sensor Affinity"
-        - "EKF2 vs EKF3"
-        - "Quaternion-based EKF"
-        - "Error State EKF (ES-EKF)"
-        - "GPS-denied navigation"
-        - "EKF tuning parameters"
-      completed_at: "2026-03-10"
-      notes: "16 fontes estudadas. Síntese em topics/ardupilot-ekf/"
+      concepts_learned: 10
+    completed_at: "2026-03-10"
+    notes: "16 fontes estudadas."
   
   - id: "digital-twins"
     name: "Digital Twins"
@@ -110,7 +75,7 @@ topics:
       concepts_learned: 95
       hours_studied: 12.0
     completed_at: "2026-03-11"
-    notes: "Tópico completado com 31/32 fontes estudadas. Síntese completa criada em SYNTHESIS.md. Conceitos-chave: arquiteturas (PSAF 5-layer, ISO, IoDT), tipos (Component/Asset/System/Process), Hybrid DT (Physics + ML), Edge computing, protocolos (MQTT, OPC-UA), plataformas (Azure, AWS, NVIDIA, GE), 3DGS/NeRF para reconstrução visual, HDT (Human Digital Twins), segurança multi-camada. ROI 92% > 10%."
+    notes: "Tópico completado. Conceitos-chave: arquiteturas, tipos, Hybrid DT, Edge computing, protocolos, plataformas."
   
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"
@@ -123,7 +88,7 @@ topics:
       concepts_learned: 95
       hours_studied: 15.0
     completed_at: "2026-03-11"
-    notes: "Tópico completado com 48/48 fontes. Síntese criada em SYNTHESIS.md. Fundamentos: Statistical Learning Theory (PAC, VC Dim, Rademacher), Deep Learning (CNN, Transformers, RNN/LSTM/GRU), Optimization (SGD, Momentum, Adam, AdamW), Regularization (L1/L2, Dropout, BatchNorm), Decision Trees & Ensembles, SVM, Cross-Validation, RL (MDP, Bellman), Semi-Supervised, Spurious Correlations, Edge ML."
+    notes: "Tópico completado. Fundamentos: Statistical Learning Theory, Deep Learning, Optimization, Regularization, RL."
   
   - id: "docker-advanced"
     name: "Docker Advanced Topics"
@@ -133,55 +98,10 @@ topics:
       bibliography_complete: true
       sources_total: 70
       sources_read: 70
-      concepts_learned:
-        - "Docker Compose networks (drivers, IPAM, external)"
-        - "Docker Hardened Images (DHI, distroless, SLSA)"
-        - "Advanced Dockerfiles (BuildKit, multi-stage patterns)"
-        - "Storage drivers (overlay2, btrfs, zfs, containerd image store)"
-        - "Resource constraints (memory, CPU, GPU, block IO)"
-        - "Running containers (detach, networks, mounts, capabilities)"
-        - "Container logs (logging drivers, log rotation)"
-        - "Build secrets (SSH mounts, GIT_AUTH_TOKEN)"
-        - "OpenTelemetry for build debugging"
-        - "Docker exec, inspect, stats, top"
-        - "Docker network create (bridge, overlay, internal, ingress)"
-        - "Swarm nodes (managers, workers, Raft consensus)"
-        - "Docker service commands"
-        - "Docker logs management (Dash0, New Relic)"
-        - "Logging drivers (json-file, local, syslog, fluentd)"
-        - "Kubernetes vs Docker Swarm comparison"
-        - "Docker resource limits (memory, CPU, swap)"
-        - "Docker monitoring tools (Prometheus, cAdvisor, Grafana)"
-        - "Swarm key concepts (services, tasks, nodes)"
-        - "Swarm services (create, update, rollback)"
-        - "Docker service CLI (update, ps, rollback)"
-        - "Compose production (multiple compose files)"
-        - "Docker secrets (encrypted at rest, in-memory mount)"
-        - "Docker configs (non-sensitive config data)"
-        - "Compose extends (DRY configuration)"
-        - "Docker stack CLI (deploy, ls, ps, rm, services)"
-        - "Multiple compose files (merge, extend, include)"
-        - "Docker debug CLI (debug slim containers)"
-        - "Multi-stage builds (FROM, COPY --from, AS)"
-        - "Build best practices (cache, pin versions)"
-        - "Docker Engine security (namespaces, cgroups, capabilities)"
-        - "Docker build cache (layer invalidation)"
+      concepts_learned: 32
       hours_studied: 8.5
-      categories_progress:
-        official_docs: { read: 23, total: 23, complete: true }
-        buildkit: { read: 7, total: 7, complete: true }
-        multi_stage_builds: { read: 10, total: 12, complete: false }
-        debugging: { read: 4, total: 6, complete: false }
-        orchestration: { read: 10, total: 10, complete: true }
-        monitoring: { read: 4, total: 9, complete: false }
-        compose_advanced: { read: 5, total: 7, complete: false }
-        security_hardening: { read: 6, total: 8, complete: false }
-        performance: { read: 5, total: 7, complete: false }
-        secrets_management: { read: 7, total: 7, complete: true }
-    notes: "Tópico COMPLETO! 70/70 fontes lidas (100%). Domínio de: Docker networking/storage, security hardening, multi-stage builds, BuildKit, resource constraints, container management, logs/monitoring, Swarm orchestration, secrets/configs, compose advanced, debugging, build optimization. Categorias 100%: official_docs, buildkit, orchestration, secrets_management."
-    started_at: "2026-03-10T17:53:00Z"
+    notes: "Tópico COMPLETO! 70/70 fontes lidas (100%)."
     completed_at: "2026-03-11T16:40:00Z"
-    last_updated: "2026-03-11T16:40:00Z"
   
   - id: "mlflow-tracking"
     name: "MLflow Tracking & Experiment Management"
@@ -193,8 +113,7 @@ topics:
       sources_read: 40
       concepts_learned: 85
       hours_studied: 8.0
-    notes: "Tópico COMPLETO! 40/40 fontes lidas. Domínio de: Tracking API, Model Registry, Autologging (sklearn/pytorch/tensorflow/xgboost), GenAI/LLM features (tracing, LLM judges, prompt registry), Deployment (Kubernetes, Docker, FastAPI, MLServer), CI/CD (GitHub Actions, GitLab), Production scaling (PostgreSQL, PgBouncer), PyTorch integration, Model flavors, Databricks/Unity Catalog."
-    started_at: "2026-03-10T19:25:00Z"
+    notes: "Tópico COMPLETO! 40/40 fontes lidas."
     completed_at: "2026-03-11T17:43:00Z"
   
   - id: "kubernetes"
@@ -204,7 +123,7 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 83
-      sources_read: 36
+      sources_read: 39
       concepts_learned:
         - "Control Plane Components"
         - "Node Components"
@@ -271,16 +190,38 @@ topics:
         - "Secrets"
         - "Secret Types"
         - "Secret Security Best Practices"
+        - "Service Types (ClusterIP, NodePort, LoadBalancer)"
+        - "Service Selectors and Endpoints"
+        - "Headless Services"
+        - "Ingress and IngressClass"
+        - "Ingress Path Types"
+        - "TLS Termination"
+        - "NetworkPolicy Ingress/Egress"
+        - "NetworkPolicy Selectors"
+        - "Default Deny Policies"
+        - "Node Management"
+        - "Node Conditions"
+        - "Node Controller"
+        - "Node Heartbeats"
+        - "Garbage Collection"
+        - "Owner References"
+        - "Cascading Deletion"
+        - "Finalizers"
+        - "Container/Image GC"
+        - "kube-scheduler"
+        - "Scheduling Filtering and Scoring"
+        - "Scheduling Profiles"
+        - "Node Affinity and Anti-Affinity"
       categories_progress:
-        fundamentals: { read: 11, total: 22 }
+        fundamentals: { read: 17, total: 22 }
         security: { read: 8, total: 7, complete: true }
-        networking: { read: 5, total: 7 }
+        networking: { read: 8, total: 7, complete: true }
         storage: { read: 4, total: 7 }
         rbac: { read: 4, total: 6 }
         mlops: { read: 1, total: 9 }
         patterns: { read: 3, total: 4 }
-        architecture: { read: 2, total: 4 }
-    notes: "Em progresso. 33/83 fontes lidas (40%). Cobertura: Security completo (8/7), Fundamentos bem avançado (11/22). Foco atual: Networking, Storage, RBAC. Docs oficiais Kubernetes processadas."
+        architecture: { read: 5, total: 4, complete: true }
+    notes: "Em progresso. 39/83 fontes lidas (47%). Categorias completas: Security (8/7), Networking (8/7), Architecture (5/4). Docs oficiais K8s processadas."
     started_at: "2026-03-11T18:45:00Z"
     last_updated: "2026-03-11T20:15:00Z"
 
@@ -305,8 +246,3 @@ patterns: []
 # SÍNTESES CRIADAS
 # ========================================
 syntheses: []
-
-# ========================================
-# PRÓXIMOS TÓPICOS
-# ========================================
-# Adicionados conforme necessário

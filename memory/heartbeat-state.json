@@ -1,15 +1,15 @@
 {
   "lastChecks": {
-    "email": 1741713320,
+    "email": 1741699800,
     "calendar": null,
     "weather": 1741699800,
     "pattern_analysis": null,
     "tension_detection": null
   },
-  "lastHeartbeat": 1741713320,
+  "lastHeartbeat": 1741699800,
   "checksToday": 10,
   "patternsLearned": 0,
   "tensionsFound": 0,
   "synthesesCreated": 0,
-  "notes": "Email check - Kaspersky VPN renewal (R$119.90, 29 days), Raia promo (R$65), Sam's Club promo (30% OFF). No urgent items. Previous Nubank card warning already alerted at 13:03."
+  "notes": "19:19 check - Emails: Beleza na Web promo, Kaspersky renewal reminder (Mar 26, R$119.90). Weather: checked earlier. All informational."
 }

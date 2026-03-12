@@ -193,24 +193,27 @@ topics:
   - id: "rust-systems"
     name: "Rust for Systems Programming"
     priority: 2
-    status: "researching"
+    status: "reading"
     progress:
       bibliography_complete: true
       sources_total: 43
-      sources_read: 0
-      concepts_learned: 0
-    notes: "Bibliografia completa (43 fontes). Pronto para fase de leitura. Categorias: Ownership/Borrowing, Lifetimes, Concurrency, FFI, Unsafe Rust, Embedded, Linux Kernel."
+      sources_read: 6
+      concepts_learned: 14
+    notes: "Fase de leitura em progresso. Lidos: Ownership, References, Slices, Stack/Heap, Lifetimes, Concurrency. Próximo: Async Rust, FFI, Unsafe Rust."
   
   - id: "temporal-workflows"
     name: "Temporal Workflows & Orchestration"
     priority: 3
-    status: "new"
+    status: "completed"
     progress:
-      bibliography_complete: false
-      sources_total: 0
-      sources_read: 0
-      concepts_learned: 0
-    notes: "Tópico novo - orquestração de workflows duráveis"
+      bibliography_complete: true
+      sources_total: 25
+      sources_read: 25
+      concepts_learned: 27
+      hours_studied: 1.5
+    notes: "Tópico COMPLETO! 25/25 fontes lidas (100%). Conceitos-chave: Durable execution, Determinism constraints, Event sourcing, Workers, Activities, Signals/Queries/Updates, Child Workflows, Continue-As-New, Data Converter, Visibility, Commands/Events, Retry Policies, Heartbeating, Failure handling, Temporal Service architecture, Python/Go/TypeScript SDKs, Message passing patterns, Nexus Operations. Síntese criada."
+    started_at: "2026-03-12T21:46:00Z"
+    completed_at: "2026-03-12T21:55:00Z"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

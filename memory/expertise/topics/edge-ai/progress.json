@@ -1,0 +1,71 @@
+{
+  "topic": "edge-ai",
+  "status": "reading",
+  "priority": 2,
+  "created": "2026-03-10",
+  "lastUpdated": "2026-03-12T19:25:00Z",
+  "bibliographyComplete": true,
+  "sourcesRead": 8,
+  "totalSources": 66,
+  "keyConceptsLearned": [
+    "Edge AI vs Cloud AI: Local processing for low latency, privacy, bandwidth optimization",
+    "Model Compression: Pruning (remove redundant weights), Quantization (FP32→INT8), Knowledge Distillation",
+    "Hardware Accelerators: NPU (edge, real-time), TPU (cloud, training), FPGA (reconfigurable)",
+    "Frameworks: TensorFlow Lite (LiteRT), ONNX Runtime, OpenVINO (Intel), TensorRT (NVIDIA)",
+    "Federated Learning: Privacy-preserving distributed training, Cloud-Edge-End architecture",
+    "Edge Devices: Jetson (NVIDIA), Edge TPU (Google), Intel NPU, mobile devices",
+    "LLM/VLM on Edge: Running Llama, GPT models on Jetson devices",
+    "NPU vs TPU: NPU for edge/real-time, TPU for cloud/batch training",
+    "Optimization Triad: Data, Model, System optimization for edge deployment"
+  ],
+  "sourcesByPhase": {
+    "phase1_foundations": {
+      "total": 15,
+      "read": 8,
+      "sources": [
+        "002-arxiv-optimizing-edge-ai-triad.md",
+        "003-ultralytics-applications.md",
+        "004-nvidia-jetson-llm-vlm.md",
+        "005-ultralytics-pruning-quantization.md",
+        "006-intel-openvino-overview.md",
+        "007-mdpi-federated-learning-architectures.md",
+        "008-wevolver-npu-vs-tpu.md"
+      ],
+      "status": "in_progress"
+    },
+    "phase2_optimization": {
+      "total": 10,
+      "read": 0,
+      "sources": [],
+      "status": "pending"
+    },
+    "phase3_hardware": {
+      "total": 15,
+      "read": 1,
+      "sources": ["008-wevolver-npu-vs-tpu.md"],
+      "status": "in_progress"
+    },
+    "phase4_federated": {
+      "total": 8,
+      "read": 1,
+      "sources": ["007-mdpi-federated-learning-architectures.md"],
+      "status": "pending"
+    },
+    "phase5_applications": {
+      "total": 18,
+      "read": 1,
+      "sources": ["003-ultralytics-applications.md"],
+      "status": "pending"
+    }
+  },
+  "currentPhase": "phase1_foundations",
+  "nextSourceToRead": "Knowledge distillation techniques for model compression",
+  "notes": [
+    "Bibliography complete - 66+ sources catalogued",
+    "Phase 1 in progress - reading foundational papers and documentation",
+    "Key insights gathered on edge AI architecture, optimization, and deployment",
+    "Need to continue with model optimization and hardware details"
+  ],
+  "timeSpentMinutes": 15,
+  "estimatedCompletion": "2026-03-12"
+}

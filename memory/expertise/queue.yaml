@@ -185,9 +185,9 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 66
-      sources_read: 28
-      concepts_learned: 35
-    notes: "Bibliografia completa. Fase de leitura em progresso. 28 fontes lidas (42%). Conceitos-chave: TinyML, MCUNet, MobileNetV3, QAT, Pruning, Knowledge Distillation, NAS, CMSIS-NN, ONNX, OpenVINO, NPU, Edge TPU, Federated Learning. Foco atual: Hardware accelerators e distributed learning."
+      sources_read: 39
+      concepts_learned: 41
+    notes: "Bibliografia completa. Fase de leitura em progresso. 39 fontes lidas (59%). Conceitos-chave: TinyML, EON Compiler (RAM optimization 25-65%), AI Accelerators (NPU 10-20 TOPS/W, TPU, VPU, GPU), Edge-Cloud Hybrid patterns, Federated Learning (MEC-AI HetFL), Adaptive split computing (63% latency reduction), CMSIS-NN, ONNX, OpenVINO. Foco atual: Distributed learning patterns e more federated learning."
     started_at: "2026-03-12T19:15:00Z"
   
   - id: "rust-systems"

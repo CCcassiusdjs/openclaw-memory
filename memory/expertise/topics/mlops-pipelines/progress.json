@@ -2,17 +2,17 @@
   "topic": "mlops-pipelines",
   "status": "reading",
   "sources_total": 44,
-  "sources_read": 13,
-  "current_source": "034 - MLtraq Benchmark",
-  "last_updated": "2026-03-12T17:02:00Z",
+  "sources_read": 15,
+  "current_source": "002 - ML-ops Principles",
+  "last_updated": "2026-03-12T17:05:00Z",
   "notes": [
-    "2026-03-12: 13/44 sources completed (29.5%)",
-    "New source: Experiment Tracking Tools Comparison (MLflow, DVC, ClearML, TensorBoard, W&B, Comet)",
-    "Key concepts: Auto-logging, model registry, collaboration features, Git-based tracking"
+    "2026-03-12: 15/44 sources completed (34.1%)",
+    "New sources: Prefect vs Airflow vs ZenML, MLOps Pipeline Overview",
+    "Key concepts: Workflow orchestration comparison, artifact versioning, scheduling, MLOps pipeline types, components, best practices"
   ],
   "categories": {
-    "fundamentals": { "read": 1, "total": 5 },
-    "orchestration": { "read": 2, "total": 5 },
+    "fundamentals": { "read": 2, "total": 5 },
+    "orchestration": { "read": 3, "total": 5 },
     "cicd": { "read": 1, "total": 5 },
     "mlflow": { "read": 1, "total": 5 },
     "feature_stores": { "read": 2, "total": 5 },
@@ -22,5 +22,5 @@
     "kubeflow": { "read": 2, "total": 5 },
     "academic": { "read": 0, "total": 1 }
   },
-  "completion_percentage": 29.5
+  "completion_percentage": 34.1
 }

@@ -5,16 +5,16 @@
   "phaseName": "Foundations",
   "startedAt": "2026-03-10",
   "lastUpdated": "2026-03-12",
-  "sourcesRead": 25,
+  "sourcesRead": 28,
   "totalSources": 66,
-  "completionPercent": 38,
-  "currentFocus": "Model compression and edge compilers",
+  "completionPercent": 42,
+  "currentFocus": "Hardware accelerators and federated learning",
   "sourcesByCategory": {
     "surveys": 4,
     "frameworks": 7,
     "papers": 7,
-    "hardware": 2,
-    "optimization": 5
+    "hardware": 4,
+    "optimization": 6
   },
   "keyInsights": [
     "TinyML enables ML on MCUs with <1mW power",
@@ -28,22 +28,25 @@
     "Model pruning can achieve 50%+ size reduction with <1% accuracy drop",
     "Knowledge distillation transfers reasoning from teacher to student",
     "ONNX Runtime provides dynamic/static quantization for edge deployment",
-    "OpenVINO is Intel's toolkit for optimized inference on Intel hardware"
+    "OpenVINO is Intel's toolkit for optimized inference on Intel hardware",
+    "NPU is specialized hardware for ML inference with high efficiency",
+    "Edge TPU (Google Coral) provides 4 TOPS at 2W for edge inference",
+    "Federated Learning enables distributed training without sharing raw data"
   ],
   "recentlyRead": [
+    "028-federated-learning-edge.md",
+    "027-tpu-edge-tpu.md",
+    "026-npu-neural-processing-unit.md",
     "025-openvino-intel-toolkit.md",
     "024-onnx-runtime-quantization.md",
     "023-knowledge-distillation.md",
     "022-model-pruning-guide.md",
-    "021-nas-tinyml-edge.md",
-    "020-cmsis-nn-library.md",
-    "019-quantization-aware-training.md",
-    "018-mobilenetv3-efficient-edge.md"
+    "021-nas-tinyml-edge.md"
   ],
   "nextToRead": [
-    "Edge hardware accelerators (NPU, TPU)",
-    "Federated learning for edge",
-    "Privacy-preserving edge AI",
-    "Real-time inference optimization"
+    "Edge deployment patterns",
+    "Real-time inference optimization",
+    "Edge-cloud hybrid architectures",
+    "Security in edge AI systems"
   ]
 }

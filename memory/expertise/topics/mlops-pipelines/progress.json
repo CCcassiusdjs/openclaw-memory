@@ -2,25 +2,25 @@
   "topic": "mlops-pipelines",
   "status": "reading",
   "sources_total": 44,
-  "sources_read": 15,
-  "current_source": "002 - ML-ops Principles",
-  "last_updated": "2026-03-12T17:05:00Z",
+  "sources_read": 17,
+  "current_source": "005 - MLOps Best Practices Clarifai",
+  "last_updated": "2026-03-12T17:08:00Z",
   "notes": [
-    "2026-03-12: 15/44 sources completed (34.1%)",
-    "New sources: Prefect vs Airflow vs ZenML, MLOps Pipeline Overview",
-    "Key concepts: Workflow orchestration comparison, artifact versioning, scheduling, MLOps pipeline types, components, best practices"
+    "2026-03-12: 17/44 sources completed (38.6%)",
+    "New sources: ML Orchestration Tools Comparison (Monte Carlo), Feast vs Tecton vs Hopsworks",
+    "Key concepts: Orchestration tools comparison (6 tools), feature stores deep dive (philosophies, architectures, performance)"
   ],
   "categories": {
     "fundamentals": { "read": 2, "total": 5 },
-    "orchestration": { "read": 3, "total": 5 },
+    "orchestration": { "read": 4, "total": 5 },
     "cicd": { "read": 1, "total": 5 },
     "mlflow": { "read": 1, "total": 5 },
-    "feature_stores": { "read": 2, "total": 5 },
+    "feature_stores": { "read": 3, "total": 5 },
     "monitoring": { "read": 2, "total": 5 },
     "experiment_tracking": { "read": 2, "total": 4 },
     "dvc": { "read": 1, "total": 4 },
     "kubeflow": { "read": 2, "total": 5 },
     "academic": { "read": 0, "total": 1 }
   },
-  "completion_percentage": 34.1
+  "completion_percentage": 38.6
 }

@@ -185,9 +185,9 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 66
-      sources_read: 11
-      concepts_learned: 12
-    notes: "Bibliografia completa. Fase de leitura em progresso. 11 fontes lidas com conceitos fundamentais assimilados: Model Compression (Pruning, Quantization, Distillation), Hardware Accelerators (NPU, TPU), Frameworks (TensorFlow Lite, ONNX Runtime, OpenVINO), Federated Learning."
+      sources_read: 21
+      concepts_learned: 25
+    notes: "Bibliografia completa. Fase de leitura em progresso. 21 fontes lidas (32%). Conceitos-chave: TinyML, MCUNet (TinyNAS+TinyEngine), MobileNetV3, Quantization-Aware Training (QAT), CMSIS-NN, Neural Architecture Search for Edge, TensorFlow Lite Micro, Edge optimization techniques."
     started_at: "2026-03-12T19:15:00Z"
   
   - id: "rust-systems"

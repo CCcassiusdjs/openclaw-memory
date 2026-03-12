@@ -1,218 +1,158 @@
-# MLOps Concepts for AI/ML Workflows - Azure AKS
+# MLOps Concepts for AI Workflows - AKS
 
-**Fonte:** Microsoft Learn - https://learn.microsoft.com/en-us/azure/aks/concepts-machine-learning-ops
-**Data:** Outubro 2024
-**Tópico:** MLOps Concepts, DevOps Principles, CI/CD, IaC
-**Status:** Lido
+**Fonte:** https://learn.microsoft.com/en-us/azure/aks/concepts-machine-learning-ops
+**Tipo:** Documentação
+**Data:** 2026-03-12
 
 ---
 
-## Resumo Executivo
+## Resumo
 
-Conceitos fundamentais de MLOps para workflows de AI/ML no AKS, detalhando princípios DevOps aplicados (automação, CI/CD, source control, IaC) e o papel de diferentes times.
+Documentação oficial da Microsoft sobre conceitos de MLOps: pipeline, DevOps principles, automation, CI/CD e IaC.
 
 ---
 
 ## O que é MLOps?
 
-### Definição
-- **Machine Learning Operations**: Práticas para colaboração entre data scientists, IT ops, e business stakeholders
-- **Objetivo**: Desenvolver, deployar e manter modelos ML eficientemente
-- **Origem**: Aplicação de princípios DevOps para ML
+MLOps engloba práticas que facilitam colaboração entre:
+- **Data scientists** → Training (inner loop)
+- **ML engineers** → Packaging, deployment (outer loop)
+- **IT operations** → Infrastructure, monitoring (outer loop)
+- **Business stakeholders** → Requirements, metrics
 
-### Ciclo de Vida
-```
-Training → Packaging → Validating → Deploying → Monitoring → Retraining
-     ↑                                                                  |
-     └────────────────────────────────────────────────────────────────┘
-```
+### MLOps Pipeline Components
+| Componente | Função |
+|------------|--------|
+| Unstructured data store | New data flowing in |
+| Vector database | Structured, pre-processed data |
+| Data ingestion framework | Indexing pipeline |
+| Retraining workflows | Model fine-tuning triggers |
+| Metrics collection | Performance tracking |
+| Lifecycle management | Model versioning, deployment |
+
+---
+
+## DevOps + MLOps
+
+### Três Processos Essenciais
+1. **ML Workloads:** EDA, feature engineering, training (data scientist)
+2. **Software Development:** Planning, testing, packaging (ML engineer)
+3. **Operations:** Releasing, configuring, monitoring (IT ops)
 
 ### Inner Loop vs Outer Loop
-- **Inner Loop**: Data scientists (training, experimentation)
-- **Outer Loop**: ML engineers, IT ops (deployment, monitoring)
-- **Feedback Loop**: Retraining quando necessário
-
----
-
-## Pipeline de MLOps
-
-### Componentes
-
-1. **Unstructured data store**: Dados brutos chegando
-2. **Vector database**: Dados processados/embeddings
-3. **Data ingestion/indexing**: Framework de processamento
-4. **Vector ingestion/retraining workflows**: Pipelines
-5. **Metrics collection/alerting**: Monitoramento
-6. **Lifecycle management**: Governança
-
----
-
-## DevOps Principles para MLOps
-
-### 1. Automação
-
-#### Benefícios
-- Reduz erros manuais
-- Aumenta eficiência
-- Garante consistência
-
-#### Automações Possíveis
-- Model tuning/retraining em intervalos regulares
-- Performance degradation → retraining triggers
-- CVE scanning em base images
-
-### 2. Continuous Integration (CI)
-
-#### Cobertura
-- **Creating**: Código e modelo
-- **Verifying**: Qualidade e performance
-
-#### Atividades CI
-- Refactoring Jupyter notebooks → Python scripts
-- Validating new input data
-- Unit testing e integration testing
-
-#### Ferramentas
-- Azure Pipelines
-- GitHub Actions
-- GitLab CI
-
-### 3. Continuous Delivery (CD)
-
-#### Processo
-1. Package model → pre-production (dev/test)
-2. Validação em environments
-3. Aprovação → production
-
-#### Considerações para LLMs
-- Portabilidade de parameters/hyperparameters
-- Model artifacts versionados
-- Lightweight containers para updates
-
-### 4. Source Control
-
-#### Versionamento
-- **Data versioning**: Datasets
-- **Code versioning**: Código fonte
-- **Model versioning**: Modelos treinados
-
-#### Ferramentas
-- Azure Repos
-- GitHub repositories
-- Git-based versioning
-
-### 5. Agile Planning
-
-#### Práticas
-- Sprints curtos
-- Tasks bem definidas
-- Entregas incrementais
-
-#### Ferramentas
-- Azure Boards
-- GitHub Issues
-
-### 6. Infrastructure as Code (IaC)
-
-#### Aplicações
-- Definir recursos Azure em código
-- Version control de infraestrutura
-- Resource optimization
-- Cost-effectiveness
-
-#### Benefícios
-- Reproducibility
-- Consistency
-- Audit trail
-
----
-
-## Papéis e Responsabilidades
-
-| Role | Inner Loop | Outer Loop |
-|------|------------|------------|
-| **Data Scientists** | EDA, Feature Engineering, Training | - |
-| **ML Engineers** | - | Packaging, Validation |
-| **IT Operations** | - | Deploying, Monitoring |
-
-### Colaboração
-- Cross-functional teams
-- Git-based workflows
-- Shared responsibility
-
----
-
-## Arquitetura de MLOps no AKS
-
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  Source Control                      │
-│  (Azure Repos, GitHub)                              │
-├─────────────────────────────────────────────────────┤
-│                  CI/CD Pipeline                      │
-│  (Azure Pipelines, GitHub Actions)                 │
-├─────────────────────────────────────────────────────┤
-│                  Container Registry                 │
-│  (Azure Container Registry, Docker Hub)            │
-├─────────────────────────────────────────────────────┤
-│                  AKS Cluster                        │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐   │
-│  │ Dev Namespace│ │ Test Namespace│ │ Prod Namespace│ │
-│  └─────────────┘ └─────────────┘ └─────────────┘   │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐   │
-│  │ Model Pods  │ │ GPU Nodes   │ │ Storage     │   │
-│  └─────────────┘ └─────────────┘ └─────────────┘   │
-├─────────────────────────────────────────────────────┤
-│                  Monitoring                         │
-│  (Prometheus, Grafana, Azure Monitor)              │
+│                  INNER LOOP (Data Scientist)        │
+│  ┌─────────┐   ┌─────────────┐   ┌─────────────┐  │
+│  │   EDA   │ → │   Feature   │ → │  Training &  │  │
+│  │         │   │ Engineering │   │   Tuning    │  │
+│  └─────────┘   └─────────────┘   └─────────────┘  │
+└─────────────────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────┐
+│                 OUTER LOOP (ML Engineer + IT)       │
+│  ┌──────────┐   ┌───────────┐   ┌──────────────┐   │
+│  │ Package  │ → │ Validate  │ → │    Deploy    │   │
+│  └──────────┘   └───────────┘   └──────────────┘   │
+│  ┌──────────┐   ┌───────────┐   ┌──────────────┐   │
+│  │ Monitor  │ → │  Retrain  │ → │   Feedback   │   │
+│  └──────────┘   └───────────┘   └──────────────┘   │
 └─────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## MLOps Pipeline Detalhado
+## DevOps Principles Applied
 
-### Data Stage
-- Ingestion from multiple sources
-- Validation e cleaning
-- Feature engineering
+### Automation
+| Task | Automation Opportunity |
+|------|-------------------------|
+| Model tuning/retraining | Time intervals or data thresholds |
+| Performance degradation | Trigger fine-tuning |
+| CVE scanning | Base container images from registries |
 
-### Training Stage
-- Experiment tracking
-- Hyperparameter tuning
-- Model selection
+### Continuous Integration (CI)
+- Refactoring notebooks → Python/R scripts
+- Validating input data (missing/error values)
+- Unit testing + integration testing
 
-### Validation Stage
-- Unit tests
-- Integration tests
-- Performance benchmarks
+**Tools:** Azure Pipelines, GitHub Actions
 
-### Deployment Stage
-- Containerization
-- Staging deployment
-- Production rollout
+### Continuous Delivery (CD)
+1. Package model in pre-production (dev, test)
+2. Maintain portability of parameters/hyperparameters
+3. QA testing → Approve for production
 
-### Monitoring Stage
-- Model performance metrics
-- Data drift detection
-- Alerting
+**Important for LLMs:** Model artifact portability
 
-### Retraining Stage
-- Triggered by metrics
-- Automated pipelines
-- Model updates
+### Source Control
+| Type | Tool |
+|------|------|
+| Data versioning | Git-based systems |
+| Code versioning | Azure Repos, GitHub |
+| Model versioning | Model Registry |
+
+### Agile Planning
+- Isolate work into sprints
+- Scope the project
+- Enable team alignment
+
+**Tools:** Azure Boards, GitHub Issues
+
+### Infrastructure as Code (IaC)
+- Define Azure resources in code
+- Version control infrastructure
+- Optimize for cost, performance
+- Templates for specific job types
 
 ---
 
-## Insights para Kubernetes
+## MLOps Pipeline Best Practices
 
-1. **DevOps + ML = MLOps**: Aplicação direta de princípios
-2. **Inner/Outer Loop**: Separação clara de responsabilidades
-3. **CI/CD é crítico**: Automação de todo o ciclo
-4. **IaC para recursos ML**: Especificação em código
-5. **Source control triplo**: Data, code, model
+### Reduce Overhead
+- Automate data collection
+- Standardize model training
+- Streamline deployment
+- Enable faster iteration
+
+### Key Metrics
+- Model performance
+- Volume of ingested data
+- Resource utilization
+- Cost efficiency
 
 ---
 
-## Palavras-Chave
-`mlops` `devops` `cicd` `infrastructure-as-code` `source-control` `agile` `automation` `model-lifecycle`
+## Insights
+
+### ML vs Traditional DevOps
+| Aspect | Traditional | MLOps |
+|--------|-------------|-------|
+| Code | Static | Dynamic (data) |
+| Testing | Unit/integration | + Model validation |
+| Deployment | Application | + Model artifacts |
+| Monitoring | Performance | + Data drift |
+
+### Inner/Outer Loop Pattern
+- **Inner:** Experimental, iterative (notebooks)
+- **Outer:** Production-ready (scripts, pipelines)
+- **Feedback loop:** Monitoring → Retraining triggers
+
+---
+
+## Conceitos-Chave Extraídos
+
+| Conceito | Descrição |
+|----------|-----------|
+| Inner Loop | Data scientist work: EDA, training |
+| Outer Loop | ML engineer work: packaging, deploy, monitor |
+| MLOps Pipeline | Components for end-to-end ML lifecycle |
+| Model Portability | Artifact portability across environments |
+| Automation Triggers | Retraining on time/data thresholds |
+
+---
+
+## Referências
+
+- Azure DevOps: https://azure.microsoft.com/products/devops/repos/
+- Azure Boards: https://learn.microsoft.com/en-us/azure/devops/boards/

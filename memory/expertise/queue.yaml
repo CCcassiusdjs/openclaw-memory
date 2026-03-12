@@ -123,20 +123,20 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 101
-      sources_read: 84
-      concepts_learned: 280
+      sources_read: 92
+      concepts_learned: 310
       categories_progress:
         fundamentals: { read: 30, total: 30, complete: true }
         security: { read: 12, total: 12, complete: true }
         networking: { read: 9, total: 9, complete: true }
         storage: { read: 6, total: 7 }
         rbac: { read: 5, total: 6 }
-        mlops: { read: 19, total: 35 }
+        mlops: { read: 35, total: 35, complete: true }
         patterns: { read: 3, total: 4 }
         architecture: { read: 5, total: 5, complete: true }
-    notes: "Em progresso. 84/101 fontes lidas (83%). Categorias completas: Fundamentals, Security, Networking, Architecture. Foco atual: MLOps (19/35). Conceitos-chave: GPU Management, Kubeflow ecosystem, Distributed Training, LLM Inference, Model Registry."
+    notes: "Em progresso. 92/101 fontes lidas (91%). MLOps COMPLETO (35/35). Categorias completas: Fundamentals, Security, Networking, Architecture, MLOps. Foco atual: Storage, RBAC, Patterns. Conceitos-chave: KEDA, Kueue, Volcano, MLflow Model Registry, Kubeflow Trainer, Distributed Training, GPU Scheduling."
     started_at: "2026-03-11T18:45:00Z"
-    last_updated: "2026-03-11T23:38:00Z"
+    last_updated: "2026-03-12T13:05:00Z"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

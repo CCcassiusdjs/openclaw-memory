@@ -1,0 +1,43 @@
+{
+  "topic": "rust-systems",
+  "status": "reading",
+  "priority": 2,
+  "created": "2026-03-12T21:35:00Z",
+  "lastUpdated": "2026-03-12T21:45:00Z",
+  "sources": {
+    "total": 43,
+    "completed": 6,
+    "inProgress": 0
+  },
+  "bibliographyComplete": true,
+  "currentPhase": "reading",
+  "notes": [
+    "Completed comprehensive bibliography search",
+    "Found 43 sources across 14 categories",
+    "Reading phase in progress: Ownership, References, Slices, Stack/Heap, Lifetimes, Concurrency"
+  ],
+  "keyConcepts": [
+    "Ownership model (3 rules)",
+    "Move semantics vs Copy trait",
+    "References & Borrowing",
+    "Mutable references (one at a time)",
+    "Non-lexical lifetimes (NLL)",
+    "Slices (&str, &[T])",
+    "Stack frames (LIFO)",
+    "Heap allocation (Box<T>)",
+    "Drop trait (RAII)",
+    "Lifetimes ('a notation)",
+    "Lifetime elision rules",
+    "Mutex<T> and MutexGuard",
+    "Arc<T> vs Rc<T>",
+    "Send and Sync traits"
+  ],
+  "sourcesRead": [
+    "001-rust-book-ownership.md",
+    "002-rust-book-references-borrowing.md",
+    "003-rust-book-slices.md",
+    "004-stack-and-heap.md",
+    "005-lifetimes.md",
+    "006-shared-state-concurrency.md"
+  ]
+}

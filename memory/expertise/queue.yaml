@@ -193,13 +193,13 @@ topics:
   - id: "rust-systems"
     name: "Rust for Systems Programming"
     priority: 2
-    status: "new"
+    status: "researching"
     progress:
-      bibliography_complete: false
-      sources_total: 0
+      bibliography_complete: true
+      sources_total: 43
       sources_read: 0
       concepts_learned: 0
-    notes: "Tópico novo - linguagem moderna para sistemas de alta performance"
+    notes: "Bibliografia completa (43 fontes). Pronto para fase de leitura. Categorias: Ownership/Borrowing, Lifetimes, Concurrency, FFI, Unsafe Rust, Embedded, Linux Kernel."
   
   - id: "temporal-workflows"
     name: "Temporal Workflows & Orchestration"

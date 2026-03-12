@@ -3,11 +3,11 @@
   "status": "reading",
   "priority": 2,
   "created": "2026-02-24T00:00:00Z",
-  "last_updated": "2026-03-12T23:06:00Z",
+  "last_updated": "2026-03-12T23:08:00Z",
   "sources_total": 66,
-  "sources_read": 50,
+  "sources_read": 53,
   "sources_in_progress": 0,
-  "sources_completed": 50,
+  "sources_completed": 53,
   "key_concepts_learned": [
     "TinyML definition and scope",
     "Edge AI hardware platforms (MCU, SBC, GPU boards)",
@@ -58,7 +58,10 @@
     "TinyML to TinyDL transition",
     "Low-bit quantization for LLMs (Ladder, T-MAC, LUT Tensor Core)",
     "Edge AI optimization triad (data-model-system)",
-    "Edge inference optimization methods (design, compression, compilation, collaboration)"
+    "Edge inference optimization methods (design, compression, compilation, collaboration)",
+    "MCUNet: TinyNAS + TinyEngine for MCU deployment",
+    "Model compression survey (shallow, deep, large model eras)",
+    "Edge intelligence DNN inference review"
   ],
   "reading_history": [
     {"date": "2026-02-24", "files": ["001-tinyml-overview.md", "002-edge-ai-hardware.md", "003-tensorflow-lite-micro.md"]},
@@ -84,6 +87,8 @@
     {"date": "2026-03-12", "files": ["042-onnx-runtime-overview.md", "043-openvino-intel-toolkit.md"]},
     {"date": "2026-03-12", "files": ["044-federated-learning-edge-ai-survey-2025.md", "045-cloud-edge-terminal-collaborative-intelligence.md"]},
     {"date": "2026-03-12", "files": ["046-tinyml-to-tinydl-survey-2025.md", "047-low-bit-quantization-llm-edge-microsoft.md"]},
-    {"date": "2026-03-12", "files": ["048-edge-ai-optimization-triad-survey-2025.md", "049-edge-inference-optimization-methods-survey-2025.md"]}
+    {"date": "2026-03-12", "files": ["048-edge-ai-optimization-triad-survey-2025.md", "049-edge-inference-optimization-methods-survey-2025.md"]},
+    {"date": "2026-03-12", "files": ["050-mcunet-tiny-nas-tinyengine.md", "051-model-compression-survey-2025.md"]},
+    {"date": "2026-03-12", "files": ["052-edge-intelligence-dnn-inference-review-2025.md"]}
   ]
 }

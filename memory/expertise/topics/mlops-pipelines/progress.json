@@ -2,25 +2,25 @@
   "topic": "mlops-pipelines",
   "status": "reading",
   "sources_total": 44,
-  "sources_read": 7,
-  "current_source": "016 - MLflow Model Registry",
-  "last_updated": "2026-03-12T16:53:00Z",
+  "sources_read": 10,
+  "current_source": "035 - DVC Documentation",
+  "last_updated": "2026-03-12T16:57:00Z",
   "notes": [
-    "2026-03-12: 7/44 sources completed (15.9%)",
-    "Sources: Google MLOps, Model Drift, MLflow vs W&B vs ZenML, Kubeflow Alternatives, ML Monitoring, Databricks CI/CD, Kubeflow vs Airflow vs Prefect",
-    "Key concepts: MLOps maturity levels, drift detection, orchestration tools deep comparison, CI/CD for ML"
+    "2026-03-12: 10/44 sources completed (22.7%)",
+    "New sources: MLflow Model Registry, Databricks Feature Store, Feature Store Comparison",
+    "Key concepts: Model versioning, aliases vs stages, feature stores, governance, online/offline serving"
   ],
   "categories": {
     "fundamentals": { "read": 1, "total": 5 },
     "orchestration": { "read": 2, "total": 5 },
     "cicd": { "read": 1, "total": 5 },
-    "mlflow": { "read": 0, "total": 5 },
-    "feature_stores": { "read": 0, "total": 5 },
+    "mlflow": { "read": 1, "total": 5 },
+    "feature_stores": { "read": 2, "total": 5 },
     "monitoring": { "read": 2, "total": 5 },
     "experiment_tracking": { "read": 1, "total": 4 },
     "dvc": { "read": 0, "total": 4 },
     "kubeflow": { "read": 1, "total": 5 },
     "academic": { "read": 0, "total": 1 }
   },
-  "completion_percentage": 15.9
+  "completion_percentage": 22.7
 }

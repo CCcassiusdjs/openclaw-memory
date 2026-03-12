@@ -3,11 +3,11 @@
   "status": "reading",
   "priority": 2,
   "created": "2026-02-24T00:00:00Z",
-  "last_updated": "2026-03-12T23:08:00Z",
+  "last_updated": "2026-03-12T23:09:00Z",
   "sources_total": 66,
-  "sources_read": 53,
+  "sources_read": 56,
   "sources_in_progress": 0,
-  "sources_completed": 53,
+  "sources_completed": 56,
   "key_concepts_learned": [
     "TinyML definition and scope",
     "Edge AI hardware platforms (MCU, SBC, GPU boards)",
@@ -61,7 +61,11 @@
     "Edge inference optimization methods (design, compression, compilation, collaboration)",
     "MCUNet: TinyNAS + TinyEngine for MCU deployment",
     "Model compression survey (shallow, deep, large model eras)",
-    "Edge intelligence DNN inference review"
+    "Edge intelligence DNN inference review",
+    "Edge AI security and privacy (DLG attacks, model inversion, membership inference)",
+    "Privacy-preserving techniques (differential privacy, homomorphic encryption, SMPC)",
+    "Edge learning survey (distributed, on-device, compression techniques)",
+    "PockEngine efficient on-device training"
   ],
   "reading_history": [
     {"date": "2026-02-24", "files": ["001-tinyml-overview.md", "002-edge-ai-hardware.md", "003-tensorflow-lite-micro.md"]},
@@ -89,6 +93,8 @@
     {"date": "2026-03-12", "files": ["046-tinyml-to-tinydl-survey-2025.md", "047-low-bit-quantization-llm-edge-microsoft.md"]},
     {"date": "2026-03-12", "files": ["048-edge-ai-optimization-triad-survey-2025.md", "049-edge-inference-optimization-methods-survey-2025.md"]},
     {"date": "2026-03-12", "files": ["050-mcunet-tiny-nas-tinyengine.md", "051-model-compression-survey-2025.md"]},
-    {"date": "2026-03-12", "files": ["052-edge-intelligence-dnn-inference-review-2025.md"]}
+    {"date": "2026-03-12", "files": ["052-edge-intelligence-dnn-inference-review-2025.md"]},
+    {"date": "2026-03-12", "files": ["053-edge-ai-security-privacy.md", "054-privacy-preserving-edge-ai-inference.md"]},
+    {"date": "2026-03-12", "files": ["055-edge-training-survey-2024.md", "056-pockengine-mit-on-device-training.md"]}
   ]
 }

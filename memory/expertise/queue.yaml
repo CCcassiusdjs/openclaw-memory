@@ -137,6 +137,66 @@ topics:
     notes: "Tópico COMPLETO! 101/101 fontes lidas (100%). Todas categorias completas: Fundamentals, Security, Networking, Storage, RBAC, MLOps, Patterns, Architecture. Conceitos-chave: GPU Management, Kubeflow ecosystem, Distributed Training, LLM Inference, Model Registry, KEDA, Kueue, Volcano, Kubernetes Patterns, StatefulSets, RBAC Implementation."
     started_at: "2026-03-11T18:45:00Z"
     completed_at: "2026-03-12T13:10:00Z"
+  
+  # ========================================
+  # NOVOS TÓPICOS (adicionados 2026-03-12)
+  # ========================================
+  - id: "llm-transformers"
+    name: "LLM & Transformers Architecture"
+    priority: 1
+    status: "researching"
+    progress:
+      bibliography_complete: true
+      sources_total: 37
+      sources_read: 0
+      concepts_learned: 0
+    notes: "Tópico novo - evolui ML Fundamentals para área de LLMs. Bibliografia completa."
+    started_at: "2026-03-12T14:05:00Z"
+    updated_at: "2026-03-12T14:10:00Z"
+  
+  - id: "mlops-pipelines"
+    name: "MLOps Pipelines & Automation"
+    priority: 1
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: 0
+      sources_read: 0
+      concepts_learned: 0
+    notes: "Tópico novo - complementa Kubernetes + MLflow para MLOps completo"
+  
+  - id: "edge-ai"
+    name: "Edge AI & Edge Computing"
+    priority: 2
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: 0
+      sources_read: 0
+      concepts_learned: 0
+    notes: "Tópico novo - complementa Digital Twins e ML para inferência em edge"
+  
+  - id: "rust-systems"
+    name: "Rust for Systems Programming"
+    priority: 2
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: 0
+      sources_read: 0
+      concepts_learned: 0
+    notes: "Tópico novo - linguagem moderna para sistemas de alta performance"
+  
+  - id: "temporal-workflows"
+    name: "Temporal Workflows & Orchestration"
+    priority: 3
+    status: "new"
+    progress:
+      bibliography_complete: false
+      sources_total: 0
+      sources_read: 0
+      concepts_learned: 0
+    notes: "Tópico novo - orquestração de workflows duráveis"
 
 # ========================================
 # HEURÍSTICAS APRENDIDAS

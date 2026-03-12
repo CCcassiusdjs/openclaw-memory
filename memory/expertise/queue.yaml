@@ -144,26 +144,30 @@ topics:
   - id: "llm-transformers"
     name: "LLM & Transformers Architecture"
     priority: 1
-    status: "researching"
+    status: "completed"
     progress:
       bibliography_complete: true
       sources_total: 37
-      sources_read: 0
-      concepts_learned: 0
-    notes: "Tópico novo - evolui ML Fundamentals para área de LLMs. Bibliografia completa."
+      sources_read: 37
+      concepts_learned: 150
+      hours_studied: 4.5
+    notes: "Tópico COMPLETO! 37/37 fontes lidas (100%). Conceitos-chave: Transformer architecture, Self-Attention, Multi-Head Attention, Positional Encoding (RoPE, ALiBi), Flash Attention, LoRA, Scaling Laws, GPT-3, BERT, LLaMA, Mistral, Encoder-Only, Decoder-Only, Encoder-Decoder architectures."
     started_at: "2026-03-12T14:05:00Z"
-    updated_at: "2026-03-12T14:10:00Z"
+    completed_at: "2026-03-12T16:41:00Z"
   
   - id: "mlops-pipelines"
     name: "MLOps Pipelines & Automation"
     priority: 1
-    status: "new"
+    status: "reading"
     progress:
-      bibliography_complete: false
-      sources_total: 0
-      sources_read: 0
-      concepts_learned: 0
-    notes: "Tópico novo - complementa Kubernetes + MLflow para MLOps completo"
+      bibliography_complete: true
+      sources_total: 44
+      sources_read: 7
+      concepts_learned: 45
+      hours_studied: 1.5
+    notes: "Bibliografia completa (44 fontes). 7/44 lidas (15.9%). Tópicos cobertos: MLOps maturity levels, drift detection, orchestration tools comparison, CI/CD for ML, monitoring."
+    started_at: "2026-03-12T16:44:00Z"
+    updated_at: "2026-03-12T16:53:00Z"
   
   - id: "edge-ai"
     name: "Edge AI & Edge Computing"

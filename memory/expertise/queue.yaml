@@ -185,9 +185,9 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 66
-      sources_read: 21
-      concepts_learned: 25
-    notes: "Bibliografia completa. Fase de leitura em progresso. 21 fontes lidas (32%). Conceitos-chave: TinyML, MCUNet (TinyNAS+TinyEngine), MobileNetV3, Quantization-Aware Training (QAT), CMSIS-NN, Neural Architecture Search for Edge, TensorFlow Lite Micro, Edge optimization techniques."
+      sources_read: 25
+      concepts_learned: 30
+    notes: "Bibliografia completa. Fase de leitura em progresso. 25 fontes lidas (38%). Conceitos-chave: TinyML, MCUNet, MobileNetV3, QAT, Pruning, Knowledge Distillation, NAS for Edge, CMSIS-NN, ONNX Runtime, OpenVINO. Foco atual: Model compression e edge compilers."
     started_at: "2026-03-12T19:15:00Z"
   
   - id: "rust-systems"

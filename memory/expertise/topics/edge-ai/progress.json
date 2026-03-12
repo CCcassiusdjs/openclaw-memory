@@ -5,16 +5,16 @@
   "phaseName": "Foundations",
   "startedAt": "2026-03-10",
   "lastUpdated": "2026-03-12",
-  "sourcesRead": 21,
+  "sourcesRead": 25,
   "totalSources": 66,
-  "completionPercent": 32,
-  "currentFocus": "TinyML frameworks and optimization",
+  "completionPercent": 38,
+  "currentFocus": "Model compression and edge compilers",
   "sourcesByCategory": {
     "surveys": 4,
-    "frameworks": 5,
+    "frameworks": 7,
     "papers": 7,
     "hardware": 2,
-    "optimization": 3
+    "optimization": 5
   },
   "keyInsights": [
     "TinyML enables ML on MCUs with <1mW power",
@@ -24,22 +24,26 @@
     "NAS for TinyML optimizes for memory/latency, not just accuracy",
     "MobileNetV3 is the reference backbone for edge vision tasks",
     "QAT maintains accuracy under aggressive quantization",
-    "CMSIS-NN is the standard kernel library for ARM Cortex-M TinyML"
+    "CMSIS-NN is the standard kernel library for ARM Cortex-M TinyML",
+    "Model pruning can achieve 50%+ size reduction with <1% accuracy drop",
+    "Knowledge distillation transfers reasoning from teacher to student",
+    "ONNX Runtime provides dynamic/static quantization for edge deployment",
+    "OpenVINO is Intel's toolkit for optimized inference on Intel hardware"
   ],
   "recentlyRead": [
+    "025-openvino-intel-toolkit.md",
+    "024-onnx-runtime-quantization.md",
+    "023-knowledge-distillation.md",
+    "022-model-pruning-guide.md",
     "021-nas-tinyml-edge.md",
     "020-cmsis-nn-library.md",
     "019-quantization-aware-training.md",
-    "018-mobilenetv3-efficient-edge.md",
-    "017-mcunet-tiny-engine.md",
-    "016-microsoft-edgeai-course.md",
-    "015-nature-tinyml-object-detection.md",
-    "014-mdpi-tinyml-overview.md"
+    "018-mobilenetv3-efficient-edge.md"
   ],
   "nextToRead": [
-    "Edge compilers and optimization",
-    "ONNX Runtime for edge",
-    "Model compression techniques",
-    "Knowledge distillation for edge"
+    "Edge hardware accelerators (NPU, TPU)",
+    "Federated learning for edge",
+    "Privacy-preserving edge AI",
+    "Real-time inference optimization"
   ]
 }

@@ -3,11 +3,11 @@
   "status": "reading",
   "priority": 2,
   "created": "2026-02-24T00:00:00Z",
-  "last_updated": "2026-03-12T22:01:00Z",
+  "last_updated": "2026-03-12T23:06:00Z",
   "sources_total": 66,
-  "sources_read": 38,
+  "sources_read": 50,
   "sources_in_progress": 0,
-  "sources_completed": 38,
+  "sources_completed": 50,
   "key_concepts_learned": [
     "TinyML definition and scope",
     "Edge AI hardware platforms (MCU, SBC, GPU boards)",
@@ -48,7 +48,17 @@
     "TOPS/TOPS/W performance metrics",
     "Memory bandwidth bottlenecks",
     "CPU vs GPU vs TPU vs NPU architecture comparison",
-    "Edge-cloud hybrid deployment patterns"
+    "Edge-cloud hybrid deployment patterns",
+    "Microsoft Edge AI for Beginners course structure",
+    "Edge Impulse NVIDIA Jetson deployment",
+    "ONNX Runtime cross-platform inference",
+    "OpenVINO Intel AI inference optimization",
+    "Federated learning for edge AI survey",
+    "Cloud-edge-terminal collaborative intelligence",
+    "TinyML to TinyDL transition",
+    "Low-bit quantization for LLMs (Ladder, T-MAC, LUT Tensor Core)",
+    "Edge AI optimization triad (data-model-system)",
+    "Edge inference optimization methods (design, compression, compilation, collaboration)"
   ],
   "reading_history": [
     {"date": "2026-02-24", "files": ["001-tinyml-overview.md", "002-edge-ai-hardware.md", "003-tensorflow-lite-micro.md"]},
@@ -69,6 +79,11 @@
     {"date": "2026-03-12", "files": ["031-nvidia-jetson-edge-impulse.md", "032-eon-compiler-ram-optimized.md"]},
     {"date": "2026-03-12", "files": ["033-tinyml-deployment-guide.md", "034-eon-tensor-deduplication.md"]},
     {"date": "2026-03-12", "files": ["035-ai-accelerators-comparison.md", "036-ai-hardware-architecture-guide.md"]},
-    {"date": "2026-03-12", "files": ["037-eon-compiler-official-docs.md", "038-edge-cloud-collaborative-computing.md"]}
+    {"date": "2026-03-12", "files": ["037-eon-compiler-official-docs.md", "038-edge-cloud-collaborative-computing.md"]},
+    {"date": "2026-03-12", "files": ["040-microsoft-edge-ai-beginners.md", "041-edge-impulse-jetson-deployment.md"]},
+    {"date": "2026-03-12", "files": ["042-onnx-runtime-overview.md", "043-openvino-intel-toolkit.md"]},
+    {"date": "2026-03-12", "files": ["044-federated-learning-edge-ai-survey-2025.md", "045-cloud-edge-terminal-collaborative-intelligence.md"]},
+    {"date": "2026-03-12", "files": ["046-tinyml-to-tinydl-survey-2025.md", "047-low-bit-quantization-llm-edge-microsoft.md"]},
+    {"date": "2026-03-12", "files": ["048-edge-ai-optimization-triad-survey-2025.md", "049-edge-inference-optimization-methods-survey-2025.md"]}
   ]
 }

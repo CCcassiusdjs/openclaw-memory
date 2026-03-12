@@ -1,233 +1,122 @@
-# MLflow Model Registry: Workflows, Benefits & Challenges
+# MLflow Model Registry - Resumo
 
-**Fonte:** https://lakefs.io/blog/mlflow-model-registry/
-**Autor:** lakeFS Blog
-**Status:** completed
-**Data Leitura:** 2026-03-12
-
----
-
-## 📋 Resumo Executivo
-
-Guia completo sobre MLflow Model Registry para gerenciamento de lifecycle de modelos. Explica componentes, workflows via UI e API, versioning, aliases, stages, e integração com lakeFS para data versioning.
+**Fonte:** https://mlflow.org/docs/latest/ml/model-registry/
+**Tipo:** Documentation
+**Data:** 2026-03-12
 
 ---
 
-## 🎯 O que é Model Registry?
+## 🎯 O que é MLflow Model Registry?
 
-**Definição:** Serviço do MLflow que permite gerenciar e trackear modelos ML, artifacts associados, com UI para navegação.
+**Centralized model store** + APIs + UI para gerenciar o **full lifecycle de ML models**:
+- Lineage (qual experiment/run produziu o modelo)
+- Versioning
+- Aliasing
+- Metadata tagging
+- Annotations
 
-### Componentes Principais
+## 📋 Por que Model Registry?
 
-1. **Centralized Model Store**: Área única para versionar, compartilhar e deployar modelos
-2. **APIs**: CRUD programático para modelos
-3. **GUI**: Interface visual para gerenciamento manual
+### Problemas sem Registry
+- Gerenciar models manualmente é error-prone
+- Diferentes environments, teams, iterations
+- Falta de traceabilidade
 
-### Os 4 Componentes do MLflow
+### Benefícios
 
-| Componente | Descrição |
-|------------|-----------|
-| **MLflow Tracking** | Trackear experimentos, código, dados, setup, outcomes |
-| **MLflow Projects** | Encapsular código independente de plataforma |
-| **MLflow Models** | Deployar modelos para serving environments |
-| **Model Registry** | Armazenar, anotar, encontrar, gerenciar modelos |
+| Benefício | Descrição |
+|-----------|-----------|
+| **🗂️ Version Control** | Track versions, rollback, parallel versions |
+| **🧬 Model Lineage** | Link to experiment/run, reproducibility |
+| **🚀 Production Workflows** | Aliases (@champion), tags para deployment |
+| **🛡️ Governance** | Metadata, tagging, role-based access |
 
----
+## 🔧 Concepts
 
-## 🔧 Quando Usar Model Registry?
+| Conceito | Descrição |
+|----------|-----------|
+| **Model** | Criado com `mlflow.<flavor>.log_model()` ou `mlflow.create_external_model()` |
+| **Registered Model** | Model registrado com nome único, versions, aliases, tags |
+| **Model Version** | Versão específica de um registered model (version 1, 2, 3...) |
+| **Model URI** | `models:/<model-name>/<model-version>` ou `models:/<model-name>@<alias>` |
+| **Model Alias** | Named reference para uma version (ex: @champion) |
+| **Tags** | Key-value pairs para categorizar models e versions |
+| **Annotations** | Markdown descriptions com info adicional |
 
-- Monitorar múltiplas iterações de modelo
-- Trackear versões em múltiplos ambientes
-- Avaliar performance de iterações ao longo do tempo
-- Streamlining deployment para staging/production
+## 🚀 Model Registry in Practice
 
----
-
-## 📦 Funcionalidades
-
-### Model Registration
-- Nome único para cada registered model
-- Tags, aliases, versions, metadata
-
-### Version of the Model
-- Cada modelo pode ter múltiplas versões
-- Versão 1 para novo modelo, incrementa com cada registro
-- Tags por versão (ex: pre_deploy_checks: "PASSED")
-
-### Model Aliases
-- Referência nomeada e mutável para versão específica
-- Útil para deployment (ex: "champion" → production)
-- Reassign alias = upgrade production sem mudar código
-
-### Descriptions e Annotations
-- Markdown para top-level model e cada versão
-- Dataset, algorithm, approach documentation
-
----
-
-## 🔄 Workflows
-
-### UI Workflow
-
-#### Register a Model
-1. Abrir MLflow Run details
-2. Artifacts section → escolher model folder
-3. Click "Register Model"
-4. Opções: Create New Model ou Select Existing
-
-#### Locate Registered Models
-- Registered Models page para ver modelos e versões
-- Artifacts section → model folder → model version
-
-#### Deploy and Organize
-- Aliases e tags na overview page
-- Click pencil ou Add link para modificar
-
-### API Workflow
-
-#### Registrar Modelos Programaticamente
+### OSS MLflow
 
 ```python
-# Método 1: log_model()
-mlflow.log_model(model, "model_name", registered_model_name="MyModel")
+# Option 1: specify registered_model_name when logging
+mlflow.<flavor>.log_model(..., registered_model_name="MyModel")
 
-# Método 2: register_model()
-mlflow.register_model("runs:/run-id/model", "MyModel")
+# Option 2: register a logged model
+mlflow.register_model(model_uri="runs:/<run-id>/model", name="MyModel")
 
-# Método 3: create_registered_model()
-client = MlflowClient()
-client.create_registered_model("MyModel")
+# Load model
+mlflow.<flavor>.load_model("models:/MyModel/1")
+
+# Use alias
+mlflow.<flavor>.load_model("models:/MyModel@champion")
 ```
 
-#### Carregar Modelos
+### Databricks Unity Catalog Integration
+
+**Benefits:**
+- 🛡️ Enhanced governance (access policies)
+- 🌐 Cross-workspace access
+- 🔗 Model lineage
+- 🔍 Discovery and reuse
 
 ```python
-# Por versão
-model = mlflow.pyfunc.load_model("models:/MyModel/1")
+# Set tracking uri to Databricks
+mlflow.set_tracking_uri("databricks")
 
-# Por alias
-model = mlflow.pyfunc.load_model("models:/MyModel/champion")
+# Register to Unity Catalog
+mlflow.<flavor>.log_model(..., registered_model_name="catalog.schema.model_name")
 ```
 
----
+## 📊 Model Lifecycle
 
-## 🏷️ Stages e Aliases
-
-### Stages (Legacy)
-- **None**: Recém registrado
-- **Staging**: Em testes
-- **Production**: Em produção
-- **Archived**: Não mais usado
-
-### Aliases (Modern)
-- Referências nomeadas mais flexíveis
-- "champion", "challenger", etc.
-- Permitem trocar versão sem mudar código de inference
-
----
-
-## 🔄 Promoção Entre Ambientes
-
-### Ambientes Típicos
-- **Dev**: Desenvolvimento
-- **Staging**: Testes/QA
-- **Prod**: Produção
-
-### Promoção com CI/CD
-1. CI/CD treina e registra em cada ambiente
-2. Source control espalha código
-3. Promoção via aliases (champion → production)
-
----
-
-## 🗑️ Deletar Modelos
-
-**Atenção:** Deleção é irreversível!
-
-```python
-# Deletar versão específica
-client.delete_model_version(name="MyModel", version="1")
-
-# Deletar modelo inteiro (todas versões)
-client.delete_registered_model(name="MyModel")
+```
+Development → Staging → Production → Archived
+     ↓            ↓          ↓           ↓
+  Experiment   Validate   Deploy   Retire/Archive
 ```
 
----
+### Stages (OSS)
+| Stage | Descrição |
+|-------|-----------|
+| **None/Archived** | Modelo inicial ou arquivado |
+| **Staging** | Validação antes de production |
+| **Production** | Deploy em produção |
 
-## 🛡️ Access Management
+### Aliases (Modern approach)
+| Alias | Uso |
+|-------|-----|
+| **@champion** | Modelo em produção |
+| **@challenger** | Modelo candidato a substituir |
+| **@latest** | Última versão |
 
-### Permissões Padrão
-- Todos usuários: READ por default
-- Configurável via config file
+## 💡 Concepts-Chave
 
-### Recursos Suportados
-- Experiment
-- Registered Model
+| Conceito | Descrição |
+|----------|-----------|
+| **Registered Model** | Container para todas versions |
+| **Model Version** | Versão específica |
+| **Alias** | Named reference mutável |
+| **Tags** | Metadata key-value |
+| **URI** | `models:/name/version` ou `models:/name@alias` |
+| **Lineage** | Trace para experiment/run |
 
-### AuthServiceClient
-```python
-client = mlflow.server.get_app_client("auth")
-client.create_user("username", "password")
-client.grant_permission("username", "registered_model", "MyModel", "READ")
-```
+## 🔗 Referências Cruzadas
 
----
-
-## ⚠️ Desafios de Data Versioning
-
-1. **Scaling para Big Datasets**: Storage e performance
-2. **Automação**: Datasets grandes e dinâmicos
-3. **Schema Changes**: Dependências e backfilling
-4. **Tooling Integration**: ETL, pipelines, data warehouse
-
----
-
-## ✅ Best Practices
-
-### 1. Test in Staging
-- Staging environment antes de production
-- Remove errors e failures antes de customer-facing
-
-### 2. Centralize Experiment Tracking
-- Same experiment name across users
-- Shared table for comparison
-
-### 3. Specific Pipeline Parameter Storage
-- Cloud storage dedicado para artifacts
-- Evita acumulação excessiva
-
-### 4. Tune Entire Pipeline
-- Não apenas módulos isolados
-- MLflow centraliza tracking
-
-### 5. Automate Version Control
-- Write-Audit-Publish pattern
-- Automated ETL testing, data validation, deployment
+- Complementa: MLflow Tracking (031)
+- Relacionado a: MLflow Projects (032)
+- Pré-requisito para: MLflow Serving (018)
 
 ---
 
-## 🔗 lakeFS Integration
-
-**O que é:** Open-source data versioning com Git-like semantics (commit, merge, branch)
-
-**Benefícios:**
-- Manage data com Git workflows
-- Zero-clone copies (sem duplicação)
-- Petabytes de data
-- Integração com MLflow
-
----
-
-## 💡 Insights Principais
-
-1. **Model Registry = lifecycle management** para modelos ML
-2. **Aliases > Stages**: Moderno e mais flexível
-3. **Centralização**: Todos modelos em um lugar
-4. **CI/CD ready**: Promoção entre ambientes automatizada
-5. **lakeFS complementa**: Data versioning para datasets
-
----
-
-## 📝 Tags
-
-`#mlflow` `#model-registry` `#mlops` `#versioning` `#model-management` `#deployment`
+**Conceitos aprendidos:** 15
+**Relevância:** Alta (core MLflow functionality)

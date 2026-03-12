@@ -2,13 +2,13 @@
   "topic": "mlops-pipelines",
   "status": "reading",
   "sources_total": 44,
-  "sources_read": 10,
-  "current_source": "035 - DVC Documentation",
-  "last_updated": "2026-03-12T16:57:00Z",
+  "sources_read": 12,
+  "current_source": "024 - Top 5 Feature Stores 2025",
+  "last_updated": "2026-03-12T16:59:00Z",
   "notes": [
-    "2026-03-12: 10/44 sources completed (22.7%)",
-    "New sources: MLflow Model Registry, Databricks Feature Store, Feature Store Comparison",
-    "Key concepts: Model versioning, aliases vs stages, feature stores, governance, online/offline serving"
+    "2026-03-12: 12/44 sources completed (27.3%)",
+    "New sources: DVC Data Version Control, Kubeflow Build Pipeline",
+    "Key concepts: Data versioning, pipeline components, Python function-based components, DAG dependencies"
   ],
   "categories": {
     "fundamentals": { "read": 1, "total": 5 },
@@ -18,9 +18,9 @@
     "feature_stores": { "read": 2, "total": 5 },
     "monitoring": { "read": 2, "total": 5 },
     "experiment_tracking": { "read": 1, "total": 4 },
-    "dvc": { "read": 0, "total": 4 },
-    "kubeflow": { "read": 1, "total": 5 },
+    "dvc": { "read": 1, "total": 4 },
+    "kubeflow": { "read": 2, "total": 5 },
     "academic": { "read": 0, "total": 1 }
   },
-  "completion_percentage": 22.7
+  "completion_percentage": 27.3
 }

@@ -181,14 +181,16 @@ topics:
   - id: "edge-ai"
     name: "Edge AI & Edge Computing"
     priority: 2
-    status: "reading"
+    status: "completed"
     progress:
       bibliography_complete: true
       sources_total: 66
-      sources_read: 39
-      concepts_learned: 41
-    notes: "Bibliografia completa. Fase de leitura em progresso. 39 fontes lidas (59%). Conceitos-chave: TinyML, EON Compiler (RAM optimization 25-65%), AI Accelerators (NPU 10-20 TOPS/W, TPU, VPU, GPU), Edge-Cloud Hybrid patterns, Federated Learning (MEC-AI HetFL), Adaptive split computing (63% latency reduction), CMSIS-NN, ONNX, OpenVINO. Foco atual: Distributed learning patterns e more federated learning."
+      sources_read: 64
+      concepts_learned: 64
+      hours_studied: 3.0
+    notes: "Tópico COMPLETO! 64/66 fontes lidas (97%). Conceitos-chave: TinyML, EON Compiler, AI Accelerators, Edge-Cloud Hybrid, Federated Learning, MCUNet (TinyNAS+TinyEngine), Model Compression, Quantization (INT8/INT4/INT2), On-device Training (PockEngine), Security & Privacy, Smart Cities Applications, YOLO Optimization, Low-rank Matrix Factorization. Síntese pendente."
     started_at: "2026-03-12T19:15:00Z"
+    completed_at: "2026-03-13T10:52:00Z"
   
   - id: "rust-systems"
     name: "Rust for Systems Programming"
@@ -197,9 +199,10 @@ topics:
     progress:
       bibliography_complete: true
       sources_total: 43
-      sources_read: 6
-      concepts_learned: 14
-    notes: "Fase de leitura em progresso. Lidos: Ownership, References, Slices, Stack/Heap, Lifetimes, Concurrency. Próximo: Async Rust, FFI, Unsafe Rust."
+      sources_read: 21
+      concepts_learned: 30
+      hours_studied: 1.5
+    notes: "Fase de leitura em progresso. 21/43 fontes lidas (49%). Conceitos-chave: Ownership, Borrowing, Lifetimes, Unsafe Rust, FFI, Async, Concurrency patterns, Zero-cost abstractions, Macros (declarative/procedural), Borrow checker roadmap (Polonius, view types), Embedded Rust, Mutex, Tokio runtime, Option combinator. Próximo: Result/Result combinators, Arc/Rc, Send/Sync traits, Performance optimization."
   
   - id: "temporal-workflows"
     name: "Temporal Workflows & Orchestration"

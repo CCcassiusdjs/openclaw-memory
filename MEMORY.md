@@ -97,6 +97,49 @@ _Curated memories, decisions, and context worth keeping._
 
 **Status:** ✅ Operacional
 
+---
+
+## Digital Twin Crazyflie (2026-03-12)
+
+**Localização:** `/home/csilva/Documents/digital-twin-crazyflie/`
+
+### Arquitetura
+- **Mundo Físico**: Simulador Python com física customizada (RK4/Euler)
+- **Digital Twin**: Adaptador para Webots Crazyflie
+- **Bridge**: Comunicação ZeroMQ entre ambos
+- **Control**: Controladores PID para navegação
+
+### Multi-Drone Swarm (NOVO)
+- Suporte a múltiplos drones com formação configurável
+- Zonas de detecção visualizadas como esferas
+- Detecção entre drones em tempo real
+- Formações: circle, line, grid, random
+
+### Comandos Principais
+```bash
+# Multi-drone
+python run_swarm.py --drones 5 --detection-radius 4.0
+python run_swarm.py --drones 4 --visualize
+python demo_swarm.py
+python visualize_swarm.py
+```
+
+### Arquivos Principais
+- `run_swarm.py`: Entry point para multi-drone
+- `demo_swarm.py`: Demo com visualização ASCII
+- `visualize_swarm.py`: Visualização matplotlib interativa
+- `physical_world/swarm.py`: Lógica do enxame
+- `physical_world/physics.py`: Motor de física
+- `physical_world/sensors.py`: Sensores com falhas
+- `control/pid_controller.py`: Controlador PID
+
+### Status
+- ✅ Física: Funcionando
+- ✅ Multi-drone: Funcionando
+- ✅ Detecção: Funcionando
+- ⚠️ PID: Precisa calibração para o simulador físico
+- 📝 Documentação: Ver README.md e MULTI_DRONE_COMMANDS.md
+
 **Localização:** VLAN20 - 10.10.20.0/24
 
 ### Topologia
@@ -178,6 +221,28 @@ Arquivo: `memory/2026-03-10-cluster-setup.md`
 - Core selection: `inf - inf = NaN` → falha indeterminada
 
 **Solução Proposta:** Barramentos separados por sensor.
+
+## Digital Twin Research (2026-03-12)
+
+**Localização:** `/home/csilva/.openclaw/workspace/memory/2026-03-12-digital-twin-architecture.md`
+
+**Conceito:** Webots como Digital Twin + simulador Python como "mundo físico"
+
+**Setup:**
+- Webots R2023b instalado em `/home/csilva/PycharmProjects/webots/`
+- Crazyflie nativo: `projects/robots/bitcraze/crazyflie/`
+- Controladores: Python (`crazyflie_py_wallfollowing.py`) e C (`crazyflie.c`)
+
+**Arquitetura:**
+```
+Mundo Físico (Python) ←→ Bridge (ZeroMQ) ←→ Digital Twin (Webots)
+```
+
+**Casos de Uso:**
+1. Sincronização básica de estado
+2. Injeção de falhas (sensor noise, I2C failure)
+3. Controle em loop fechado via gêmeo digital
+4. Predição de estado futuro
 
 ## Hilbert-Ackermann "Grundzüge der Theoretischen Logik" (1928/1938)
 

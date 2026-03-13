@@ -1,13 +1,13 @@
 {
   "topic": "edge-ai",
-  "status": "reading",
+  "status": "completed",
   "priority": 2,
   "created": "2026-02-24T00:00:00Z",
-  "last_updated": "2026-03-12T23:10:00Z",
+  "last_updated": "2026-03-13T10:52:00Z",
   "sources_total": 66,
-  "sources_read": 58,
+  "sources_read": 64,
   "sources_in_progress": 0,
-  "sources_completed": 58,
+  "sources_completed": 64,
   "key_concepts_learned": [
     "TinyML definition and scope",
     "Edge AI hardware platforms (MCU, SBC, GPU boards)",
@@ -67,7 +67,14 @@
     "Edge learning survey (distributed, on-device, compression techniques)",
     "PockEngine efficient on-device training",
     "MLPerf Inference Edge benchmark suite",
-    "Object detection on low-compute edge SoCs benchmark"
+    "Object detection on low-compute edge SoCs benchmark",
+    "Smart cities Edge AI applications (manufacturing, healthcare, transportation, buildings, environment)",
+    "Layer-wise design for edge AI systems",
+    "YOLO optimization for edge deployment (pruning, quantization)",
+    "Quantization mechanics (uniform affine, weight sharing, lookup tables)",
+    "Model compression business ROI (40% cost reduction, 5-10x size reduction)",
+    "Sequential compression strategy (distillation → pruning → quantization)",
+    "Low-rank matrix factorization for neural networks"
   ],
   "reading_history": [
     {"date": "2026-02-24", "files": ["001-tinyml-overview.md", "002-edge-ai-hardware.md", "003-tensorflow-lite-micro.md"]},
@@ -98,6 +105,8 @@
     {"date": "2026-03-12", "files": ["052-edge-intelligence-dnn-inference-review-2025.md"]},
     {"date": "2026-03-12", "files": ["053-edge-ai-security-privacy.md", "054-privacy-preserving-edge-ai-inference.md"]},
     {"date": "2026-03-12", "files": ["055-edge-training-survey-2024.md", "056-pockengine-mit-on-device-training.md"]},
-    {"date": "2026-03-12", "files": ["057-mlperf-inference-edge-benchmark.md", "058-object-detection-edge-socs-benchmark.md"]}
+    {"date": "2026-03-12", "files": ["057-mlperf-inference-edge-benchmark.md", "058-object-detection-edge-socs-benchmark.md"]},
+    {"date": "2026-03-13", "files": ["059-smart-cities-applications.md", "062-quantization-pruning-yolo.md", "063-quantization-pruning-edge-ai-medium.md"]},
+    {"date": "2026-03-13", "files": ["064-model-compression-guide-2025.md", "065-model-compression-quantization-distillation-medium.md", "066-model-compression-edge-ai-moschip.md"]}
   ]
 }

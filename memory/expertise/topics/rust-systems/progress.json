@@ -6,7 +6,7 @@
   "lastUpdated": "2026-03-13T10:55:00Z",
   "sources": {
     "total": 43,
-    "completed": 21,
+    "completed": 23,
     "inProgress": 0
   },
   "bibliographyComplete": true,
@@ -48,7 +48,10 @@
     "Internal references (self-referential structs)",
     "TT muncher pattern for macros",
     "Token types (expr, ty, ident, tt, etc.)",
-    "Embedded Rust fundamentals"
+    "Embedded Rust fundamentals",
+    "Result<T, E> combinators",
+    "Option<T> combinators",
+    "Weak<T> for breaking cycles"
   ],
   "sourcesRead": [
     "001-rust-book-ownership.md",
@@ -71,7 +74,9 @@
     "018-embedded-rust-book-intro.md",
     "019-mutex-std-docs.md",
     "020-tokio-runtime-overview.md",
-    "021-option-std-docs.md"
+    "021-option-std-docs.md",
+    "022-result-std-docs.md",
+    "023-arc-std-docs.md"
   ],
   "categories": {
     "officialDocs": { "read": 7, "total": 8, "sources": ["001-005", "014", "015"] },

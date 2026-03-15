@@ -1,0 +1,211 @@
+# Notification Rules - When and how to reach user
+
+rules:
+  # === CRITICAL - Always notify immediately ===
+  
+  - name: disk_critical
+    trigger:
+      condition: disk_usage > 95%
+    priority: critical
+    channels:
+      - desktop
+      - whatsapp
+    message: "CRITICAL: Disk ${mount} is ${percent}% full. Immediate attention needed."
+    rate_limit: null  # Always notify
+    quiet_hours: null  # Always notify
+    
+  - name: security_alert
+    trigger:
+      condition: suspicious_activity
+    priority: critical
+    channels:
+      - desktop
+      - whatsapp
+    message: "Security alert: ${description}"
+    rate_limit: null
+    quiet_hours: null
+    
+  - name: system_crash
+    trigger:
+      condition: kernel_panic OR oom_kill
+    priority: critical
+    channels:
+      - desktop
+      - whatsapp
+    message: "System issue: ${description}"
+    rate_limit: null
+    quiet_hours: null
+
+  # === HIGH - Notify but respect quiet hours ===
+  
+  - name: disk_warning
+    trigger:
+      condition: disk_usage > 85%
+    priority: high
+    channels:
+      - desktop
+    message: "Disk ${mount} is ${percent}% full. Consider cleanup."
+    rate_limit: 1h
+    quiet_hours: "23:00-07:00"
+    
+  - name: cpu_overload
+    trigger:
+      condition: cpu_usage > 95% for 5m
+      exclude_processes:
+        - cargo
+        - npm
+        - yarn
+        - make
+        - gcc
+        - clang
+    priority: high
+    channels:
+      - desktop
+    message: "CPU overload: ${process} using ${cpu}% for 5 minutes"
+    rate_limit: 30m
+    quiet_hours: "23:00-07:00"
+    
+  - name: memory_low
+    trigger:
+      condition: memory_available < 500MB
+    priority: high
+    channels:
+      - desktop
+      - whatsapp
+    message: "Memory critically low: ${available}MB available"
+    rate_limit: 15m
+    quiet_hours: "23:00-07:00"
+    
+  - name: unusual_process_night
+    trigger:
+      condition: process_spawn_at(01:00-05:00)
+    priority: high
+    channels:
+      - desktop
+    message: "Unusual activity at night: ${process} started"
+    rate_limit: 30m
+    quiet_hours: null  # Always notify night activity
+
+  # === MEDIUM - Desktop only, defer to morning ===
+  
+  - name: build_failed
+    trigger:
+      condition: process_exit(build_tool, code != 0)
+    priority: medium
+    channels:
+      - desktop
+    message: "Build failed: ${process} exited with code ${code}"
+    rate_limit: 5m
+    quiet_hours: "23:00-07:00"
+    
+  - name: test_failed
+    trigger:
+      condition: process_exit(test_runner, code != 0)
+    priority: medium
+    channels:
+      - desktop
+    message: "Tests failed: ${process}"
+    rate_limit: 5m
+    quiet_hours: "23:00-07:00"
+    
+  - name: git_conflict
+    trigger:
+      condition: file_modified(.git/MERGE_MSG)
+    priority: medium
+    channels:
+      - desktop
+    message: "Git conflict detected in ${repo}"
+    rate_limit: 10m
+    quiet_hours: "23:00-07:00"
+
+  # === LOW - Log only, no notification ===
+  
+  - name: process_started
+    trigger:
+      condition: process_spawn
+      exclude_processes:
+        - systemd
+        - dbus-daemon
+        - pipewire
+        - pulseaudio
+        - gnome-shell
+    priority: low
+    channels:
+      - log
+    message: "Process started: ${process}"
+    rate_limit: 1m
+    
+  - name: file_opened
+    trigger:
+      condition: file_open
+      paths:
+        - /home/csilva/projects
+        - /home/csilva/.openclaw
+    priority: low
+    channels:
+      - log
+    message: "File opened: ${path}"
+    rate_limit: 1m
+
+# === QUIET HOURS CONFIG ===
+
+quiet_hours:
+  timezone: "America/Belem"
+  
+  weekdays:
+    start: "23:00"
+    end: "07:00"
+    
+  weekends:
+    start: "00:00"
+    end: "09:00"
+    
+  exceptions:
+    # Always notify critical, even in quiet hours
+    critical: always
+    
+    # Queue high priority for morning
+    high: queue
+    
+    # Drop medium and low
+    medium: drop
+    low: drop
+
+# === RATE LIMITING ===
+
+rate_limits:
+  critical: null  # No rate limit for critical
+  high: 15m
+  medium: 30m
+  low: 1h
+
+# === CHANNEL CONFIG ===
+
+channels:
+  desktop:
+    enabled: true
+    command: "notify-send"
+    options:
+      urgency:
+        critical: "--urgency=critical"
+        high: "--urgency=normal"
+        medium: "--urgency=low"
+        low: "--urgency=low"
+      expire:
+        critical: 0  # Never expire
+        high: 10000
+        medium: 5000
+        low: 3000
+        
+  whatsapp:
+    enabled: true
+    channel: "whatsapp"
+    to: "+5551997694222"
+    
+  email:
+    enabled: true
+    to: "cassiojonesdhein@gmail.com"
+    
+  log:
+    enabled: true
+    path: "~/.openclaw/logs/notifications.log"

@@ -1,0 +1,234 @@
+# Intervention Rules - What actions to take automatically
+
+rules:
+  # === DISK MANAGEMENT ===
+  
+  - name: disk_critical_cleanup
+    trigger:
+      condition: disk_usage > 95%
+      mount: /home
+    level: auto
+    message: "CRITICAL: Disk ${mount} is ${percent}% full. Auto-cleaning..."
+    auto_actions:
+      - name: "Clean old logs"
+        command: "find ~/.openclaw/logs -name '*.log' -mtime +7 -delete"
+        safe: true
+      - name: "Clean cache"
+        command: "rm -rf ~/.cache/*"
+        safe: true
+      - name: "Clean temp"
+        command: "rm -rf /tmp/*"
+        safe: true
+    notify_after: true
+    rate_limit: null
+    
+  - name: disk_warning_cleanup
+    trigger:
+      condition: disk_usage > 85%
+      mount: /home
+    level: ask
+    message: "Disk ${mount} is ${percent}% full. Clean up?"
+    actions:
+      - name: "Clean logs older than 30 days"
+        command: "find ~/.openclaw/logs -name '*.log' -mtime +30 -delete"
+      - name: "Clean cache"
+        command: "rm -rf ~/.cache/*"
+      - name: "Show disk usage"
+        command: "du -sh ~/* 2>/dev/null | sort -hr | head -10"
+    rate_limit: 1h
+
+  # === PROCESS MANAGEMENT ===
+  
+  - name: runaway_process_ask
+    trigger:
+      condition: cpu_usage > 95% for 5m
+      exclude_processes:
+        - cargo
+        - npm
+        - yarn
+        - make
+        - gcc
+        - clang
+        - rustc
+        - node
+    level: ask
+    message: "Process ${process} (pid ${pid}) using ${cpu}% CPU for 5m. Kill it?"
+    actions:
+      - name: "Kill process"
+        command: "kill ${pid}"
+        dangerous: false
+      - name: "Kill forcefully"
+        command: "kill -9 ${pid}"
+        dangerous: true
+      - name: "Show process details"
+        command: "ps -fp ${pid}"
+    rate_limit: 30m
+    
+  - name: zombie_process_cleanup
+    trigger:
+      condition: zombie_processes > 10
+    level: auto
+    message: "Cleaned ${count} zombie processes"
+    auto_actions:
+      - name: "Kill zombies"
+        command: "ps aux | awk '$8 ~ /Z/ {print $2}' | xargs -r kill -9"
+        safe: true
+    rate_limit: 1h
+
+  # === MEMORY MANAGEMENT ===
+  
+  - name: memory_critical_cleanup
+    trigger:
+      condition: memory_available < 200MB
+    level: auto
+    message: "Memory critically low (${available}MB). Freeing memory..."
+    auto_actions:
+      - name: "Drop caches"
+        command: "sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"
+        safe: true
+      - name: "Clean cache"
+        command: "rm -rf ~/.cache/*"
+        safe: true
+    notify_after: true
+    rate_limit: 5m
+    
+  - name: memory_low_ask
+    trigger:
+      condition: memory_available < 500MB
+    level: ask
+    message: "Memory low (${available}MB available). Free memory?"
+    actions:
+      - name: "Drop caches"
+        command: "sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"
+      - name: "Show memory usage"
+        command: "free -h"
+    rate_limit: 15m
+
+  # === BUILD/DEVELOPMENT ===
+  
+  - name: cargo_clean_ask
+    trigger:
+      condition: directory_size(target/) > 5GB
+    level: ask
+    message: "Rust target directory is ${size}. Clean up?"
+    actions:
+      - name: "Clean target"
+        command: "cargo clean"
+      - name: "Show target size"
+        command: "du -sh target/"
+    rate_limit: 1d
+    
+  - name: npm_cache_clean
+    trigger:
+      condition: directory_size(node_modules/) > 3GB
+    level: ask
+    message: "node_modules is ${size}. Clean npm cache?"
+    actions:
+      - name: "Clean npm cache"
+        command: "npm cache clean --force"
+      - name: "Show size"
+        command: "du -sh node_modules/"
+    rate_limit: 1d
+
+  # === SECURITY ===
+  
+  - name: brute_force_block
+    trigger:
+      condition: failed_login_attempts > 10 from_same_ip
+    level: auto
+    message: "Blocked IP ${ip} for brute force attempts (${attempts} failures)"
+    auto_actions:
+      - name: "Block IP"
+        command: "sudo iptables -A INPUT -s ${ip} -j DROP"
+        safe: true
+    notify_after: true
+    rate_limit: null
+    
+  - name: suspicious_ssh
+    trigger:
+      condition: ssh_login_from_unknown_ip
+    level: notify
+    message: "Security: SSH login from ${ip} (${location})"
+    channels:
+      - desktop
+      - whatsapp
+    rate_limit: null
+
+  # === SERVICE HEALTH ===
+  
+  - name: service_failed
+    trigger:
+      condition: service_failed critical_service
+      services:
+        - sshd
+        - systemd
+        - NetworkManager
+    level: ask
+    message: "Service ${service} failed. Restart?"
+    actions:
+      - name: "Restart service"
+        command: "sudo systemctl restart ${service}"
+      - name: "Show logs"
+        command: "journalctl -u ${service} -n 50"
+    rate_limit: 10m
+
+# === WHITELISTED AUTO-ACTIONS ===
+
+whitelisted_auto_actions:
+  # Safe actions that can run automatically without user confirmation
+  - name: clean_logs_old
+    command: "find ~/.openclaw/logs -name '*.log' -mtime +7 -delete"
+    safe: true
+    
+  - name: clean_cache
+    command: "rm -rf ~/.cache/*"
+    safe: true
+    
+  - name: clean_temp
+    command: "rm -rf /tmp/*"
+    safe: true
+    
+  - name: drop_caches
+    command: "sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"
+    safe: true
+    
+  - name: kill_zombies
+    command: "ps aux | awk '$8 ~ /Z/ {print $2}' | xargs -r kill -9"
+    safe: true
+
+# === NEVER AUTO-EXECUTE ===
+
+blocked_auto_actions:
+  # These commands require explicit user confirmation
+  - pattern: "rm -rf ~/"
+    reason: "Destructive to home directory"
+    
+  - pattern: "rm -rf /home"
+    reason: "Destructive to user data"
+    
+  - pattern: "mkfs"
+    reason: "Format disk"
+    
+  - pattern: "dd if=.*of=/dev"
+    reason: "Write to device"
+    
+  - pattern: "shutdown"
+    reason: "System shutdown"
+    
+  - pattern: "reboot"
+    reason: "System reboot"
+
+# === SAFETY SETTINGS ===
+
+safety:
+  # Always backup before destructive actions
+  backup_before_dangerous: true
+  
+  # Maximum auto-actions per hour
+  max_auto_actions_per_hour: 5
+  
+  # Log all interventions
+  log_interventions: true
+  
+  # Audit log path
+  audit_log: "~/.openclaw/logs/interventions.log"

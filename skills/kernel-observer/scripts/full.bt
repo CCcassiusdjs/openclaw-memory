@@ -1,0 +1,97 @@
+#!/usr/bin/bpftrace
+/*
+ * Full System Observer - Comprehensive kernel tracing
+ * 
+ * Usage: sudo bpftrace full.bt
+ * 
+ * This traces syscalls, file access, network, and processes.
+ * WARNING: High output volume. Use with filters.
+ */
+
+BEGIN
+{
+    printf("=== Full System Observer Started ===\n");
+    printf("Time              PID      Process          Category   Event\n");
+    printf("=================================================================\n");
+    
+    // Counters for summary
+    @syscalls = 0;
+    @file_ops = 0;
+    @network_ops = 0;
+    @process_ops = 0;
+}
+
+// === SYSCALLS ===
+
+// Process execution
+tracepoint:syscalls:sys_enter_execve
+/comm != "systemd" && comm != "dbus-daemon" && comm != "pipewire"/
+{
+    printf("[SYSCALL]  %7d  %-16s execve    %s\n",
+           pid, comm, str(args->filename));
+    @syscalls++;
+}
+
+// File operations
+tracepoint:syscalls:sys_enter_openat
+/strncmp(str(args->filename), "/home", 5) == 0/
+{
+    printf("[FILE]     %7d  %-16s open       %s\n",
+           pid, comm, str(args->filename));
+    @file_ops++;
+}
+
+// === NETWORK ===
+
+// TCP connections
+kprobe:tcp_connect
+/pid > 1000/  // Filter kernel threads
+{
+    printf("[NETWORK]  %7d  %-16s tcp_connect\n",
+           pid, comm);
+    @network_ops++;
+}
+
+// === PROCESSES ===
+
+// Process forks
+tracepoint:sched:sched_process_fork
+/args->parent_pid > 1000/  // Filter kernel processes
+{
+    printf("[PROCESS]  %7d  %-16s fork       parent=%d\n",
+           args->child_pid, str(args->child_comm), args->parent_pid);
+    @process_ops++;
+}
+
+// Process exits
+tracepoint:sched:sched_process_exit
+/pid > 1000/
+{
+    printf("[PROCESS]  %7d  %-16s exit\n",
+           pid, comm);
+    @process_ops++;
+}
+
+// === SCHEDULER (sampled) ===
+
+// Context switches (sample every 1000th)
+tracepoint:sched:sched_switch
+/@sample == 0/
+{
+    @sample = 1000;
+    printf("[SCHED]    %7d  %-16s switch     cpu=%d\n",
+           args->prev_pid, args->prev_comm, cpu);
+}
+@sample--;
+
+// === SUMMARY ON EXIT ===
+
+END
+{
+    printf("\n=== Summary ===\n");
+    printf("Syscalls:    %d\n", @syscalls);
+    printf("File ops:    %d\n", @file_ops);
+    printf("Network ops: %d\n", @network_ops);
+    printf("Process ops: %d\n", @process_ops);
+    printf("=== Full System Observer Stopped ===\n");
+}

@@ -1,0 +1,50 @@
+#!/usr/bin/bpftrace
+/*
+ * Process Monitor - Track process lifecycle
+ * 
+ * Usage: sudo bpftrace processes.bt
+ * 
+ * This traces process creation and termination.
+ */
+
+BEGIN
+{
+    printf("=== Process Monitor Started ===\n");
+    printf("Time              PID      PPID     Event    Process\n");
+    printf("----------------------------------------------------------------\n");
+}
+
+// Trace process forks
+tracepoint:sched:sched_process_fork
+{
+    printf("[%s] %7d  %7d  FORK     %s\n",
+           strftime("%H:%M:%S", nsecs),
+           args->child_pid,
+           args->parent_pid,
+           str(args->child_comm));
+}
+
+// Trace process exits
+tracepoint:sched:sched_process_exit
+{
+    printf("[%s] %7d  %7d  EXIT     %s\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           0,  // No parent PID in this tracepoint
+           comm);
+}
+
+// Trace process exec (command execution)
+tracepoint:sched:sched_process_exec
+{
+    printf("[%s] %7d  %7d  EXEC     %s\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           0,
+           comm);
+}
+
+END
+{
+    printf("=== Process Monitor Stopped ===\n");
+}

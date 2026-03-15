@@ -1,0 +1,58 @@
+#!/usr/bin/bpftrace
+/*
+ * Network Monitor - Track TCP/UDP connections
+ * 
+ * Usage: sudo bpftrace network.bt
+ * 
+ * This traces network connections to understand network activity patterns.
+ */
+
+BEGIN
+{
+    printf("=== Network Monitor Started ===\n");
+    printf("Time              PID      Process          Event          Details\n");
+    printf("--------------------------------------------------------------------------\n");
+}
+
+// Trace TCP connections
+kprobe:tcp_connect
+{
+    printf("[%s] %7d  %-16s TCP_CONNECT   port=%d\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           comm,
+           // Note: port extraction requires more complex BPF code
+           0);
+}
+
+// Trace TCP accepts (incoming connections)
+kprobe:tcp_accept
+{
+    printf("[%s] %7d  %-16s TCP_ACCEPT\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           comm);
+}
+
+// Trace UDP sends
+kprobe:udp_sendmsg
+{
+    printf("[%s] %7d  %-16s UDP_SEND\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           comm);
+}
+
+// Trace UDP receives
+kprobe:udp_recvmsg
+{
+    printf("[%s] %7d  %-16s UDP_RECV\n",
+           strftime("%H:%M:%S", nsecs),
+           pid,
+           comm);
+}
+
+END
+{
+    printf("=== Network Monitor Stopped ===\n");
+}

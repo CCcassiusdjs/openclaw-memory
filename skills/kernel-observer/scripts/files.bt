@@ -1,0 +1,55 @@
+#!/usr/bin/bpftrace
+/*
+ * Filesystem Monitor - Track file access patterns
+ * 
+ * Usage: sudo bpftrace files.bt
+ * 
+ * This traces all file open operations to understand file access patterns.
+ */
+
+BEGIN
+{
+    printf("=== Filesystem Monitor Started ===\n");
+    printf("Time              PID      Process          Operation  Path\n");
+    printf("--------------------------------------------------------------------------\n");
+}
+
+// Track file opens
+tracepoint:syscalls:sys_enter_openat
+{
+    $filename = str(args->filename);
+    
+    // Filter for user home directory
+    if (strncmp($filename, "/home", 5) == 0) {
+        printf("[%s] %7d  %-16s OPEN       %s\n",
+               strftime("%H:%M:%S", nsecs),
+               pid,
+               comm,
+               $filename);
+    }
+}
+
+// Track file reads (VFS level)
+// kprobe:vfs_read
+// /pid > 1000/  // Filter out kernel threads
+// {
+//     printf("[%s] %7d  %-16s READ\n",
+//            strftime("%H:%M:%S", nsecs),
+//            pid,
+//            comm);
+// }
+
+// Track file writes (VFS level)
+// kprobe:vfs_write
+// /pid > 1000/
+// {
+//     printf("[%s] %7d  %-16s WRITE\n",
+//            strftime("%H:%M:%S", nsecs),
+//            pid,
+//            comm);
+// }
+
+END
+{
+    printf("=== Filesystem Monitor Stopped ===\n");
+}

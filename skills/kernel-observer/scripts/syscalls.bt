@@ -1,0 +1,41 @@
+#!/usr/bin/bpftrace
+/*
+ * Syscall Monitor - Track every process execution
+ * 
+ * Usage: sudo bpftrace syscalls.bt
+ * 
+ * This traces all execve calls to see every command execution on the system.
+ */
+
+BEGIN
+{
+    printf("=== Syscall Monitor Started ===\n");
+    printf("Time              PID      Process          Command\n");
+    printf("---------------------------------------------------------------\n");
+}
+
+// Trace process execution
+tracepoint:syscalls:sys_enter_execve
+{
+    printf("[%s] %7d  %-16s %s\n", 
+           strftime("%H:%M:%S", nsecs),
+           pid, 
+           comm,
+           str(args->filename));
+}
+
+// Trace file opens (optional, uncomment to enable)
+// tracepoint:syscalls:sys_enter_openat
+// /args->filename == "/home/csilva"/
+// {
+//     printf("[%s] %7d  %-16s opens: %s\n", 
+//            strftime("%H:%M:%S", nsecs),
+//            pid, 
+//            comm,
+//            str(args->filename));
+// }
+
+END
+{
+    printf("=== Syscall Monitor Stopped ===\n");
+}

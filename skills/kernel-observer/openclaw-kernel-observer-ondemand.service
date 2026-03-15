@@ -1,0 +1,32 @@
+[Unit]
+Description=OpenClaw Kernel Observer (On-Demand)
+Documentation=https://docs.openclaw.ai/skills/kernel-observer
+# Start manually or via trigger, NOT at boot
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/csilva/.openclaw/workspace/skills/kernel-observer
+ExecStart=/usr/bin/node /home/csilva/.openclaw/workspace/skills/kernel-observer/bridge.js --scope=all
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+# Security
+CapabilityBoundingSet=CAP_SYS_ADMIN CAP_BPF CAP_PERFMON
+AmbientCapabilities=CAP_SYS_ADMIN CAP_BPF CAP_PERFMON
+NoNewPrivileges=yes
+
+# Resource limits (prevent runaway)
+LimitNOFILE=65536
+LimitNPROC=512
+MemoryMax=200M
+
+# Stop after 1 hour of idle (optional)
+# RuntimeMaxSec=3600
+
+[Install]
+# NOT enabled by default - start manually
+# WantedBy=multi-user.target

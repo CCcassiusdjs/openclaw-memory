@@ -216,5 +216,115 @@ This file is a starting point. Add your own:
 
 ---
 
-_Last reviewed: 2026-03-01_
+## 🧩 Self-Modification System
+
+### Files I Can Modify Autonomously
+
+| File | Purpose | Auto-Update? |
+|------|---------|--------------|
+| `HEURISTICS.md` | Learned rules & patterns | ✅ **YES** |
+| `memory/YYYY-MM-DD.md` | Daily logs | ✅ **YES** |
+| `MEMORY.md` | Curated long-term memory | ✅ **YES** |
+| `REFLECTION.md` | Reflection protocol | ⚠️ Minor updates only |
+| `skills/self-improvement/SKILL.md` | Self-improvement skill | ⚠️ Minor updates only |
+
+### Files Requiring Confirmation
+
+| File | Purpose | Action |
+|------|---------|--------|
+| `AGENTS.md` | Operating manual | Ask before significant changes |
+| `SOUL.md` | Identity & personality | Ask before changes |
+| `USER.md` | User preferences | Ask before changes |
+| `IDENTITY.md` | Public identity | Ask before changes |
+| `openclaw.json` | System config | **NEVER** modify |
+
+### Heuristic Learning Loop
+
+```
+1. DETECT → Pattern during execution
+2. ANALYZE → Why did it happen?
+3. EXTRACT → IF condition THEN action
+4. STORE → HEURISTICS.md with confidence
+5. VALIDATE → Track success/failure
+6. ADJUST → Update confidence over time
+```
+
+### When to Update Heuristics
+
+| Trigger | Action |
+|---------|--------|
+| User correction | Immediate update, high confidence impact |
+| Repeated success (3+) | Add new heuristic, moderate confidence |
+| Repeated failure (2+) | Add avoidance heuristic |
+| Weekly review | Clean up, validate, remove stale rules |
+
+### Confidence Management
+
+| Confidence | Behavior |
+|------------|----------|
+| 0.9+ | Apply automatically, high trust |
+| 0.7-0.9 | Apply with awareness |
+| 0.5-0.7 | Consider context, may not apply |
+| <0.5 | Review, potentially remove |
+| <0.3 | Remove or move to "pending review" |
+
+### Reflection Triggers
+
+| Event | Priority | Action |
+|-------|----------|--------|
+| User correction | High | Immediate reflection, update heuristic |
+| Task failure | Medium | Analyze, extract lesson |
+| Task success | Low | Brief note, check for pattern |
+| End of session | Low | Daily summary |
+| Weekly | Medium | Full heuristic review |
+
+---
+
+## 🎓 Learning Categories
+
+### Communication (COM)
+- Response length, tone, directness
+- When to ask vs. assume
+- Format preferences
+
+### Execution (EXE)
+- Task decomposition patterns
+- Error recovery strategies
+- Optimization shortcuts
+
+### Memory (MEM)
+- What to remember vs. forget
+- Salience detection
+- Retrieval optimization
+
+### Tools (TOO)
+- Tool selection patterns
+- Chaining strategies
+- Failure recovery
+
+### Preferences (PREF)
+- User-specific preferences
+- Domain knowledge
+- Workflow patterns
+
+---
+
+## 📊 Self-Improvement Metrics
+
+Track in `memory/heartbeat-state.json`:
+
+```json
+{
+  "heuristics": {
+    "total": 0,
+    "applied_today": 0,
+    "success_rate": 0,
+    "last_weekly_review": null
+  }
+}
+```
+
+---
+
+_Last reviewed: 2026-03-15_
 _Next review: After significant learnings or weekly (whichever comes first)_

@@ -52,30 +52,7 @@ topics:
     completed_at: "2026-03-10"
     notes: "Tópico completado com 36 fontes estudadas."
   
-  - id: "ardupilot-ekf"
-    name: "ArduPilot EKF & State Estimation"
-    priority: 1
-    status: "completed"
-    progress:
-      bibliography_complete: true
-      sources_total: 21
-      sources_read: 16
-      concepts_learned: 10
-    completed_at: "2026-03-10"
-    notes: "16 fontes estudadas."
-  
-  - id: "digital-twins"
-    name: "Digital Twins"
-    priority: 2
-    status: "completed"
-    progress:
-      bibliography_complete: true
-      sources_total: 32
-      sources_read: 31
-      concepts_learned: 95
-      hours_studied: 12.0
-    completed_at: "2026-03-11"
-    notes: "Tópico completado. Conceitos-chave: arquiteturas, tipos, Hybrid DT, Edge computing, protocolos, plataformas."
+
   
   - id: "ml-fundamentals"
     name: "Machine Learning Fundamentals"

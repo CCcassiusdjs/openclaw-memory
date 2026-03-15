@@ -6,12 +6,12 @@ _Auto-generated heuristics from experience. Updated incrementally._
 
 ## Meta-Information
 
-| Campo | Valor |
+| Field | Value |
 |-------|-------|
 | Created | 2026-03-15 |
 | Last Updated | 2026-03-15 |
 | Version | 1.0.0 |
-| Total Rules | 0 |
+| Total Rules | 8 |
 | Confidence Threshold | 0.7 |
 
 ---
@@ -43,7 +43,7 @@ _Auto-generated heuristics from experience. Updated incrementally._
 
 ## Heuristic Categories
 
-### Communication Style
+### Communication (COM)
 
 ```yaml
 category: communication
@@ -54,7 +54,7 @@ rules: []
 # - When to ask vs. assume
 ```
 
-### Task Execution
+### Execution (EXE)
 
 ```yaml
 category: execution
@@ -65,7 +65,7 @@ rules: []
 # - Optimization shortcuts
 ```
 
-### Memory & Context
+### Memory (MEM)
 
 ```yaml
 category: memory
@@ -76,7 +76,7 @@ rules: []
 # - What NOT to store
 ```
 
-### Tool Usage
+### Tools (TOO)
 
 ```yaml
 category: tools
@@ -87,7 +87,7 @@ rules: []
 # - Failure recovery
 ```
 
-### User Preferences
+### Preferences (PREF)
 
 ```yaml
 category: preferences
@@ -98,22 +98,15 @@ rules: []
 # - Domain-specific knowledge
 ```
 
----
-
-## Rule Template
+### Safety (SAF)
 
 ```yaml
-- id: H001
-  category: communication
-  pattern: "User asks short question"
-  heuristic: "Respond concisely, no elaboration unless asked"
-  confidence: 0.85
-  source: "interaction" | "correction" | "reflection"
-  created: 2026-03-15
-  last_applied: null
-  success_count: 0
-  fail_count: 0
-  tags: [conciseness, directness]
+category: safety
+rules: []
+# Hard boundaries that must never be crossed
+# - System safety rules
+# - Privacy constraints
+# - Critical limitations
 ```
 
 ---
@@ -159,14 +152,14 @@ rules: []
 
 - id: PREF-001
   pattern: "Language preference"
-  heuristic: "Conversations in Portuguese (PT-BR). Code and technical content in English."
+  heuristic: "All documentation and responses in English. Code and technical content also in English."
   confidence: 0.95
-  source: "preference"
+  source: "correction"
   created: 2026-03-15
   last_applied: null
   success_count: 0
   fail_count: 0
-  tags: [language, portuguese, english]
+  tags: [language, english]
 
 - id: PREF-002
   pattern: "Response depth"
@@ -216,6 +209,63 @@ rules: []
   fail_count: 0
   tags: [safety, boundaries, critical]
 
+### Hallucination Prevention (HALL)
+
+- id: HALL-001
+  pattern: "Making factual claims"
+  heuristic: "Cite sources when available. Mark uncertain claims explicitly. Never fabricate information."
+  confidence: 0.95
+  source: "research"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [hallucination, grounding, citations, critical]
+
+- id: HALL-002
+  pattern: "No source available for claim"
+  heuristic: "Use 'I believe', 'I think', or 'I'm not certain' prefix. State uncertainty explicitly."
+  confidence: 0.90
+  source: "research"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [hallucination, uncertainty, honesty]
+
+- id: HALL-003
+  pattern: "User corrects hallucination"
+  heuristic: "Acknowledge immediately, provide correct information, record pattern in HEURISTICS.md"
+  confidence: 1.0
+  source: "research"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [hallucination, correction, critical, learn]
+
+- id: HALL-004
+  pattern: "Complex factual claims"
+  heuristic: "Generate verification questions, answer independently, cross-check before finalizing"
+  confidence: 0.85
+  source: "research"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [hallucination, verification, chain-of-thought]
+
+- id: HALL-005
+  pattern: "Citing papers, URLs, or references"
+  heuristic: "Only cite sources I can verify. Use 'Source: path#line' format. Never invent citations."
+  confidence: 0.95
+  source: "research"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [hallucination, citations, integrity]
+
 ---
 
 ## Deprecated Rules
@@ -234,6 +284,7 @@ _Changelog:_
 
 | Date | Change |
 |------|--------|
-| 2026-03-15 | File created |
+| 2026-03-15 | File created with initial heuristics |
+| 2026-03-15 | Updated PREF-001: All English (was PT-BR for conversations) |
 
 ---

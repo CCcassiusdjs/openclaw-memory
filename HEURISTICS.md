@@ -11,7 +11,7 @@ _Auto-generated heuristics from experience. Updated incrementally._
 | Created | 2026-03-15 |
 | Last Updated | 2026-03-15 |
 | Version | 1.0.0 |
-| Total Rules | 8 |
+| Total Rules | 15 |
 | Confidence Threshold | 0.7 |
 
 ---
@@ -96,6 +96,17 @@ rules: []
 # - Learned from corrections
 # - Implicit preferences
 # - Domain-specific knowledge
+```
+
+### Scheduling (SCHED)
+
+```yaml
+category: scheduling
+rules: []
+# Heuristics about WHEN to schedule tasks
+# - Optimal times for automated tasks
+# - User availability patterns
+# - System resource timing
 ```
 
 ### Safety (SAF)
@@ -265,6 +276,30 @@ rules: []
   success_count: 0
   fail_count: 0
   tags: [hallucination, citations, integrity]
+
+### Scheduling (SCHED)
+
+- id: SCHED-001
+  pattern: "Scheduling automated tasks"
+  heuristic: "Weekdays: boot 07:50-08:30, shutdown 20:00-00:30. Weekends: boot 08:00-11:30, shutdown 00:00-02:00. Avoid 00:00-07:00 (user offline)."
+  confidence: 0.75
+  source: "log_analysis"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [scheduling, availability, patterns]
+
+- id: SCHED-002
+  pattern: "Cron job scheduling"
+  heuristic: "Schedule maintenance tasks after 08:00 (user likely online). Long-running tasks can run overnight but expect shutdown around 00:00-02:00."
+  confidence: 0.70
+  source: "log_analysis"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [scheduling, cron, maintenance]
 
 ---
 

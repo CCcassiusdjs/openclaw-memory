@@ -1,6 +1,6 @@
 {
   "heuristics": {
-    "total": 13,
+    "total": 15,
     "by_category": {
       "communication": 3,
       "execution": 2,
@@ -8,7 +8,8 @@
       "tools": 0,
       "preferences": 2,
       "safety": 1,
-      "hallucination": 5
+      "hallucination": 5,
+      "scheduling": 2
     },
     "applied_today": 0,
     "success_rate": 0,
@@ -16,9 +17,9 @@
   },
   "reflection": {
     "total_reflections": 0,
-    "patterns_detected": 2,
-    "heuristics_extracted": 13,
-    "last_reflection": "2026-03-15T15:20:00-03:00"
+    "patterns_detected": 3,
+    "heuristics_extracted": 15,
+    "last_reflection": "2026-03-15T13:24:00-03:00"
   },
   "learning": {
     "from_corrections": 2,
@@ -26,11 +27,12 @@
     "from_successes": 0,
     "from_weekly_review": 0,
     "from_preferences": 6,
-    "from_research": 5
+    "from_research": 5,
+    "from_log_analysis": 2
   },
   "stats": {
     "created": "2026-03-15T15:11:00-03:00",
     "version": "1.0.0",
-    "updated": "2026-03-15T15:20:00-03:00"
+    "updated": "2026-03-15T13:24:00-03:00"
   }
 }

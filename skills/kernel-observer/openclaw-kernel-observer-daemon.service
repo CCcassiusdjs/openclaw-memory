@@ -1,0 +1,29 @@
+[Unit]
+Description=OpenClaw Kernel Observer Daemon
+Documentation=https://docs.openclaw.ai/skills/kernel-observer
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/csilva/.openclaw/workspace/skills/kernel-observer
+ExecStart=/usr/bin/node /home/csilva/.openclaw/workspace/skills/kernel-observer/daemon.js --daemon
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+# Security
+CapabilityBoundingSet=CAP_SYS_ADMIN CAP_BPF CAP_PERFMON
+AmbientCapabilities=CAP_SYS_ADMIN CAP_BPF CAP_PERFMON
+NoNewPrivileges=yes
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=512
+MemoryMax=250M
+
+[Install]
+# Enabled at boot for smart auto-start/stop
+WantedBy=multi-user.target

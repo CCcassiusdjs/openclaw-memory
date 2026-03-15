@@ -348,6 +348,39 @@ rules: []
   fail_count: 0
   tags: [kernel, network, timing]
 
+- id: KERNEL-004
+  pattern: "High frequency process spawn"
+  heuristic: "If execve calls spike >100/sec, user is running a build script or test suite. Wait before scheduling heavy tasks."
+  confidence: 0.80
+  source: "kernel_observation"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, processes, load]
+
+- id: KERNEL-005
+  pattern: "Idle >30m"
+  heuristic: "Stop kernel observer when idle to save resources. Auto-start when user returns."
+  confidence: 0.95
+  source: "daemon_config"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, idle, resource]
+
+- id: KERNEL-006
+  pattern: "Battery <20%"
+  heuristic: "Stop kernel observer on low battery to extend runtime. Auto-start when AC connected."
+  confidence: 0.90
+  source: "daemon_config"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, battery, power]
+
 ---
 
 ## Deprecated Rules

@@ -1,0 +1,29 @@
+[Unit]
+Description=OpenClaw Notification Manager (Smart)
+Documentation=https://docs.openclaw.ai/skills/notification
+After=openclaw-gateway.service
+Requires=openclaw-gateway.service
+BindsTo=openclaw-gateway.service
+
+[Service]
+Type=simple
+User=csilva
+Group=csilva
+WorkingDirectory=/home/csilva/.openclaw/workspace/skills/notification
+ExecStart=/usr/bin/node /home/csilva/.openclaw/workspace/skills/notification/manager.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Environment
+Environment=NODE_ENV=production
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=256
+
+[Install]
+WantedBy=default.target

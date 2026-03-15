@@ -11,7 +11,7 @@ _Auto-generated heuristics from experience. Updated incrementally._
 | Created | 2026-03-15 |
 | Last Updated | 2026-03-15 |
 | Version | 1.0.0 |
-| Total Rules | 15 |
+| Total Rules | 18 |
 | Confidence Threshold | 0.7 |
 
 ---
@@ -107,6 +107,18 @@ rules: []
 # - Optimal times for automated tasks
 # - User availability patterns
 # - System resource timing
+```
+
+### Kernel Observation (KERNEL)
+
+```yaml
+category: kernel
+rules: []
+# Heuristics derived from kernel-level observability
+# - Process patterns from execve tracing
+# - File access patterns from VFS monitoring
+# - Network patterns from TCP/UDP hooks
+# - Scheduler patterns from context switches
 ```
 
 ### Safety (SAF)
@@ -300,6 +312,41 @@ rules: []
   success_count: 0
   fail_count: 0
   tags: [scheduling, cron, maintenance]
+
+### Kernel Observation (KERNEL)
+
+- id: KERNEL-001
+  pattern: "High frequency process spawn"
+  heuristic: "If execve calls spike >100/sec, user is running a build script or test suite. Wait before scheduling heavy tasks."
+  confidence: 0.80
+  source: "system_analysis"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, processes, load]
+
+- id: KERNEL-002
+  pattern: "File access pattern"
+  heuristic: "Rapid sequential file opens in same directory indicates active development. Offer context-aware assistance."
+  confidence: 0.75
+  source: "system_analysis"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, files, development]
+
+- id: KERNEL-003
+  pattern: "Network connection burst"
+  heuristic: "Multiple TCP connects in short time suggests web browsing or API calls. Don't interrupt with heavy computations."
+  confidence: 0.70
+  source: "system_analysis"
+  created: 2026-03-15
+  last_applied: null
+  success_count: 0
+  fail_count: 0
+  tags: [kernel, network, timing]
 
 ---
 

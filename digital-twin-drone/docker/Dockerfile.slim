@@ -1,0 +1,43 @@
+# Digital Twin Drone - Gazebo + ArduPilot SITL
+# Ubuntu 22.04 com Gazebo Harmonic
+
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV HOME=/root
+
+# Instalar Gazebo Harmonic
+RUN apt-get update && \
+    apt-get install -y wget lsb-release gnupg && \
+    wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" > /etc/apt/sources.list.d/gazebo-stable.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends gz-harmonic && \
+    rm -rf /var/lib/apt/lists/*
+
+# Instalar dependências do ArduPilot
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    python3 \
+    python3-pip \
+    python3-empy \
+    python3-future \
+    python3-lxml \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar pymavlink
+RUN pip3 install --no-cache-dir pymavlink
+
+# Clonar ArduPilot (sem depth para ter submodules completos)
+RUN cd /opt && \
+    git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git && \
+    cd ardupilot && \
+    ./waf configure --board=sitl && \
+    ./waf copter
+
+WORKDIR /workspace
+
+ENV PATH=/opt/ardupilot/build/sitl/bin:$PATH
+
+CMD ["bash"]

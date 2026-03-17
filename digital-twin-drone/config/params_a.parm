@@ -1,0 +1,58 @@
+# Parâmetros ArduPilot SITL - Ambiente A (Mundo Real)
+# SYSID único para identificação
+
+# Identificação
+SYSID_THISMAV 1  # ID do sistema (MUST BE UNIQUE)
+
+# Tipos
+FRAME_CLASS 1    # Quad
+FRAME_TYPE 1     # X configuration
+
+# Radio failsafe
+FS_RADIO_ENABLE 1
+FS_RADIO_TIMEOUT 5
+FS_RADIO_ACTION 1  # Land
+
+# Battery failsafe
+FS_BATT_ENABLE 1
+FS_BATT_VOLTAGE 10.5
+FS_BATT_CAPACITY 5000
+FS_BATT_ACT 1      # Land
+
+# GPS
+EK3_SRC1_POSXY 3   # GPS
+EK3_SRC1_POSZ 3   # GPS
+EK3_SRC1_VELXY 3  # GPS
+EK3_SRC1_VELZ 3   # GPS
+
+# Posição inicial
+SIM_HOME -27.000000 152.000000 0 0
+
+# Altitude
+ALT_HOLD_RTL 0.5  # Retain altitude in RTL
+
+# Velocidade
+WPNAV_SPEED 500   # cm/s
+WPNAV_SPEED_UP 250
+WPNAV_SPEED_DN 150
+
+# Telemetria
+SERIAL0_PROTOCOL 1  # MAVLink 1
+SERIAL0_BAUD 115200
+SERIAL1_PROTOCOL 2  # MAVLink 2
+SERIAL1_BAUD 115200
+
+# Logs
+LOG_BITMASK 65535  # Log everything
+LOG_DISARMED 1     # Log when disarmed
+
+# Stream rate
+SR0_POSITION_RATE 50
+SR0_EXTRA1_RATE 50
+SR0_EXTRA2_RATE 50
+SR0_EXTRA3_RATE 50
+SR0_PARAMS_RATE 10
+
+# Compass
+COMPASS_USE 1
+COMPASS_ORIENT 0

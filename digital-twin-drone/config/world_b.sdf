@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="dt_world_b">
+    <!-- Mundo vazio para demonstração de Digital Twin -->
+    <!-- Ambiente B: Representa o "Digital Twin" (espelho de A) -->
+    
+    <physics name="fast_physics" type="ode">
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    
+    <light type="point" name="point_light">
+      <pose>0 0 5 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    
+    <!-- Ground plane -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Iris Quadrotor Model -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/ArduPilot/models/iris</uri>
+    </include>
+    
+    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+      <robotNamespace/>
+      <controlRate>400</controlRate>
+      <motorMapping>
+        <motor>1</motor>
+        <motor>2</motor>
+        <motor>3</motor>
+        <motor>4</motor>
+      </motorMapping>
+    </plugin>
+  </world>
+</sdf>

@@ -1,0 +1,38 @@
+# Digital Twin Drone - Gazebo + ArduPilot SITL
+# Abordagem alternativa: usar imagem oficial do Gazebo
+
+FROM gzharmonic/gz-sim:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV HOME=/root
+
+# Instalar dependências do ArduPilot
+RUN apt-get update && apt-get install -y \
+    git \
+    build-essential \
+    python3 \
+    python3-pip \
+    python3-dev \
+    libtool \
+    libxml2-dev \
+    libxslt1-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar pymavlink
+RUN pip3 install --upgrade pip && \
+    pip3 install pymavlink matplotlib numpy empy==3.3.4 future lxml pexpect
+
+# Clonar e compilar ArduPilot SITL
+RUN cd /opt && \
+    git clone --depth 1 --recurse-submodules https://github.com/ArduPilot/ardupilot.git && \
+    cd ardupilot && \
+    ./waf configure --board=sitl && \
+    ./waf copter
+
+# Criar diretório de trabalho
+WORKDIR /workspace
+
+# Variáveis de ambiente
+ENV PATH=/opt/ardupilot/build/sitl/bin:${PATH}
+
+CMD ["bash"]

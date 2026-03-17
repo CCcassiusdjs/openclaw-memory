@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracetheory"
+version = "0.1.0"
+description = "Arqueologia Intelectual da Computação - Trace academic citation genealogy"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Cássio", email = "cassiojonesdhein@gmail.com"}
+]
+keywords = ["citations", "academic", "graph", "turing", "history"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "requests>=2.31.0",
+    "httpx>=0.25.0",
+    "aiohttp>=3.9.0",
+    "networkx>=3.2",
+    "pydantic>=2.5.0",
+    "pymupdf>=1.23.0",
+    "pypdf>=3.17.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "tenacity>=8.2.0",
+    "click>=8.1.0",
+    "rich>=13.7.0",
+    "tqdm>=4.66.0",
+    "orjson>=3.9.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+]
+ocr = [
+    "pytesseract>=0.3.10",
+    "pillow>=10.0.0",
+]
+grobid = [
+    "grobid-client-python>=0.0.5",
+]
+
+[project.scripts]
+tracetheory = "tracetheory.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/cassio/tracetheory"
+Documentation = "https://github.com/cassio/tracetheory#readme"
+Repository = "https://github.com/cassio/tracetheory"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tracetheory*", "src*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

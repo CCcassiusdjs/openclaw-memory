@@ -1,0 +1,110 @@
+version: '3.8'
+
+services:
+  # Ambiente A - Mundo "Físico"
+  dt-world-a:
+    build:
+      context: .
+      dockerfile: Dockerfile.gazebo-sitl
+    container_name: dt-world-a
+    hostname: dt-world-a
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
+      - SYSID=1
+      - MAVLINK_PORT=14550
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ../config:/workspace/config:ro
+      - ../scripts:/workspace/scripts:ro
+      - dt-data-a:/workspace/data
+    ports:
+      - "14550:14550/udp"
+      - "14550:14550/tcp"
+    networks:
+      - dt-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: >
+      bash -c "
+        gz sim -r -g worlds/empty.sdf &
+        sleep 2 &&
+        /opt/ardupilot/build/sitl/bin/arducopter -S -I0 --home -27.000000,152.000000,0,0 --model JSON --speedup 1 --sysid 1 -A udp:0.0.0.1:14550
+      "
+
+  # Ambiente B - Digital Twin
+  dt-world-b:
+    build:
+      context: .
+      dockerfile: Dockerfile.gazebo-sitl
+    container_name: dt-world-b
+    hostname: dt-world-b
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
+      - SYSID=2
+      - MAVLINK_PORT=14551
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ../config:/workspace/config:ro
+      - ../scripts:/workspace/scripts:ro
+      - dt-data-b:/workspace/data
+    ports:
+      - "14551:14551/udp"
+      - "14551:14551/tcp"
+    networks:
+      - dt-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: >
+      bash -c "
+        gz sim -r -g worlds/empty.sdf &
+        sleep 2 &&
+        /opt/ardupilot/build/sitl/bin/arducopter -S -I0 --home -27.000000,152.000000,0,0 --model JSON --speedup 1 --sysid 2 -A udp:0.0.0.1:14551
+      "
+
+  # Bridge Python - Sincronização Bidirecional
+  dt-bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile.gazebo-sitl
+    container_name: dt-bridge
+    hostname: dt-bridge
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ../src:/workspace/src:ro
+      - dt-bridge-logs:/workspace/logs
+    networks:
+      - dt-network
+    depends_on:
+      - dt-world-a
+      - dt-world-b
+    command: >
+      bash -c "
+        sleep 10 &&
+        python3 /workspace/src/dt_bridge.py
+      "
+
+networks:
+  dt-network:
+    driver: bridge
+
+volumes:
+  dt-data-a:
+  dt-data-b:
+  dt-bridge-logs:

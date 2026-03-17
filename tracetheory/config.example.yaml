@@ -1,0 +1,79 @@
+# TraceTheory Configuration Example
+# Copy to config.yaml and fill in your credentials
+
+# PUCRS Institutional Access
+institution:
+  name: "PUCRS"
+  proxy_url: "https://biblioteca.pucrs.br/recursos-tecnologicos/acesso-remoto/pucrs/"
+  login:
+    email: "seu.email@edu.pucrs.br"  # Seu email acadêmico
+    password: ""                        # Sua senha de rede
+  
+# APIs Configuration
+apis:
+  semantic_scholar:
+    base_url: "https://api.semanticscholar.org"
+    api_key: null  # Optional: increases rate limit
+    rate_limit:
+      requests_per_5_minutes: 100  # Without key
+    
+  openalex:
+    base_url: "https://api.openalex.org"
+    api_key: null  # Optional: increases rate limit
+    rate_limit:
+      requests_per_day: 100000
+    
+  crossref:
+    base_url: "https://api.crossref.org"
+    rate_limit:
+      requests_per_second: 50
+    
+  dblp:
+    base_url: "https://dblp.org/api"
+    
+  arxiv:
+    base_url: "http://export.arxiv.org/api/query"
+
+# Crawler Configuration
+crawler:
+  # Starting paper
+  seed:
+    title: "On Computable Numbers, with an Application to the Entscheidungsproblem"
+    authors: ["Alan M. Turing"]
+    year: 1936
+    
+  # Traversal settings
+  max_depth: 10
+  max_papers_per_depth: 100
+  
+  # Parallelism
+  max_workers: 5
+  
+  # Storage
+  cache_dir: "./cache"
+  output_dir: "./output"
+  
+  # Resume capability
+  checkpoint_interval: 100  # Papers
+  checkpoint_file: "./checkpoints/state.json"
+
+# Extraction settings
+extraction:
+  ocr:
+    engine: "pymupdf"  # or "tesseract"
+    language: "eng"
+    
+  references:
+    extract_from_pdf: true
+    use_grobid: false
+    grobid_url: "http://localhost:8070"
+
+# Export settings
+export:
+  formats:
+    - json
+    - graphml
+    - cytoscape
+  
+  include_pdfs: false
+  max_pdf_size_mb: 50

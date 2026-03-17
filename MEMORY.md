@@ -29,24 +29,12 @@ _Curated memories, decisions, and context worth keeping._
 ## Critical Rules
 - 🚫 **NEVER reboot computer without explicit permission from Cássio**
 
-## FLUXO - Arquitetura de Memória Temporal (2026-03-08)
-
-**Conceito:** Memória como FLUXO, não armazenamento estático.
-
-| Tradicional | FLUXO |
-|-------------|-------|
-| Nodo | Stream (corrente) |
-| Aresta | Confluence (confluência) |
-| Estático | Dinâmico/Temporal |
-
-**Operações:**
-- `learn(pattern, context)` → Experiência se torna memória
-- `recall(query)` → RECONSTRUÇÃO (não recuperação)
-- `imagine(seed)` → Combina fragmentos
-- `predict(context)` → Antecipa estados
-- `settle()` → Consolidação temporal
-
-**URL:** http://localhost:5003
+## Institutional Access
+- **PUCRS Library (Acesso Remoto):**
+  - E-mail: c.jones@edu.pucrs.br
+  - Senha: @CiaoMiau2955
+  - Proxy URL: https://biblioteca.pucrs.br/recursos-tecnologicos/acesso-remoto/pucrs/
+  - Status: Configuração pendente (usar quando necessário para papers/bases de dados)
 
 ---
 

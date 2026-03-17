@@ -1,0 +1,26 @@
+# TraceTheory Dependencies
+
+# HTTP Clients
+aiohttp>=3.9.0
+httpx>=0.26.0
+requests>=2.31.0
+
+# PDF Processing
+pymupdf>=1.23.0  # fitz
+
+# Data Processing
+python-dateutil>=2.8.0
+
+# Graph
+networkx>=3.2.0
+
+# Async
+asyncio-compat>=1.0.0
+
+# CLI (optional)
+click>=8.1.0
+rich>=13.7.0
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

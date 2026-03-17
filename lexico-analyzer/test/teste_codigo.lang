@@ -1,0 +1,148 @@
+// Exemplo de código para o analisador léxico
+// Teste de reconhecimento de tokens
+
+/* Variáveis globais */
+int contador = 0;
+float pi = 3.14159265359;
+string mensagem = "Olá, Mundo!";
+bool ativo = true;
+char letra = 'A';
+
+// Constantes
+const int MAX_ITERACOES = 100;
+const float PRECISAO = 0.0001;
+
+// Função para calcular fatorial
+func fatorial(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * fatorial(n - 1);
+    }
+}
+
+// Função para verificar número primo
+func eh_primo(int numero) {
+    int i = 2;
+    bool primo = true;
+    
+    while (i < numero) {
+        if (numero % i == 0) {
+            primo = false;
+            break;
+        }
+        i++;
+    }
+    
+    return primo;
+}
+
+// Função principal
+func main() {
+    // Declarações
+    int x = 10;
+    int y = 20;
+    float resultado = 0.0;
+    
+    // Operações aritméticas
+    resultado = x + y * 2.5 - 5.0 / 2;
+    resultado += 1.5;
+    
+    // Operações de incremento
+    x++;
+    y--;
+    
+    // Estruturas de controle
+    if (x < y) {
+        contador++;
+    } elif (x == y) {
+        contador = 0;
+    } else {
+        contador--;
+    }
+    
+    // Loop while
+    while (contador < MAX_ITERACOES) {
+        contador += 1;
+        
+        // Condição de parada
+        if (contador == 50) {
+            break;
+        }
+        
+        // Continue
+        if (contador % 2 == 0) {
+            continue;
+        }
+    }
+    
+    // Loop for
+    for (int i = 0; i < 10; i++) {
+        print("Iteração: " + i);
+    }
+    
+    // Array de números
+    int[] numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    // Acesso a elementos
+    int primeiro = numeros[0];
+    int ultimo = numeros[9];
+    
+    // Chamada de função
+    int fat = fatorial(5);
+    bool primo = eh_primo(17);
+    
+    // Strings com escapes
+    string texto1 = "Linha 1\nLinha 2\nLinha 3";
+    string texto2 = "Tab:\tAqui";
+    string texto3 = "Aspas: \"citação\"";
+    string texto4 = "Barra: \\";
+    
+    // Números científicos
+    float grande = 1.23e10;
+    float pequeno = 4.56e-5;
+    
+    // Operadores lógicos
+    bool condicao1 = (x > 0) && (y < 100);
+    bool condicao2 = (x == 10) || (y == 20);
+    bool negado = !ativo;
+    
+    // Operadores relacionais
+    bool teste1 = x == y;
+    bool teste2 = x != y;
+    bool teste3 = x < y;
+    bool teste4 = x > y;
+    bool teste5 = x <= y;
+    bool teste6 = x >= y;
+    
+    // Retorno
+    return 0;
+}
+
+// Classe de exemplo
+class Calculadora {
+    int memoria;
+    
+    func somar(int a, int b) {
+        return a + b;
+    }
+    
+    func multiplicar(int a, int b) {
+        return a * b;
+    }
+    
+    func limpar_memoria() {
+        memoria = 0;
+    }
+}
+
+// Struct de exemplo
+struct Ponto {
+    float x;
+    float y;
+    float z;
+}
+
+// Importação
+import matematica;
+export calculadora;

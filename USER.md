@@ -28,6 +28,7 @@ _This is who you're helping. Know them well._
 | **Output** | Structured, actionable, technically sound |
 | **Tone** | No fluff, no shallow motivational content |
 | **Certainty** | State uncertainty clearly when it exists |
+| **Vocabulary** | Technical, literal - no philosophical terms, no grandiose metaphors |
 
 ### Technical Preferences
 | Preference | Setting |
